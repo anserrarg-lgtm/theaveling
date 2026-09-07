@@ -32,7 +32,11 @@ export default function CategoryTabs({
   onChange: (tab: CategoryTab) => void;
 }) {
   return (
-    <nav className="h-10 flex items-center justify-center gap-8 px-5 pt-3 bg-thea-deep">
+    // 2026-09-07: mismo cambio que MobileTopBar.tsx (bg-thea-deep → sólido
+    // rgb(1,20,20)) — este nav va PEGADO a MobileTopBar, mismo bloque fijo
+    // arriba de todo en Descubrir, así que necesita el mismo tono 100%
+    // opaco para no repetir el corte contra la barra de estado.
+    <nav className="h-10 flex items-center justify-center gap-8 px-5 pt-3 bg-[rgb(1,20,20)]">
       {TABS.map((tab) => {
         const isActive = tab === active;
         return (

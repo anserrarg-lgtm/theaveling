@@ -4,6 +4,7 @@ import { router } from "./router";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { CiudadProvider } from "./context/CiudadContext";
 import { AuthProvider } from "./context/AuthContext";
+import { ReservationsProvider } from "./context/ReservationsContext";
 import InstalarApp from "./screens/InstalarApp/InstalarApp";
 
 /*
@@ -70,7 +71,14 @@ export default function App() {
       <AuthProvider>
         <CiudadProvider>
           <FavoritesProvider>
-            <RouterProvider router={router} />
+            {/* 2026-09-07: ReservationsProvider — mismo criterio que
+                Favorites/Ciudad, ver context/ReservationsContext.tsx.
+                Reservas.tsx ya no arranca con datos de ejemplo, lee de
+                acá; Compra.tsx escribe acá cuando se confirma un pago
+                real. */}
+            <ReservationsProvider>
+              <RouterProvider router={router} />
+            </ReservationsProvider>
           </FavoritesProvider>
         </CiudadProvider>
       </AuthProvider>

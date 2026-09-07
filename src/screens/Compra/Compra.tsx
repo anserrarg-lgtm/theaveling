@@ -5,6 +5,7 @@ import { IconCaretRight, IconMap, IconMinus, IconPlus } from "../../components/i
 import ConfirmarPagoSheet from "../../components/ConfirmarPagoSheet";
 import MapaButacas from "../../components/MapaButacas";
 import TodasFechasSheet from "../../components/TodasFechasSheet";
+import { useReservations } from "../../context/ReservationsContext";
 import {
   esGratis,
   formatCOP,
@@ -228,6 +229,7 @@ export default function Compra() {
   const { id } = useParams();
   const navigate = useNavigate();
   const experiencia = getExperienceById(id);
+  const { agregarReserva } = useReservations();
   const [cantidad, setCantidad] = useState(1);
   // 2026-09-05, a pedido de Ana: arranca en `null` (nada preseleccionado)
   // en vez de `0` — ver punto 6 del comentario grande de arriba. El tipo
@@ -548,7 +550,23 @@ export default function Compra() {
         totalLabel={totalLabel}
         onClose={() => setConfirmarPagoAbierto(false)}
         onModificar={() => setConfirmarPagoAbierto(false)}
-        onConfirmar={() => navigate(`/experiencia/${id}/confirmacion`)}
+        onConfirmar={() => {
+          // 2026-09-07, a pedido de Ana: "no quiero que aparezcan
+          // reservas si el usuario que va a testear no las ha hecho" —
+          // ver context/ReservationsContext.tsx. Acá es donde la compra
+          // se confirma de verdad, así que es donde se crea la reserva
+          // real (fecha/hora que la persona eligió arriba, no un dato
+          // inventado) — "proxima" siempre, porque se acaba de reservar
+          // algo que todavía no pasó.
+          if (id) {
+            agregarReserva({
+              experienciaId: id,
+              fechaHora: `${fecha} · ${hora}`,
+              estado: "proxima",
+            });
+          }
+          navigate(`/experiencia/${id}/confirmacion`);
+        }}
       />
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-thea-green border-t border-white-12">
