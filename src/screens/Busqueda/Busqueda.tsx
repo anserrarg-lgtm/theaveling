@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LocationSheet from "../../components/LocationSheet";
+import { useCiudad } from "../../context/CiudadContext";
 import FechaSheet, { MESES, type FechaSeleccionada } from "../../components/FechaSheet";
 import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { IconCalendar, IconCaretRight, IconMapPin, IconSearch } from "../../components/icons";
@@ -247,9 +248,20 @@ export default function Busqueda() {
   const [locationSheetOpen, setLocationSheetOpen] = useState(false);
   const [fechaSheetOpen, setFechaSheetOpen] = useState(false);
   const [fecha, setFecha] = useState<FechaSeleccionada | null>(null);
-  // 2026-09-05: reemplaza el `onSelect={() => {}}` no-op de antes — ver
-  // nota grande arriba, "RESULTADOS DE BÚSQUEDA", punto 2.
-  const [ciudad, setCiudad] = useState("Bogotá");
+  // 2026-09-07, bug real de build: esto era antes `useState("Bogotá")`
+  // actualizado a mano vía un `onSelect` que se le pasaba a
+  // `LocationSheet`. Ese prop se eliminó de `LocationSheet.tsx` cuando
+  // pasó a leer/escribir la ciudad directo del `CiudadContext`
+  // compartido (ver la nota grande de ese archivo) — pero acá nunca se
+  // actualizó el consumidor, así que quedó pasando un `onSelect` que ya
+  // no existe en el componente (error de TypeScript: "Property
+  // 'onSelect' does not exist"), invisible en local porque `vite dev` no
+  // tipa-chequea, pero rompía el build real (`tsc -b && vite build`) en
+  // Vercel. Se lee la ciudad del mismo `CiudadContext` que ya usa
+  // `LocationSheet` — ahora si el usuario cambia de ciudad ahí, esta
+  // pantalla lo refleja solo, sin necesitar ningún callback.
+  const { ciudad: ciudadCompartida } = useCiudad();
+  const ciudad = ciudadCompartida ?? "Bogotá";
 
   const tendencias = TENDENCIAS_IDS.map((id) => getExperienceById(id)).filter(
     (exp): exp is NonNullable<typeof exp> => exp !== undefined,
@@ -366,7 +378,6 @@ export default function Busqueda() {
       <LocationSheet
         open={locationSheetOpen}
         onClose={() => setLocationSheetOpen(false)}
-        onSelect={(c) => setCiudad(c ?? "Bogotá")}
       />
       <FechaSheet
         open={fechaSheetOpen}
