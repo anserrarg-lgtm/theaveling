@@ -43,11 +43,29 @@ import InstalarApp from "./screens/InstalarApp/InstalarApp";
 export default function App() {
   // 2026-09-07: pantalla previa "Descargar / Ver en línea" — ver
   // InstalarApp.tsx para el detalle completo. Se salta directo si la
-  // app ya se abrió instalada (`display-mode: standalone`): a alguien
-  // que ya la instaló no tiene sentido pedirle instalarla de nuevo.
-  const [mostrarInstalar, setMostrarInstalar] = useState(
-    () => !window.matchMedia("(display-mode: standalone)").matches,
-  );
+  // app ya se abrió instalada, para no pedirle instalarla de nuevo a
+  // alguien que ya lo hizo.
+  //
+  // Bug real encontrado por Ana ("esta apareciendo el mensaje... cuando
+  // ya esta descargada"): este chequeo solo miraba
+  // `display-mode: standalone`, pero manifest.webmanifest ahora pide
+  // `display_override: ["fullscreen", "standalone"]` (pantalla
+  // completa, sin barra de estado — ver esa nota grande). Cuando el
+  // celular abre la app instalada en modo "fullscreen" en vez de
+  // "standalone", esa consulta daba `false` y la pantalla de instalar
+  // volvía a aparecer siempre, aunque ya estuviera instalada. Ahora
+  // revisa los 3 modos "instalada" que puede dar un celular
+  // (`standalone`, `fullscreen`, `minimal-ui`) más `navigator.standalone`
+  // (el equivalente en iOS/Safari, que no usa `matchMedia` para esto).
+  const [mostrarInstalar, setMostrarInstalar] = useState(() => {
+    const yaInstalada =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.matchMedia("(display-mode: fullscreen)").matches ||
+      window.matchMedia("(display-mode: minimal-ui)").matches ||
+      (window.navigator as Navigator & { standalone?: boolean }).standalone ===
+        true;
+    return !yaInstalada;
+  });
 
   if (mostrarInstalar) {
     return <InstalarApp onContinuar={() => setMostrarInstalar(false)} />;

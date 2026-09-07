@@ -22,15 +22,15 @@
          y public/sw.js (registro más abajo, antes de </body>). -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <!-- 2026-09-07: corregido a #112c2c (thea-green) — estaba en
-         #011414 (el verde "deep" de los headers internos), que NO
-         coincide con manifest.webmanifest (theme_color: "#112c2c") ni
-         con lo primero que se ve al abrir la app instalada (InstalarApp/
-         Bienvenida, ambas thea-green). Ese desacuerdo entre el manifest
-         y este meta es justo lo que hacía que la barra de estado del
-         celular se sintiera "afuera del diseño" — un archivo decía un
-         verde, el otro decía otro. Ahora los dos dicen lo mismo. -->
-    <meta name="theme-color" content="#112c2c" />
+    <!-- 2026-09-07: #011414 (verde "deep") — a pedido de Ana, vuelve a
+         este tono (se había probado #112c2c/thea-green para que
+         coincidiera con InstalarApp/Bienvenida, pero el deep green es
+         el que usan la mayoría de las pantallas de la app —
+         Perfil/Busqueda/Compra/Reservas/etc., ver esas notas — así que
+         encaja con más pantallas en general). Mismo valor que
+         manifest.webmanifest (theme_color/background_color) — los dos
+         archivos tienen que decir lo mismo. -->
+    <meta name="theme-color" content="#011414" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Theaveling" />
