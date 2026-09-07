@@ -87,6 +87,24 @@ body {
 }
 
 /*
+ * --safe-top — 2026-09-07, a pedido de Ana: "que todo lo que este arriba
+ * en la app como header incluya los iconos nativas del celu, la bateria
+ * wifi hora etc, que no se corte como si hubiera una diferencia". Con
+ * `viewport-fit=cover` (ver index.html) la app pasa a dibujarse detrás
+ * de la barra de estado del celular (hora/batería/wifi) en vez de dejar
+ * un espacio en blanco reservado arriba — así que cada header fijo de la
+ * app (MobileTopBar, los headers de Perfil/Compra/Busqueda/etc.) necesita
+ * ese mismo espacio agregado como padding-top, para que su propio fondo
+ * (no un hueco en blanco) quede detrás de esos íconos, y su contenido
+ * (logo, botón de volver, etc.) no quede tapado por ellos. `env(...)`
+ * devuelve 0px en cualquier pantalla sin "notch"/barra de estado propia
+ * (ej. escritorio), así que este cambio no mueve nada ahí.
+ */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/*
  * Oculta la barra de scroll en los rieles horizontales (Más reservados,
  * Descubrimientos, etc.) — en un celular real no se ve, pero Chrome de
  * escritorio la dibuja siempre; esto la esconde sin sacar la función de

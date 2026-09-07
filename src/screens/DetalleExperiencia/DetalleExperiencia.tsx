@@ -181,7 +181,7 @@ export default function DetalleExperiencia() {
           mismo `headerOpacity`, en vez de aparecer de golpe junto con el
           fondo. */}
       <div
-        className="fixed top-0 left-0 right-0 z-20"
+        className="fixed top-0 left-0 right-0 z-20 pt-[var(--safe-top)]"
         style={{
           backgroundColor: `rgba(17,44,44,${headerOpacity})`,
           borderBottom: `1px solid rgba(255,255,255,${0.12 * headerOpacity})`,

@@ -6,7 +6,14 @@
          criterio de color que el wordmark, no viene del Design System
          (todavía no hay ícono/app-icon oficial definido ahí). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport-fit=cover — 2026-09-07, a pedido de Ana: sin esto, el
+         celular reserva una franja en blanco arriba para la barra de
+         estado (hora/batería/wifi) y el header de la app queda debajo,
+         se ve "cortado". Con esto la app dibuja hasta el borde real de
+         la pantalla, y cada header fijo agrega su propio espacio
+         (`--safe-top`, ver index.css) para no quedar tapado por esos
+         íconos — mismo fondo de la app detrás de ellos, sin corte. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Theaveling</title>
 
     <!-- PWA — 2026-09-07, a pedido de Ana: que la app se pueda "instalar"
@@ -15,7 +22,11 @@
          y public/sw.js (registro más abajo, antes de </body>). -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#112c2c" />
+    <!-- #011414 = rgb(1,20,20), el mismo "deep green" que usan los
+         headers fijos de la app (ver Busqueda/Perfil/Compra/etc.) — para
+         que la barra de estado de Android (que sí puede pintarse con
+         este color) haga juego en vez de mostrar un tono distinto. -->
+    <meta name="theme-color" content="#011414" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Theaveling" />

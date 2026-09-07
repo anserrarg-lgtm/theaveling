@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { CiudadProvider } from "./context/CiudadContext";
 import { AuthProvider } from "./context/AuthContext";
+import InstalarApp from "./screens/InstalarApp/InstalarApp";
 
 /*
  * Corregido 2026-08-31 (segunda vuelta): sin tope de ancho. Las pantallas
@@ -38,6 +40,18 @@ import { AuthProvider } from "./context/AuthContext";
  * real del navegador/celular, que es el comportamiento correcto.
  */
 export default function App() {
+  // 2026-09-07: pantalla previa "Descargar / Ver en línea" — ver
+  // InstalarApp.tsx para el detalle completo. Se salta directo si la
+  // app ya se abrió instalada (`display-mode: standalone`): a alguien
+  // que ya la instaló no tiene sentido pedirle instalarla de nuevo.
+  const [mostrarInstalar, setMostrarInstalar] = useState(
+    () => !window.matchMedia("(display-mode: standalone)").matches,
+  );
+
+  if (mostrarInstalar) {
+    return <InstalarApp onContinuar={() => setMostrarInstalar(false)} />;
+  }
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       {/* 2026-09-03: FavoritesProvider acá arriba, sobre el router — así

@@ -51,7 +51,13 @@ export default function MobileTopBar({
   const navigate = useNavigate();
 
   return (
-    <header className="h-14 flex items-center justify-between px-5 bg-thea-deep">
+    // 2026-09-07: pt-[var(--safe-top)] + h-[calc(...)] — ver la nota
+    // grande de --safe-top en index.css. El alto total crece con la
+    // barra de estado del celular (0 en escritorio), pero el padding
+    // empuja el contenido (logo/íconos) para que siga viéndose a 56px
+    // de alto de siempre, ahora debajo de la hora/batería/wifi en vez
+    // de tapado por ellos.
+    <header className="h-[calc(56px+var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-thea-deep">
       <Wordmark />
       {/* mt-[3px] — 2026-09-04, a pedido de Ana: "siento que estan
           ligeramente mas arriba que Theaveling". Medido en captura de

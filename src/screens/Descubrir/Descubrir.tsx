@@ -67,7 +67,7 @@ export default function Descubrir() {
         open={locationSheetOpen}
         onClose={() => setLocationSheetOpen(false)}
       />
-      <div className="pt-[96px]">
+      <div className="pt-[calc(96px+var(--safe-top))]">
         <main className="flex flex-col gap-8 pt-6 pb-8">
           <section className="flex flex-col gap-4">
             <div className="flex items-center justify-between px-5">

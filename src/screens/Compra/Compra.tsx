@@ -312,7 +312,7 @@ export default function Compra() {
           hay fundido de scroll como en Detalle). Ya no hay 2 estados acá
           (ver punto 9 del comentario grande de arriba) — el back siempre
           vuelve a la ruta anterior. */}
-      <header className="fixed top-0 left-0 right-0 z-20 h-14 flex items-center gap-2 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
+      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px+var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-2 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
         <button
           onClick={() => navigate(-1)}
           aria-label="Volver"
@@ -331,7 +331,7 @@ export default function Compra() {
         </p>
       </header>
 
-      <div className="pt-14 pb-28 px-5 flex flex-col gap-8">
+      <div className="pt-[calc(56px+var(--safe-top))] pb-28 px-5 flex flex-col gap-8">
           {/* BookingSelectorCard — nodo 1861:554. Transparente sobre el
               fondo thea-green de la pantalla — ver punto 8 del
               comentario grande de arriba (experimento a pedido de Ana,
