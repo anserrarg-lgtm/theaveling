@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="7" fill="#112C2C"/>
-  <text x="16" y="23" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700" fill="#F31006">T</text>
+  <!-- 2026-09-07, a pedido de Ana: "quiero la T de sansita" — antes esto
+       era <text font-family="Georgia..."> (una T serif genérica, no la
+       de la marca). Ahora es el trazo REAL de la letra T de Sansita
+       (mismo font que usa el wordmark "Theaveling", ver Wordmark.tsx),
+       extraído directo del archivo de la fuente como un path vectorial
+       — así se ve igual en cualquier navegador/sistema, sin depender de
+       que Sansita esté instalada ni de que cargue el @font-face. -->
+  <g transform="translate(10.1705,25.5) scale(0.028788,-0.028788)">
+    <path d="M420 660 413 586H259V0H142V586H-15V660Z" fill="#F31006"/>
+  </g>
 </svg>

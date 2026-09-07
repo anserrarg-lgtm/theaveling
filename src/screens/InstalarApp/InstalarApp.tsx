@@ -70,15 +70,14 @@ export default function InstalarApp({ onContinuar }: { onContinuar: () => void }
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-10 bg-thea-green px-8 text-center">
       <div className="flex flex-col items-center gap-4">
-        <img
-          src="/icon-512.png"
-          alt=""
-          aria-hidden="true"
-          className="h-24 w-24 rounded-[22%] shadow-lg"
-        />
+        {/* 2026-09-07, a pedido de Ana: sin ícono acá — "ya aparece
+            theaveling" (el wordmark de abajo alcanza, no hace falta
+            repetir la marca con el ícono de la app). Ese ícono
+            (icon-512.png, la T) queda solo para cuando se instala/queda
+            en la pantalla de inicio del celular, no para esta pantalla. */}
         <Wordmark size={28} />
         <p className="max-w-xs font-body text-sm text-white-80">
-          Descubre experiencias culturales y artísticas en tu ciudad.
+          La escena de la ciudad empieza aquí.
         </p>
       </div>
 
