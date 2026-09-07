@@ -1,0 +1,372 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens de Theaveling.
+ * Fuente de verdad: /knowledge/STACK.md ("Sistema de color — versión final",
+ * "Tipografía — Design System nuevo") y /knowledge/ARCHITECTURE.md.
+ *
+ * Regla de esta sesión (aprendida a las malas en Figma): nunca escribir un
+ * color o una opacidad "a mano" en un componente. Si un valor se repite,
+ * es un token acá abajo — no un rgba() suelto en el JSX.
+ */
+@theme {
+  /* 01 — Brand */
+  --color-thea-green: #112c2c;
+  --color-thea-red: #f31006; /* SOLO wordmark "Theaveling". Nunca acento de UI. */
+  /* 2026-09-02: registrado como token — ya estaba en uso "a mano" (rgba
+     repetida) en MobileTopBar.tsx, CategoryTabs.tsx y MobileBottomNav.tsx,
+     verificado contra Figma. NO es un "Deep Green" de marca alternativo
+     (ver STACK.md — esa idea se rechazó explícitamente) — es el fondo de
+     la navegación fija (top bar, category tabs, bottom nav), un poco más
+     oscuro/negro que Thea Green, que es el fondo del contenido. Dos tonos
+     oscuros con roles distintos (chrome de navegación vs. contenido), no
+     dos verdes de marca compitiendo. */
+  --color-thea-deep: rgb(1 20 20 / 95%);
+
+  /* 02 — Interaction */
+  --color-thea-mint: #2ecca6; /* Estados de interacción chicos + eyebrows de categoría. Nunca fondos/botones grandes. */
+
+  /* 03 — Light */
+  --color-off-white: #fbfbfb;
+
+  /*
+   * 04 — Transparency
+   * Blanco sobre Thea Green (texto/superficies claras sobre fondo oscuro).
+   * Jerarquía: 100 texto primario · 80 secundario · 60 terciario/metadata ·
+   * 40 íconos sutiles · 20 bordes/dividers · 12 superficies sutiles ·
+   * 8 superficies elevadas · 6 fondo de card de contenido (Experience Card) ·
+   * 4 overlays muy sutiles.
+   */
+  --color-white-100: #fbfbfb;
+  --color-white-80: rgb(251 251 251 / 80%);
+  --color-white-60: rgb(251 251 251 / 60%);
+  --color-white-40: rgb(251 251 251 / 40%);
+  --color-white-20: rgb(251 251 251 / 20%);
+  --color-white-12: rgb(251 251 251 / 12%);
+  --color-white-8: rgb(251 251 251 / 8%);
+  --color-white-6: rgb(251 251 251 / 6%);
+  --color-white-4: rgb(251 251 251 / 4%);
+
+  /*
+   * Thea Green sobre superficies claras.
+   * Jerarquía: 100 texto primario · 70 secundario · 50 metadata ·
+   * 20 bordes sutiles · 12 dividers · 8 superficies sutiles.
+   */
+  --color-green-100: #112c2c;
+  --color-green-70: rgb(17 44 44 / 70%);
+  --color-green-50: rgb(17 44 44 / 50%);
+  --color-green-20: rgb(17 44 44 / 20%);
+  --color-green-12: rgb(17 44 44 / 12%);
+  --color-green-8: rgb(17 44 44 / 8%);
+
+  /*
+   * 05 — Semantic: Error/Success/Info todavía no tienen valor hex definido
+   * en Figma (ver STACK.md) — solo la regla de que deben ser distinguibles
+   * de Thea Red/Mint/Green. No inventar acá: agregar cuando Ana los defina
+   * en el Design System.
+   *
+   * Warning — 2026-09-03, primer semántico definido, a pedido de Ana para
+   * "Eliminar cuenta" en DatosDeCuenta.tsx (antes usaba thea-red, lo cual
+   * chocaba con la regla de que ese color es exclusivo del wordmark +
+   * corazón de favorito, ver STACK.md "01 — Brand"). No existía en Figma
+   * (verificado con search_design_system, sin resultados para
+   * Warning/Orange/Semantic) — Ana eligió #F5A623 directamente acá.
+   */
+  --color-warning: #f5a623;
+
+  /* Tipografía — ver STACK.md. Display/H1 grandes usan peso Thin (100). */
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: "Sansita", serif; /* exclusivo del wordmark "Theaveling" */
+}
+
+body {
+  background-color: var(--color-thea-green);
+  color: var(--color-white-100);
+  font-family: var(--font-body);
+}
+
+/*
+ * Oculta la barra de scroll en los rieles horizontales (Más reservados,
+ * Descubrimientos, etc.) — en un celular real no se ve, pero Chrome de
+ * escritorio la dibuja siempre; esto la esconde sin sacar la función de
+ * scroll (sigue siendo deslizable con el mouse/trackpad o touch).
+ */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Edge viejo */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/*
+ * slideUp — 2026-09-04, para LocationSheet.tsx (bottom sheet de
+ * ubicación, a pedido de Ana). Entra desde abajo en vez de aparecer de
+ * golpe. Respeta prefers-reduced-motion: quien lo tenga activado ve el
+ * sheet aparecer directo, sin el desplazamiento.
+ */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.sheet-slide-up {
+  animation: slideUp 0.2s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet-slide-up {
+    animation: none;
+  }
+}
+
+/*
+ * wordCycle — 2026-09-06, para Bienvenida.tsx (pantalla de intro del
+ * Onboarding): la categoría dentro de la frase ("teatro", "danza",
+ * "performance", "música") entra deslizándose desde abajo mientras se
+ * desvanece, en vez de cambiar de golpe — "manteniendo la sensación de
+ * movimiento y descubrimiento" (pedido explícito). Se dispara re-montando
+ * el `<span>` con una `key` distinta por palabra (ver Bienvenida.tsx),
+ * no con JS de animación — más simple y ya alcanza. Respeta
+ * prefers-reduced-motion, mismo criterio que sheet-slide-up de arriba.
+ *
+ * 2026-09-07 — SIN USO desde acá: Ana reemplazó el titular/subtítulo
+ * fijo de Bienvenida.tsx (con esta palabra ciclando dentro de la frase)
+ * por un carrusel de 3 mensajes completos que se deslizan hacia la
+ * izquierda (ver la nota grande "REEMPLAZO" en ese archivo) — ya no hay
+ * una palabra suelta que ciclar. Se deja esta clase definida (mismo
+ * criterio que `splash-wordmark-fade-scale` más abajo) por si se vuelve
+ * a necesitar un ciclado de palabra suelta en otro lugar.
+ */
+@keyframes wordCycle {
+  from {
+    transform: translateY(0.4em);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.word-cycle {
+  display: inline-block;
+  animation: wordCycle 0.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .word-cycle {
+    animation: none;
+  }
+}
+
+/*
+ * splash-curtain / splash-wordmark — 2026-09-07, originalmente para
+ * Splash.tsx, a pedido de Ana: "me encantaría poner alguna animación
+ * cool pero no sé cual" — se le propusieron 4 opciones (telón / foco de
+ * luz / marquesina / fade+escala) y eligió "telón que se abre".
+ *
+ * 2026-09-07 (más tarde): Splash.tsx se fusionó dentro de Bienvenida.tsx
+ * — ver la nota grande en ese archivo — así que esta mecánica ahora
+ * vive ahí (Splash.tsx ya no existe como archivo separado). El CSS en
+ * sí no cambió nada con la fusión, por eso sigue con el nombre
+ * `splash-*`.
+ *
+ * Dos paneles cubren toda la pantalla al montar y se abren hacia los
+ * costados (izquierda sale por la izquierda, derecha por la derecha),
+ * revelando el wordmark sobre la foto de fondo, como un telón de
+ * teatro real — la más ligada a la identidad de Theaveling (discovery
+ * de artes escénicas) de las 4 propuestas.
+ *
+ * Color sólido `rgb(1, 20, 20)` en vez de `var(--color-thea-deep)` —
+ * mismo motivo que Perfil.tsx/DatosDeCuenta.tsx/Notificaciones.tsx:
+ * thea-deep es 95% opaco (pensado para ir sobre una foto), y ese 5%
+ * dejaba ver el wordmark "fantasma" a través del telón antes de que se
+ * abriera. Acá el telón debe tapar por completo, así que va sólido.
+ *
+ * Timing: el telón empieza a abrirse a los 200ms (una pausa breve antes
+ * de moverse, para que se registre como "telón cerrado" y no como un
+ * parpadeo), tarda 700ms en abrirse del todo, y el wordmark aparece con
+ * un fade + escala suave que arranca a los 450ms (a mitad de la
+ * apertura) para que no se sienta como dos animaciones separadas sino
+ * como una sola revelación. Ver Bienvenida.tsx para las etapas
+ * siguientes (wordmark subiendo, titular/botón apareciendo).
+ *
+ * Reducción de movimiento: el telón aparece directamente abierto
+ * (transform final sin animación) y el wordmark directamente visible —
+ * mismo criterio que sheet-slide-up/word-cycle arriba.
+ */
+@keyframes splashCurtainLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes splashCurtainRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes splashWordmarkReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.splash-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: rgb(1, 20, 20);
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+}
+.splash-curtain-left {
+  left: 0;
+  animation-name: splashCurtainLeft;
+}
+.splash-curtain-right {
+  right: 0;
+  animation-name: splashCurtainRight;
+}
+.splash-wordmark {
+  animation: splashWordmarkReveal 500ms ease-out 450ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-curtain-left {
+    animation: none;
+    transform: translateX(-100%);
+  }
+  .splash-curtain-right {
+    animation: none;
+    transform: translateX(100%);
+  }
+  .splash-wordmark {
+    animation: none;
+  }
+}
+
+/*
+ * splash-wordmark-fade-scale — 2026-09-07, prueba A/B a pedido de Ana:
+ * "me gustó lo del telón, pero SOLO DE PRUEBA hagamos fade más escala
+ * suave" — quería comparar el telón (arriba) contra esta opción más
+ * simple. Resultado: "volvamos al anterior" — Splash.tsx usa de nuevo
+ * el telón. Esta clase queda DEFINIDA PERO SIN USO, por si se quiere
+ * volver a comparar más adelante — no se borra porque no cuesta nada
+ * mantenerla y evita reescribirla desde cero si Ana cambia de opinión.
+ *
+ * Sin paneles que tapar/abrir: el wordmark simplemente crece de 90% a
+ * 100% de su tamaño mientras aparece con fade, 600ms ease-out, con un
+ * respiro de 150ms antes de arrancar (mismo criterio que el telón: que
+ * la pantalla se registre un instante antes de que algo se mueva).
+ */
+@keyframes splashWordmarkFadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.splash-wordmark-fade-scale {
+  animation: splashWordmarkFadeScale 600ms ease-out 150ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-wordmark-fade-scale {
+    animation: none;
+  }
+}
+
+/*
+ * wordmark-slot / bienvenida-copy / bienvenida-boton — 2026-09-07, a
+ * pedido de Ana: "quiero que theaveling se vaya hacia arriba y sobre la
+ * misma foto aparezca el texto de descubre la escena, tiene que
+ * aparecer lento y el boton tambien" — es la fusión de Splash.tsx
+ * dentro de Bienvenida.tsx (ver la nota grande en ese archivo): el
+ * wordmark que aparece centrado con el telón ahora sube a un lugar fijo
+ * arriba, y el titular + el botón aparecen cada uno con su propio fade
+ * lento, todo sobre la misma foto de fondo, sin cortar a otra pantalla.
+ *
+ * Estas 3 clases usan `transition` normal (no `@keyframes`) porque cada
+ * una es un cambio de estado ÚNICO disparado por JS en un momento
+ * puntual (ver los `setTimeout` en Bienvenida.tsx) — a diferencia del
+ * telón/wordmark de arriba, que se disparan solos con el montaje via
+ * `animation-delay` fijo, acá no alcanzaba con CSS puro porque son 3
+ * etapas encadenadas que dependen unas de otras.
+ *
+ * `.wordmark-slot`: pasa de estar centrado en la pantalla (mismo
+ * centrado que tenía en Splash.tsx, acá con `position: absolute` en vez
+ * de flexbox porque hace falta animar la posición) a `top: 14%` — un
+ * lugar fijo arriba, sin encoger el wordmark (Ana solo pidió que suba,
+ * no que achique).
+ *
+ * `.bienvenida-copy` / `.bienvenida-boton`: fade + un pequeño
+ * desplazamiento hacia arriba al aparecer, en vez de un fade seco —
+ * mismo lenguaje visual que ya usa `splashWordmarkReveal`. El botón usa
+ * `pointer-events: none` mientras está invisible para que no se pueda
+ * tocar por accidente antes de que termine de aparecer, y usa una
+ * duración un poco más corta (700ms vs. 900ms) más un delay propio en
+ * JS (600ms después del titular, ver Bienvenida.tsx) para que se sienta
+ * un paso detrás del titular y no simultáneo.
+ */
+.wordmark-slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    top 900ms cubic-bezier(0.65, 0, 0.35, 1),
+    transform 900ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.wordmark-slot-arriba {
+  top: 14%;
+  transform: translate(-50%, 0);
+}
+.bienvenida-copy {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 900ms ease-out,
+    transform 900ms ease-out;
+}
+.bienvenida-copy-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.bienvenida-boton {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms ease-out;
+}
+.bienvenida-boton-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wordmark-slot {
+    transition: none;
+  }
+  .bienvenida-copy,
+  .bienvenida-boton {
+    transition: none;
+  }
+}

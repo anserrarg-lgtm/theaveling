@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon provisorio: T roja (Thea Red) sobre Thea Green — mismo
+         criterio de color que el wordmark, no viene del Design System
+         (todavía no hay ícono/app-icon oficial definido ahí). -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theaveling</title>
+
+    <!-- Tipografía — ver knowledge/STACK.md "Tipografía — Design System nuevo".
+         Archivo: Display/Headers/Intro (Thin reservado a Display/H1 en tamaños grandes).
+         Instrument Sans: Body/UI.
+         Sansita: exclusivo del wordmark "Theaveling", en ningún otro lugar.
+
+         2026-09-07: rango de Instrument Sans ampliado de 400..700 a
+         100..700 — a pedido de Ana, la palabra que se desliza en
+         Bienvenida.tsx ("teatro"/"danza"/etc.) pasa a peso Thin (100).
+         Instrument Sans no traía ese peso cargado (por eso el rango
+         empezaba en 400); sin ampliarlo, `font-thin` no se ve fino de
+         verdad — el navegador lo satura al peso cargado más liviano
+         (400) en vez de mostrar el 100 real. El resto del body/UI sigue
+         igual, esto solo agrega disponibilidad, no cambia nada que ya
+         estuviera usando otro peso. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Instrument+Sans:ital,wght@0,100..700;1,100..700&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
