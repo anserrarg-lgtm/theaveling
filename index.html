@@ -9,6 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Theaveling</title>
 
+    <!-- PWA — 2026-09-07, a pedido de Ana: que la app se pueda "instalar"
+         desde el navegador (agregar a pantalla de inicio) sin dejar de
+         funcionar como link normal de Vercel. Ver manifest.webmanifest
+         y public/sw.js (registro más abajo, antes de </body>). -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#112c2c" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Theaveling" />
+
     <!-- Tipografía — ver knowledge/STACK.md "Tipografía — Design System nuevo".
          Archivo: Display/Headers/Intro (Thin reservado a Display/H1 en tamaños grandes).
          Instrument Sans: Body/UI.
@@ -33,5 +44,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
   </body>
 </html>
