@@ -78,14 +78,14 @@ export default function DatosDeCuenta() {
           opaco (pensado para foto detrás); acá cubre texto plano y ese
           5% dejaba pasar un "fantasma" del contenido al scrollear. Mismo
           RGB, 100% opaco. */}
-      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px+var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
+      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
         <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
           <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
         </button>
         <h1 className="font-display font-semibold text-2xl">Datos de cuenta</h1>
       </header>
 
-      <div className="flex flex-col gap-4 px-5 pt-[calc(56px+var(--safe-top))] mt-2">
+      <div className="flex flex-col gap-4 px-5 pt-[calc(56px_+_var(--safe-top))] mt-2">
         <div className="flex flex-col gap-1.5">
           <span className="font-body text-xs text-white-60">Nombre</span>
           <div className="h-12 rounded-xl px-4 flex items-center bg-white-8">

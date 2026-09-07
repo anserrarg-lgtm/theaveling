@@ -277,7 +277,7 @@ export default function Busqueda() {
 
   return (
     <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100">
-      <header className="fixed top-0 left-0 right-0 z-20 flex items-center gap-3 px-5 pt-[calc(20px+var(--safe-top))] pb-3 bg-[rgb(1,20,20)]">
+      <header className="fixed top-0 left-0 right-0 z-20 flex items-center gap-3 px-5 pt-[calc(20px_+_var(--safe-top))] pb-3 bg-[rgb(1,20,20)]">
         <button
           onClick={() => navigate(-1)}
           aria-label="Volver"
@@ -297,7 +297,7 @@ export default function Busqueda() {
         </label>
       </header>
 
-      <div className="flex flex-col gap-3 px-5 pt-[calc(80px+var(--safe-top))] pb-10">
+      <div className="flex flex-col gap-3 px-5 pt-[calc(80px_+_var(--safe-top))] pb-10">
         <div className="rounded-xl bg-white-6 px-4 py-1">
           <button
             onClick={() => setLocationSheetOpen(true)}

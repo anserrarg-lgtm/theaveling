@@ -60,14 +60,14 @@ export default function Ayuda() {
       {/* Header fijo — mismo patrón que Notificaciones.tsx/DatosDeCuenta.tsx
           (ver esas notas para el porqué del RGB sólido en vez de
           thea-deep). */}
-      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px+var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
+      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
         <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
           <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
         </button>
         <h1 className="font-display font-semibold text-2xl">Ayuda</h1>
       </header>
 
-      <div className="flex flex-col gap-8 pt-[calc(56px+var(--safe-top))] pb-10">
+      <div className="flex flex-col gap-8 pt-[calc(56px_+_var(--safe-top))] pb-10">
         {/* Contacto */}
         <section className="flex flex-col px-5 pt-6">
           <h2 className="font-body font-semibold text-sm text-white-100 mb-1">

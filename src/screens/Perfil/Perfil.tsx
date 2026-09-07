@@ -219,7 +219,7 @@ export default function Perfil() {
           100% opaco (no `thea-deep`, que es 95%) por el mismo motivo ya
           documentado antes: sin foto detrás, el 5% transparente dejaba
           pasar un "fantasma" del contenido de abajo al scrollear. */}
-      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px+var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-[rgb(1,20,20)] border-b border-white-12">
+      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-[rgb(1,20,20)] border-b border-white-12">
         <img
           src="/assets/images/elena-avatar.jpg"
           alt="Elena Voss"
@@ -248,7 +248,7 @@ export default function Perfil() {
         </button>
       </header>
 
-      <div className="pt-[calc(56px+var(--safe-top))]">
+      <div className="pt-[calc(56px_+_var(--safe-top))]">
       {/* Nombre + email — 2026-09-04: ya no lleva la foto ni la
           campanita acá (ver header fijo arriba, ahora las tiene ambas) —
           se dejan solo el nombre y el correo, mismo contenido mock de
