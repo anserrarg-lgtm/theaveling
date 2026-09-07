@@ -220,11 +220,17 @@ export default function Perfil() {
           documentado antes: sin foto detrás, el 5% transparente dejaba
           pasar un "fantasma" del contenido de abajo al scrollear. */}
       <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-[rgb(1,20,20)] border-b border-white-12">
-        <img
-          src="/assets/images/elena-avatar.jpg"
-          alt="Elena Voss"
-          className="h-8 w-8 rounded-full shrink-0 object-cover bg-white-8"
-        />
+        {/* 2026-09-07, a pedido de Ana: "baja la imagen de ahi la de
+            elena y ponla junto con sus datos abajo... y ahi pon perfil"
+            — la foto de Elena se va de acá (baja al bloque de nombre/
+            correo, ver más abajo) y este lado del header pasa a decir
+            "Perfil", mismo lenguaje que el título de las demás
+            subpantallas (Notificaciones/Datos de cuenta/Ayuda), aunque
+            acá no hay botón de volver (Perfil es tab principal, no se
+            "vuelve" de acá). */}
+        <h1 className="font-display font-semibold text-lg text-white-100">
+          Perfil
+        </h1>
         {/* Campanita — abre `BandejaSheet`, el listado real de
             notificaciones recibidas (no el de preferencias — ver nota
             grande de `notificaciones`/`avisos` más arriba, junto al
@@ -249,18 +255,26 @@ export default function Perfil() {
       </header>
 
       <div className="pt-[calc(56px_+_var(--safe-top))]">
-      {/* Nombre + email — 2026-09-04: ya no lleva la foto ni la
-          campanita acá (ver header fijo arriba, ahora las tiene ambas) —
-          se dejan solo el nombre y el correo, mismo contenido mock de
-          siempre ("Elena Voss", sin cuenta real todavía, ver nota
-          arriba). */}
-      <div className="flex flex-col gap-1 p-5">
-        <p className="font-body font-semibold text-lg text-white-100">
-          Elena Voss
-        </p>
-        <span className="font-body text-[13px] text-white-60">
-          {email}
-        </span>
+      {/* Nombre + email + foto — 2026-09-04: la foto y la campanita
+          habían pasado al header fijo de arriba. 2026-09-07, a pedido
+          de Ana ("baja la imagen... ponla junto con sus datos abajo"):
+          la foto vuelve a bajar acá, al lado del nombre/correo — la
+          campanita se queda arriba (sigue necesitando estar alcanzable
+          en todo momento al scrollear, ver nota del header). */}
+      <div className="flex items-center gap-3 p-5">
+        <img
+          src="/assets/images/elena-avatar.jpg"
+          alt="Elena Voss"
+          className="h-14 w-14 rounded-full shrink-0 object-cover bg-white-8"
+        />
+        <div className="flex flex-col gap-1">
+          <p className="font-body font-semibold text-lg text-white-100">
+            Elena Voss
+          </p>
+          <span className="font-body text-[13px] text-white-60">
+            {email}
+          </span>
+        </div>
       </div>
 
       <div className="h-px w-full bg-white-12" />

@@ -1,4 +1,3 @@
-import MobileTopBar from "../../components/MobileTopBar";
 import MobileBottomNav from "../../components/MobileBottomNav";
 import ReservationCard from "../../components/ReservationCard";
 import { getExperienceById } from "../../data/experiences";
@@ -21,11 +20,13 @@ import { useReservations } from "../../context/ReservationsContext";
  * Sin header fijo con back — a diferencia de Notificaciones/Datos de
  * cuenta/Ayuda, Reservas es un tab PRINCIPAL del Bottom Nav (no una
  * pantalla a la que se llega con "volver"), mismo estatus que
- * Descubrir/Perfil — por eso usa el `MobileTopBar` normal (logo +
- * lupa, sin back) tal cual ya traía este archivo, y el título
- * "Reservas" no queda fijo, se desplaza con el contenido (así lo
- * dibuja Figma también: el título vive DEBAJO del Top Bar fijo, no es
- * parte de él).
+ * Descubrir/Perfil. El título "Reservas" no queda fijo, se desplaza con
+ * el contenido.
+ *
+ * 2026-09-07, a pedido de Ana: sin `MobileTopBar` (el logo "Theaveling"
+ * + lupa) arriba de todo — este archivo lo traía desde el principio,
+ * pero Ana lo sacó explícitamente ("ese header no va ahi"). El título
+ * "Reservas" pasa a ser el primer elemento de la pantalla.
  *
  * Título "Reservas" — Figma lo tipografía en Instrument Sans (font
  * body) SemiBold 24px, no en el Archivo/Sansita Thin que STACK.md
@@ -117,7 +118,6 @@ export default function Reservas() {
   if (!loggedIn) {
     return (
       <div className="min-h-screen bg-thea-green text-white-100 pb-[72px] flex flex-col">
-        <MobileTopBar />
         <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 text-center">
           <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
             <IconTicket className="w-6 h-6 text-white-60" />
@@ -152,74 +152,85 @@ export default function Reservas() {
 
   return (
     <div className="min-h-screen bg-thea-green pb-[72px] text-white-100">
-      <MobileTopBar />
+      {/* 2026-09-07, a pedido de Ana: sin MobileTopBar (el logo
+          "Theaveling" + lupa) — no va en esta pantalla. Después, "pon
+          asi mismo el de reservas" (mismo tratamiento que le acaba de
+          pedir a Perfil.tsx): header fijo sólido con el título, en vez
+          del `<h1>` suelto que se desplazaba con el scroll. Mismo
+          alto/color/borde que el header de Perfil (sin foto ni
+          campanita acá, Reservas no tiene ninguna de las dos). */}
+      <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center px-5 bg-[rgb(1,20,20)] border-b border-white-12">
+        <h1 className="font-display font-semibold text-lg text-white-100">
+          Reservas
+        </h1>
+      </header>
 
-      <h1 className="font-body font-semibold text-2xl px-5 pt-4 pb-2">Reservas</h1>
-
-      {/* 2026-09-07: estado vacío — ver la nota grande de arriba
-          ("Datos"). Antes no hacía falta (siempre había 4 reservas de
-          ejemplo); ahora que arranca vacío de verdad, sin esto la
-          pantalla se veía rota (solo el título y una línea divisoria
-          suelta, sin nada abajo). Mismo lenguaje visual que el estado
-          "sin sesión" de arriba (ícono + título + texto), sin botón acá
-          porque no hay ninguna acción que ofrecer (reservar se hace
-          desde Descubrir/Detalle, no desde acá). */}
-      {proximas.length === 0 && pasadas.length === 0 && (
-        <div className="flex flex-col items-center justify-center gap-4 px-6 pt-16 text-center">
-          <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
-            <IconTicket className="w-6 h-6 text-white-60" />
-          </span>
-          <div className="flex flex-col gap-2">
-            <h2 className="font-display text-xl text-white-100">
-              Aún no tienes reservas
-            </h2>
-            <p className="font-body text-sm text-white-60 max-w-[260px]">
-              Cuando reserves una experiencia, va a aparecer acá.
-            </p>
+      <div className="pt-[calc(56px_+_var(--safe-top))]">
+        {/* 2026-09-07: estado vacío — ver la nota grande de arriba
+            ("Datos"). Antes no hacía falta (siempre había 4 reservas de
+            ejemplo); ahora que arranca vacío de verdad, sin esto la
+            pantalla se veía rota (solo el título y una línea divisoria
+            suelta, sin nada abajo). Mismo lenguaje visual que el estado
+            "sin sesión" de arriba (ícono + título + texto), sin botón
+            acá porque no hay ninguna acción que ofrecer (reservar se
+            hace desde Descubrir/Detalle, no desde acá). */}
+        {proximas.length === 0 && pasadas.length === 0 && (
+          <div className="flex flex-col items-center justify-center gap-4 px-6 pt-16 text-center">
+            <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
+              <IconTicket className="w-6 h-6 text-white-60" />
+            </span>
+            <div className="flex flex-col gap-2">
+              <h2 className="font-display text-xl text-white-100">
+                Aún no tienes reservas
+              </h2>
+              <p className="font-body text-sm text-white-60 max-w-[260px]">
+                Cuando reserves una experiencia, va a aparecer acá.
+              </p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {proximas.length > 0 && (
-        <section className="flex flex-col px-5 py-2">
-          <h2 className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide mb-2">
-            Próximas
-          </h2>
-          {proximas.map((r, i) => (
-            <div key={r.experienciaId}>
-              <ReservationCard
-                experience={r.experience}
-                fechaHora={r.fechaHora}
-                estado={r.estado}
-                onCancelar={() => manejarCancelar(r.experienciaId)}
-              />
-              {i < proximas.length - 1 && <div className="h-px w-full bg-white-6" />}
-            </div>
-          ))}
-        </section>
-      )}
+        {proximas.length > 0 && (
+          <section className="flex flex-col px-5 py-2">
+            <h2 className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide mb-2">
+              Próximas
+            </h2>
+            {proximas.map((r, i) => (
+              <div key={r.experienciaId}>
+                <ReservationCard
+                  experience={r.experience}
+                  fechaHora={r.fechaHora}
+                  estado={r.estado}
+                  onCancelar={() => manejarCancelar(r.experienciaId)}
+                />
+                {i < proximas.length - 1 && <div className="h-px w-full bg-white-6" />}
+              </div>
+            ))}
+          </section>
+        )}
 
-      {proximas.length > 0 && pasadas.length > 0 && (
-        <div className="h-px w-full bg-white-12" />
-      )}
+        {proximas.length > 0 && pasadas.length > 0 && (
+          <div className="h-px w-full bg-white-12" />
+        )}
 
-      {pasadas.length > 0 && (
-        <section className="flex flex-col px-5 py-4">
-          <h2 className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide mb-2">
-            Pasadas
-          </h2>
-          {pasadas.map((r, i) => (
-            <div key={r.experienciaId}>
-              <ReservationCard
-                experience={r.experience}
-                fechaHora={r.fechaHora}
-                estado={r.estado}
-              />
-              {i < pasadas.length - 1 && <div className="h-px w-full bg-white-6" />}
-            </div>
-          ))}
-        </section>
-      )}
+        {pasadas.length > 0 && (
+          <section className="flex flex-col px-5 py-4">
+            <h2 className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide mb-2">
+              Pasadas
+            </h2>
+            {pasadas.map((r, i) => (
+              <div key={r.experienciaId}>
+                <ReservationCard
+                  experience={r.experience}
+                  fechaHora={r.fechaHora}
+                  estado={r.estado}
+                />
+                {i < pasadas.length - 1 && <div className="h-px w-full bg-white-6" />}
+              </div>
+            ))}
+          </section>
+        )}
+      </div>
 
       <div className="fixed bottom-0 left-0 right-0">
         <MobileBottomNav />
