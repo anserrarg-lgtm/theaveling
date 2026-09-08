@@ -54,6 +54,7 @@ export default function ExperienceCardDescubrimientos({
    * cómo se ve un título corto de 1 línea. Opt-in explícito, default
    * `false`: el riel "Descubrimientos" de la pestaña Todo no pidió este
    * cambio, sigue como estaba. */
+  centerTitle?: boolean;
 }) {
   return (
     <div className="w-[300px] h-[310px] rounded-xl p-4 flex flex-col gap-4 bg-white-6 shrink-0 overflow-hidden">
