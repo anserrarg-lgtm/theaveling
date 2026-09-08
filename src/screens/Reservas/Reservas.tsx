@@ -4,6 +4,7 @@ import { getExperienceById } from "../../data/experiences";
 import { IconTicket } from "../../components/icons";
 import { useAuth } from "../../context/AuthContext";
 import { useReservations } from "../../context/ReservationsContext";
+import { esFechaHoraPasada } from "../../utils/price";
 
 /*
  * Reservas — nodo real de Figma `reservas-screen` (`1557:348`), dentro
@@ -86,6 +87,16 @@ import { useReservations } from "../../context/ReservationsContext";
  * reservas") y mismo tratamiento visual (ícono + título + texto +
  * botón, Bottom Nav siempre visible), cambiando solo el ícono
  * (`IconTicket` en vez de `IconUser`, más apropiado acá) y la frase.
+ *
+ * 2026-09-08, a pedido de Ana ("resuelvelo y sin romper nada") — bug
+ * real de auditoría: "Pasadas" nunca mostraba nada, porque
+ * `ReservationsContext` guarda `estado: "proxima"` en el momento de
+ * reservar y nunca lo vuelve a tocar (ver Compra.tsx). Acá se calcula
+ * el estado REAL de cada reserva con `esFechaHoraPasada` (utils/price.ts,
+ * parsea el mismo string `fechaHora` que ya se muestra en la card) en
+ * vez de confiar en el campo guardado — así una reserva pasa sola a
+ * "Pasadas" cuando su fecha ya ocurrió, sin tener que tocar el dato
+ * guardado ni el flujo de compra.
  */
 
 export default function Reservas() {
@@ -97,13 +108,14 @@ export default function Reservas() {
   const { reservas: reservasBase, cancelarReserva } = useReservations();
   const { loggedIn, requireAuth } = useAuth();
 
-  const manejarCancelar = (experienciaId: string) => {
-    cancelarReserva(experienciaId);
+  const manejarCancelar = (id: string) => {
+    cancelarReserva(id);
   };
 
   const reservas = reservasBase.map((r) => ({
     ...r,
     experience: getExperienceById(r.experienciaId),
+    estado: esFechaHoraPasada(r.fechaHora) ? ("pasada" as const) : ("proxima" as const),
   })).filter(
     (r): r is typeof r & { experience: NonNullable<typeof r.experience> } =>
       r.experience !== undefined,
@@ -196,12 +208,12 @@ export default function Reservas() {
               Próximas
             </h2>
             {proximas.map((r, i) => (
-              <div key={r.experienciaId}>
+              <div key={r.id}>
                 <ReservationCard
                   experience={r.experience}
                   fechaHora={r.fechaHora}
                   estado={r.estado}
-                  onCancelar={() => manejarCancelar(r.experienciaId)}
+                  onCancelar={() => manejarCancelar(r.id)}
                 />
                 {i < proximas.length - 1 && <div className="h-px w-full bg-white-6" />}
               </div>
@@ -219,7 +231,7 @@ export default function Reservas() {
               Pasadas
             </h2>
             {pasadas.map((r, i) => (
-              <div key={r.experienciaId}>
+              <div key={r.id}>
                 <ReservationCard
                   experience={r.experience}
                   fechaHora={r.fechaHora}

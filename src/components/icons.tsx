@@ -28,17 +28,29 @@ export function IconSearch({ className = "" }: { className?: string }) {
   );
 }
 
-/* icon/compass — nodo 1546:154. Círculo + aguja romboidal rellena. */
+/* icon/compass — nodo 1546:154. Círculo + aguja romboidal rellena.
+ *
+ * 2026-09-07, a pedido de Ana ("el icono de descubrir... esta
+ * ligeramente corrido hacia izq, lo cual lo hace lucir descuadrado en
+ * cuanto a la palabra"): el trazo original (círculo cx=10 cy=10 r=9)
+ * ocupa el rango 1–19 dentro del viewBox de 24×24, dejando 1px libre a
+ * la izquierda/arriba y 5px a la derecha/abajo — el dibujo quedaba
+ * corrido hacia la esquina superior izquierda del cuadro del ícono, por
+ * eso se veía desalineado respecto al label centrado debajo (en
+ * MobileBottomNav.tsx). Se recentra sumando +2 a cada coordenada
+ * (círculo y aguja juntos, misma geometría relativa, solo trasladada)
+ * para que el centro real quede en (12,12), el centro del viewBox.
+ */
 export function IconCompass({ className = "" }: { className?: string }) {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.2" />
       <rect
-        x="5.40381"
-        y="10"
+        x="7.40381"
+        y="12"
         width="6.5"
         height="6.5"
-        transform="rotate(-45 5.40381 10)"
+        transform="rotate(-45 7.40381 12)"
         fill="currentColor"
       />
     </svg>
@@ -141,13 +153,24 @@ export function IconShare({ className = "" }: { className?: string }) {
   );
 }
 
-/* Geometría exacta verificada en Figma (2026-08-31) — no es aproximación. */
+/* Geometría exacta verificada en Figma (2026-08-31) — no es aproximación.
+ *
+ * 2026-09-07, a pedido de Ana ("el icono de... reserva esta ligeramente
+ * corrido hacia izq"): la geometría en sí (proporciones del ticket) es
+ * exacta de Figma y no se toca, pero el bloque completo estaba plantado
+ * en el viewBox de 24×24 sin centrar — ocupaba x: 1.7–18.4 (sobraba
+ * 1.7px a la izquierda contra 5.6px a la derecha) e y: 3.3–16.6 (sobraba
+ * 3.3px arriba contra 7.4px abajo). Se recentra sumando +1.95 en x y
+ * +2.05 en y a las 3 formas juntas (mismo desplazamiento parejo, no se
+ * cambia ninguna proporción del ticket) para que el centro real quede
+ * en (12,12).
+ */
 export function IconTicket({ className = "" }: { className?: string }) {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={className}>
-      <rect x="1.7" y="3.3" width="16.7" height="13.3" rx="2.499" stroke="currentColor" strokeWidth="1.2" />
-      <rect x="5" y="9.2" width="10" height="1.5" fill="currentColor" />
-      <rect x="5" y="6.7" width="6.5" height="1.5" fill="currentColor" />
+      <rect x="3.65" y="5.35" width="16.7" height="13.3" rx="2.499" stroke="currentColor" strokeWidth="1.2" />
+      <rect x="6.95" y="11.25" width="10" height="1.5" fill="currentColor" />
+      <rect x="6.95" y="8.75" width="6.5" height="1.5" fill="currentColor" />
     </svg>
   );
 }

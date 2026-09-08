@@ -34,11 +34,17 @@ export default function ExperienceCardCurado({
   title,
   description,
   imageUrl,
+  imagePosition,
 }: {
   id: string;
   title: string;
   description: string;
   imageUrl?: string;
+  /* 2026-09-08: object-position CSS opcional para el recorte de
+     `imageUrl` — ver la nota grande en `Experience.imagePosition`
+     (data/experiences.ts). Sin este prop, se mantiene "center" (mismo
+     comportamiento de siempre en el resto de las cards). */
+  imagePosition?: string;
 }) {
   return (
     <div className="relative w-full aspect-[390/520] overflow-hidden bg-white-8">
@@ -47,6 +53,7 @@ export default function ExperienceCardCurado({
           src={imageUrl}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: imagePosition ?? "center" }}
         />
       ) : (
         <ImagePlaceholder />

@@ -35,6 +35,7 @@ export default function ExperienceCardDescubrimientos({
   venue,
   city,
   imageUrl,
+  centerTitle = false,
 }: {
   id: string;
   tag: string;
@@ -42,6 +43,17 @@ export default function ExperienceCardDescubrimientos({
   venue: string;
   city: string;
   imageUrl?: string;
+  /** 2026-09-08, a pedido de Ana ("las cards de escena y cultura, sin
+   * las de los festivales, que utilicen dos líneas de título, no me
+   * gusta como queda una"): cuando el título real ocupa solo 1 línea,
+   * quedaba pegado arriba del bloque de 2 líneas reservado (`h-12`),
+   * dejando un vacío abajo que se ve incompleto al lado de títulos que
+   * sí llenan las 2 líneas. Con `centerTitle` el título se centra
+   * verticalmente en ese espacio en vez de quedar pegado arriba — se
+   * sigue permitiendo hasta 2 líneas (`line-clamp-2`), solo cambia
+   * cómo se ve un título corto de 1 línea. Opt-in explícito, default
+   * `false`: el riel "Descubrimientos" de la pestaña Todo no pidió este
+   * cambio, sigue como estaba. */
 }) {
   return (
     <div className="w-[300px] h-[310px] rounded-xl p-4 flex flex-col gap-4 bg-white-6 shrink-0 overflow-hidden">
@@ -57,9 +69,11 @@ export default function ExperienceCardDescubrimientos({
         <span className="font-body font-semibold text-[11px] uppercase text-thea-mint truncate">
           {tag}
         </span>
-        <h3 className="font-display text-lg leading-6 tracking-[-0.3px] text-white-100 h-12 line-clamp-2">
-          {title}
-        </h3>
+        <div className={`h-12 ${centerTitle ? "flex flex-col justify-center" : ""}`}>
+          <h3 className="font-display text-lg leading-6 tracking-[-0.3px] text-white-100 line-clamp-2">
+            {title}
+          </h3>
+        </div>
         <p
           className="font-body text-[13px] truncate"
           style={{ color: "rgba(251,251,251,0.5)" }}

@@ -11,6 +11,7 @@ import Notificaciones from "./screens/Perfil/Notificaciones";
 import DatosDeCuenta from "./screens/Perfil/DatosDeCuenta";
 import Ayuda from "./screens/Perfil/Ayuda";
 import Busqueda from "./screens/Busqueda/Busqueda";
+import VerMas from "./screens/VerMas/VerMas";
 
 /*
  * Layout raíz — 2026-09-03, a pedido de Ana: al entrar a Detalle (o
@@ -101,6 +102,7 @@ export const router = createBrowserRouter([
       { path: "/perfil/datos-de-cuenta", element: <DatosDeCuenta /> },
       { path: "/perfil/ayuda", element: <Ayuda /> },
       { path: "/busqueda", element: <Busqueda /> },
+      { path: "/ver-mas/:slug", element: <VerMas /> },
     ],
   },
 ]);

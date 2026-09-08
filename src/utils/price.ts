@@ -234,6 +234,39 @@ export function generarFechasReales(date: string): Date[] {
 }
 
 /*
+ * 2026-09-08, a pedido de Ana ("resuélvelo y sin romper nada") — bug real
+ * encontrado en auditoría: `Reserva.estado` (ReservationsContext.tsx) se
+ * guarda como "proxima" en el momento de reservar y nunca se vuelve a
+ * calcular, así que la sección "Pasadas" de Reservas.tsx nunca mostraba
+ * nada, sin importar cuánto tiempo pasara. `Reserva.fechaHora` guarda un
+ * string con el MISMO formato que genera `generarOpcionesFechaHora`
+ * ("Jue 12 sep · 19:00" — día abreviado + día + mes de 3 letras, sin año
+ * porque el catálogo entero vive en `ANIO_CATALOGO`), así que se puede
+ * parsear con el mismo criterio que `generarFechasReales` de acá arriba,
+ * sumando la hora, y comparar contra "ahora" de verdad.
+ *
+ * Igual criterio conservador que el resto de estos parsers: si el string
+ * no matchea el formato esperado, devuelve `false` (se trata como
+ * "próxima" en vez de asumir sin base real que ya pasó). `ahora` es
+ * parámetro con default `new Date()` — no por necesidad de producción
+ * (no hay tests automatizados en el proyecto), sino para poder llamarla
+ * con una fecha fija si hiciera falta revisar un caso puntual a mano. */
+export function esFechaHoraPasada(fechaHora: string, ahora: Date = new Date()): boolean {
+  const { fecha, hora } = splitFechaHora(fechaHora);
+  const match = fecha.match(/^\p{L}+\s+(\d{1,2})\s+(\p{L}+)$/u);
+  if (!match) return false;
+  const [, diaNumStr, mesAbrev] = match;
+  const diaNum = parseInt(diaNumStr, 10);
+  const mesIndice = MES_ABREV_ORDEN.indexOf(mesAbrev.toLowerCase() as (typeof MES_ABREV_ORDEN)[number]);
+  if (mesIndice === -1 || Number.isNaN(diaNum)) return false;
+  const horaMatch = hora.match(/^(\d{1,2}):(\d{2})/);
+  const horas = horaMatch ? parseInt(horaMatch[1], 10) : 23;
+  const minutos = horaMatch ? parseInt(horaMatch[2], 10) : 59;
+  const fechaEvento = new Date(ANIO_CATALOGO, mesIndice, diaNum, horas, minutos);
+  return fechaEvento.getTime() < ahora.getTime();
+}
+
+/*
  * `lugaresDisponibles` — ver nota grande arriba ("cuántas quedan"). Hash
  * determinístico (mismo patrón que `codigoReserva` en
  * ReservationCard.tsx) sobre `${experienciaId}-${fecha}-${hora}`, para

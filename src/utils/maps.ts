@@ -13,3 +13,17 @@
 export function googleMapsSearchUrl(query: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
+
+/*
+ * 2026-09-08, a pedido de Ana: Detalle de festival (ver DetalleExperiencia.tsx)
+ * necesita un link "Visitar sitio oficial" para los 3 festivales reales de
+ * Bogotá. No hay URL oficial verificada cargada para ninguno de los 3 (y
+ * las que existen cambian de edición a edición) — mismo criterio que
+ * `googleMapsSearchUrl` arriba: en vez de inventar/adivinar una URL que
+ * podría estar rota o ser la de otra edición, se arma una búsqueda real de
+ * Google por nombre. Siempre funciona y siempre lleva a información
+ * legítima, sin el riesgo de mandar a alguien a un dominio incorrecto.
+ */
+export function googleSearchUrl(query: string): string {
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
