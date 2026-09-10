@@ -2636,7 +2636,7 @@ export const experiences: Experience[] = [
     tag: "Concierto íntimo",
     category: "Música",
     description:
-      "Formato acústico de cámara orientado a la cercanía con el público: un cuarteto de cuerdas toca a pocos metros de la primera fila, con breves comentarios sobre cada pieza.",
+      "Música clásica de cámara en formato acústico, orientado a la cercanía con el público: un cuarteto de cuerdas toca repertorio clásico y contemporáneo a pocos metros de la primera fila, con breves comentarios sobre cada pieza.",
     venue: "Estudio Sonoro Once",
     city: "Bogotá",
     venueCategoria: "Estudio de grabación y sala de cámara",
@@ -2795,7 +2795,7 @@ export const experiences: Experience[] = [
     tag: "Concierto íntimo en bar",
     category: "Música",
     description:
-      "Un set de voz y piano en un rincón de bar, sin tarima ni luces de teatro: la gente queda sentada a centímetros del instrumento, entre tragos y conversación baja.",
+      "Canción de autor en español, a medio camino entre el pop y el folk: un set de voz y piano en un rincón de bar, sin tarima ni luces de teatro. Toca su álbum Cuarto Piso completo, más un par de canciones nuevas, con la gente sentada a centímetros del instrumento, entre tragos y conversación baja.",
     venue: "El Bar del Fondo",
     city: "Bogotá",
     venueCategoria: "Bar de música en vivo",
@@ -2817,7 +2817,7 @@ export const experiences: Experience[] = [
       presentaciones: "Función única",
       festivales: "sin festival — show independiente",
       premios: "sin premios formales",
-      origen: "repertorio propio, canciones para voz y piano",
+      origen: "repertorio de su álbum Cuarto Piso, más canciones nuevas para voz y piano",
       idioma: "Español, con partes instrumentales",
     },
     artista: {
@@ -3580,7 +3580,7 @@ export const experiences: Experience[] = [
     tag: "Jazz nocturno",
     category: "Música",
     description:
-      "Un trompetista improvisa a solas bajo un único foco, la sombra de su propio instrumento proyectada detrás como un segundo músico que nunca suena.",
+      "Jazz de improvisación libre: un trompetista toca a solas bajo un único foco, la sombra de su propio instrumento proyectada detrás como un segundo músico que nunca suena.",
     venue: "El Foso Jazz Bar",
     city: "Bogotá",
     venueCategoria: "Bar de jazz",
@@ -3627,7 +3627,7 @@ export const experiences: Experience[] = [
     category: "Música",
     ocultoEnCategoria: true,
     description:
-      "Una cantautora hace su set sentada en un taburete, sin monitores ni banda, tan cerca del público que se escucha respirar entre canción y canción.",
+      "Folk acústico de canción de autor: una cantautora hace su set sentada en un taburete, sin monitores ni banda. Toca su álbum Ropa de Casa de principio a fin, tan cerca del público que se escucha respirar entre canción y canción.",
     venue: "Café Rincón Once",
     city: "Bogotá",
     venueCategoria: "Café-bar con música en vivo",
@@ -3651,7 +3651,7 @@ export const experiences: Experience[] = [
       presentaciones: "sesión mensual, desde 2025",
       festivales: "sin festivales todavía",
       premios: "sin premios",
-      origen: "repertorio propio, canciones inéditas",
+      origen: "repertorio de su álbum Ropa de Casa, con un par de canciones inéditas al final",
       idioma: "Español",
     },
     artista: {
@@ -3673,7 +3673,7 @@ export const experiences: Experience[] = [
     tag: "Recital al aire libre",
     category: "Música",
     description:
-      "Un piano de cola sale al parque un domingo en la mañana y una pianista toca para quien vaya pasando, sin escenario ni boletería de por medio.",
+      "Repertorio clásico de piano al aire libre: un piano de cola sale al parque un domingo en la mañana y una pianista toca para quien vaya pasando, sin escenario ni boletería de por medio.",
     venue: "Parque Nacional Enrique Olaya Herrera",
     city: "Bogotá",
     venueCategoria: "Parque público",
@@ -4051,30 +4051,34 @@ export const experiences: Experience[] = [
   },
   {
     id: "la-sala-vacia",
-    title: "La Sala Vacía: Ciclo de Cine Clásico",
+    title: "El Preludio de la Sala Vacía",
     // 2026-09-10, a pedido de Ana ("la sala vacía también pásala a
     // música"): categoría pasa de Cine a Música. La descripción original
     // no tenía nada musical (un actor hablándole a la sala vacía) —
-    // ajustado a un músico ensayando, para que la pieza concuerde de
-    // verdad con la categoría nueva en vez de quedar con un texto que no
-    // tiene sentido ahí.
+    // ajustado a un músico ensayando.
+    // 2026-09-10, segunda corrección de Ana ("le pusiste musica pero no
+    // le quitaste el contexto de cine"): reescritura completa — venue,
+    // duración, curiosidad, ficha, artista y las 4 reseñas seguían
+    // hablando de cine/película. Ahora todo el contexto es de concierto,
+    // sin ninguna referencia a cine. Mismo tratamiento que
+    // "pantalla-de-esquina" y "sabanas-cineclub".
     tag: "Música en vivo previa a función",
     category: "Música",
     ocultoEnCategoria: true,
     description:
-      "Antes de cada función del ciclo, un músico sale a tocar unas notas a la sala todavía vacía, como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
+      "Antes de cada concierto del ciclo, un músico sale a tocar unas notas a la sala todavía vacía —sin género fijo, varía según el concierto de la noche— como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
     venue: "Teatro Colonial",
     city: "Bogotá",
-    venueCategoria: "Sala de cine",
+    venueCategoria: "Sala de conciertos",
     venueBarrio: "Nicolás de Federmán",
     date: "Domingo 29 nov · 17:00",
     price: "$22.000 COP",
     asientoAsignado: true,
-    duracion: "Introducción de 10 minutos más proyección de 100 minutos.",
+    duracion: "Preludio de 10 minutos más concierto de 100 minutos.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Avenida Caracas #45-12, Bogotá",
     curiosidadDelLugar:
-      "Teatro Colonial fue sala de cine desde los años 50 y conserva casi todas sus butacas originales de madera — la introducción actuada nació porque a alguien le pareció una lástima que la sala se llenara solo diez minutos antes de apagar las luces.",
+      "Teatro Colonial funciona como sala de conciertos desde los años 50 y conserva casi todas sus butacas originales de madera — el preludio nació porque a alguien le pareció una lástima que la sala se llenara solo diez minutos antes de que arrancara el concierto.",
     contextoBarrio: "Zona con buen acceso en transporte público, cerca de varias universidades.",
     rating: "8.9",
     ratingCount: 56,
@@ -4082,25 +4086,25 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/jacob-mejicanos-dgMF8uWttkI-unsplash.jpg",
     porQueDescubrir:
-      "Antes de la película hay una pieza corta actuada frente a una sala todavía vacía, como un ensayo que el público interrumpe al llegar. Theaveling la eligió por ese gesto extra que ningún cine convencional se molesta en dar.",
+      "Antes del concierto hay una pieza corta tocada frente a una sala todavía vacía, como un ensayo que el público interrumpe al llegar. Theaveling la eligió por ese gesto extra que ninguna sala de conciertos convencional se molesta en dar.",
     ficha: {
       presentaciones: "ciclo mensual, desde 2023",
       festivales: "sin festivales todavía",
       premios: "sin premios",
-      origen: "programación curada de cine clásico restaurado, con introducción teatral propia",
+      origen: "programación curada de música en vivo, con preludio instrumental propio",
       idioma: "Variable según la función",
     },
     artista: {
       nombre: "Teatro Colonial — Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos la curaduría de Teatro Colonial. La introducción actuada nació de la lástima de ver la sala vacía diez minutos antes de cada función — ahora es parte fija del ciclo.",
+      saludo: "Somos la curaduría de Teatro Colonial. El preludio nació de la lástima de ver la sala vacía diez minutos antes de cada concierto — ahora es parte fija del ciclo.",
     },
     resenas: [
-      { nombre: "Laura B.", rating: "★ 9.0", fecha: "Hace 4 días", texto: "Llega temprano si quieres ver la introducción completa, mucha gente entra justo cuando empieza la película." },
-      { nombre: "Andrés L.", rating: "★ 8.6", fecha: "Hace 1 semana", texto: "Fui solo un domingo y la sala tiene un encanto de cine viejo que ya no se ve mucho." },
-      { nombre: "Camilo W.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las butacas originales son de madera, no esperes la comodidad de un cine moderno." },
-      { nombre: "Valentina G.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó El Último Carrete: Cine en 16mm — otro ciclo que cuida el formato clásico de proyección." },
+      { nombre: "Laura B.", rating: "★ 9.0", fecha: "Hace 4 días", texto: "Llega temprano si quieres ver el preludio completo, mucha gente entra justo cuando empieza el concierto." },
+      { nombre: "Andrés L.", rating: "★ 8.6", fecha: "Hace 1 semana", texto: "Fui solo un domingo y la sala tiene un encanto de teatro viejo que ya no se ve mucho." },
+      { nombre: "Camilo W.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las butacas originales son de madera, no esperes la comodidad de una sala moderna." },
+      { nombre: "Valentina G.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Piano al Aire: Recital de Parque — otro programa que cuida el silencio antes de que empiece la música." },
     ],
   },
   {
@@ -4405,7 +4409,7 @@ export const experiences: Experience[] = [
   category: "Música",
   ocultoEnCategoria: true,
   description:
-    "Un trío de flauta traversa, clarinete bajo y percusión menor toca a un metro del público, sin amplificación de más, en un bar diseñado para que se escuche hasta la respiración entre frases. Composiciones propias que tratan el aire como instrumento en sí mismo.",
+    "Género propio, a medio camino entre la música de cámara contemporánea y la improvisación acústica: un trío de flauta traversa, clarinete bajo y percusión menor toca a un metro del público, sin amplificación de más, en un bar diseñado para que se escuche hasta la respiración entre frases. Composiciones propias que tratan el aire como instrumento en sí mismo.",
   venue: "Casa del Fuelle",
   city: "Bogotá",
   venueCategoria: "Bar de conciertos íntimos",
@@ -4836,7 +4840,7 @@ export const experiences: Experience[] = [
   category: "Música",
   ocultoEnCategoria: true,
   description:
-    "Un ensamble de cámara para cuerdas y vientos toca repertorio propio inspirado en músicas populares colombianas, en un auditorio formal donde las luces cruzan la neblina del escenario minutos antes de que empiece el concierto. Boletería por zonas.",
+    "Música de cámara contemporánea que cruza el repertorio clásico con motivos populares colombianos: un ensamble para cuerdas y vientos toca en un auditorio formal donde las luces cruzan la neblina del escenario minutos antes de que empiece el concierto. Boletería por zonas.",
   venue: "Auditorio Fontanar",
   city: "Bogotá",
   venueCategoria: "Auditorio de conciertos",
@@ -5853,18 +5857,22 @@ export const experiences: Experience[] = [
 },
 {
   id: "funcion-y-banda",
-  title: "Función y Banda: Cortos + Concierto",
+  title: "Bandas en Tanda",
   // 2026-09-10, a pedido de Ana ("esa que tienes de cine local mas
   // musica en vivo, pásala a que sea de música solamente"): categoría
-  // pasa de Cine local a Música — el tag deja de mencionar cine, el
-  // concierto es lo central, los cortometrajes quedan como detalle del
-  // formato del bar, no como la categoría.
-  tag: "Concierto de banda emergente",
+  // pasa de Cine local a Música — el tag deja de mencionar cine.
+  // 2026-09-10, segunda corrección de Ana ("quitale lo de los cortos eso
+  // no va, ponle un contexto de musica"): reescritura completa —
+  // description, duración, curiosidad, ficha, artista y las 4 reseñas
+  // seguían mencionando cortometrajes/proyección. Ahora son varias
+  // bandas emergentes rotando la tarima en una sola noche, sin ningún
+  // cortometraje de por medio. Título también renombrado, menos literal.
+  tag: "Concierto de bandas emergentes",
   category: "Música",
   ocultoEnCategoria: true,
   soloVerMas: true,
   description:
-    "Bar de barrio que combina tanda de cortometrajes bogotanos con un set en vivo de una banda emergente entre película y película — nadie se queda sentado todo el rato.",
+    "Rock emergente en formato de bar: varias bandas se turnan la tarima la misma noche, sets cortos de 20 minutos cada una — nadie se queda sentado todo el rato. Esta edición suma a Los Alambres, que estrenan canciones de su EP Corriente Alterna junto a las otras bandas de la noche.",
   venue: "Bar El Trébol",
   city: "Bogotá",
   date: "Miércoles 21 oct · 21:00",
@@ -5873,22 +5881,22 @@ export const experiences: Experience[] = [
   ratingCount: 41,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/les-taylor-ZlMxJQ_H_nw-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "3 horas — 4 cortometrajes intercalados con 2 sets cortos de banda en vivo.",
+  duracion: "3 horas — 4 sets cortos de bandas distintas, uno detrás de otro.",
   restriccionEdad: "+18 años — funciona como bar con barra activa toda la noche.",
   direccionCompleta: "Carrera 13 #63-22, Bogotá",
   curiosidadDelLugar:
-    "El bar proyecta los cortos sobre una pared pintada de blanco, no sobre una pantalla — decisión original del dueño, que nunca instaló una pantalla de verdad porque 'la pared ya funcionaba bien'.",
+    "El bar armó la tarima con palés de madera apilados, no con un escenario de verdad — decisión original del dueño, que nunca instaló uno porque 'la de palés ya funcionaba bien'.",
   contextoBarrio:
     "Zona comercial de Chapinero con buena vida nocturna entre semana, varios bares con programación cultural puntual.",
   venueCategoria: "Bar con programación cultural",
   venueBarrio: "Chapinero",
   porQueDescubrir:
-    "No es ni una sala de cine ni un bar de conciertos puros, es las dos cosas mezcladas sin que ninguna domine sobre la otra. Theaveling la eligió por esa mezcla informal que en Bogotá no abunda tanto.",
+    "No es un bar de conciertos formal ni un festival, es una rotación rápida de bandas que se turnan la tarima sin descansos largos. Theaveling la eligió por esa energía de una noche entera armada solo con bandas emergentes.",
   ficha: {
     presentaciones: "Evento mensual desde 2025",
     festivales: "no aplica",
     premios: "no aplica",
-    origen: "programación curada por el bar, cortometrajes rotativos",
+    origen: "programación curada por el bar, bandas rotativas cada mes",
     idioma: "Español",
   },
   artista: {
@@ -5896,32 +5904,32 @@ export const experiences: Experience[] = [
     categoria: "Programación cultural de bar",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No queremos que la gente se siente a ver cine en silencio total — por eso metemos banda en vivo entre corto y corto, para que se sienta como una noche de barrio.",
+      "No queremos que la noche se sienta como un solo concierto largo — por eso rotamos varias bandas cortas, para que se sienta como una noche completa de barrio.",
   },
   resenas: [
     {
       nombre: "Andrea M.",
       rating: "★ 8.0",
       fecha: "Hace 6 días",
-      texto: "Ambiente muy relajado, se puede hablar entre cortos sin sentir que estás interrumpiendo algo solemne.",
+      texto: "Ambiente muy relajado, se puede hablar entre banda y banda sin sentir que estás interrumpiendo algo solemne.",
     },
     {
       nombre: "Sebastián V.",
       rating: "★ 8.6",
       fecha: "Hace 3 semanas",
-      texto: "La calidad de los cortos varía bastante, pero la banda en vivo siempre sube el ánimo de la noche.",
+      texto: "La calidad de las bandas varía bastante, pero siempre hay alguna que sube el ánimo de la noche.",
     },
     {
       nombre: "Camila R.",
       rating: "★ 8.1",
       fecha: "Hace 1 mes",
-      texto: "Va lleno entre semana, llega temprano si quieres mesa cerca de la pared donde proyectan.",
+      texto: "Va lleno entre semana, llega temprano si quieres mesa cerca de la tarima.",
     },
     {
       nombre: "Julián T.",
       rating: "★ 8.5",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Pantalla de Barrio — mismo espíritu de cine local hecho sin pretensiones.",
+      texto: "Si te gustó esto, también me gustó Trompeta en Sombra: Sesión de Jazz Nocturno — mismo espíritu de música en bar hecho sin pretensiones.",
     },
   ],
 },
