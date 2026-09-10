@@ -68,6 +68,25 @@ import {
 // directo a "/").
 const TAB_STORAGE_KEY = "theaveling:descubrir-tab";
 
+// 2026-09-10, a pedido de Ana ("en escena teatral tienes todo el
+// contenido [en el scroll], y cuando uno va a la pantalla de ver más,
+// aparece todo el contenido del scroll" / "en escena y cultura sí tiene
+// que ser específico de cada sección" / "reparte bien [las 40 fotos]"):
+// bug real — cada sección de Escena/Cultura (SECCIONES_ESCENA/
+// SECCIONES_CULTURA, ver data/experiences.ts) mostraba en el riel de
+// Home la lista COMPLETA sin recortar, y `getVerMasContent` resuelve esa
+// misma sección con el mismo filtro sin excluir nada — dos pantallas
+// mostrando exactamente lo mismo. A diferencia del primer intento (cortar
+// a un número fijo tipo "6"), acá se usa el MISMO criterio real que ya
+// separa Más reservados/Descubrimientos/Curado: las piezas que usan foto
+// de la carpeta "imagenes aleatorias para ver mas" quedan marcadas
+// `soloVerMas: true` (ver esa nota en cada una, data/experiences.ts) y
+// solo se ven en el "Ver más" de su propia sección — el riel de Home
+// muestra únicamente las piezas "originales" de cada sección (las que ya
+// existían antes de esa carpeta), que son las 4 a 6 de siempre por
+// sección. Ver más sigue resolviendo la lista completa real (originales +
+// soloVerMas) tal cual ya lo hacía.
+
 function leerTabGuardada(): CategoryTab {
   try {
     const guardada = window.localStorage.getItem(TAB_STORAGE_KEY);
@@ -94,7 +113,12 @@ export default function Descubrir() {
     }
   }
 
-  const curado = getExperiencesByRail("curado");
+  // 2026-09-10, a pedido de Ana: mismo criterio que masReservados/
+  // descubrimientos de abajo — Curado también suma piezas `soloVerMas`
+  // (10 experiencias de Escena reutilizadas como picks curados, ver esa
+  // nota grande en data/experiences.ts) para completar el "+10" de la
+  // pantalla de Ver más sin que aparezcan en el riel de Home.
+  const curado = getExperiencesByRail("curado").filter((exp) => !exp.soloVerMas);
   // 2026-09-08, a pedido de Ana ("las img que te di van para sumarle a
   // los contenidos en ver mas, no para poner en el scroll"): estos 2
   // rieles de la Home excluyen las piezas marcadas `soloVerMas` — esas
@@ -190,9 +214,13 @@ export default function Descubrir() {
                     quedaba en "+3") sin que Ana lo pidiera — revertido a
                     "+10" fijo, como estaba. Ana señaló que si acá dice
                     "+10", la pantalla de Ver más de Curados debería tener
-                    de verdad 10 experiencias — hoy solo hay 3 reales
-                    (`curado.length`), así que el número queda fijo por
-                    ahora hasta que se sumen más piezas curadas reales. */}
+                    de verdad 13 experiencias (3 del riel + 10 más) — ya
+                    resuelto: se sumaron 10 piezas reales de Escena como
+                    picks `soloVerMas` de Curado (ver nota grande en
+                    data/experiences.ts), así que el "+10" ahora sí es
+                    real. Se deja como texto fijo de todas formas, mismo
+                    criterio que "Más Curados" de abajo: es una etiqueta
+                    editorial, no necesita recalcularse sola. */}
                 <Link
                   to="/ver-mas/curado"
                   className="flex flex-col items-end gap-0 py-1 pr-5"
@@ -385,6 +413,15 @@ export default function Descubrir() {
               (seccion) => {
                 const items = getExperiencesByCategories(seccion.categorias);
                 if (items.length === 0) return null;
+                // 2026-09-10, a pedido de Ana: `ocultoEnCategoria` (no
+                // `soloVerMas` — ese es del riel de "Todo", ver la nota
+                // grande de ese campo en data/experiences.ts) decide qué
+                // queda fuera del scroll de Home de ESTA sección. Cada
+                // sección tiene su propio reparto de cuántas fotos nuevas
+                // quedan en el scroll vs. exclusivas de
+                // `/ver-mas/${seccion.slug}` — no es un número fijo igual
+                // para todas.
+                const itemsVisibles = items.filter((exp) => !exp.ocultoEnCategoria);
                 return (
                   <section key={seccion.titulo} className="flex flex-col gap-4">
                     <div className="flex items-center justify-between px-5">
@@ -394,7 +431,7 @@ export default function Descubrir() {
                       <IconCaretRight className="text-white-60" />
                     </div>
                     <div className="flex gap-3 overflow-x-auto px-5 pb-1 scrollbar-none">
-                      {items.map((exp) => (
+                      {itemsVisibles.map((exp) => (
                         <Link key={exp.id} to={`/experiencia/${exp.id}`}>
                           <ExperienceCardDescubrimientos
                             id={exp.id}

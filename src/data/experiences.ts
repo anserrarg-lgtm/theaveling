@@ -117,6 +117,19 @@ export interface Experience {
    * riel de la Home sigue mostrando solo las 7 de siempre, la pantalla
    * de "Ver más" muestra esas 7 más estas 15 (22 en total). */
   soloVerMas?: boolean;
+  /** 2026-09-10, a pedido de Ana ("en escena y cultura sí tiene que ser
+   * específico de cada sección" / "reparte bien"): campo INDEPENDIENTE
+   * de `soloVerMas` — ese controla exclusión de los 3 rieles de "Todo"
+   * (curado/mas-reservados/descubrimientos), este controla exclusión del
+   * scroll de Home de su propia sección de Escena/Cultura (ver
+   * SECCIONES_ESCENA/SECCIONES_CULTURA, Descubrir.tsx). Hacen falta los
+   * dos por separado: varias piezas de estas 40 YA tienen `rail` +
+   * `soloVerMas` (para sumar a Más reservados/Descubrimientos/Curado) y
+   * ADEMÁS deben quedar ocultas del scroll de su categoría — si se
+   * reusara un solo campo para ambas cosas, sacar una pieza del scroll
+   * de su categoría la sacaría también sin querer del riel de "Todo" al
+   * que ya pertenece (o viceversa). */
+  ocultoEnCategoria?: boolean;
   imageUrl?: string;
   /** 2026-09-08, a pedido de Ana ("corre la del filbo un poco hacia la
    * izq, con tal de que se vea lo que dice"): valor CSS de object-position
@@ -2399,6 +2412,13 @@ export const experiences: Experience[] = [
     title: "Vértigo de Tul: Coro Final",
     tag: "Danza de conjunto",
     category: "Danza",
+    // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que ser
+    // especifico de cada seccion" / "reparte bien"): esta pieza usa foto
+    // de la carpeta "imagenes aleatorias para ver mas" — pasa a ser
+    // contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve en
+    // el scroll de Home de Escena/Cultura), mismo criterio que ya se usa
+    // en Más reservados/Descubrimientos/Curado.
+    soloVerMas: true,
     description:
       "Ocho bailarinas cierran una revista de cabaret con un número de conjunto tan rápido que el vestuario de tul se vuelve un solo borrón de luz — la coreografía está pensada para verse justo así, deshecha por el movimiento.",
     venue: "Teatro Cariátides",
@@ -3602,6 +3622,7 @@ export const experiences: Experience[] = [
     title: "Voz de Bolsillo: Sesión Acústica de Bar",
     tag: "Acústico íntimo",
     category: "Música",
+    ocultoEnCategoria: true,
     description:
       "Una cantautora hace su set sentada en un taburete, sin monitores ni banda, tan cerca del público que se escucha respirar entre canción y canción.",
     venue: "Café Rincón Once",
@@ -3694,6 +3715,7 @@ export const experiences: Experience[] = [
     title: "Vals en Azul: Solo de Ballet",
     tag: "Ballet contemporáneo",
     category: "Danza",
+    ocultoEnCategoria: true,
     description:
       "Una bailarina sola en escena, iluminada apenas por un azul frío, repite el mismo giro hasta que deja de ser un paso de ballet y se vuelve otra cosa.",
     venue: "Teatro Astor",
@@ -3741,6 +3763,7 @@ export const experiences: Experience[] = [
     title: "Piel de Selva: Danza Ritual Contemporánea",
     tag: "Danza ritual",
     category: "Danza",
+    ocultoEnCategoria: true,
     description:
       "Dos bailarinas cubiertas de pintura corporal se mueven entre proyecciones de selva, una coreografía que mezcla gesto ritual amazónico con vocabulario contemporáneo.",
     venue: "Nave Once",
@@ -3787,6 +3810,7 @@ export const experiences: Experience[] = [
     title: "El Payaso de la Plazoleta",
     tag: "Clown callejero",
     category: "Performance",
+    ocultoEnCategoria: true,
     description:
       "Un payaso solitario recorre una plazoleta de noche, sin anunciarse ni pedir atención, hasta que alguien nota que sí está actuando y se detiene a mirar.",
     venue: "Plazoleta del Rosario",
@@ -3833,6 +3857,7 @@ export const experiences: Experience[] = [
     title: "Cuerpos Caídos: Intervención Urbana",
     tag: "Performance urbano",
     category: "Performance",
+    ocultoEnCategoria: true,
     description:
       "Un grupo grande de personas se deja caer al piso de una plaza al mismo tiempo, inmóviles, mientras la ciudad sigue caminando alrededor sin saber bien cómo reaccionar.",
     venue: "Plaza de Lourdes",
@@ -3879,6 +3904,7 @@ export const experiences: Experience[] = [
     title: "Cuarto Propio: Monólogo entre Libros",
     tag: "Monólogo íntimo",
     category: "Teatro",
+    ocultoEnCategoria: true,
     description:
       "Una mujer se refugia entre pilas de libros regados por el piso de su cuarto, hablando sola hasta que queda claro que no está sola: nos habla a nosotros.",
     venue: "Sala Fenicia",
@@ -3926,6 +3952,7 @@ export const experiences: Experience[] = [
     title: "El Rostro Prestado: Teatro de Máscara",
     tag: "Teatro de máscaras",
     category: "Teatro",
+    ocultoEnCategoria: true,
     description:
       "Un actor cambia de máscara cada pocos minutos y con ella cambia de personaje entero, sin salir nunca del mismo escenario vacío ni cambiarse de ropa.",
     venue: "Teatro del Tránsito",
@@ -3973,6 +4000,7 @@ export const experiences: Experience[] = [
     title: "Lectura en el Suelo: Voces entre Páginas",
     tag: "Lectura dramática",
     category: "Lecturas dramáticas",
+    ocultoEnCategoria: true,
     description:
       "Una lectora se sienta en el piso rodeada de libros abiertos y va leyendo fragmentos sueltos de cada uno, armando una historia nueva con pedazos de otras historias.",
     venue: "Casa Taller Egipto",
@@ -4019,6 +4047,7 @@ export const experiences: Experience[] = [
     title: "La Sala Vacía: Ciclo de Cine Clásico",
     tag: "Cine clásico",
     category: "Cine",
+    ocultoEnCategoria: true,
     description:
       "Antes de cada función del ciclo, un actor sale a escena y le habla a la sala todavía vacía, como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
     venue: "Teatro Colonial",
@@ -4066,6 +4095,7 @@ export const experiences: Experience[] = [
     title: "Pantalla de Esquina: Noche de Cine Barrial",
     tag: "Cine de barrio",
     category: "Cine local",
+    ocultoEnCategoria: true,
     description:
       "Un bar de esquina cuelga una sábana blanca contra la pared del fondo y proyecta cine local una vez al mes, entre las mesas normales de cualquier noche de viernes.",
     venue: "Bar Proyector",
@@ -4112,6 +4142,7 @@ export const experiences: Experience[] = [
     title: "Sábanas: Cineclub de Cine Analógico",
     tag: "Cineclub experimental",
     category: "Cineclub",
+    ocultoEnCategoria: true,
     description:
       "Figuras cubiertas por completo con telas se mueven despacio entre proyecciones de películas rayadas y quemadas por el tiempo, borrando la línea entre lo que se proyecta y quién lo mira.",
     venue: "Cineclub Nictálope",
@@ -4159,6 +4190,7 @@ export const experiences: Experience[] = [
     title: "Charla: El Oficio Detrás de la Máscara",
     tag: "Charla de oficio",
     category: "Charlas",
+    ocultoEnCategoria: true,
     description:
       "Un tallador de máscaras muestra su taller completo mientras conversa sobre el oficio, con piezas terminadas y a medio hacer colgadas alrededor del público.",
     venue: "Taller de Máscaras Perseverancia",
@@ -4205,6 +4237,7 @@ export const experiences: Experience[] = [
     title: "Taller Abierto: Cuerpo en Escena",
     tag: "Laboratorio de movimiento",
     category: "Talleres",
+    ocultoEnCategoria: true,
     description:
       "Un taller de movimiento donde quienes no están bailando se sientan alrededor a mirar, y cada tanto cambian de lugar con quienes sí están en el centro.",
     venue: "Galpón 12",
@@ -4263,6 +4296,7 @@ export const experiences: Experience[] = [
   title: "Cántaros: Danza de Patio",
   tag: "Danza folclórica de patio",
   category: "Danza",
+  ocultoEnCategoria: true,
   description:
     "Seis bailarinas giran con faldas largas mientras equilibran vasijas de barro en la cabeza, acompañadas por músicos en vivo alrededor de un patio colonial. Una coreografía propia inspirada en danzas de cosecha y celebración de varias regiones de Latinoamérica, sin representar una tradición puntual.",
   venue: "El Patio de las Tinajas",
@@ -4339,6 +4373,7 @@ export const experiences: Experience[] = [
   title: "Aire en Vilo: Sesión de Vientos",
   tag: "Sesión acústica de vientos",
   category: "Música",
+  ocultoEnCategoria: true,
   description:
     "Un trío de flauta traversa, clarinete bajo y percusión menor toca a un metro del público, sin amplificación de más, en un bar diseñado para que se escuche hasta la respiración entre frases. Composiciones propias que tratan el aire como instrumento en sí mismo.",
   venue: "Casa del Fuelle",
@@ -4412,6 +4447,7 @@ export const experiences: Experience[] = [
   title: "Luz de Vitral: Concierto Indie",
   tag: "Indie folk en sala pequeña",
   category: "Música",
+  ocultoEnCategoria: true,
   description:
     "Una banda de cuatro integrantes toca canciones propias bajo el techo pintado de un antiguo teatro de cine mudo, ahora reconvertido en sala de conciertos, con público de pie a pocos metros del escenario. Folk indie en español con guiños a la música andina.",
   venue: "Salón Renacimiento",
@@ -4484,6 +4520,7 @@ export const experiences: Experience[] = [
   title: "Plumas y Vals: Cabaret de Medianoche",
   tag: "Cabaret contemporáneo",
   category: "Performance",
+  ocultoEnCategoria: true,
   description:
     "Un número de cabaret contemporáneo —plumas, tacones y un salto de pierna que casi toca el techo— dentro de un salón de baile art-decó restaurado, con mesas altas alrededor del escenario en vez de butacas. Mezcla de cabaret clásico europeo y humor bogotano.",
   venue: "Salón Astoria",
@@ -4555,6 +4592,7 @@ export const experiences: Experience[] = [
   title: "Manos que Hablan: Taller de Marionetas",
   tag: "Taller de títeres para adultos",
   category: "Talleres",
+  ocultoEnCategoria: true,
   description:
     "Un taller de tres horas para construir tu propia marioneta de hilo, rodeado de decenas de títeres antiguos colgados como referencia, y terminar la sesión haciéndola caminar por primera vez. Materiales incluidos, cupo reducido.",
   venue: "Taller El Hilo Suelto",
@@ -4624,6 +4662,7 @@ export const experiences: Experience[] = [
   title: "Cuarto Deshecho: Lectura en Escena",
   tag: "Lectura dramatizada íntima",
   category: "Lecturas dramáticas",
+  ocultoEnCategoria: true,
   description:
     "Una actriz sola, arrodillada entre libros regados por el piso de un cuarto a medio armar, lee en voz alta cartas y diarios encontrados en mercados de pulgas de Bogotá. Una sala pequeña, sin escenografía más allá de lo estrictamente necesario.",
   venue: "Biblioteca Errante",
@@ -4694,6 +4733,7 @@ export const experiences: Experience[] = [
   title: "La Comadre del Burro: Comedia de Calle",
   tag: "Performance folclórico y humor",
   category: "Performance",
+  ocultoEnCategoria: true,
   description:
     "Un personaje folclórico con falda de colores y un burro de peluche que ella misma maneja como si hablara, hace reír a todo un salón comunal con chistes de doble sentido y burlas cariñosas al público. Un personaje inventado a partir del carnaval y las fiestas de barrio bogotanas.",
   venue: "Casa Cultural La Perse",
@@ -4764,6 +4804,7 @@ export const experiences: Experience[] = [
   title: "Antes del Silencio: Orquesta de Cámara",
   tag: "Concierto de cámara en sala grande",
   category: "Música",
+  ocultoEnCategoria: true,
   description:
     "Un ensamble de cámara para cuerdas y vientos toca repertorio propio inspirado en músicas populares colombianas, en un auditorio formal donde las luces cruzan la neblina del escenario minutos antes de que empiece el concierto. Boletería por zonas.",
   venue: "Auditorio Fontanar",
@@ -4848,6 +4889,17 @@ export const experiences: Experience[] = [
   title: "La Que Grita en Rojo",
   tag: "Monólogo con cante",
   category: "Teatro",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Una mujer envuelta en un mantón rojo recita fragmentos de una carta que nunca mandó, a medio camino entre el teatro y el cante — la sala queda tan cerca que se escucha la respiración entre frase y frase.",
   venue: "Teatro El Rincón del Cante",
@@ -4915,6 +4967,17 @@ export const experiences: Experience[] = [
   title: "Cuerpo en Guardia",
   tag: "Teatro físico",
   category: "Teatro",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Un solo intérprete en negro construye, sin decir una palabra, la coreografía de alguien que se defiende de algo que nunca se nombra — cada gesto es una frase completa.",
   venue: "Estudio Los Cuervos",
@@ -4982,6 +5045,14 @@ export const experiences: Experience[] = [
   title: "Vestuario de Estrellas",
   tag: "Musical de culto",
   category: "Teatro",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Revival casero de un musical de ciencia ficción colombiano de los 80 que casi nadie recuerda — vestuario de lentejuelas hecho a mano, coreografía de salón y un synth en vivo sonando desde bambalinas.",
   venue: "Teatro Galaxia",
@@ -5049,6 +5120,14 @@ export const experiences: Experience[] = [
   title: "Los Sombreros del Río",
   tag: "Drama rural",
   category: "Teatro",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Drama de época sobre una familia campesina que decide, de un día para otro, dejarlo todo — dos hombres de sombrero sostienen a una mujer que se derrumba en el umbral de la única puerta que queda en pie.",
   venue: "Teatro La Otra Orilla",
@@ -5116,6 +5195,13 @@ export const experiences: Experience[] = [
   title: "Cuerpo en Sombra",
   tag: "Danza contemporánea",
   category: "Danza",
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Una bailarina se mueve entre franjas de luz proyectada en el piso, como si cada sombra le impusiera una regla distinta de movimiento — sola, lenta, sin música que la guíe hasta el final.",
   venue: "Estudio Cal y Canto",
@@ -5183,6 +5269,17 @@ export const experiences: Experience[] = [
   title: "Pequeños Pasos, Gran Escenario",
   tag: "Ballet clásico (función de escuela)",
   category: "Danza",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Función anual de una academia de ballet: las alumnas más chicas comparten escenario con las bailarinas mayores en una puesta clásica completa, vestuario de época incluido.",
   venue: "Academia de Ballet Vaganova Bogotá",
@@ -5250,6 +5347,17 @@ export const experiences: Experience[] = [
   title: "La Esquina que Baila",
   tag: "Danza urbana teatral",
   category: "Danza",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Dúo de danza contemporánea con raíces afro que usa una fachada pintada de calle vieja como único decorado — el baile ocurre literalmente en el umbral entre la casa y la calle.",
   venue: "Set Escenográfico San Felipe",
@@ -5317,6 +5425,17 @@ export const experiences: Experience[] = [
   title: "Papel en Caída",
   tag: "Performance de objeto",
   category: "Performance",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Una intérprete suspendida y envuelta en un vestido hecho enteramente de papel se deja caer, girar y desarmar poco a poco frente al público — el papel se rasga un poco más en cada función.",
   venue: "Bodega Blanca",
@@ -5384,6 +5503,17 @@ export const experiences: Experience[] = [
   title: "Ritual en el Potrero",
   tag: "Performance sitio-específico",
   category: "Performance",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Performance nocturna al aire libre en una cancha de barrio: una intérprete atraviesa nubes de humo bajo luz roja, en una coreografía que se lee más cerca del ritual que de la danza convencional.",
   venue: "Cancha Los Molinos",
@@ -5451,6 +5581,13 @@ export const experiences: Experience[] = [
   title: "La Banda de los Pájaros",
   tag: "Performance-concierto",
   category: "Performance",
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Banda de calle con vestuario de pájaros de carnaval invade una bodega convertida en sala — más un happening colectivo que un concierto formal, con el público mezclado entre los músicos disfrazados.",
   venue: "Nave 7",
@@ -5518,6 +5655,17 @@ export const experiences: Experience[] = [
   title: "Compañía en Fuga: Documental Restaurado",
   tag: "Cine documental",
   category: "Cine",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Documental restaurado sobre una compañía de ballet bogotana que desapareció en los años 90 — el material original en blanco y negro, rescatado de cintas dañadas, se proyecta con el grano y los saltos intactos.",
   venue: "Sala Ancha",
@@ -5585,6 +5733,17 @@ export const experiences: Experience[] = [
   title: "Bastidores: Estreno Nacional",
   tag: "Cine colombiano",
   category: "Cine",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Estreno de una película colombiana filmada casi enteramente entre bambalinas de un teatro, siguiendo a un grupo de bailarines jóvenes la noche antes de su función más importante.",
   venue: "Cine Delfos",
@@ -5652,6 +5811,13 @@ export const experiences: Experience[] = [
   title: "Función y Banda: Cortos + Concierto",
   tag: "Cine local + música en vivo",
   category: "Cine local",
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Bar de barrio que combina tanda de cortometrajes bogotanos con un set en vivo de una banda emergente entre película y película — nadie se queda sentado todo el rato.",
   venue: "Bar El Trébol",
@@ -5719,6 +5885,13 @@ export const experiences: Experience[] = [
   title: "Maratón Fan: Cortos y Cosplay",
   tag: "Cine local (fandom)",
   category: "Cine local",
+  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
+  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
+  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
+  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
+  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
+  // usa en Más reservados/Descubrimientos/Curado.
+  soloVerMas: true,
   description:
     "Maratón de cortometrajes hechos por fans bogotanos, con concurso de disfraces entre función y función y el público grabando todo con el celular en alto — más fiesta de fandom que sala de cine tradicional.",
   venue: "Centro Cultural Aluna",
@@ -5786,6 +5959,17 @@ export const experiences: Experience[] = [
   title: "Cine Mudo + Set en Vivo",
   tag: "Cineclub con banda sonora en vivo",
   category: "Cineclub",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Proyección de cine mudo de archivo con un productor improvisando en vivo la banda sonora completa desde una mesa de mezcla — cada función suena distinto, aunque la película sea la misma.",
   venue: "Sótano 8",
@@ -5853,6 +6037,17 @@ export const experiences: Experience[] = [
   title: "Charla: La Voz que También se Mueve",
   tag: "Charla-demostración",
   category: "Charlas",
+  ocultoEnCategoria: true,
+  // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
+  // carpeta llena de imagenes"): en vez de crear experiencias nuevas
+  // reutilizando fotos ya usadas (las 40 de la carpeta "imagenes
+  // aleatorias para ver mas" ya estan todas asignadas, ninguna libre),
+  // esta pieza YA existente de Escena se suma TAMBIEN al pool de
+  // Curado (sigue apareciendo igual en su riel de categoria de
+  // siempre) para completar las 10 adicionales que faltan sin
+  // duplicar ninguna imagen entre dos experiencias distintas.
+  rail: "curado",
+  soloVerMas: true,
   description:
     "Una bailarina y narradora oral combina charla con demostración en vivo — habla de dónde viene cada gesto de danza tradicional que usa y, a mitad de frase, lo hace con el cuerpo en vez de solo describirlo con palabras.",
   venue: "Casa de la Cultura La Soledad",
