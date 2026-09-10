@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import { FavoritesProvider } from "./context/FavoritesContext";
@@ -57,6 +57,15 @@ export default function App() {
   // revisa los 3 modos "instalada" que puede dar un celular
   // (`standalone`, `fullscreen`, `minimal-ui`) más `navigator.standalone`
   // (el equivalente en iOS/Safari, que no usa `matchMedia` para esto).
+  // 2026-09-08: en Desktop (>=1024px, mismo breakpoint `lg` que ya usa
+  // Descubrir.tsx para la versión de escritorio) esta pantalla de
+  // "Descargar / Ver en línea" no aplica — Desktop es una versión web
+  // tipo landing, no una app para instalar en el celular. Se salta
+  // directo, tanto si ya carga ancho como si se agranda la ventana
+  // mientras la pantalla está mostrándose (para verla en vivo al
+  // redimensionar, sin recargar).
+  const esDesktop = () => window.matchMedia("(min-width: 1024px)").matches;
+
   const [mostrarInstalar, setMostrarInstalar] = useState(() => {
     const yaInstalada =
       window.matchMedia("(display-mode: standalone)").matches ||
@@ -64,8 +73,18 @@ export default function App() {
       window.matchMedia("(display-mode: minimal-ui)").matches ||
       (window.navigator as Navigator & { standalone?: boolean }).standalone ===
         true;
-    return !yaInstalada;
+    return !yaInstalada && !esDesktop();
   });
+
+  useEffect(() => {
+    if (!mostrarInstalar) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const alCambiar = () => {
+      if (mq.matches) setMostrarInstalar(false);
+    };
+    mq.addEventListener("change", alCambiar);
+    return () => mq.removeEventListener("change", alCambiar);
+  }, [mostrarInstalar]);
 
   if (mostrarInstalar) {
     return <InstalarApp onContinuar={() => setMostrarInstalar(false)} />;

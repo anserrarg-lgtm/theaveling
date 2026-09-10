@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import MobileTopBar from "../../components/MobileTopBar";
 import CategoryTabs, { type CategoryTab } from "../../components/CategoryTabs";
+import DesktopNavbar from "../../components/DesktopNavbar";
 import LocationSheet from "../../components/LocationSheet";
 import MobileBottomNav from "../../components/MobileBottomNav";
 import ExperienceCardCurado from "../../components/cards/ExperienceCardCurado";
 import ExperienceCardMasReservados from "../../components/cards/ExperienceCardMasReservados";
 import ExperienceCardDescubrimientos from "../../components/cards/ExperienceCardDescubrimientos";
+import ExperienceCardCuradoDesktop from "../../components/cards/ExperienceCardCuradoDesktop";
+import ExperienceCardGridDesktop from "../../components/cards/ExperienceCardGridDesktop";
 import VerMasCard from "../../components/cards/VerMasCard";
 import FestivalesCarousel from "../../components/FestivalesCarousel";
 import { IconCaretRight } from "../../components/icons";
@@ -108,7 +111,10 @@ export default function Descubrir() {
   const festivalesCiudad = getFestivalesCiudad();
 
   return (
-    <div className="min-h-screen bg-thea-green pb-[72px]">
+    <>
+      {/* Mobile — todo el markup de siempre, sin tocar, solo envuelto en
+          `lg:hidden` para convivir con el bloque Desktop de abajo. */}
+      <div className="min-h-screen bg-thea-green pb-[72px] lg:hidden">
       {/* Top Bar + Category Tabs suspendidas (fixed) arriba, como un solo
           bloque de header — 2026-09-02, a pedido de Ana: Category Tabs es
           navegación que se usa en cualquier momento, no contenido de una
@@ -171,23 +177,28 @@ export default function Descubrir() {
                   ))}
                 </div>
                 {/* Alineado a la derecha (no centrado) y en blanco (no mint) —
-                    2026-09-02, a pedido de Ana. Dos líneas: "+20" grande y en
+                    2026-09-02, a pedido de Ana. Dos líneas: "+10" grande y en
                     light (font-display, mismo criterio que el comentario de
                     index.html — Thin/Light reservado a Display en tamaños
                     grandes) arriba, "Más Curados" chico y subrayado abajo
                     (única señal de que es clickeable, sin flechita).
                     2026-09-08, a pedido de Ana ("resuélvelo" — este botón no
                     llevaba a ningún lado): ahora es un <Link> real a
-                    `/ver-mas/curado`, y el número pasa a ser la cantidad
-                    real de este riel (`curado.length`, hoy 3) en vez del
-                    "+10" inventado — mismo criterio aplicado antes a "Más
-                    reservados"/Descubrimientos. */}
+                    `/ver-mas/curado`.
+                    2026-09-10: se había cambiado el "+10" fijo por la
+                    cantidad real del riel (`curado.length`, hoy 3 —
+                    quedaba en "+3") sin que Ana lo pidiera — revertido a
+                    "+10" fijo, como estaba. Ana señaló que si acá dice
+                    "+10", la pantalla de Ver más de Curados debería tener
+                    de verdad 10 experiencias — hoy solo hay 3 reales
+                    (`curado.length`), así que el número queda fijo por
+                    ahora hasta que se sumen más piezas curadas reales. */}
                 <Link
                   to="/ver-mas/curado"
                   className="flex flex-col items-end gap-0 py-1 pr-5"
                 >
                   <span className="font-display font-light text-2xl leading-none text-white-100">
-                    +{curado.length}
+                    +10
                   </span>
                   <span className="font-body font-semibold text-[11px] text-white-100 underline">
                     Más Curados
@@ -421,6 +432,166 @@ export default function Descubrir() {
       <div className="fixed bottom-0 left-0 right-0">
         <MobileBottomNav />
       </div>
-    </div>
+      </div>
+
+      {/* Desktop — 2026-09-08, primera pantalla de Theaveling Desktop
+          ("empezamos con lo mismo que empezamos mobile thea", a pedido
+          de Ana): nodo real de Figma `categoría-theaveling-cards
+          desktop` (`1405:90`), calcado igual que se hizo con
+          `home-mobile` para armar todo lo de arriba. Convive en el
+          MISMO componente y la MISMA ruta que mobile (`hidden lg:block`
+          vs `lg:hidden` arriba) — mismo criterio acordado con Ana de
+          "un solo proyecto, no una carpeta aparte": los datos
+          (`curado`/`masReservados`/`descubrimientos`) y el estado
+          (`activeCategory`) ya calculados arriba se reusan tal cual, sin
+          duplicar lógica.
+
+          El nodo de Figma solo cubre la vista "Todo" (su propio texto
+          interno dice "Categorías Todo - Desktop") — Escena/Cultura en
+          Desktop todavía no tienen diseño real que calcar, así que por
+          ahora muestran un aviso honesto en vez de inventar un layout
+          sin spec (mismo criterio de todo este proyecto: no inventar
+          sin base real). Los tabs de `DesktopNavbar` ya cambian
+          `activeCategory` de verdad — cuando esas 2 vistas tengan diseño,
+          esta sección las arma sin tocar el navbar. */}
+      {/* 2026-09-08, prueba a pedido de Ana: fondo del Desktop pasa de
+          `thea-green` (#112c2c) al verde más oscuro. Se usa
+          `bg-[rgb(1,20,20)]` (sólido) en vez de `bg-thea-deep` — mismo
+          criterio que Reservas.tsx/Perfil.tsx/Busqueda.tsx: thea-deep es
+          95% opaco (pensado para ir sobre foto), acá no hay foto detrás
+          así que va sólido. */}
+      <div className="hidden min-h-screen bg-[rgb(1,20,20)] lg:block">
+        <DesktopNavbar active={activeCategory} onChange={setActiveCategory} />
+
+        {activeCategory === "Todo" && (
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-16 px-20 py-20">
+            <section className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <span className="font-body text-[13px] font-semibold uppercase tracking-[2px] text-white-100">
+                  Selección exclusiva
+                </span>
+                {/* 2026-09-10: se probó poner "Theaveling" en Sansita/
+                    thea-red acá (a partir de un comentario de Ana sobre
+                    Sansita) pero Ana aclaró que ESTE título va normal —
+                    vuelve a font-display parejo, sin tratamiento de
+                    wordmark. */}
+                <h2 className="font-display text-5xl font-thin tracking-[-1px] text-white-100">
+                  Curado por Theaveling
+                </h2>
+                <p
+                  className="max-w-[800px] font-body text-base"
+                  style={{ color: "rgba(251,251,251,0.7)" }}
+                >
+                  Nuestra selección de experiencias alternativas más
+                  rigurosa. Encuentros íntimos, estéticas radicales y
+                  manifestaciones artísticas al margen del circuito
+                  comercial habitual.
+                </p>
+              </div>
+              <div className="h-px w-full bg-white-12" />
+              <div className="flex flex-col gap-6">
+                {curado.map((exp) => (
+                  <Link key={exp.id} to={`/experiencia/${exp.id}`}>
+                    <ExperienceCardCuradoDesktop
+                      id={exp.id}
+                      category={exp.category}
+                      title={exp.title}
+                      description={exp.description}
+                      imageUrl={exp.imageUrl}
+                      imagePosition={exp.imagePosition}
+                    />
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <h2 className="font-display text-5xl font-thin tracking-[-1px] text-white-100">
+                  Más reservados
+                </h2>
+                <p
+                  className="max-w-[800px] font-body text-base"
+                  style={{ color: "rgba(251,251,251,0.7)" }}
+                >
+                  Experiencias exclusivas para quienes buscan lo discreto
+                  y singular. Espacios reservados, acceso limitado y
+                  propuestas culturales que solo se descubren por
+                  invitación.
+                </p>
+              </div>
+              <div className="h-px w-full bg-white-12" />
+              <div className="grid grid-cols-3 gap-8">
+                {masReservados.map((exp) => (
+                  <Link key={exp.id} to={`/experiencia/${exp.id}`}>
+                    <ExperienceCardGridDesktop
+                      id={exp.id}
+                      tag={exp.tag}
+                      title={exp.title}
+                      description={exp.description}
+                      venue={exp.venue}
+                      city={exp.city}
+                      date={exp.date}
+                      rating={exp.rating}
+                      price={exp.price}
+                      imageUrl={exp.imageUrl}
+                      mostrarDesde={exp.mostrarDesde}
+                      size="reservados"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <h2 className="font-display text-5xl font-thin tracking-[-1px] text-white-100">
+                  Descubrimientos
+                </h2>
+                <p
+                  className="max-w-[800px] font-body text-base"
+                  style={{ color: "rgba(251,251,251,0.7)" }}
+                >
+                  Propuestas que acaban de llegar a Theaveling:
+                  experiencias, espacios y artistas para descubrir.
+                </p>
+              </div>
+              <div className="h-px w-full bg-white-12" />
+              <div className="grid grid-cols-3 gap-8">
+                {descubrimientos.map((exp) => (
+                  <Link key={exp.id} to={`/experiencia/${exp.id}`}>
+                    <ExperienceCardGridDesktop
+                      id={exp.id}
+                      tag={exp.tag}
+                      title={exp.title}
+                      description={exp.description}
+                      venue={exp.venue}
+                      city={exp.city}
+                      date={exp.date}
+                      rating={exp.rating}
+                      price={exp.price}
+                      imageUrl={exp.imageUrl}
+                      mostrarDesde={exp.mostrarDesde}
+                      size="descubrimientos"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
+
+        {(activeCategory === "Escena" || activeCategory === "Cultura") && (
+          <div className="flex flex-col items-center gap-2 px-20 py-24 text-center">
+            <p className="font-display text-2xl text-white-100">
+              Todavía estamos construyendo esta sección para Desktop
+            </p>
+            <p className="font-body text-sm text-white-60">
+              Por ahora podés verla completa en la versión mobile.
+            </p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

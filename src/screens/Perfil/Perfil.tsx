@@ -19,6 +19,13 @@ import {
 import { useFavorites } from "../../context/FavoritesContext";
 import { useAuth } from "../../context/AuthContext";
 import { getExperienceById } from "../../data/experiences";
+import {
+  IDIOMAS,
+  MONEDAS,
+  IDIOMA_KEY,
+  MONEDA_KEY,
+  leerPreferencia,
+} from "../../data/preferencias";
 
 /*
  * Idioma / Moneda — 2026-09-04, a pedido de Ana: "idioma y moneda deben
@@ -28,27 +35,12 @@ import { getExperienceById } from "../../data/experiences";
  * (mismo patrón que "recientes" en LocationSheet.tsx), pero no traduce
  * la interfaz ni convierte precios todavía (ver nota completa en
  * PreferenceSheet.tsx sobre por qué).
+ *
+ * 2026-09-09: `IDIOMAS`/`MONEDAS`/las keys/`leerPreferencia` se movieron
+ * a `data/preferencias.ts` — ahora también los usa `IdiomaMonedaModal.tsx`
+ * (ícono nuevo en `DesktopNavbar`), mismo criterio de "una sola fuente"
+ * que el resto del proyecto. Nada de la lógica de acá cambió.
  */
-const IDIOMAS = [
-  { value: "es", label: "Español" },
-  { value: "en", label: "English" },
-];
-const MONEDAS = [
-  { value: "COP", label: "COP $ — Peso colombiano" },
-  { value: "USD", label: "USD $ — Dólar estadounidense" },
-  { value: "EUR", label: "EUR € — Euro" },
-];
-
-const IDIOMA_KEY = "theaveling:idioma";
-const MONEDA_KEY = "theaveling:moneda";
-
-function leerPreferencia(key: string, porDefecto: string): string {
-  try {
-    return window.localStorage.getItem(key) ?? porDefecto;
-  } catch {
-    return porDefecto;
-  }
-}
 
 /*
  * Perfil — 2026-09-03, reconstruido a partir del nodo REAL de Figma

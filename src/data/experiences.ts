@@ -6123,25 +6123,23 @@ export function getExperiencesByCategories(
  * VerMas.tsx, que recibe un `slug` por ruta (`/ver-mas/:slug`) y necesita
  * resolver a qué contenido corresponde sin que Descubrir.tsx y VerMas.tsx
  * dupliquen la misma lógica de filtrado cada uno por su lado. Cubre los
- * 2 rieles fijos de la pestaña "Todo" (identificados por su propio
+ * 3 rieles fijos de la pestaña "Todo" (identificados por su propio
  * `rail`, ver `getExperiencesByRail` arriba) y las 6 secciones de
  * Escena/Cultura (identificadas por `slug`, ver `SeccionCategoria`).
- * `cardVariant` le dice a VerMas.tsx qué card reusar — mismo criterio
- * "con lo que hay": ninguna card ni grilla nueva, se reusa la MISMA
- * card que ya se ve en el riel de origen (`ExperienceCardMasReservados`
- * para "Más reservados", `ExperienceCardDescubrimientos` para el resto).
  *
- * 2026-09-08, a pedido de Ana ("resuélvelo" — "Más Curados" y
- * "Festivales → Próximos" eran botones que no llevaban a ningún lado):
- * se suman los slugs "curado" y "festivales-ciudad", mismo criterio de
- * reusar la card ya existente — acá `ExperienceCardCurado`, la misma
- * que ya usan el riel de Curado y `FestivalesCarousel`. `cardVariant`
- * gana un tercer valor, "curado".
+ * 2026-09-10, corrección real a pedido de Ana ("la pantalla de ver mas
+ * es igual para todas las experiencias" / "esa card era específica"):
+ * antes existía un campo `cardVariant` que le decía a VerMas.tsx cuál de
+ * las 3 cards de riel reusar según la sección de origen — resultó ser un
+ * error: la pantalla "Ver más" tiene su PROPIA card real en Figma
+ * ("Experience Card — Contenido completo de sección", nodo `1704:389`),
+ * la MISMA para cualquier sección, no una distinta por origen. Se saca
+ * `cardVariant` — ya no hace falta, VerMas.tsx usa una sola card para
+ * todo.
  */
 export interface VerMasContent {
   titulo: string;
   experiencias: Experience[];
-  cardVariant: "reservados" | "descubrimientos" | "curado";
 }
 
 const SECCIONES_TODAS: SeccionCategoria[] = [...SECCIONES_ESCENA, ...SECCIONES_CULTURA];
@@ -6152,28 +6150,24 @@ export function getVerMasContent(slug: string | undefined): VerMasContent | unde
     return {
       titulo: "Más reservados",
       experiencias: getExperiencesByRail("mas-reservados"),
-      cardVariant: "reservados",
     };
   }
   if (slug === "descubrimientos") {
     return {
       titulo: "Descubrimientos",
       experiencias: getExperiencesByRail("descubrimientos"),
-      cardVariant: "descubrimientos",
     };
   }
   if (slug === "curado") {
     return {
       titulo: "Curados por Theaveling",
       experiencias: getExperiencesByRail("curado"),
-      cardVariant: "curado",
     };
   }
   if (slug === "festivales-ciudad") {
     return {
       titulo: "Festivales",
       experiencias: getFestivalesCiudad(),
-      cardVariant: "curado",
     };
   }
   const seccion = SECCIONES_TODAS.find((s) => s.slug === slug);
@@ -6181,7 +6175,6 @@ export function getVerMasContent(slug: string | undefined): VerMasContent | unde
   return {
     titulo: seccion.titulo,
     experiencias: getExperiencesByCategories(seccion.categorias),
-    cardVariant: "descubrimientos",
   };
 }
 
