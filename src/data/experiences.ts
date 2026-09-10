@@ -2488,8 +2488,13 @@ export const experiences: Experience[] = [
   {
     id: "senal-en-bucle",
     title: "Señal en Bucle",
-    tag: "Performance New Media",
-    category: "Performance",
+    // 2026-09-10, a pedido de Ana ("señal en bucle, pásala a cine"):
+    // cambia de Performance a Cine — el tag pasa de "Performance New
+    // Media" a "Cine expandido" (expanded cinema: proyección, video y
+    // sonido en vivo integrados) para que coincida con la categoría
+    // nueva, no se deja el tag viejo sin sentido.
+    tag: "Cine expandido",
+    category: "Cine",
     description:
       "Integra tecnologías digitales, proyecciones interactivas, video y sonido en tiempo real: los movimientos del performer alteran en vivo las imágenes proyectadas a su alrededor.",
     venue: "Laboratorio Arte y Máquina",
@@ -3857,7 +3862,9 @@ export const experiences: Experience[] = [
     title: "Cuerpos Caídos: Intervención Urbana",
     tag: "Performance urbano",
     category: "Performance",
-    ocultoEnCategoria: true,
+    // 2026-09-10, a pedido de Ana ("señal en bucle, pásala a cine"): esa
+    // pieza salió de Performance, dejando el scroll de Home en 5 en vez
+    // de 6 — esta pasa a visible para volver a completar las 6.
     description:
       "Un grupo grande de personas se deja caer al piso de una plaza al mismo tiempo, inmóviles, mientras la ciudad sigue caminando alrededor sin saber bien cómo reaccionar.",
     venue: "Plaza de Lourdes",
@@ -5045,13 +5052,12 @@ export const experiences: Experience[] = [
   title: "Vestuario de Estrellas",
   tag: "Musical de culto",
   category: "Teatro",
-  ocultoEnCategoria: true,
-  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
-  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
-  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
-  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
-  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
-  // usa en Más reservados/Descubrimientos/Curado.
+  // 2026-09-10, a pedido de Ana ("te dije que quería 8 en Escena
+  // teatral"): esta pieza pasa de "oculta" a visible en el scroll de
+  // Home de Teatro — con esta y "Los Sombreros del Río" el scroll llega
+  // a 8. Sigue usando foto de la carpeta "imagenes aleatorias para ver
+  // mas" (ver `soloVerMas` abajo, que no afecta este scroll — ese campo
+  // es del riel de "Todo", no de Escena/Cultura).
   soloVerMas: true,
   description:
     "Revival casero de un musical de ciencia ficción colombiano de los 80 que casi nadie recuerda — vestuario de lentejuelas hecho a mano, coreografía de salón y un synth en vivo sonando desde bambalinas.",
@@ -5120,13 +5126,10 @@ export const experiences: Experience[] = [
   title: "Los Sombreros del Río",
   tag: "Drama rural",
   category: "Teatro",
-  ocultoEnCategoria: true,
-  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
-  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
-  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
-  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
-  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
-  // usa en Más reservados/Descubrimientos/Curado.
+  // 2026-09-10, a pedido de Ana ("te dije que quería 8 en Escena
+  // teatral"): esta pieza pasa de "oculta" a visible en el scroll de
+  // Home de Teatro, junto con "Vestuario de Estrellas" — con esas 2 el
+  // scroll llega a 8.
   soloVerMas: true,
   description:
     "Drama de época sobre una familia campesina que decide, de un día para otro, dejarlo todo — dos hombres de sombrero sostienen a una mujer que se derrumba en el umbral de la única puerta que queda en pie.",
@@ -5885,12 +5888,11 @@ export const experiences: Experience[] = [
   title: "Maratón Fan: Cortos y Cosplay",
   tag: "Cine local (fandom)",
   category: "Cine local",
-  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
-  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
-  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
-  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
-  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
-  // usa en Más reservados/Descubrimientos/Curado.
+  // 2026-09-10, a pedido de Ana ("señal en bucle, pásala a cine"): esa
+  // pieza entró a Cine y ya completaba las 8 del scroll de Home sin
+  // ayuda — esta vuelve a quedar exclusiva de Ver Más (como estaba
+  // antes de promoverla) para no pasarse de 8.
+  ocultoEnCategoria: true,
   soloVerMas: true,
   description:
     "Maratón de cortometrajes hechos por fans bogotanos, con concurso de disfraces entre función y función y el público grabando todo con el celular en alto — más fiesta de fandom que sala de cine tradicional.",

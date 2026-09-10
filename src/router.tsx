@@ -12,6 +12,7 @@ import DatosDeCuenta from "./screens/Perfil/DatosDeCuenta";
 import Ayuda from "./screens/Perfil/Ayuda";
 import Busqueda from "./screens/Busqueda/Busqueda";
 import VerMas from "./screens/VerMas/VerMas";
+import { DescubrirTabProvider } from "./context/DescubrirTabContext";
 
 /*
  * Layout raíz — 2026-09-03, a pedido de Ana: al entrar a Detalle (o
@@ -26,10 +27,10 @@ import VerMas from "./screens/VerMas/VerMas";
  */
 function Layout() {
   return (
-    <>
+    <DescubrirTabProvider>
       <ScrollRestoration />
       <Outlet />
-    </>
+    </DescubrirTabProvider>
   );
 }
 

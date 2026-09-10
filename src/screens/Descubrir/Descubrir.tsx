@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import MobileTopBar from "../../components/MobileTopBar";
-import CategoryTabs, { type CategoryTab } from "../../components/CategoryTabs";
+import CategoryTabs from "../../components/CategoryTabs";
+import { useDescubrirTab } from "../../context/DescubrirTabContext";
 import DesktopNavbar from "../../components/DesktopNavbar";
 import LocationSheet from "../../components/LocationSheet";
 import MobileBottomNav from "../../components/MobileBottomNav";
@@ -61,12 +62,19 @@ import {
 // DetalleExperiencia vuelve con `navigate(-1)` (ver ese archivo) — eso
 // desmonta Descubrir, así que al volver se creaba una instancia NUEVA
 // del componente, siempre arrancando en "Todo" sin importar desde qué
-// tab se había entrado. Se guarda la pestaña activa en localStorage
-// (mismo patrón que CiudadContext/FavoritesContext/ReservationsContext)
-// y se lee de ahí al montar, así el back respeta la tab de antes sin
-// importar cómo se vuelva (browser back, `navigate(-1)`, o un link
-// directo a "/").
-const TAB_STORAGE_KEY = "theaveling:descubrir-tab";
+// tab se había entrado.
+//
+// 2026-09-10, corrección real a pedido de Ana ("porque la app se abre en
+// Escena o Cultura?? se tiene que abrir en Todo"): la solución de acá
+// arriba pasó por `localStorage`, que además de sobrevivir a la
+// navegación interna (lo que se necesitaba) también sobrevive a un
+// reload/apertura de cero de la app — con eso, la app arrancaba en la
+// última pestaña usada en cualquier visita anterior, no en "Todo". Se
+// reemplaza por `DescubrirTabContext` (ver ese archivo): vive en
+// `Layout`, que no se desmonta al navegar a Detalle y volver, así que
+// sigue resolviendo el caso original — pero si se recarga la página, todo
+// React arranca de cero y el valor por defecto ("Todo") gana, sin
+// depender de nada guardado.
 
 // 2026-09-10, a pedido de Ana ("en escena teatral tienes todo el
 // contenido [en el scroll], y cuando uno va a la pantalla de ver más,
@@ -76,42 +84,18 @@ const TAB_STORAGE_KEY = "theaveling:descubrir-tab";
 // SECCIONES_CULTURA, ver data/experiences.ts) mostraba en el riel de
 // Home la lista COMPLETA sin recortar, y `getVerMasContent` resuelve esa
 // misma sección con el mismo filtro sin excluir nada — dos pantallas
-// mostrando exactamente lo mismo. A diferencia del primer intento (cortar
-// a un número fijo tipo "6"), acá se usa el MISMO criterio real que ya
-// separa Más reservados/Descubrimientos/Curado: las piezas que usan foto
-// de la carpeta "imagenes aleatorias para ver mas" quedan marcadas
-// `soloVerMas: true` (ver esa nota en cada una, data/experiences.ts) y
-// solo se ven en el "Ver más" de su propia sección — el riel de Home
-// muestra únicamente las piezas "originales" de cada sección (las que ya
-// existían antes de esa carpeta), que son las 4 a 6 de siempre por
-// sección. Ver más sigue resolviendo la lista completa real (originales +
-// soloVerMas) tal cual ya lo hacía.
-
-function leerTabGuardada(): CategoryTab {
-  try {
-    const guardada = window.localStorage.getItem(TAB_STORAGE_KEY);
-    if (guardada === "Todo" || guardada === "Escena" || guardada === "Cultura") {
-      return guardada;
-    }
-  } catch {
-    // localStorage puede fallar (modo privado, cuota) — cae a "Todo".
-  }
-  return "Todo";
-}
+// mostrando exactamente lo mismo. Cada pieza que debe quedar exclusiva
+// del "Ver más" de su sección queda marcada `ocultoEnCategoria: true`
+// (ver la nota grande de ese campo en data/experiences.ts — es un campo
+// aparte de `soloVerMas`, que es del riel de "Todo") y el riel de Home
+// muestra el resto. El reparto de cuántas quedan en el scroll vs.
+// exclusivas de Ver Más es distinto por sección (ver esa misma nota),
+// no un número fijo igual para todas. Ver más sigue resolviendo la lista
+// completa real (todas, sin filtrar) tal cual ya lo hacía.
 
 export default function Descubrir() {
-  const [activeCategory, setActiveCategoryState] =
-    useState<CategoryTab>(leerTabGuardada);
+  const { activeCategory, setActiveCategory } = useDescubrirTab();
   const [locationSheetOpen, setLocationSheetOpen] = useState(false);
-
-  function setActiveCategory(tab: CategoryTab) {
-    setActiveCategoryState(tab);
-    try {
-      window.localStorage.setItem(TAB_STORAGE_KEY, tab);
-    } catch {
-      // Igual que arriba: si falla, la tab solo no persiste, no rompe nada.
-    }
-  }
 
   // 2026-09-10, a pedido de Ana: mismo criterio que masReservados/
   // descubrimientos de abajo — Curado también suma piezas `soloVerMas`
@@ -235,12 +219,20 @@ export default function Descubrir() {
               </section>
 
               <section className="flex flex-col gap-4">
-                <div className="flex items-center justify-between px-5">
+                {/* 2026-09-10, a pedido de Ana ("la flecha de cada sección
+                    no sirve, tiene que dirigir a la pantalla de ver
+                    más"): antes era puramente decorativa — todo el
+                    encabezado pasa a ser un <Link> real a la misma ruta
+                    que ya usa la card "Ver más" del final del riel. */}
+                <Link
+                  to="/ver-mas/mas-reservados"
+                  className="flex items-center justify-between px-5"
+                >
                   <h2 className="font-display text-lg text-white-100">
                     Más reservados
                   </h2>
                   <IconCaretRight className="text-white-60" />
-                </div>
+                </Link>
                 <div className="flex gap-3 overflow-x-auto px-5 pb-1 scrollbar-none">
                   {masReservados.map((exp) => (
                     <Link key={exp.id} to={`/experiencia/${exp.id}`}>
@@ -279,12 +271,17 @@ export default function Descubrir() {
               </section>
 
               <section className="flex flex-col gap-4">
-                <div className="flex items-center justify-between px-5">
+                {/* 2026-09-10, mismo criterio que "Más reservados" arriba:
+                    encabezado clickeable a `/ver-mas/descubrimientos`. */}
+                <Link
+                  to="/ver-mas/descubrimientos"
+                  className="flex items-center justify-between px-5"
+                >
                   <h2 className="font-display text-lg text-white-100">
                     Descubrimientos
                   </h2>
                   <IconCaretRight className="text-white-60" />
-                </div>
+                </Link>
                 <div className="flex gap-3 overflow-x-auto px-5 pb-1 scrollbar-none">
                   {descubrimientos.map((exp) => (
                     <Link key={exp.id} to={`/experiencia/${exp.id}`}>
@@ -422,14 +419,28 @@ export default function Descubrir() {
                 // `/ver-mas/${seccion.slug}` — no es un número fijo igual
                 // para todas.
                 const itemsVisibles = items.filter((exp) => !exp.ocultoEnCategoria);
+                // 2026-09-10, corrección a pedido de Ana ("si le agregaste
+                // a Escena Teatro 6, tiene que decir 6, no doce"): el
+                // número de la card no es el total de la sección
+                // (`items.length`) sino la cantidad AGREGADA que no se ve
+                // en el scroll — mismo criterio que "+10" de Curado (ese
+                // número tampoco es el total de 13, es lo que se suma a
+                // lo que ya está en el riel).
+                const cantidadAdicional = items.length - itemsVisibles.length;
                 return (
                   <section key={seccion.titulo} className="flex flex-col gap-4">
-                    <div className="flex items-center justify-between px-5">
+                    {/* 2026-09-10, a pedido de Ana ("la flecha de cada
+                        sección no sirve, tiene que dirigir a la pantalla
+                        de ver más"): antes era decorativa. */}
+                    <Link
+                      to={`/ver-mas/${seccion.slug}`}
+                      className="flex items-center justify-between px-5"
+                    >
                       <h2 className="font-display text-lg text-white-100">
                         {seccion.titulo}
                       </h2>
                       <IconCaretRight className="text-white-60" />
-                    </div>
+                    </Link>
                     <div className="flex gap-3 overflow-x-auto px-5 pb-1 scrollbar-none">
                       {itemsVisibles.map((exp) => (
                         <Link key={exp.id} to={`/experiencia/${exp.id}`}>
@@ -444,20 +455,20 @@ export default function Descubrir() {
                           />
                         </Link>
                       ))}
-                      {/* 2026-09-08, a pedido de Ana: ahora lleva de
-                          verdad a `/ver-mas/:slug` (ver VerMas.tsx), y el
-                          número pasa a ser la cantidad real de la
-                          sección (`items.length`) en vez del
-                          `verMasCount` inventado — ver nota grande en
-                          `SeccionCategoria`, data/experiences.ts. */}
-                      <Link to={`/ver-mas/${seccion.slug}`}>
-                        <VerMasCard
-                          width={300}
-                          height={310}
-                          count={items.length}
-                          imageUrl={seccion.verMasImageUrl}
-                        />
-                      </Link>
+                      {/* 2026-09-08, a pedido de Ana: lleva de verdad a
+                          `/ver-mas/:slug` (ver VerMas.tsx). El número es
+                          `cantidadAdicional` (ver nota arriba), no el
+                          total de la sección. */}
+                      {cantidadAdicional > 0 && (
+                        <Link to={`/ver-mas/${seccion.slug}`}>
+                          <VerMasCard
+                            width={300}
+                            height={310}
+                            count={cantidadAdicional}
+                            imageUrl={seccion.verMasImageUrl}
+                          />
+                        </Link>
+                      )}
                     </div>
                   </section>
                 );
