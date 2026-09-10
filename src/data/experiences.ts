@@ -2488,13 +2488,11 @@ export const experiences: Experience[] = [
   {
     id: "senal-en-bucle",
     title: "Señal en Bucle",
-    // 2026-09-10, a pedido de Ana ("señal en bucle, pásala a cine"):
-    // cambia de Performance a Cine — el tag pasa de "Performance New
-    // Media" a "Cine expandido" (expanded cinema: proyección, video y
-    // sonido en vivo integrados) para que coincida con la categoría
-    // nueva, no se deja el tag viejo sin sentido.
-    tag: "Cine expandido",
-    category: "Cine",
+    // 2026-09-10, a pedido de Ana: pasó de Performance a Cine y minutos
+    // después ("devuelve señal bucle a performance, perdón") vuelve a
+    // Performance — su categoría e tag originales.
+    tag: "Performance New Media",
+    category: "Performance",
     description:
       "Integra tecnologías digitales, proyecciones interactivas, video y sonido en tiempo real: los movimientos del performer alteran en vivo las imágenes proyectadas a su alrededor.",
     venue: "Laboratorio Arte y Máquina",
@@ -3862,9 +3860,11 @@ export const experiences: Experience[] = [
     title: "Cuerpos Caídos: Intervención Urbana",
     tag: "Performance urbano",
     category: "Performance",
-    // 2026-09-10, a pedido de Ana ("señal en bucle, pásala a cine"): esa
-    // pieza salió de Performance, dejando el scroll de Home en 5 en vez
-    // de 6 — esta pasa a visible para volver a completar las 6.
+    // 2026-09-10: promovida y luego revertida en la misma sesión — Ana
+    // pidió mover "Señal en Bucle" a Cine (dejando el scroll en 5) y
+    // minutos después pidió devolverla a Performance ("perdón"), así que
+    // esta vuelve a quedar oculta como estaba antes de ese vaivén.
+    ocultoEnCategoria: true,
     description:
       "Un grupo grande de personas se deja caer al piso de una plaza al mismo tiempo, inmóviles, mientras la ciudad sigue caminando alrededor sin saber bien cómo reaccionar.",
     venue: "Plaza de Lourdes",
@@ -4052,11 +4052,17 @@ export const experiences: Experience[] = [
   {
     id: "la-sala-vacia",
     title: "La Sala Vacía: Ciclo de Cine Clásico",
-    tag: "Cine clásico",
-    category: "Cine",
+    // 2026-09-10, a pedido de Ana ("la sala vacía también pásala a
+    // música"): categoría pasa de Cine a Música. La descripción original
+    // no tenía nada musical (un actor hablándole a la sala vacía) —
+    // ajustado a un músico ensayando, para que la pieza concuerde de
+    // verdad con la categoría nueva en vez de quedar con un texto que no
+    // tiene sentido ahí.
+    tag: "Música en vivo previa a función",
+    category: "Música",
     ocultoEnCategoria: true,
     description:
-      "Antes de cada función del ciclo, un actor sale a escena y le habla a la sala todavía vacía, como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
+      "Antes de cada función del ciclo, un músico sale a tocar unas notas a la sala todavía vacía, como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
     venue: "Teatro Colonial",
     city: "Bogotá",
     venueCategoria: "Sala de cine",
@@ -4099,23 +4105,29 @@ export const experiences: Experience[] = [
   },
   {
     id: "pantalla-de-esquina",
-    title: "Pantalla de Esquina: Noche de Cine Barrial",
-    tag: "Cine de barrio",
-    category: "Cine local",
+    // 2026-09-10, a pedido de Ana ("pantalla de esquina pásala a escena
+    // teatral" / "no, tiene que ser solo de teatro"): primer intento
+    // (agregar una escena corta ANTES de seguir proyectando cine) no
+    // alcanzaba — quedaba mitad cine, mitad teatro. Se reescribe la
+    // pieza completa (título, venue, reseñas incluidas) para que sea
+    // teatro de punta a punta, sin proyección de por medio.
+    title: "Función de Esquina: Teatro de Barrio",
+    tag: "Función teatral de barrio",
+    category: "Teatro",
     ocultoEnCategoria: true,
     description:
-      "Un bar de esquina cuelga una sábana blanca contra la pared del fondo y proyecta cine local una vez al mes, entre las mesas normales de cualquier noche de viernes.",
-    venue: "Bar Proyector",
+      "Un bar de esquina corre las mesas del fondo un viernes al mes para que un grupo de actores del barrio monte una escena corta e improvisada, a la altura de los ojos de quien sigue tomando cerveza al lado.",
+    venue: "Bar Escena",
     city: "Bogotá",
-    venueCategoria: "Bar-cine de barrio",
+    venueCategoria: "Bar-teatro de barrio",
     venueBarrio: "Restrepo",
     date: "Sábado 5 dic · 21:00",
     price: "$15.000 COP",
-    duracion: "Programación de 70 minutos, sin descanso entre cortos.",
+    duracion: "Función de 70 minutos, sin intermedio.",
     restriccionEdad: "+18 años — venue de bar, se sirve licor durante la función.",
     direccionCompleta: "Calle 19 Sur #16-04, Bogotá",
     curiosidadDelLugar:
-      "La sábana que hace de pantalla es la misma desde que empezó la función, hace tres años — tiene manchas de proyector visibles que ya nadie se molesta en disimular.",
+      "Las mesas que se corren para hacer sitio a la función vuelven exactamente al mismo lugar apenas termina — nadie usa cinta ni marcas en el piso, el bar vuelve a ser bar en minutos.",
     contextoBarrio: "Barrio comercial y residencial, ambiente de barrio tradicional con mucha vida nocturna de fin de semana.",
     rating: "8.4",
     ratingCount: 22,
@@ -4123,47 +4135,58 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/asif-ul-haque-bxPEvaPudOA-unsplash.jpg",
     porQueDescubrir:
-      "La pantalla es una sábana con manchas de tres años de uso, colgada contra la pared del fondo de un bar normal de barrio. Theaveling la eligió por no disfrazar de cine lo que en realidad es un bar que decidió proyectar películas.",
+      "No hay escenario, ni telón, ni luces especiales — los actores actúan al mismo nivel que el público, entre las mesas normales de cualquier otra noche. Theaveling la eligió por no disfrazar de teatro formal lo que en realidad es un bar de barrio que decidió montar una escena una vez al mes.",
     ficha: {
       presentaciones: "función mensual, desde 2023",
       festivales: "sin festivales todavía",
       premios: "sin premios",
-      origen: "programación curada de cortometrajes bogotanos",
+      origen: "programación curada de teatro comunitario bogotano",
       idioma: "Español",
     },
     artista: {
-      nombre: "Bar Proyector — Curaduría",
+      nombre: "Bar Escena — Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos la curaduría de Bar Proyector. No pretendemos ser un cine — somos un bar que un viernes al mes cuelga una sábana y proyecta lo que hacen los realizadores del barrio.",
+      saludo: "Somos la curaduría de Bar Escena. No pretendemos ser una sala de teatro — somos un bar que un viernes al mes corre las mesas y monta una escena.",
     },
     resenas: [
-      { nombre: "Mariana K.", rating: "★ 8.6", fecha: "Hace 6 días", texto: "Es un bar normal con proyección encima, no esperes silencio de sala de cine." },
-      { nombre: "David A.", rating: "★ 8.1", fecha: "Hace 2 semanas", texto: "Fui solo y nadie se extraña, la mitad de la gente está ahí solo por el bar y descubre el cine de casualidad." },
-      { nombre: "Paula H.", rating: "★ 8.5", fecha: "Hace 1 mes", texto: "La calidad de sonido no es la de un cine, pero el ambiente compensa." },
-      { nombre: "Santiago P.", rating: "★ 8.3", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Noche de Cortos: Ciudad Invisible a 5 Km — otra muestra de cine hiperlocal, en formato más formal." },
+      { nombre: "Mariana K.", rating: "★ 8.6", fecha: "Hace 6 días", texto: "Es un bar normal con una escena de teatro encima, no esperes silencio de sala formal." },
+      { nombre: "David A.", rating: "★ 8.1", fecha: "Hace 2 semanas", texto: "Fui solo y nadie se extraña, la mitad de la gente está ahí solo por el bar y descubre el teatro de casualidad." },
+      { nombre: "Paula H.", rating: "★ 8.5", fecha: "Hace 1 mes", texto: "La producción no es la de un teatro grande, pero el ambiente compensa." },
+      { nombre: "Santiago P.", rating: "★ 8.3", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó El Rostro Prestado: Teatro de Máscara — otra función que tampoco necesita un escenario formal para funcionar." },
     ],
   },
   {
     id: "sabanas-cineclub",
-    title: "Sábanas: Cineclub de Cine Analógico",
-    tag: "Cineclub experimental",
-    category: "Cineclub",
+    title: "Sábanas de Luz Quemada",
+    // 2026-09-10, a pedido de Ana ("sábanas cineclub pásala a
+    // performance, obvio que concuerde la experiencia"): ya tenía el
+    // elemento real (figuras que se mueven en vivo entre las
+    // proyecciones) — encaja en Performance sin inventar nada nuevo,
+    // solo cambia la categoría y el tag.
+    // 2026-09-10, segunda corrección de Ana ("no puede decir cineclub"):
+    // reescritura completa — se cambia el concepto de cine analógico
+    // proyectado a luz/diapositivas analógicas proyectadas (arte
+    // lumínico), mismo espíritu de deterioro e imagen encontrada, sin
+    // ninguna palabra de cine/cineclub/película. Mismo tratamiento ya
+    // aplicado a "pantalla-de-esquina".
+    tag: "Performance con luz analógica",
+    category: "Performance",
     ocultoEnCategoria: true,
     description:
-      "Figuras cubiertas por completo con telas se mueven despacio entre proyecciones de películas rayadas y quemadas por el tiempo, borrando la línea entre lo que se proyecta y quién lo mira.",
-    venue: "Cineclub Nictálope",
+      "Figuras cubiertas por completo con telas se mueven despacio entre franjas de luz proyectada, rayadas y quemadas por el tiempo, borrando la línea entre la imagen y quien la habita.",
+    venue: "Nictálope",
     city: "Bogotá",
-    venueCategoria: "Cineclub",
+    venueCategoria: "Sala de performance lumínica",
     venueBarrio: "Santa Fe",
     date: "Jueves 10 dic · 22:00",
     price: "$25.000 COP",
     asientoAsignado: true,
-    duracion: "65 minutos de proyección con intervención en vivo, sin intermedio.",
+    duracion: "65 minutos de performance lumínica con intervención en vivo, sin intermedio.",
     restriccionEdad: "+18 años — función nocturna en zona de bares.",
     direccionCompleta: "Carrera 15 #33-08, Bogotá",
     curiosidadDelLugar:
-      "Cineclub Nictálope solo proyecta material encontrado —cintas compradas en mercados de pulgas, rollos donados sin dueño conocido— nunca cine restaurado ni digitalizado en alta calidad.",
+      "Nictálope solo proyecta material encontrado —placas y diapositivas compradas en mercados de pulgas, cajas donadas sin dueño conocido— nunca imagen restaurada ni digitalizada en alta calidad.",
     contextoBarrio: "Zona de vida nocturna intensa, mejor moverse acompañado después de la función.",
     rating: "9.0",
     ratingCount: 39,
@@ -4171,25 +4194,25 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/hulki-okan-tabak-36nkusNL0mA-unsplash.jpg",
     porQueDescubrir:
-      "Todo lo que se proyecta es material encontrado, sin restaurar — rayado, quemado, a veces casi ilegible. Theaveling la eligió por dejar que el deterioro mismo de la cinta sea parte del espectáculo, no un defecto que se disculpa.",
+      "Todo lo que se proyecta es material encontrado, sin restaurar — rayado, quemado, a veces casi irreconocible. Theaveling la eligió por dejar que el deterioro mismo de la imagen sea parte del espectáculo, no un defecto que se disculpa.",
     ficha: {
       presentaciones: "función mensual, desde 2024",
       festivales: "sin festivales todavía",
       premios: "sin premios",
-      origen: "programación de cine encontrado (found footage), con intervención en vivo",
+      origen: "performance con proyección de luz e imágenes encontradas, intervención en vivo",
       idioma: "Variable según la función",
     },
     artista: {
-      nombre: "Cineclub Nictálope — Curaduría",
+      nombre: "Nictálope — Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos Cineclub Nictálope. Buscamos cintas sin dueño en mercados de pulgas y las proyectamos tal como llegan, rayadas y quemadas — no restauramos nada.",
+      saludo: "Somos Nictálope. Buscamos placas y diapositivas sin dueño en mercados de pulgas y las proyectamos tal como llegan, rayadas y quemadas — no restauramos nada.",
     },
     resenas: [
       { nombre: "Julián T.", rating: "★ 9.2", fecha: "Hace 3 días", texto: "Es nocturno de verdad, empieza tarde, no es plan para madrugar al otro día." },
-      { nombre: "Camila R.", rating: "★ 8.7", fecha: "Hace 1 semana", texto: "Fui sola y el ambiente es más silencioso de lo que esperaba para ser cineclub, se respeta mucho la proyección." },
-      { nombre: "Andrea M.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las cintas se ven mal a propósito, si buscas alta definición este no es tu plan." },
-      { nombre: "Nicolás F.", rating: "★ 8.8", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Película: Archivo 22, Función Nocturna — otro programa de cine experimental nocturno." },
+      { nombre: "Camila R.", rating: "★ 8.7", fecha: "Hace 1 semana", texto: "Fui sola y el ambiente es más silencioso de lo que esperaba, se respeta mucho el silencio durante la función." },
+      { nombre: "Andrea M.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las imágenes se ven mal a propósito, si buscas alta definición este no es tu plan." },
+      { nombre: "Nicolás F.", rating: "★ 8.8", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Cuerpos Caídos — otro programa de performance lumínica nocturno." },
     ],
   },
   {
@@ -4893,7 +4916,11 @@ export const experiences: Experience[] = [
   // por pieza.
 {
   id: "la-que-grita-en-rojo",
-  title: "La Que Grita en Rojo",
+  // 2026-09-10, a pedido de Ana ("no pongas tan literal los nombres solo
+  // por lo que ves en la img"): título original describía literalmente
+  // la imagen (mujer gritando en rojo); se reemplaza por el objeto
+  // narrativo central de la historia (la carta que nunca se mandó).
+  title: "La Carta que Nunca Llegó",
   tag: "Monólogo con cante",
   category: "Teatro",
   ocultoEnCategoria: true,
@@ -5049,12 +5076,16 @@ export const experiences: Experience[] = [
 },
 {
   id: "vestuario-de-estrellas",
-  title: "Vestuario de Estrellas",
+  // 2026-09-10, a pedido de Ana ("no pongas tan literal los nombres solo
+  // por lo que ves en la img"): título original describía literalmente
+  // el vestuario; se reemplaza por el nombre de la producción ficticia
+  // de 1986 que revive (ver `artista.nombre`: "Compañía Órbita 86").
+  title: "Órbita 86",
   tag: "Musical de culto",
   category: "Teatro",
   // 2026-09-10, a pedido de Ana ("te dije que quería 8 en Escena
   // teatral"): esta pieza pasa de "oculta" a visible en el scroll de
-  // Home de Teatro — con esta y "Los Sombreros del Río" el scroll llega
+  // Home de Teatro — con esta y "El Umbral que Resiste" el scroll llega
   // a 8. Sigue usando foto de la carpeta "imagenes aleatorias para ver
   // mas" (ver `soloVerMas` abajo, que no afecta este scroll — ese campo
   // es del riel de "Todo", no de Escena/Cultura).
@@ -5123,12 +5154,16 @@ export const experiences: Experience[] = [
 },
 {
   id: "los-sombreros-del-rio",
-  title: "Los Sombreros del Río",
+  // 2026-09-10, a pedido de Ana ("no pongas tan literal los nombres solo
+  // por lo que ves en la img"): título original describía literalmente
+  // la foto (sombreros); se reemplaza por algo evocador, ligado al
+  // objeto central real de la historia (la puerta/umbral), no a la img.
+  title: "El Umbral que Resiste",
   tag: "Drama rural",
   category: "Teatro",
   // 2026-09-10, a pedido de Ana ("te dije que quería 8 en Escena
   // teatral"): esta pieza pasa de "oculta" a visible en el scroll de
-  // Home de Teatro, junto con "Vestuario de Estrellas" — con esas 2 el
+  // Home de Teatro, junto con "Órbita 86" — con esas 2 el
   // scroll llega a 8.
   soloVerMas: true,
   description:
@@ -5656,8 +5691,12 @@ export const experiences: Experience[] = [
 {
   id: "compania-en-fuga",
   title: "Compañía en Fuga: Documental Restaurado",
-  tag: "Cine documental",
-  category: "Cine",
+  // 2026-09-10, a pedido de Ana ("compañía en fuga pásala a danza"):
+  // el tema real de la pieza siempre fue una compañía de BALLET, no el
+  // cine en sí — la categoría pasa a Danza, el tag deja de decir "Cine
+  // documental" para no confundir de qué sección es.
+  tag: "Documental de danza",
+  category: "Danza",
   ocultoEnCategoria: true,
   // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
   // carpeta llena de imagenes"): en vez de crear experiencias nuevas
@@ -5734,8 +5773,11 @@ export const experiences: Experience[] = [
 {
   id: "bastidores-estreno-nacional",
   title: "Bastidores: Estreno Nacional",
-  tag: "Cine colombiano",
-  category: "Cine",
+  // 2026-09-10, a pedido de Ana ("bastidores estreno también a danza"):
+  // sigue a un grupo de BAILARINES la noche antes de su función — el
+  // tema real es danza, no cine, aunque el formato sea una película.
+  tag: "Danza en pantalla",
+  category: "Danza",
   ocultoEnCategoria: true,
   // 2026-09-10, a pedido de Ana ("distribuye tu bien" / "malparida
   // carpeta llena de imagenes"): en vez de crear experiencias nuevas
@@ -5812,14 +5854,14 @@ export const experiences: Experience[] = [
 {
   id: "funcion-y-banda",
   title: "Función y Banda: Cortos + Concierto",
-  tag: "Cine local + música en vivo",
-  category: "Cine local",
-  // 2026-09-10, a pedido de Ana ("en escena y cultura si tiene que
-  // ser especifico de cada seccion" / "reparte bien"): esta pieza usa
-  // foto de la carpeta "imagenes aleatorias para ver mas" — pasa a
-  // ser contenido EXCLUSIVO de Ver Mas de su propia seccion (no se ve
-  // en el scroll de Home de Escena/Cultura), mismo criterio que ya se
-  // usa en Más reservados/Descubrimientos/Curado.
+  // 2026-09-10, a pedido de Ana ("esa que tienes de cine local mas
+  // musica en vivo, pásala a que sea de música solamente"): categoría
+  // pasa de Cine local a Música — el tag deja de mencionar cine, el
+  // concierto es lo central, los cortometrajes quedan como detalle del
+  // formato del bar, no como la categoría.
+  tag: "Concierto de banda emergente",
+  category: "Música",
+  ocultoEnCategoria: true,
   soloVerMas: true,
   description:
     "Bar de barrio que combina tanda de cortometrajes bogotanos con un set en vivo de una banda emergente entre película y película — nadie se queda sentado todo el rato.",
