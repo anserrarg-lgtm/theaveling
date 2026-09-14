@@ -71,6 +71,16 @@
  * el fondo oscuro de la pantalla, se flipean acá los mismos tokens al
  * equivalente oscuro para que siga siendo legible. Si Ana vuelve la
  * card a blanco, esto se revierte junto con ese cambio.
+ *
+ * `variant` — 2026-09-14: exactamente esa vuelta pasó, pero solo del
+ * lado de Desktop — la tarjeta de reserva de DetalleExperiencia.tsx
+ * pasó a fondo blanco a pedido de Ana ("el fondo de toda la tarjeta"),
+ * mientras que Compra.tsx en mobile sigue con su card oscura de
+ * siempre, sin tocar (regla de esta sesión: nunca mobile sin pedido
+ * explícito para ESE archivo). Por eso NO se revierte la paleta acá
+ * mismo — se agrega `variant` ("dark" por defecto, igual que siempre,
+ * así que Compra.tsx no cambia en nada al no pasar la prop) y solo la
+ * llamada nueva de Desktop pasa `variant="light"`.
  */
 
 const FILAS = ["A", "B", "C", "D"] as const;
@@ -88,19 +98,34 @@ export default function MapaButacas({
   experienciaId,
   seleccionadas,
   onToggle,
+  variant = "dark",
 }: {
   experienciaId: string;
   /** Claves "fila-numero" (ej. "A-3") de las butacas ya elegidas —
    * controlado desde Compra.tsx, ver nota grande arriba. */
   seleccionadas: string[];
   onToggle: (clave: string) => void;
+  /** "dark" (default, sin pasar la prop) es el comportamiento de
+   * siempre — Compra.tsx en mobile no la pasa, así que no cambia en
+   * nada. "light" es solo para la tarjeta blanca de reserva de
+   * DetalleExperiencia.tsx en Desktop — ver nota grande arriba. */
+  variant?: "dark" | "light";
 }) {
+  const claro = variant === "light";
   return (
-    <div className="rounded-xl bg-white-8 border border-white-12 px-4 py-4 flex flex-col items-center gap-4">
+    <div
+      className={`rounded-xl border px-4 py-4 flex flex-col items-center gap-4 ${
+        claro ? "bg-green-8 border-green-12" : "bg-white-8 border-white-12"
+      }`}
+    >
       {/* Escenario */}
       <div className="w-full flex flex-col items-center gap-1.5">
-        <div className="w-3/4 h-1.5 rounded-full bg-white-60" />
-        <span className="font-body text-[10px] uppercase tracking-[1.5px] text-white-100 opacity-60">
+        <div className={`w-3/4 h-1.5 rounded-full ${claro ? "bg-green-50" : "bg-white-60"}`} />
+        <span
+          className={`font-body text-[10px] uppercase tracking-[1.5px] opacity-60 ${
+            claro ? "text-thea-green" : "text-white-100"
+          }`}
+        >
           Escenario
         </span>
       </div>
@@ -109,7 +134,11 @@ export default function MapaButacas({
       <div className="flex flex-col gap-1.5">
         {FILAS.map((fila) => (
           <div key={fila} className="flex items-center gap-1.5">
-            <span className="font-body text-[10px] font-semibold text-white-100 opacity-50 w-3 text-center">
+            <span
+              className={`font-body text-[10px] font-semibold opacity-50 w-3 text-center ${
+                claro ? "text-thea-green" : "text-white-100"
+              }`}
+            >
               {fila}
             </span>
             <div className="flex gap-1.5">
@@ -128,10 +157,10 @@ export default function MapaButacas({
                     aria-pressed={elegida}
                     className={`w-3.5 h-3.5 rounded-[3px] ${
                       ocupada
-                        ? "bg-white-40 cursor-not-allowed"
+                        ? `cursor-not-allowed ${claro ? "bg-green-20" : "bg-white-40"}`
                         : elegida
                           ? "bg-thea-mint"
-                          : "border border-white-20"
+                          : `border ${claro ? "border-green-20" : "border-white-20"}`
                     }`}
                   />
                 );
@@ -144,7 +173,7 @@ export default function MapaButacas({
       {/* Contador — 2026-09-05: ya no dice "N de M" (ese tope venía de
           `cantidad`, que ahora es al revés: lo define esta selección).
           Solo informa cuántas butacas hay elegidas hasta ahora. */}
-      <span className="font-body text-[11px] text-white-100 opacity-70">
+      <span className={`font-body text-[11px] opacity-70 ${claro ? "text-thea-green" : "text-white-100"}`}>
         {seleccionadas.length === 0
           ? "Elige tus butacas"
           : `${seleccionadas.length} ${seleccionadas.length === 1 ? "butaca elegida" : "butacas elegidas"}`}
@@ -156,20 +185,20 @@ export default function MapaButacas({
           (ver "DECISIÓN CERRADA" arriba). */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-[3px] border border-white-20" />
-          <span className="font-body text-[11px] text-white-100 opacity-70">
+          <span className={`w-3 h-3 rounded-[3px] border ${claro ? "border-green-20" : "border-white-20"}`} />
+          <span className={`font-body text-[11px] opacity-70 ${claro ? "text-thea-green" : "text-white-100"}`}>
             Disponible
           </span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-[3px] bg-thea-mint" />
-          <span className="font-body text-[11px] text-white-100 opacity-70">
+          <span className={`font-body text-[11px] opacity-70 ${claro ? "text-thea-green" : "text-white-100"}`}>
             Seleccionado
           </span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-[3px] bg-white-40" />
-          <span className="font-body text-[11px] text-white-100 opacity-70">
+          <span className={`w-3 h-3 rounded-[3px] ${claro ? "bg-green-20" : "bg-white-40"}`} />
+          <span className={`font-body text-[11px] opacity-70 ${claro ? "text-thea-green" : "text-white-100"}`}>
             Ocupado
           </span>
         </div>

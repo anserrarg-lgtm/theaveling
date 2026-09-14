@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { IconCaretRight } from "./icons";
+import { experiences } from "../data/experiences";
+import { generarFechasReales } from "../utils/price";
 
 /*
  * FechaSheet — 2026-09-04, a pedido de Ana: "por fechas deberia poder
@@ -91,7 +93,31 @@ import { IconCaretRight } from "./icons";
  * cae dentro del mes que se está mostrando — no arma una vista de 2
  * meses para ese caso borde. Pasa pocas veces al año; no se resuelve
  * acá para no sumar complejidad sin que Ana lo haya pedido.
+ *
+ * Punto de "hay experiencias este día" — 2026-09-10, a pedido de Ana
+ * ("el calendario de búsqueda por fecha está sincronizado con las
+ * fechas de las experiencias?" → "sí hazlo"): hasta ahora el calendario
+ * dejaba elegir cualquier día con el mismo aspecto, sin distinguir
+ * cuáles tienen alguna función real — recién después de elegir un día
+ * sin nada, Busqueda.tsx avisaba "no hay resultados". Se agrega un
+ * punto chico debajo del número en los días que sí tienen al menos una
+ * experiencia real (mismo generador `generarFechasReales` que ya usa
+ * Busqueda.tsx para filtrar resultados y Compra.tsx para las opciones
+ * de reserva — no un cálculo nuevo/paralelo). `diasConExperiencias` se
+ * calcula UNA sola vez con `useMemo` (recorre las ~150 experiencias del
+ * catálogo, no hace falta rehacerlo cada vez que se cambia de mes o se
+ * togglea un día) y guarda claves "año-mes-día" en un `Set` para
+ * chequeo O(1) por celda. El punto es solo una señal visual — no
+ * restringe tocar los días sin experiencias, Ana no pidió bloquearlos,
+ * solo que se note la diferencia.
  */
+
+/** Clave estable "año-mes-día" para un `Date`, ignorando hora — mismo
+ * criterio que `inicioDelDia` de abajo, pero como string para poder
+ * usarla de key de `Set`/`Map`. */
+function claveDia(fecha: Date): string {
+  return `${fecha.getFullYear()}-${fecha.getMonth()}-${fecha.getDate()}`;
+}
 
 export type FechaSeleccionada = {
   desde: Date;
@@ -181,6 +207,18 @@ export default function FechaSheet({
     anio: (selected?.desde ?? hoy).getFullYear(),
     mes: (selected?.desde ?? hoy).getMonth(),
   }));
+
+  // Ver nota grande arriba ("Punto de hay experiencias este día") — se
+  // calcula una sola vez, no en cada render/cambio de mes.
+  const diasConExperiencias = useMemo(() => {
+    const set = new Set<string>();
+    for (const exp of experiences) {
+      for (const fecha of generarFechasReales(exp.date)) {
+        set.add(claveDia(fecha));
+      }
+    }
+    return set;
+  }, []);
 
   if (!open) return null;
 
@@ -283,22 +321,36 @@ export default function FechaSheet({
           <div className="grid grid-cols-7 gap-y-1">
             {celdas.map((dia, i) => {
               if (dia === null) return <div key={`vacio-${i}`} className="h-9" />;
-              const fechaCelda = new Date(vista.anio, vista.mes, dia).getTime();
+              const fechaDeLaCelda = new Date(vista.anio, vista.mes, dia);
+              const fechaCelda = fechaDeLaCelda.getTime();
               const enRango =
                 !!selected &&
                 fechaCelda >= inicioDelDia(selected.desde).getTime() &&
                 fechaCelda <= inicioDelDia(selected.hasta).getTime();
+              const tieneExperiencias = diasConExperiencias.has(claveDia(fechaDeLaCelda));
               return (
                 <button
                   key={dia}
                   onClick={() => elegirDia(dia)}
-                  className={`h-9 w-9 mx-auto rounded-full flex items-center justify-center font-body text-sm ${
+                  className={`relative h-9 w-9 mx-auto rounded-full flex items-center justify-center font-body text-sm ${
                     enRango
                       ? "bg-thea-mint font-semibold text-thea-green"
                       : "text-white-100"
                   }`}
                 >
                   {dia}
+                  {/* Punto de "hay experiencias este día" — ver nota
+                      grande arriba. Color invertido cuando el día ya
+                      está seleccionado (pill mint), para que siga
+                      leyéndose sobre ese fondo en vez de mint sobre
+                      mint. */}
+                  {tieneExperiencias && (
+                    <span
+                      className={`absolute bottom-1 h-1 w-1 rounded-full ${
+                        enRango ? "bg-thea-green" : "bg-thea-mint"
+                      }`}
+                    />
+                  )}
                 </button>
               );
             })}

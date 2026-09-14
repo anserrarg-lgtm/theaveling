@@ -78,12 +78,98 @@
   --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-wordmark: "Sansita", serif; /* exclusivo del wordmark "Theaveling" */
+
+  /*
+   * 2026-09-12, a pedido de Ana: el título de "Comité del Fracaso" (la
+   * pieza de clown, card "Destacado" de Curado en Desktop) pasa a esta
+   * tipografía — exclusiva de ESE título, igual de acotada que
+   * `--font-wordmark`. Esta sesión no pudo bajar el archivo directo de
+   * dafont.com (dominio bloqueado en la red del sandbox) — Ana lo bajó
+   * ella misma y lo subió acá (.ttf, "Carnivalee Freakshow" de Chris
+   * Hansen, 2004, ver `public/fonts/`). Licencia (ver README.txt del
+   * .zip que mandó Ana): "all rights reserved", sin más detalle de uso
+   * comercial — queda como responsabilidad de Ana confirmar que le sirve
+   * para Theaveling si el proyecto pasa a ser comercial.
+   */
+  --font-carnivalee: "Carnivalee Freakshow", cursive;
+}
+
+/*
+ * @font-face de "Carnivalee Freakshow" — el archivo real que Ana subió
+ * se nombra "Carnevalee Freakshow.ttf" (así viene del .zip de dafont.com,
+ * con esa segunda variante de ortografía — no es un typo de esta sesión,
+ * se respeta el nombre de archivo tal cual vino). Espacio en el nombre
+ * codificado como %20 en el `url()`, mismo criterio ya usado en el
+ * proyecto para imágenes con espacio en el nombre (ver
+ * `venueImageUrl` en `data/experiences.ts`).
+ */
+@font-face {
+  font-family: "Carnivalee Freakshow";
+  src: url("/fonts/Carnevalee%20Freakshow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
   background-color: var(--color-thea-green);
   color: var(--color-white-100);
   font-family: var(--font-body);
+}
+
+/*
+ * Fondo de `body` en Desktop — 2026-09-11, a pedido de Ana ("hay un
+ * maldito espacio en verde mas claro abajo de lo que te pedi... no lo
+ * quiero, quitalo"): el `body` de toda la app usa `thea-green` (el verde
+ * MÁS CLARO, `#112c2c`) como fondo base — pensado como respaldo para
+ * mobile, que ya pone ese mismo tono a propósito. El bloque de Desktop
+ * (`Descubrir.tsx`, el `div` con `hidden lg:block`) pinta su PROPIO
+ * fondo más oscuro y sólido (`bg-[rgb(1,20,20)]`) encima, pero ese `div`
+ * no es todo el documento — es un hijo de `body`. Cualquier diferencia,
+ * por mínima que sea, entre el alto real de ese contenido y el alto del
+ * documento (redondeo de sub-píxel, una fuente que carga un instante
+ * después, etc.) deja ver el `thea-green` del `body` por debajo — ESE es
+ * el "verde más claro" que Ana vio. En vez de perseguir cada posible
+ * causa de esa diferencia de 1px, se ataca la raíz: a partir de 1024px
+ * (mismo breakpoint `lg` que ya separa mobile/Desktop en todo el
+ * proyecto), el `body` también pasa a ser sólido oscuro — así, aunque
+ * llegara a haber ese hueco de nuevo, se vería del mismo color oscuro de
+ * Desktop, no del verde de mobile. No cambia nada en mobile (sigue con
+ * `thea-green` normal, este bloque solo aplica desde 1024px).
+ */
+@media (min-width: 1024px) {
+  body {
+    background-color: rgb(1, 20, 20);
+  }
+}
+
+/*
+ * Cursor "manito" en todo lo clickeable — 2026-09-11, a pedido de Ana:
+ * "todo lo clickeable de la app tiene que llevar al cursor a convertirse
+ * en manita, porque hay varias cosas que no estan haciendo eso".
+ *
+ * Causa real: a diferencia de <a> (que el navegador ya muestra con
+ * cursor de mano por default), un <button> NO lo trae — queda con la
+ * flecha normal salvo que algo lo corrija. Tailwind v4 tampoco lo
+ * corrige en su preflight (verificado: no hay ninguna regla de `cursor`
+ * para `button` en node_modules/tailwindcss/preflight.css). Con ~35
+ * archivos de este proyecto usando `<button>` y NINGUNO poniendo
+ * `cursor-pointer` a mano (verificado con grep en todo `src/`), el
+ * problema es sistemático, no de un par de botones sueltos — se corrige
+ * en UN solo lugar, acá, en vez de ir archivo por archivo agregando la
+ * misma clase 35 veces (mismo criterio de este archivo: "si un valor se
+ * repite, es una regla acá, no algo a mano en cada componente").
+ *
+ * `:not(:disabled)` — un botón deshabilitado (ej. "Confirmando tu
+ * ciudad..." en LocationSheet.tsx mientras espera el GPS) no debería
+ * parecer clickeable; se deja con el cursor por default del navegador
+ * para ese caso en vez de forzar la manito.
+ *
+ * Los <a>/<Link> de react-router-dom ya traen cursor de mano nativo, no
+ * hace falta ninguna regla nueva para ellos.
+ */
+button:not(:disabled) {
+  cursor: pointer;
 }
 
 /*
@@ -306,6 +392,52 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .splash-wordmark-fade-scale {
+    animation: none;
+  }
+}
+
+/*
+ * desktop-panel-slide-left / -right — 2026-09-11, a pedido de Ana para
+ * los paneles flotantes de Desktop (búsqueda, ubicación — ver
+ * DesktopSearchDropdown.tsx/DesktopLocationDropdown.tsx): "quiero una
+ * animacion para las entradas de estos paneles, para ubicacion quiero
+ * que se deslice suave y sutilmente desdee la izq y para busqueda desde
+ * la derecha" — coincide con dónde vive cada uno (Ubicación cuelga del
+ * costado izquierdo de la navbar, Búsqueda del derecho), así que cada
+ * panel entra "desde su propio lado" en vez de deslizarse hacia el
+ * centro. Desplazamiento chico (12px) y corto (180ms) a propósito —
+ * "sutil", no un efecto llamativo tipo bottom sheet. Mismo criterio de
+ * `prefers-reduced-motion` que el resto de animaciones de este archivo.
+ */
+@keyframes desktopPanelSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes desktopPanelSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.desktop-panel-slide-left {
+  animation: desktopPanelSlideLeft 180ms ease-out;
+}
+.desktop-panel-slide-right {
+  animation: desktopPanelSlideRight 180ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-panel-slide-left,
+  .desktop-panel-slide-right {
     animation: none;
   }
 }

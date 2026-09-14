@@ -6,6 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import LoginSheet from "../components/LoginSheet";
+import DesktopLoginModal from "../components/DesktopLoginModal";
 
 /*
  * Auth falsa (sin backend) — 2026-09-06, a pedido del usuario, parte del
@@ -95,12 +96,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return (
     <AuthContext.Provider value={{ loggedIn, email, logout, requireAuth }}>
       {children}
-      <LoginSheet
-        open={prompt !== null}
-        mensaje={prompt?.mensaje ?? ""}
-        onClose={() => setPrompt(null)}
-        onLogin={completarLogin}
-      />
+      {/* 2026-09-12, a pedido de Ana ("el inicio de sesion... esta como si
+          fuera mobile, para desk necesitamos que sea un bloque flotante"):
+          antes acá solo vivía `LoginSheet` (bottom sheet, pensado para
+          mobile) para TODA la app. Ahora conviven los 2 — mismo criterio
+          que el resto de la app para separar mobile/Desktop (esconder con
+          Tailwind, no detectar el viewport a mano): `LoginSheet` (mobile,
+          sin tocar) se esconde en `lg:hidden`, `DesktopLoginModal` (nuevo,
+          panel flotante centrado como el resto de los overlays de
+          Desktop) aparece recién en `lg:` con `hidden lg:block`. Los 2
+          comparten `prompt`/`completarLogin` — cualquiera de los 2 que
+          esté visible resuelve el mismo `requireAuth` de siempre. */}
+      <div className="lg:hidden">
+        <LoginSheet
+          open={prompt !== null}
+          mensaje={prompt?.mensaje ?? ""}
+          onClose={() => setPrompt(null)}
+          onLogin={completarLogin}
+        />
+      </div>
+      <div className="hidden lg:block">
+        <DesktopLoginModal
+          open={prompt !== null}
+          mensaje={prompt?.mensaje ?? ""}
+          onClose={() => setPrompt(null)}
+          onLogin={completarLogin}
+        />
+      </div>
     </AuthContext.Provider>
   );
 }

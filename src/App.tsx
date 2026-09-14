@@ -91,7 +91,31 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    /* 2026-09-11 — bug encontrado a raíz del reclamo de Ana de un bloque
+       oscuro vacío + "doble scroll" abajo del footer nuevo de Desktop.
+       Causa real: por especificación de CSS, cuando un elemento fija
+       `overflow-x` en algo distinto de `visible` (acá tenía
+       `overflow-x-hidden`, puesto en algún momento para que nada se
+       desborde de costado) y no fija `overflow-y`, el navegador trata
+       ESE `overflow-y` como `auto` en vez de `visible` — aunque nadie lo
+       haya pedido, y aunque se fuerce `overflow-y-visible` a mano (se
+       probó: el navegador lo sigue tratando como `auto` igual, es la
+       regla del spec, no algo que se pueda pisar con otra clase). Con
+       overflow-y en `auto`, este div raíz (que envuelve TODA la app,
+       mobile y Desktop) pasaba a ser su PROPIO contenedor con scroll
+       interno, separado del scroll normal de la página — eso es el
+       "doble scroll" — y encima algo dentro (probablemente un panel/hoja
+       posicionado de forma absoluta que normalmente no cuenta para el
+       alto de la página) empezaba a contar para ESE scroll interno,
+       recortando una franja del final de la página — el "bloque" que
+       reportó Ana, visible solo scrolleando ese segundo contenedor.
+       Se saca `overflow-x-hidden` de acá directamente en vez de
+       intentar contrarrestar el efecto secundario. Se verificó que no
+       hace falta: cada fila de tarjetas con scroll horizontal (los
+       carruseles) ya tiene su propio `overflow-x-hidden` local, así que
+       nada se desborda de costado ni en mobile ni en Desktop sin este
+       de acá arriba — se probó explícitamente en las dos versiones. */
+    <div className="min-h-screen w-full">
       {/* 2026-09-03: FavoritesProvider acá arriba, sobre el router — así
           Descubrir, Detalle y Perfil comparten el mismo estado de
           favoritos sin importar por qué ruta se entre. Ver

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createBrowserRouter, Outlet, ScrollRestoration } from "react-router-dom";
 import Descubrir from "./screens/Descubrir/Descubrir";
 import Onboarding from "./screens/Onboarding/Onboarding";
+import { useCiudad } from "./context/CiudadContext";
 import DetalleExperiencia from "./screens/DetalleExperiencia/DetalleExperiencia";
 import Compra from "./screens/Compra/Compra";
 import Confirmacion from "./screens/Confirmacion/Confirmacion";
@@ -10,8 +11,10 @@ import Perfil from "./screens/Perfil/Perfil";
 import Notificaciones from "./screens/Perfil/Notificaciones";
 import DatosDeCuenta from "./screens/Perfil/DatosDeCuenta";
 import Ayuda from "./screens/Perfil/Ayuda";
+import Favoritos from "./screens/Favoritos/Favoritos";
 import Busqueda from "./screens/Busqueda/Busqueda";
 import VerMas from "./screens/VerMas/VerMas";
+import Legal from "./screens/Legal/Legal";
 import { DescubrirTabProvider } from "./context/DescubrirTabContext";
 
 /*
@@ -59,8 +62,42 @@ function leerOnboarded(): boolean {
   }
 }
 
+// 2026-09-11, a pedido de Ana ("en desktop esta apareciendo el
+// onboarding, no deberia ser asi"): Onboarding (Splash → Bienvenida →
+// pedir ubicación → elegir ciudad a mano) es un flujo pensado para
+// celular — en Desktop no tiene sentido, mismo criterio que ya se usa en
+// App.tsx para saltar la pantalla de "Descargar / Ver en línea"
+// (`esDesktop`, mismo breakpoint `lg` de 1024px que usa Descubrir.tsx).
+function esDesktop(): boolean {
+  return window.matchMedia("(min-width: 1024px)").matches;
+}
+
 function Root() {
-  const [onboarded, setOnboarded] = useState(leerOnboarded);
+  // En Desktop arranca directo como si ya estuviera onboarded — se
+  // calcula UNA vez acá (no en un useEffect) para que no llegue a
+  // pintarse ni un frame de Onboarding antes de saltarlo.
+  const [onboarded, setOnboarded] = useState(() => leerOnboarded() || esDesktop());
+  const { ciudad, setCiudad } = useCiudad();
+
+  useEffect(() => {
+    // Si el salto fue por Desktop (no porque ya viniera onboarded de
+    // antes), dejamos todo consistente: se guarda el flag para que no
+    // vuelva a evaluarse, y si todavía no hay ciudad elegida (nadie pasó
+    // por "elegir ciudad a mano") se le pone "Bogotá"/manual como default
+    // razonable — mismo default que ya usa Busqueda.tsx cuando `ciudad`
+    // es null, para que el selector de ciudad de DesktopNavbar no quede
+    // vacío.
+    if (!leerOnboarded() && esDesktop()) {
+      if (!ciudad) setCiudad("Bogotá", "manual");
+      try {
+        window.localStorage.setItem(ONBOARDED_KEY, "true");
+      } catch {
+        // localStorage puede fallar (modo privado, cuota) — no rompe nada,
+        // ya arrancamos con `onboarded=true` en memoria para esta sesión.
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!onboarded) {
     return (
@@ -102,8 +139,16 @@ export const router = createBrowserRouter([
       { path: "/perfil/notificaciones", element: <Notificaciones /> },
       { path: "/perfil/datos-de-cuenta", element: <DatosDeCuenta /> },
       { path: "/perfil/ayuda", element: <Ayuda /> },
+      // 2026-09-14, a pedido de Ana: pantalla propia de Favoritos para
+      // Desktop (ref real de Fever) — ver Favoritos.tsx.
+      { path: "/favoritos", element: <Favoritos /> },
       { path: "/busqueda", element: <Busqueda /> },
       { path: "/ver-mas/:slug", element: <VerMas /> },
+      // 2026-09-11, a pedido de Ana: destinos del footer de Desktop (ver
+      // DesktopFooter.tsx/Legal.tsx para el detalle completo).
+      { path: "/terminos", element: <Legal /> },
+      { path: "/privacidad", element: <Legal /> },
+      { path: "/cookies", element: <Legal /> },
     ],
   },
 ]);

@@ -17,9 +17,13 @@ import {
   IconCameraOff,
   IconCaretRight,
   IconClock,
+  IconCreditCard,
   IconFlag,
   IconGlobe,
+  IconMap,
   IconMapPin,
+  IconMinus,
+  IconPlus,
   IconRepeat,
   IconShare,
   IconShieldCheck,
@@ -30,7 +34,25 @@ import { googleMapsSearchUrl, googleSearchUrl } from "../../utils/maps";
 import FavoritoButton from "../../components/FavoritoButton";
 import ArtistSpaceCard from "../../components/cards/ArtistSpaceCard";
 import SupportingCard from "../../components/cards/SupportingCard";
+import ExperienceCardDescubrimientosDesktop from "../../components/cards/ExperienceCardDescubrimientosDesktop";
 import { MapPreview } from "../../components/MapPreview";
+import ImagePlaceholder from "../../components/ImagePlaceholder";
+import GaleriaFotosDesktop from "../../components/GaleriaFotosDesktop";
+import CalendarioFechaHora from "../../components/CalendarioFechaHora";
+import MapaButacas from "../../components/MapaButacas";
+import DesktopNavbar from "../../components/DesktopNavbar";
+import DesktopFooter from "../../components/DesktopFooter";
+import { useDescubrirTab } from "../../context/DescubrirTabContext";
+import {
+  esGratis,
+  formatCOP,
+  generarFechasReales,
+  generarOpcionesFechaHora,
+  horaCompacta,
+  parsePriceToNumber,
+} from "../../utils/price";
+import { useReservations } from "../../context/ReservationsContext";
+import { useAuth } from "../../context/AuthContext";
 
 /*
  * Reseñas de "Comunidad" — 2026-09-04, a pedido de Ana: antes eran 2
@@ -177,6 +199,14 @@ const CATEGORIAS_LINEUP_ORDEN: Category[] = [
 export default function DetalleExperiencia() {
   const { id } = useParams();
   const navigate = useNavigate();
+  // DesktopNavbar — 2026-09-14, a pedido de Ana: "en todas las pantallas
+  // acompana la navbar". Esta pantalla no la tenía (era "de profundidad",
+  // con su propio botón de volver — decisión vieja documentada en
+  // VerMas.tsx) pero Ana ahora la pide en todas. Se reusa el MISMO
+  // Context que ya comparten Descubrir.tsx/DesktopNavbar (`activeCategory`)
+  // en vez de un estado propio — así, si se toca un tab o el wordmark
+  // desde acá, se vuelve a Descubrir con esa pestaña ya activa.
+  const { activeCategory, setActiveCategory } = useDescubrirTab();
   const experiencia = getExperienceById(id);
   const esFestivalCiudad = Boolean(id && FESTIVALES_CIUDAD_IDS.includes(id));
   const lineupFestival = esFestivalCiudad ? getFestivalLineup(id) : [];
@@ -221,6 +251,110 @@ export default function DetalleExperiencia() {
     }
     window.setTimeout(() => setMensajeCompartir(null), 2000);
   };
+
+  /*
+   * Reserva en Desktop — 2026-09-14, a pedido de Ana: mandó 3 referencias
+   * de Fever y pidió que el Detalle de Desktop "vaya en 1 con la de
+   * booking" — o sea, fusionar Detalle + Compra en UNA sola pantalla acá
+   * (nada de esto toca mobile, que sigue yendo a `/experiencia/:id/compra`
+   * como siempre, ver el CTA fijo más abajo dentro del bloque `lg:hidden`).
+   * Todo este estado es exclusivo del bloque Desktop de más abajo — se
+   * declara acá arriba (no adentro del JSX condicional) porque son Hooks
+   * de React, tienen que llamarse siempre en el mismo orden sin importar
+   * qué bloque (mobile/desktop) termine visible, mismo criterio que ya
+   * usa `Descubrir.tsx` para su estado compartido entre las 2 versiones.
+   *
+   * Se declara un `useState` propio en vez de reusar/mover el de
+   * Compra.tsx — son 2 pantallas distintas (mobile sigue navegando a su
+   * propia ruta), no tiene sentido acoplar sus estados.
+   */
+  const [pasoDesktop, setPasoDesktop] = useState<"detalle" | "pago">("detalle");
+  const [fechaHoraIndiceDesktop, setFechaHoraIndiceDesktop] = useState<number | null>(null);
+  const [cantidadDesktop, setCantidadDesktop] = useState(1);
+  const [butacasElegidasDesktop, setButacasElegidasDesktop] = useState<string[]>([]);
+  const [mapaAbiertoDesktop, setMapaAbiertoDesktop] = useState(false);
+  // "agregale la opcion para calendario" / respuesta de Ana sobre cómo
+  // debía verse: "ícono que cambia la vista" — ver CalendarioFechaHora.tsx.
+  const [vistaCalendarioDesktop, setVistaCalendarioDesktop] = useState(false);
+  const [procesandoPagoDesktop, setProcesandoPagoDesktop] = useState(false);
+  // "Comunidad" en Desktop — 2026-09-14, a pedido de Ana con una
+  // referencia de Airbnb (encabezado con puntaje grande + link "Cómo
+  // funcionan las evaluaciones", reseñas más grandes). Se toma la
+  // ESTRUCTURA, NO los datos que no tenemos: la referencia trae un
+  // desglose por categoría (Limpieza 4.8, Veracidad 4.9...) y etiquetas
+  // con conteo (Ubicación 86, Playa 6...) que no existen en el catálogo
+  // por experiencia — Ana confirmó explícitamente no inventar esos
+  // números, así que esas 2 piezas NO se agregan acá.
+  //
+  // 2026-09-14, misma tarde: pasó de grid vertical de 2 columnas a riel
+  // horizontal centrado ("deja de acompanar hasta que empiezan los
+  // comentarios qeu tambien tiene que estar centrados y con scroll
+  // horizontal") — mismo mecanismo que "Contenido similar" más abajo.
+  // Con scroll horizontal + card de alto fijo ya no hace falta guardar
+  // qué reseña está expandida (el "Mostrar más" por reseña se saca,
+  // el texto trunca a `line-clamp` fijo).
+  const { agregarReserva } = useReservations();
+  const { requireAuth } = useAuth();
+
+  const opcionesFechaHoraDesktop = experiencia
+    ? generarOpcionesFechaHora(experiencia.date)
+    : [];
+  const fechasRealesDesktop = experiencia ? generarFechasReales(experiencia.date) : [];
+  const tieneMapaButacasDesktop = experiencia?.asientoAsignado ?? false;
+  const cantidadEfectivaDesktop = tieneMapaButacasDesktop
+    ? butacasElegidasDesktop.length
+    : cantidadDesktop;
+  const toggleButacaDesktop = (clave: string) => {
+    setButacasElegidasDesktop((prev) =>
+      prev.includes(clave) ? prev.filter((k) => k !== clave) : [...prev, clave],
+    );
+  };
+  const gratisDesktop = experiencia ? esGratis(experiencia.price) : false;
+  const unitarioDesktop = experiencia ? parsePriceToNumber(experiencia.price) : 0;
+  const totalDesktop = gratisDesktop ? 0 : unitarioDesktop * cantidadEfectivaDesktop;
+  const totalLabelDesktop = gratisDesktop
+    ? "Gratis"
+    : `${experiencia?.mostrarDesde ? "Desde " : ""}${formatCOP(totalDesktop)}`;
+  const { fecha: fechaElegidaDesktop, hora: horaElegidaDesktop } =
+    opcionesFechaHoraDesktop[fechaHoraIndiceDesktop ?? 0] ?? { fecha: "", hora: "" };
+  const fechaCompletaDesktop = fechaElegidaDesktop
+    ? `${fechaElegidaDesktop}${horaElegidaDesktop ? ` · ${horaElegidaDesktop}` : ""}`
+    : "";
+
+  const confirmarPagoDesktop = () => {
+    requireAuth("Inicia sesión para continuar con tu reserva.", () => {
+      setProcesandoPagoDesktop(true);
+      window.setTimeout(() => {
+        setProcesandoPagoDesktop(false);
+        if (id) {
+          agregarReserva({
+            experienciaId: id,
+            fechaHora: fechaCompletaDesktop,
+            estado: "proxima",
+          });
+        }
+        // `state` — 2026-09-14, a pedido de Ana: la versión Desktop de
+        // Confirmacion.tsx (nueva, ver ese archivo) muestra una tarjeta
+        // de resumen con fecha/hora/entradas/total, igual a la que ya se
+        // ve acá en el paso "pago". Ese detalle NO se guarda en
+        // `Reserva` (solo guarda `fechaHora` como texto, ver
+        // ReservationsContext.tsx) — pasarlo por `state` de la
+        // navegación evita agrandar ese modelo compartido con mobile
+        // solo para esto. Si Confirmacion.tsx se abre sin este `state`
+        // (ej. alguien recarga la página en esa URL), cae a un resumen
+        // más simple — ver ese archivo.
+        navigate(`/experiencia/${id}/confirmacion`, {
+          state: {
+            fecha: fechaElegidaDesktop,
+            hora: horaElegidaDesktop,
+            cantidad: cantidadEfectivaDesktop,
+            totalLabel: totalLabelDesktop,
+          },
+        });
+      }, 1500);
+    });
+  };
+
   const lineupFiltrado =
     categoriaLineupActiva === "Todo"
       ? lineupFestival
@@ -297,8 +431,12 @@ export default function DetalleExperiencia() {
   }, []);
 
   return (
+    <>
+    {/* Mobile — todo el contenido de siempre, sin tocar, solo envuelto en
+        `lg:hidden` para convivir con el bloque Desktop de más abajo
+        (mismo criterio que Descubrir.tsx/VerMas.tsx). */}
     <div
-      className={`min-h-screen bg-thea-green text-white-100 font-body ${
+      className={`min-h-screen bg-thea-green text-white-100 font-body lg:hidden ${
         esFestivalCiudad ? "pb-8" : "pb-24"
       }`}
     >
@@ -1247,5 +1385,1029 @@ export default function DetalleExperiencia() {
         </div>
       )}
     </div>
+
+    {/* Desktop — 2026-09-14, a pedido de Ana: mandó 3 referencias de
+        Fever (tour de Zipaquirá) y pidió, en sus propias palabras:
+        "vamos para la pantalla de detalle... la pantalla tiene que tener
+        toda la info que hoy tenemos, pero las fotos deben estar en este
+        formato, van a ser 3... y esta pantalla debe ir en 1 con la de
+        booking, como en la otra ref, pero ahí ya sabes que no va
+        calendario sino como en la card de booking que creamos para
+        mobile... y también agrégale la opción para calendario".
+
+        3 decisiones que resolvió Ana en el camino (ver AskUserQuestion
+        de esta entrega):
+        1. Galería de 3 fotos (1ra ref) — solo hay 1 foto real por pieza
+           (`imageUrl`), las otras 2 quedan vacías. Ver
+           GaleriaFotosDesktop.tsx.
+        2. Detalle + Booking fusionados en una sola pantalla (2da ref) —
+           NO una pantalla nueva ni una ruta nueva: columna de contenido
+           a la izquierda + sidebar de reserva STICKY a la derecha, todo
+           en este mismo componente. Mobile sigue exactamente igual,
+           navegando a `/experiencia/:id/compra` (bloque de arriba,
+           intacto).
+        3. El sidebar de reserva NO calca el calendario de Fever — calca
+           la card de booking real que ya existe en Compra.tsx (chips de
+           fecha/hora, tipo de entrada, cantidad/mapa de butacas), PERO
+           con un ícono de calendario al lado de "Fecha y hora próximas"
+           que cambia esa sección a un calendario real (Ana: "ícono que
+           cambia la vista") — ver CalendarioFechaHora.tsx. Todo el
+           estado de esta reserva (fecha/hora/cantidad/butacas/vista) es
+           NUEVO y propio de este bloque (`...Desktop`, ver el comentario
+           grande junto a esos `useState`, más arriba en este archivo) —
+           no se toca ni se reusa el de Compra.tsx, son 2 pantallas
+           distintas.
+        4. "Siguiente" en el sidebar no navega a ninguna ruta nueva —
+           cambia `pasoDesktop` a "pago" y ESTA MISMA pantalla se
+           convierte en el paso de "Confirmar y pagar" (3ra ref, Ana:
+           "debe pasar exactamente lo de la ref que te voy a pasar"): 2
+           columnas, izquierda con lo que el proyecto SÍ tiene real
+           (forma de pago demo, cupones, cancelación, aviso legal — el
+           mismo contenido que ya vive en ConfirmarPagoSheet.tsx para
+           mobile, no se duplica su redacción, se reflowa a 2 columnas)
+           y derecha con la card de resumen sticky (foto, título, lugar,
+           fecha, entradas, precio) — igual que el resumen que ya arma
+           ConfirmarPagoSheet.tsx, no una card nueva inventada. No se
+           calcan los campos de Fever sin dato real detrás ("Select your
+           guide", nombres de titulares de boleto) — mismo criterio de
+           "no inventar sin base real" de todo el proyecto.
+
+        Festivales (`esFestivalCiudad`) — estas 3 refs son sobre el flujo
+        de UNA pieza reservable; los 3 festivales de la ciudad no se
+        reservan como tal (ver nota grande arriba de
+        DetalleExperiencia()). Para no dejarlos sin nada en Desktop, se
+        arma una versión de una sola columna (sin sidebar de reserva,
+        mismo criterio que mobile no le pone el CTA fijo) con el mismo
+        contenido simplificado que ya tiene mobile para festivales.
+
+        Fondo — 2026-09-14, a pedido de Ana: este wrapper había quedado en
+        `bg-thea-green` (#112c2c, el verde "claro"/normal del body), pero
+        el resto del chrome de Desktop sin foto detrás (Descubrir.tsx,
+        VerMas.tsx) usa el verde bien oscuro `rgb(1,20,20)` ("verde deep")
+        — mismo criterio documentado en Descubrir.tsx. Se corrige acá para
+        que las pantallas de Desktop no queden desparejas entre sí. No
+        toca la versión mobile (`lg:hidden` más arriba), que sigue en
+        `bg-thea-green` como siempre. */}
+    <div className="hidden bg-[rgb(1,20,20)] text-white-100 font-body lg:block">
+      {/* DesktopNavbar — 2026-09-14, a pedido de Ana: "en todas las
+          pantallas acompana la navbar". El componente ya es `sticky
+          top-0` por su cuenta (ver DesktopNavbar.tsx) — acá solo hace
+          falta montarlo. `onChange` no solo cambia la pestaña del
+          Context compartido: además vuelve a Descubrir (`navigate("/")`),
+          porque desde acá no hay ningún listado de categorías que
+          mostrar — tocar un tab o el wordmark lleva a Descubrir ya con
+          esa pestaña activa. */}
+      <DesktopNavbar
+        active={activeCategory}
+        onChange={(tab) => {
+          setActiveCategory(tab);
+          navigate("/");
+        }}
+      />
+      {mensajeCompartir && (
+        <span
+          className="fixed top-6 right-10 z-30 whitespace-nowrap rounded-full bg-thea-deep px-4 py-2 font-body text-sm text-white-100 shadow-lg"
+          role="status"
+        >
+          {mensajeCompartir}
+        </span>
+      )}
+
+      {pasoDesktop === "detalle" ? (
+        <div className="mx-auto max-w-[1200px] px-20 pb-24 pt-10">
+          {/* "Volver" — 2026-09-14, a pedido de Ana: "quita el volver de
+              esta pantalla, en desk no lo necesitamos" (Desktop no
+              depende de un botón de volver como mobile, hay navbar +
+              historial del navegador). Compartir/Favorito se mudan junto
+              al título de la experiencia, más abajo — ver ese comentario
+              en cada rama (festival/regular). */}
+          <GaleriaFotosDesktop imageUrl={experiencia?.imageUrl} />
+
+          {esFestivalCiudad ? (
+            <div className="mx-auto mt-10 flex max-w-[800px] flex-col gap-16">
+              <div className="flex flex-col gap-3">
+                <span className="font-body font-semibold text-xs uppercase tracking-[0.5px] text-thea-mint">
+                  Festival
+                </span>
+                {/* Compartir/Favorito al lado del título — 2026-09-14, a
+                    pedido de Ana (ver nota grande junto al "Volver" que
+                    se sacó más arriba): "pon compartir y corazon al lado
+                    del titulo de la ex". */}
+                <div className="flex items-start justify-between gap-6">
+                  <h1 className="font-display text-4xl font-thin tracking-[-1px] text-white-100">
+                    {experiencia?.title}
+                  </h1>
+                  <div className="flex shrink-0 items-center gap-5 pt-2">
+                    <button
+                      onClick={compartir}
+                      aria-label="Compartir"
+                      className="flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+                    >
+                      <IconShare className="h-4 w-4" />
+                      Compartir
+                    </button>
+                    {id && <FavoritoButton id={id} />}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 font-body font-semibold text-sm text-white-100">
+                  <span className="flex items-center gap-1.5">
+                    <IconMapPin className="h-4 w-4 opacity-60" />
+                    {experiencia?.city}
+                  </span>
+                  <span className="text-white-40">·</span>
+                  <span className="flex items-center gap-1.5">
+                    <IconCalendar className="h-4 w-4 opacity-60" />
+                    {experiencia?.date}
+                  </span>
+                </div>
+                <p className="font-body text-base leading-relaxed text-white-70">
+                  {experiencia?.description}
+                </p>
+                {lineupFestival.length > 0 && (
+                  <p className="font-body text-sm text-white-50">
+                    {categoriasLineup.join(" · ")} · {lineupFestival.length}{" "}
+                    {lineupFestival.length === 1 ? "experiencia" : "experiencias"}
+                  </p>
+                )}
+              </div>
+
+              <section className="flex flex-col gap-5">
+                <h2 className="font-display text-2xl text-white-100">
+                  Explora la programación
+                </h2>
+                {lineupFestival.length > 0 ? (
+                  <>
+                    {categoriasLineup.length > 1 && (
+                      <div className="flex flex-wrap gap-2">
+                        {(["Todo", ...categoriasLineup] as const).map((cat) => {
+                          const activa = cat === categoriaLineupActiva;
+                          return (
+                            <button
+                              key={cat}
+                              onClick={() => setCategoriaLineupActiva(cat)}
+                              className={`shrink-0 rounded-full px-4 py-2 font-body font-semibold text-[13px] ${
+                                activa
+                                  ? "bg-white-100 text-thea-green"
+                                  : "bg-white-8 text-white-100"
+                              }`}
+                            >
+                              {cat}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                    <div className="grid grid-cols-3 gap-4">
+                      {lineupFiltrado.map((exp) => (
+                        <Link key={exp.id} to={`/experiencia/${exp.id}`}>
+                          <SupportingCard
+                            id={exp.id}
+                            tag={exp.tag}
+                            title={exp.title}
+                            venue={exp.venue}
+                            city={exp.city}
+                            imageUrl={exp.imageUrl}
+                            size="compact"
+                            showFavorito
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <p className="text-sm text-white-80">
+                    Programación pendiente de confirmar.
+                  </p>
+                )}
+              </section>
+
+              {venuesLineup.length > 1 && (
+                <section className="flex flex-col gap-5">
+                  <h2 className="font-display text-2xl text-white-100">Dónde sucede</h2>
+                  <div className="grid grid-cols-3 gap-4">
+                    {venuesLineup.map((v) => (
+                      <div key={v.venue} className="flex flex-col gap-1.5 rounded-xl bg-white-8 p-4">
+                        <p className="font-display text-base text-white-100">{v.venue}</p>
+                        <span className="flex items-center gap-1.5 font-body text-xs text-white-60">
+                          <IconMapPin className="h-3.5 w-3.5 shrink-0 opacity-60" />
+                          {v.venueBarrio ? `${v.venueBarrio} · ${v.city}` : v.city}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              <section className="flex flex-col gap-3">
+                <h2 className="font-display text-2xl text-white-100">Sobre el festival</h2>
+                <p className="font-body text-[15px] leading-normal text-white-70">
+                  {experiencia?.curiosidadDelLugar}
+                </p>
+                {experiencia?.artista && (
+                  <p className="font-body text-sm text-white-60">
+                    Organiza: {experiencia.artista.nombre}
+                  </p>
+                )}
+              </section>
+
+              {experiencia && (
+                <a
+                  href={googleSearchUrl(`${experiencia.title} sitio oficial`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 self-start font-body font-semibold text-[15px] text-white-100 underline"
+                >
+                  <IconTicket className="h-4 w-4" />
+                  Visitar sitio oficial
+                </a>
+              )}
+            </div>
+          ) : (
+            <>
+            <div className="mt-10 grid grid-cols-[1fr_400px] items-start gap-16">
+              {/* Columna de contenido — mismo texto/data que mobile arriba
+                  en este archivo (¡NO tocado!), solo reflowado a una
+                  columna más ancha en vez de todo el viewport. */}
+              <div className="flex min-w-0 flex-col gap-16">
+                <div className="flex flex-col gap-4">
+                  {/* Compartir/Favorito al lado del título — 2026-09-14,
+                      a pedido de Ana ("pon compartir y corazon al lado
+                      del titulo de la ex"), en vez del header de arriba
+                      con "Volver" que se sacó (ver esa nota). */}
+                  <div className="flex items-start justify-between gap-6">
+                    <h1 className="font-display text-4xl font-thin tracking-[-1px] text-white-100">
+                      {experiencia?.title}
+                    </h1>
+                    <div className="flex shrink-0 items-center gap-5 pt-2">
+                      <button
+                        onClick={compartir}
+                        aria-label="Compartir"
+                        className="flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+                      >
+                        <IconShare className="h-4 w-4" />
+                        Compartir
+                      </button>
+                      {id && <FavoritoButton id={id} />}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-body font-semibold text-sm">
+                      <span className="text-thea-mint">★</span>{" "}
+                      <span className="text-white-100">
+                        {experiencia ? experiencia.rating : "—"}
+                      </span>{" "}
+                      {experiencia && (
+                        <span className="font-normal text-white-50">
+                          ({experiencia.ratingCount})
+                        </span>
+                      )}
+                    </span>
+                    <span className="text-white-30">·</span>
+                    <span className="flex items-center gap-1.5 font-body text-sm text-white-60">
+                      <IconMapPin className="h-4 w-4 opacity-60" />
+                      {experiencia?.venue}, {experiencia?.city}
+                    </span>
+                  </div>
+                  <p className="max-w-[640px] font-body text-base leading-relaxed text-white-70">
+                    {experiencia?.description ??
+                      "Descripción corta pendiente de contenido real."}
+                  </p>
+                </div>
+
+                <section className="flex flex-col gap-4">
+                  <h2 className="font-display text-2xl text-white-100">
+                    Por qué descubrir esto
+                  </h2>
+                  <p className="max-w-[720px] font-body text-[15px] leading-normal text-white-70">
+                    {experiencia?.porQueDescubrir ??
+                      "Argumento curatorial de Theaveling — pendiente de contenido real."}
+                  </p>
+                </section>
+
+                <section className="flex flex-col gap-4">
+                  <h2 className="font-display text-2xl text-white-100">
+                    Ficha del descubrimiento
+                  </h2>
+                  {experiencia?.ficha ? (
+                    (() => {
+                      // Dos columnas INDEPENDIENTES (flex), no un
+                      // `grid-cols-2` — 2026-09-14, corregido a pedido de
+                      // Ana ("la ficha del descubrimiento tiene lo de
+                      // restriccion muy abajo" / "corrigelo para que se
+                      // vea el espaciado homogeneo"). Con `grid`, cada
+                      // FILA fuerza a las 2 celdas de esa fila a la misma
+                      // altura — cuando "Duración" (derecha) es un texto
+                      // largo de 3 líneas e "Idioma" (izquierda, misma
+                      // fila) es corto ("Español"), la fila entera se
+                      // estira a la altura de "Duración" y deja un hueco
+                      // vacío enorme debajo de "Idioma" antes de que
+                      // "Restricción de edad" pueda empezar — eso es lo
+                      // que se veía "muy abajo". El intento anterior
+                      // (`col-span-2` en el último ítem) no alcanzaba
+                      // porque el hueco aparecía ANTES, dentro de esa
+                      // misma fila. Con 2 columnas de `flex flex-col`
+                      // separadas, cada una apila sus propios ítems con
+                      // el mismo gap fijo, sin que la altura de un ítem
+                      // de una columna empuje nada en la otra — mismo
+                      // criterio ya usado en otras partes de la app para
+                      // evitar este problema de `grid`.
+                      const items = [
+                        [IconRepeat, "Presentaciones", experiencia.ficha.presentaciones],
+                        [IconFlag, "Festivales", experiencia.ficha.festivales],
+                        [IconAward, "Premios", experiencia.ficha.premios],
+                        [IconBookOpen, "Origen", experiencia.ficha.origen],
+                        [IconGlobe, "Idioma", experiencia.ficha.idioma],
+                        [IconClock, "Duración", experiencia.duracion ?? "Pendiente de confirmar."],
+                        [
+                          IconShieldCheck,
+                          "Restricción de edad",
+                          experiencia.restriccionEdad ?? "Todo público.",
+                        ],
+                      ] as const;
+                      const columnaIzquierda = items.filter((_, i) => i % 2 === 0);
+                      const columnaDerecha = items.filter((_, i) => i % 2 === 1);
+                      const renderItem = ([Icon, label, value]: (typeof items)[number]) => (
+                        <div key={label} className="flex items-start gap-3">
+                          <Icon className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
+                          <div className="flex flex-1 flex-col gap-0.5">
+                            <span className="font-body text-sm text-white-70">{label}</span>
+                            <span className="font-body text-sm leading-[1.4] text-white-100">
+                              {value}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                      return (
+                        <div className="flex max-w-[720px] gap-8">
+                          <div className="flex flex-1 flex-col gap-4">
+                            {columnaIzquierda.map(renderItem)}
+                          </div>
+                          <div className="flex flex-1 flex-col gap-4">
+                            {columnaDerecha.map(renderItem)}
+                          </div>
+                        </div>
+                      );
+                    })()
+                  ) : (
+                    <p className="text-sm text-white-80">
+                      Duración, restricción de edad, presentaciones, festivales,
+                      premios, origen, idioma — pendiente de contenido real.
+                    </p>
+                  )}
+                </section>
+
+                <section className="flex flex-col items-start gap-4">
+                  <h2 className="font-display text-2xl text-white-100">Quiénes hacen parte</h2>
+                  {experiencia?.artista ? (
+                    <div className="flex w-full flex-col gap-4">
+                      {/* orientacion="horizontal" — 2026-09-14, a pedido de
+                          Ana: "la card de quienes hacen parte esta muy
+                          alta, debe ser mas cuadrada o rectangular". Ver
+                          nota grande en ArtistSpaceCard.tsx — no cambia
+                          nada en mobile/Compra.tsx. */}
+                      <ArtistSpaceCard
+                        nombre={experiencia.artista.nombre}
+                        categoria={experiencia.artista.categoria}
+                        ciudad={experiencia.artista.ciudad}
+                        imageUrl={experiencia.artista.imageUrl}
+                        orientacion="horizontal"
+                      />
+                      {experiencia.artista.saludo && (
+                        <p className="font-body text-sm leading-[1.5] text-white-80">
+                          {experiencia.artista.saludo}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-white-80">
+                      Quiénes hacen parte — pendiente de contenido real.
+                    </p>
+                  )}
+                </section>
+              </div>
+
+              {/* Sidebar de reserva — sticky, ver comentario grande de
+                  arriba (punto 3). `top-10` deja el mismo aire que el
+                  padding superior de la columna de al lado.
+
+                  Deja de acompañar antes de "Comunidad" — 2026-09-14,
+                  corregido dos veces a pedido de Ana. Primero pidió "cuando
+                  se llegue al mapa, ahi para de acompanar la card para
+                  fecha y hora" (el grid terminaba después de "Sobre el
+                  lugar"), pero después aclaró que el punto real es antes:
+                  "deja de acomnar hasta que empiezan los comentarios" /
+                  "o sea el selector deja de acompanar hasta las reseñas".
+                  Por eso el grid de 2 columnas ahora TERMINA justo después
+                  de "Quiénes hacen parte" — "Comunidad", "Sobre el lugar",
+                  Información adicional y Contenido similar se movieron
+                  abajo, fuera del grid (ver esas secciones más abajo). Como
+                  `sticky` se resuelve contra la altura de su propio
+                  contenedor, al terminar el grid ahí la card deja de tener
+                  más scroll del que acompañar, en vez de seguir hasta el
+                  final de la pantalla.
+
+                  Fondo blanco — 2026-09-14, a pedido de Ana: primero
+                  pidió el texto "Total" en blanco, pero al ver que no
+                  cambiaba nada visible aclaró que el pedido era "el
+                  fondo de toda la tarjeta". Se convierte toda la card a
+                  superficie clara — mismo criterio de paleta ya usado en
+                  LoginSheet.tsx y en la Booking Summary Card de
+                  ConfirmarPagoSheet.tsx (`bg-white-100 border
+                  border-green-12`, texto `thea-green`/`green-70`/
+                  `green-50`, superficies `green-12`/`green-8`, botón
+                  primario invertido a `bg-thea-green text-white-100`
+                  porque un botón blanco ya no resalta sobre una card
+                  blanca). `CalendarioFechaHora` se actualizó junto con
+                  esto (es exclusivo de esta card). `MapaButacas` es
+                  compartido con mobile (Compra.tsx) — ahí se agregó un
+                  `variant="light"` en vez de tocar su paleta por
+                  defecto, así mobile no cambia en nada.
+
+                  `top-24` (antes `top-10`) — 2026-09-14, a pedido de Ana:
+                  "el scroll hacia abajo el selector, toda la card se vea
+                  completa, ahora mismo esta como comiendoce un pedazo de
+                  arriba". Al agregar `DesktopNavbar` (también `sticky`,
+                  h-20/80px) arriba de esta pantalla, un `top-10` (40px) en
+                  la card quedaba por DEBAJO del borde inferior del navbar
+                  — la tarjeta se pegaba a 40px del viewport, pero el
+                  navbar (que ocupa hasta los 80px y va encima en el
+                  stacking) le tapaba ese pedazo de arriba. `top-24`
+                  (96px) dejá a la card pegarse justo debajo del navbar,
+                  con un poco de aire (16px). */}
+              {experiencia && (
+                <div className="sticky top-24 flex flex-col gap-6 rounded-2xl border border-green-12 bg-white-100 p-6">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <p className="font-body font-semibold text-sm text-thea-green">
+                        Fecha y hora próximas
+                      </p>
+                      <button
+                        onClick={() => setVistaCalendarioDesktop((v) => !v)}
+                        aria-label="Ver calendario"
+                        className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                          vistaCalendarioDesktop ? "bg-thea-mint text-thea-green" : "text-green-50 hover:bg-green-8"
+                        }`}
+                      >
+                        <IconCalendar className="h-4 w-4" />
+                      </button>
+                    </div>
+
+                    {vistaCalendarioDesktop ? (
+                      <CalendarioFechaHora
+                        opciones={opcionesFechaHoraDesktop}
+                        fechasReales={fechasRealesDesktop}
+                        indiceSeleccionado={fechaHoraIndiceDesktop}
+                        onSeleccionar={setFechaHoraIndiceDesktop}
+                      />
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2">
+                        {opcionesFechaHoraDesktop.slice(0, 4).map((opcion, i) => {
+                          const seleccionado = i === fechaHoraIndiceDesktop;
+                          return (
+                            <button
+                              key={`${opcion.fecha}-${opcion.hora}`}
+                              onClick={() => setFechaHoraIndiceDesktop(i)}
+                              className={`flex w-full flex-col gap-0.5 rounded-xl border-2 px-4 py-3 ${
+                                seleccionado
+                                  ? "border-thea-mint bg-green-12"
+                                  : "border-transparent bg-green-8"
+                              }`}
+                            >
+                              <span className="whitespace-nowrap font-body font-semibold text-sm text-thea-green">
+                                {opcion.fecha}
+                              </span>
+                              {opcion.hora && (
+                                <span className="font-body text-xs text-green-50">
+                                  {horaCompacta(opcion.hora)}
+                                </span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    <p className="font-body font-semibold text-sm text-thea-green">Tipo de entrada</p>
+                    <div className="flex w-full items-center justify-between rounded-xl bg-green-12 px-4 py-3.5">
+                      <span className="font-body font-semibold text-sm text-thea-green">General</span>
+                      <span className="font-body font-semibold text-sm text-thea-green">
+                        {gratisDesktop
+                          ? "Gratis"
+                          : `${experiencia.mostrarDesde ? "Desde " : ""}${experiencia.price}`}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <p className="font-body font-semibold text-sm text-thea-green">Entradas</p>
+                      {tieneMapaButacasDesktop && (
+                        <button
+                          onClick={() => setMapaAbiertoDesktop((v) => !v)}
+                          className="flex items-center gap-1"
+                        >
+                          <IconMap className="h-4 w-4 text-thea-green opacity-70" />
+                          <span className="font-body text-[13px] text-thea-green underline underline-offset-2 opacity-70">
+                            Ver mapa de butacas
+                          </span>
+                        </button>
+                      )}
+                    </div>
+                    {tieneMapaButacasDesktop && mapaAbiertoDesktop && (
+                      <MapaButacas
+                        experienciaId={experiencia.id}
+                        seleccionadas={butacasElegidasDesktop}
+                        onToggle={toggleButacaDesktop}
+                        variant="light"
+                      />
+                    )}
+                    <div className="flex items-center justify-between rounded-xl border border-green-12 bg-green-8 px-4 py-3.5">
+                      <span className="font-body text-sm text-thea-green">Cantidad de personas</span>
+                      {tieneMapaButacasDesktop ? (
+                        <span className="font-body font-semibold text-sm text-thea-green [font-variant-numeric:tabular-nums]">
+                          {cantidadEfectivaDesktop}
+                        </span>
+                      ) : (
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={() => setCantidadDesktop((c) => Math.max(1, c - 1))}
+                            disabled={cantidadDesktop <= 1}
+                            aria-label="Menos personas"
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-green-12 text-thea-green disabled:opacity-30"
+                          >
+                            <IconMinus className="h-3.5 w-3.5" />
+                          </button>
+                          <span className="w-4 text-center font-body font-semibold text-sm text-thea-green [font-variant-numeric:tabular-nums]">
+                            {cantidadDesktop}
+                          </span>
+                          <button
+                            onClick={() => setCantidadDesktop((c) => Math.min(6, c + 1))}
+                            disabled={cantidadDesktop >= 6}
+                            aria-label="Más personas"
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-green-12 text-thea-green disabled:opacity-30"
+                          >
+                            <IconPlus className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="h-px w-full bg-green-12" />
+
+                  <div className="flex items-center justify-between">
+                    <span className="font-body text-sm text-green-50">Total</span>
+                    <span className="font-display font-semibold text-xl text-thea-green">
+                      {totalLabelDesktop}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => setPasoDesktop("pago")}
+                    disabled={fechaHoraIndiceDesktop === null || cantidadEfectivaDesktop === 0}
+                    className="h-12 w-full rounded-xl bg-thea-green font-body font-semibold text-[15px] leading-5 tracking-[0.3px] text-white-100 disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    Siguiente
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Comunidad — 2026-09-14, sale del grid de 2 columnas (ver
+                nota grande junto al sidebar) porque el selector de fecha
+                deja de acompañar justo acá: "deja de acomnar hasta que
+                empiezan los comentarios qeu tambien tiene que estar
+                centrados y con scroll horizontal". Pasa de grid vertical
+                de 2 columnas a riel horizontal a lo ancho completo de la
+                pantalla — mismo mecanismo que "Contenido similar" más
+                abajo (`flex gap-X overflow-x-auto scrollbar-none`, cards
+                `shrink-0` de ancho fijo) — y por eso queda "centrada"
+                dentro del mismo contenedor `max-w-[1200px]` de toda la
+                pantalla, en vez de acotada al ancho angosto de la
+                columna de contenido de antes.
+
+                Jerarquía visual de las cards — 2026-09-14, a pedido de
+                Ana ("dale mas jerarquia visual a las cards de
+                valoraciones"): avatar más grande con acento en
+                `thea-mint` (color de marca, en vez del círculo gris
+                plano de antes), nombre en tamaño mayor, la calificación
+                pasa a su propia fila destacada en mint (antes iba
+                apretada junto a la fecha en texto chico), y el texto de
+                la reseña sube un escalón de tamaño. Se saca el botón
+                "Mostrar más" por reseña (venía de la referencia de
+                Airbnb en grid vertical): con card de alto fijo en un
+                riel horizontal, un `line-clamp` fijo alcanza — no hay
+                más estado que guardar por reseña. */}
+            <section className="mt-16 flex flex-col gap-4">
+              <div className="flex flex-col gap-1">
+                <p className="font-body font-semibold text-2xl text-white-100">
+                  <span className="text-thea-mint">★</span>{" "}
+                  {experiencia ? experiencia.rating : "—"}
+                  {experiencia && (
+                    <span className="text-white-60"> · {experiencia.ratingCount} evaluaciones</span>
+                  )}
+                </p>
+                <button
+                  type="button"
+                  className="self-start font-body text-sm text-white-100 underline underline-offset-2"
+                >
+                  Cómo funcionan las evaluaciones
+                </button>
+              </div>
+
+              <p className="font-body text-sm text-white-60">Personas que estuvieron aquí</p>
+
+              {/* Ancho 240px + gap-6 — 2026-09-14: mismo cálculo que
+                  "Contenido similar" más abajo (4 cards de 240px caben en
+                  los ~1040px de esta columna con gap-6/24px), para que se
+                  vean 4 reseñas de entrada y el resto corra el riel hacia
+                  la derecha, mismo criterio que pidió Ana para ese otro
+                  riel. */}
+              <div className="flex gap-6 overflow-x-auto scrollbar-none">
+                {(experiencia?.resenas ?? []).slice(0, 6).map((reseña, i) => (
+                  <div
+                    key={`${reseña.nombre}-${i}`}
+                    className="flex h-[260px] w-[240px] shrink-0 flex-col gap-4 rounded-2xl bg-white-8 p-6"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-thea-mint/30 bg-thea-mint/15">
+                        <span className="font-display text-base text-thea-mint">
+                          {reseña.nombre.charAt(0)}
+                        </span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="font-body font-semibold text-base text-white-100">
+                          {reseña.nombre}
+                        </span>
+                        <span className="font-body text-xs text-white-50">{reseña.fecha}</span>
+                      </div>
+                    </div>
+                    <span className="font-body font-semibold text-sm text-thea-mint">
+                      ★ {reseña.rating}
+                    </span>
+                    <p className="line-clamp-4 flex-1 font-body text-[15px] leading-[1.5] text-white-80">
+                      {reseña.texto}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="self-start rounded-lg bg-white-8 px-5 py-2.5 font-body font-medium text-sm text-white-100"
+              >
+                Mostrar todo{experiencia ? `: ${experiencia.ratingCount} evaluaciones` : ""}
+              </button>
+            </section>
+
+            {/* Sobre el lugar — 2026-09-14, sale del grid junto con
+                "Comunidad" (ver nota grande de acá arriba) por el mismo
+                motivo: el selector de fecha ya dejó de acompañar antes de
+                llegar acá.
+
+                Foto+datos del lugar — 2026-09-14, corregido a pedido de
+                Ana: la primera versión le puso el mismo `max-w-[720px]
+                mx-auto` que "Por qué descubrir esto"/"Ficha del
+                descubrimiento", pero acá se veía mal porque el título
+                "Sobre el lugar" queda pegado a la izquierda (como el
+                resto de los títulos de la pantalla) mientras que este
+                bloque quedaba centrado/angosto por debajo — "esta parte
+                el lugar tiene que quedar hacia izq, pero con el alcance
+                del texto mas hacia la derecha". Se saca el `mx-auto
+                max-w-[720px]` de la foto+texto (y del divisor de abajo):
+                quedan pegados a la izquierda, igual que el título, y el
+                texto (`flex-1`) se estira hasta el ancho completo de la
+                sección en vez de cortarse a los 720px.
+
+                El mapa mantiene su propio tratamiento "centrado y más
+                grande" (`mx-auto max-w-[480px]` en MapPreview, pedido
+                original de Ana, reconfirmado acá) — ese bloque (mapa +
+                dirección + contexto de barrio) sí se deja en su columna
+                de `max-w-[720px] mx-auto` propia, para que el mapa se
+                siga viendo como un bloque centrado y no una franja de
+                punta a punta. */}
+            {experiencia && (
+              <section className="mt-16 flex flex-col gap-6">
+                <h2 className="font-display text-2xl text-white-100">Sobre el lugar</h2>
+                <div className="flex w-full gap-6">
+                  {experiencia.venueImageUrl ? (
+                    <img
+                      src={experiencia.venueImageUrl}
+                      alt=""
+                      className="h-56 w-[280px] shrink-0 rounded-2xl object-cover"
+                    />
+                  ) : (
+                    <div
+                      className="flex h-56 w-[280px] shrink-0 items-center justify-center rounded-2xl"
+                      style={{
+                        background: "linear-gradient(to right, #ebe9e6, #dcdad6, #cfcdc9)",
+                      }}
+                    >
+                      <IconBuilding className="h-8 w-8 text-thea-green opacity-40" />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col gap-3">
+                    <div className="flex flex-col gap-1.5">
+                      <p className="font-display text-xl tracking-[-0.1px] text-white-100">
+                        {experiencia.venue}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-white-12 px-2 py-1 font-body text-[10px] font-semibold uppercase text-white-100">
+                          {experiencia.venueCategoria ?? "Espacio cultural"}
+                        </span>
+                        <span className="font-body text-xs text-white-50">
+                          {experiencia.venueBarrio
+                            ? `${experiencia.venueBarrio} • ${experiencia.city}`
+                            : experiencia.city}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="font-body text-sm leading-[1.4] text-white-100">
+                      {experiencia.curiosidadDelLugar ??
+                        "Curiosidad del lugar — pendiente de contenido real."}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-white-12" />
+
+                <div className="mx-auto flex w-full max-w-[720px] flex-col gap-3">
+                  {/* Un poco más grande — 2026-09-14, a pedido de Ana
+                      ("pon el mapa mas grandecito"): sube de 320×480 a
+                      400×600, sigue centrado (`mx-auto`) dentro de esta
+                      misma columna de 720px. */}
+                  <MapPreview
+                    venue={experiencia.venue}
+                    city={experiencia.city}
+                    variant="dark"
+                    className="mx-auto h-[400px] max-w-[600px]"
+                  />
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <p className="font-body text-[13px] text-white-60">
+                      {experiencia.direccionCompleta ?? `${experiencia.venue}, ${experiencia.city}`}
+                    </p>
+                    <div className="flex items-center gap-3 font-body font-semibold text-[13px] text-white-100">
+                      <a
+                        href={googleMapsSearchUrl(`${experiencia.venue}, ${experiencia.city}`)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline"
+                      >
+                        Ampliar
+                      </a>
+                      <a
+                        href={googleMapsSearchUrl(`${experiencia.venue}, ${experiencia.city}`)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline"
+                      >
+                        Ir a Google Maps
+                      </a>
+                    </div>
+                  </div>
+                  <p className="font-body text-sm leading-[1.4] text-white-100">
+                    {experiencia.contextoBarrio ??
+                      "Contexto del barrio — pendiente de contenido real."}
+                  </p>
+                </div>
+              </section>
+            )}
+
+            {/* Información adicional + Contenido similar — 2026-09-14, a
+                pedido de Ana: "conteneido similar va mas abajo" +
+                "cuando se llegue al mapa, ahi para de acompanar la card
+                para fecha y hora". Ambas secciones salen del grid de 2
+                columnas (ver nota grande junto al sidebar) y pasan a
+                vivir acá, a lo ancho completo de la pantalla, debajo de
+                todo el bloque columna+sidebar — ya no hay una columna de
+                400px restándoles espacio. */}
+            {experiencia && (
+              <section className="mt-16 flex flex-col gap-4">
+                <h2 className="font-display text-2xl text-white-100">Información adicional</h2>
+                <div className="grid max-w-[720px] grid-cols-1 gap-4">
+                  <div className="flex items-start gap-3">
+                    <IconAlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
+                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                      Se recomienda llegar 20 minutos antes — el ingreso se
+                      cierra al iniciar la función.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <IconCameraOff className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
+                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                      No se permite grabar ni fotografiar durante la función,
+                      por respeto a los artistas y al resto del público.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <IconCalendarX className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
+                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                      Cancelación gratuita hasta 24 horas antes de la función
+                      — después de ese plazo no hay reembolso.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Contenido similar — 2026-09-14, corregido dos veces a
+                pedido de Ana sobre qué card usar. Primero pidió "las
+                cards de este deben ser como las de descubrimiento" y se
+                usó `ExperienceCardGridDesktop` con `size="reservados"`
+                — esa es la card de "Más reservados" (con hover-expand
+                tipo Netflix y footer de rating/precio), NO la de
+                "Descubrimientos". Ana corrigió: "las cards de contenido
+                similar tienen que ser las mismas cards para
+                descubrimientos" — la card real de esa sección es
+                `ExperienceCardDescubrimientosDesktop` (ver la nota
+                grande en ese archivo): sin hover-expand, sin precio/
+                rating, solo zoom en la foto + tag/título/descripción de
+                2 líneas/lugar debajo, SUELTA sin contenedor. Se reemplaza
+                acá 1 a 1 — mismo componente, mismo ancho de card (280px)
+                y mismo `gap-8` que usa ESE riel en Descubrir.tsx (antes
+                240px/gap-6, un ancho inventado para esta pantalla que ya
+                no aplica: esta card no tiene alto fijo ni necesita
+                `relative`, así que se la deja calcular su propio alto
+                igual que en Descubrir). Sigue con scroll horizontal
+                (`overflow-x-auto`, sin flechas — `RailNavButtons` de
+                Descubrir.tsx no se trajo acá, no lo pidió). */}
+            <section className="mt-16 flex flex-col gap-4">
+              <h2 className="font-display text-2xl text-white-100">Contenido similar</h2>
+              <div className="flex gap-8 overflow-x-auto scrollbar-none">
+                {id &&
+                  getRelatedExperiences(id, 6).map((relacionada) => (
+                    <Link
+                      key={relacionada.id}
+                      to={`/experiencia/${relacionada.id}`}
+                      className="w-[280px] shrink-0"
+                    >
+                      <ExperienceCardDescubrimientosDesktop
+                        id={relacionada.id}
+                        tag={relacionada.tag}
+                        title={relacionada.title}
+                        description={relacionada.description}
+                        venue={relacionada.venue}
+                        city={relacionada.city}
+                        imageUrl={relacionada.imageUrl}
+                      />
+                    </Link>
+                  ))}
+              </div>
+            </section>
+            </>
+          )}
+        </div>
+      ) : experiencia ? (
+        /* Paso "pago" — 2026-09-14, calca la 3ra referencia de Fever
+           ("Confirmar y pagar"): 2 columnas, izquierda con lo que el
+           proyecto ya tiene real (mismo contenido de
+           ConfirmarPagoSheet.tsx, ver comentario grande de arriba),
+           derecha con la card de resumen sticky. Sin ruta nueva — sigue
+           siendo este mismo componente, `pasoDesktop` vuelve a
+           "detalle" con "Modificar". */
+        <div className="mx-auto max-w-[1200px] px-20 pb-40 pt-10">
+          <button
+            onClick={() => setPasoDesktop("detalle")}
+            className="mb-8 flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+          >
+            <IconCaretRight className="h-4 w-4 rotate-180" />
+            Confirmar y pagar
+          </button>
+
+          {procesandoPagoDesktop ? (
+            <div className="flex flex-col items-center justify-center gap-4 py-32">
+              <div
+                className="h-10 w-10 animate-spin rounded-full border-4"
+                style={{ borderColor: "rgba(251,251,251,0.12)", borderTopColor: "#FBFBFB" }}
+                role="status"
+                aria-label="Procesando pago"
+              />
+              <p className="font-body text-sm text-white-70">Procesando tu pago…</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-[1fr_400px] items-start gap-16">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  <p className="font-body font-semibold text-sm text-white-100">Forma de pago</p>
+                  <div className="flex flex-col gap-2">
+                    {[{ terminacion: "4242" }, { terminacion: "0002" }].map((tarjeta) => (
+                      <div
+                        key={tarjeta.terminacion}
+                        className="flex items-center gap-3 rounded-2xl border border-white-12 px-4 py-3.5"
+                      >
+                        <IconCreditCard className="h-5 w-5 text-white-100 opacity-70" />
+                        <span className="flex-1 font-body text-sm text-white-100">
+                          Tarjeta terminada en {tarjeta.terminacion}
+                        </span>
+                        <span className="font-body text-[11px] uppercase tracking-[1px] text-white-40">
+                          Demo
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <p className="font-body font-semibold text-sm text-white-100">Cupones</p>
+                  <div className="flex items-center justify-between rounded-2xl border border-white-12 px-4 py-3.5">
+                    <span className="font-body text-sm text-white-50">Ingresa un cupón</span>
+                    <IconCaretRight className="h-4 w-4 text-white-40" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <p className="font-body font-semibold text-sm text-white-100">Cancelación gratuita</p>
+                  <div className="rounded-2xl border border-white-12 px-4 py-3.5">
+                    <p className="font-body text-sm text-white-70">
+                      Puedes cancelar sin costo hasta 24 horas antes de la
+                      función y recibes un reembolso completo.
+                    </p>
+                  </div>
+                </div>
+
+                <p className="font-body text-xs text-white-50">
+                  Al tocar "Confirmar y pagar" aceptas los términos de la
+                  reserva de Theaveling. Esta es una demo — no se procesa
+                  ningún pago real.
+                </p>
+
+                <button
+                  onClick={confirmarPagoDesktop}
+                  className="h-12 w-full max-w-[320px] rounded-xl bg-white-100 font-body font-semibold text-[15px] leading-5 tracking-[0.3px] text-thea-green"
+                >
+                  Confirmar y pagar
+                </button>
+              </div>
+
+              {/* Card de resumen — mismo contenido que la Booking Summary
+                  Card de ConfirmarPagoSheet.tsx (foto, título, Fecha/
+                  Hora/Lugar/Entradas, Total), acá sticky en vez de
+                  arriba de un sheet que scrollea.
+
+                  `top-24` (antes `top-10`) — mismo ajuste que la card del
+                  paso "detalle" (ver esa nota grande): con `DesktopNavbar`
+                  ahora sticky arriba de toda la pantalla, `top-10` dejaba
+                  el navbar tapando un pedazo de arriba de esta card. */}
+              <div className="sticky top-24 flex flex-col overflow-hidden rounded-2xl border border-white-12 bg-white-6">
+                <div className="relative h-40 bg-white-8">
+                  {experiencia.imageUrl ? (
+                    <img
+                      src={experiencia.imageUrl}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    <ImagePlaceholder />
+                  )}
+                </div>
+                <div className="flex flex-col gap-4 p-5">
+                  <div className="flex flex-col gap-1.5">
+                    <span className="font-body font-semibold text-[11px] uppercase tracking-[1.5px] text-thea-mint">
+                      {experiencia.category}
+                    </span>
+                    <h3 className="font-display text-xl tracking-[-0.1px] text-white-100">
+                      {experiencia.title}
+                    </h3>
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    {[
+                      { label: "Fecha", value: fechaElegidaDesktop },
+                      ...(horaElegidaDesktop ? [{ label: "Hora", value: `${horaElegidaDesktop} h` }] : []),
+                      { label: "Lugar", value: `${experiencia.venue}, ${experiencia.city}` },
+                      {
+                        label: "Entradas",
+                        value: `${cantidadEfectivaDesktop} ${cantidadEfectivaDesktop === 1 ? "persona" : "personas"}`,
+                      },
+                    ].map((row) => (
+                      <div key={row.label} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white-20" />
+                        <p className="font-body text-sm text-white-70">
+                          <span className="font-semibold text-white-100">{row.label}: </span>
+                          {row.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="h-px w-full bg-white-12" />
+                  <div className="flex items-center justify-between">
+                    <span className="font-body text-sm text-white-50">Total</span>
+                    <span className="font-display font-semibold text-xl text-white-100">
+                      {totalLabelDesktop}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : null}
+      {/* DesktopFooter — 2026-09-14, a pedido de Ana: "en todas las
+          pantallas acompana la parte de abajo donde dice sobre la
+          politica etc" (antes solo vivía en Descubrir.tsx). */}
+      <DesktopFooter />
+    </div>
+    </>
   );
 }

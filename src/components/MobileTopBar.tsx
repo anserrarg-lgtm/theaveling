@@ -45,8 +45,17 @@ import { IconMapPin, IconSearch } from "./icons";
  */
 export default function MobileTopBar({
   onLocationClick,
+  onWordmarkClick,
 }: {
   onLocationClick?: () => void;
+  /** 2026-09-14, a pedido de Ana ("quiero q cuando se toque theaveling
+   * lleve a la pantalla de todo"): el wordmark era solo texto suelto acá,
+   * sin acción — ahora, si se pasa este callback, tocarlo vuelve a la
+   * pestaña "Todo" (Descubrir.tsx lo conecta a `setActiveCategory`, igual
+   * que ya hace `DesktopNavbar` en su versión). Opcional para no romper
+   * el componente si algún día se usa en una pantalla sin ese concepto de
+   * pestañas. */
+  onWordmarkClick?: () => void;
 }) {
   const navigate = useNavigate();
 
@@ -58,7 +67,13 @@ export default function MobileTopBar({
     // de alto de siempre, ahora debajo de la hora/batería/wifi en vez
     // de tapado por ellos.
     <header className="h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-thea-deep">
-      <Wordmark />
+      {onWordmarkClick ? (
+        <button onClick={onWordmarkClick} aria-label="Ir a Todo">
+          <Wordmark />
+        </button>
+      ) : (
+        <Wordmark />
+      )}
       {/* mt-[3px] — 2026-09-04, a pedido de Ana: "siento que estan
           ligeramente mas arriba que Theaveling". Medido en captura de
           pantalla real, pixel por pixel: el bloque de tinta del

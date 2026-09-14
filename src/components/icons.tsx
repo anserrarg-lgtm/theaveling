@@ -665,6 +665,37 @@ export function IconApple({ className = "" }: { className?: string }) {
   );
 }
 
+/* icon/translate — 2026-09-12, a pedido de Ana ("pongamosle icono a
+ * lenguaje"), corregido en la misma fecha ("no pero no era de globo que
+ * queria, mira la ref"): la referencia que pasó (2 capturas) es la fila
+ * "Traducción" de `IdiomaMonedaModal.tsx`, no la pestaña "Idioma y
+ * región" — y el ícono no es un globo, es el glifo típico de "traducir"
+ * (letra "A" grande + carácter chico al lado, patrón que usan Google
+ * Translate/Bootstrap Icons "translate"/Tabler "language"). PENDIENTE:
+ * mismo problema de red bloqueada a figma.com que el resto de los
+ * íconos "PENDIENTE" de este archivo — geometría propia simple (la "A"
+ * con trazos rectos, el carácter chico simplificado a una cruz con dos
+ * patas, sin calcar ningún logo real), 16×16, mismo `strokeWidth` que
+ * sus vecinos. Reemplazar cuando Ana lo pase con "Copy as SVG". */
+export function IconTranslate({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={className}>
+      <path
+        d="M1.6 10.8L4.6 3.2L7.6 10.8"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M2.7 8.3H6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M8.6 5.4H14" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+      <path d="M11.3 4V6.2" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+      <path d="M9.4 8.2C10.2 7.5 10.8 6.9 11.3 6.2" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+      <path d="M13.2 6.2C12.9 7.7 12 9.3 10.4 10.6" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /* icon/arrow-right — flecha con palito (línea + punta), no confundir con
    IconCaretRight (que es solo un "wedge"/`>` sin línea). Se agregó
    2026-09-07 puntual para el botón circular de "siguiente mensaje" del
@@ -680,6 +711,23 @@ export function IconArrowRight({ className = "" }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+/* icon/grid — 2026-09-14, a pedido de Ana para el botón "Galería" de la
+   galería de fotos de Detalle en Desktop (ref de Fever: ícono de
+   cuadrícula 2×2 al lado del texto "Galería", esquina inferior derecha
+   del bloque de fotos). No existía ningún ícono de cuadrícula en el
+   proyecto todavía — 4 cuadraditos redondeados, mismo trazo/grosor que
+   el resto del set. */
+export function IconGrid({ className = "" }: { className?: string }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className={className}>
+      <rect x="2.5" y="2.5" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.6" />
+      <rect x="11.5" y="2.5" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.6" />
+      <rect x="2.5" y="11.5" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.6" />
+      <rect x="11.5" y="11.5" width="6" height="6" rx="1.4" stroke="currentColor" strokeWidth="1.6" />
     </svg>
   );
 }

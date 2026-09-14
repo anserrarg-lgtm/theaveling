@@ -43,7 +43,18 @@
  * se agrega esta variante: `variant="dark"` (default) mantiene el
  * comportamiento actual sin tocar nada en Detalle; `variant="light"` es
  * la versión clara para contextos con fondo blanco/claro alrededor,
- * como la card de Compra. */
+ * como la card de Compra.
+ *
+ * `orientacion` — 2026-09-14, a pedido de Ana solo para el Detalle en
+ * Desktop: "la card de quienes hacen parte esta muy alta, debe ser mas
+ * cuadrada o rectangular". La card original es una columna centrada
+ * (avatar arriba, texto debajo) — angosta y alta a propósito, pensada
+ * para mobile/Compra. En vez de tocar ese layout (usado también en
+ * mobile, ver arriba — regla de esta sesión: nunca mobile sin pedido
+ * explícito para ESE archivo), se agrega `orientacion` ("vertical" por
+ * defecto, mismo comportamiento de siempre) con una opción "horizontal"
+ * (avatar a la izquierda, texto a la derecha) que solo usa la llamada
+ * nueva de Desktop. */
 import { IconBuilding } from "../icons";
 
 export default function ArtistSpaceCard({
@@ -52,36 +63,76 @@ export default function ArtistSpaceCard({
   ciudad,
   imageUrl,
   variant = "dark",
+  orientacion = "vertical",
 }: {
   nombre: string;
   categoria: string;
   ciudad: string;
   imageUrl?: string;
   variant?: "dark" | "light";
+  orientacion?: "vertical" | "horizontal";
 }) {
   const isLight = variant === "light";
+  const esHorizontal = orientacion === "horizontal";
+
+  const avatar = imageUrl ? (
+    <img
+      src={imageUrl}
+      alt=""
+      className={`rounded-full object-cover shrink-0 ${esHorizontal ? "h-20 w-20" : "h-24 w-24"}`}
+    />
+  ) : (
+    <div
+      className={`rounded-full flex items-center justify-center shrink-0 ${esHorizontal ? "h-20 w-20" : "h-24 w-24"}`}
+      style={{
+        background: "linear-gradient(to right, #ebe9e6, #dcdad6, #cfcdc9)",
+      }}
+    >
+      <IconBuilding className="w-5 h-5 text-thea-green opacity-40" />
+    </div>
+  );
+
+  if (esHorizontal) {
+    return (
+      <div
+        className={`flex items-center gap-5 p-6 rounded-2xl w-full ${
+          isLight ? "bg-white-100 border border-green-12" : "bg-white-6"
+        }`}
+      >
+        {avatar}
+        <div className="flex min-w-0 flex-col items-start gap-1.5">
+          <p
+            className={`font-display text-xl tracking-[-0.1px] ${
+              isLight ? "text-thea-green" : "text-white-100"
+            }`}
+          >
+            {nombre}
+          </p>
+          <span
+            className={`font-body font-semibold text-[10px] uppercase px-2 py-1 rounded ${
+              isLight ? "bg-green-8 text-thea-green" : "bg-white-12 text-white-100"
+            }`}
+          >
+            {categoria}
+          </span>
+          <p
+            className="font-body text-xs"
+            style={{ color: isLight ? "rgba(17,44,44,0.5)" : "rgba(251,251,251,0.5)" }}
+          >
+            {ciudad}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`flex flex-col items-center justify-center gap-4 p-6 rounded-2xl w-[280px] ${
         isLight ? "bg-white-100 border border-green-12" : "bg-white-6"
       }`}
     >
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt=""
-          className="h-24 w-24 rounded-full object-cover shrink-0"
-        />
-      ) : (
-        <div
-          className="h-24 w-24 rounded-full flex items-center justify-center shrink-0"
-          style={{
-            background: "linear-gradient(to right, #ebe9e6, #dcdad6, #cfcdc9)",
-          }}
-        >
-          <IconBuilding className="w-5 h-5 text-thea-green opacity-40" />
-        </div>
-      )}
+      {avatar}
       <div className="flex flex-col items-center gap-1.5 w-full">
         <p
           className={`font-display text-xl tracking-[-0.1px] text-center ${

@@ -18,18 +18,29 @@
  * tamaño se resuelve con `style` inline, que sí gana siempre sobre
  * cualquier clase — así cada lugar que usa este componente puede pedir
  * su propio tamaño sin arriesgar romper a los otros 2.
+ *
+ * `color` — 2026-09-11, a pedido de Ana para el wordmark dentro de
+ * DesktopFooter.tsx (fondo `bg-thea-green`, verde claro): "puedes poner
+ * el theaveling de este bloque en el verde mas oscuro?". Mismo motivo
+ * que `size`: una clase `text-[...]` pasada por `className` no le gana
+ * de forma confiable a `text-thea-red` (misma especificidad, orden de
+ * Tailwind decide, no algo para depender). Se resuelve igual, con
+ * `style` inline — opcional, sin valor por defecto, así que Home/Splash/
+ * LoginSheet (los otros 3 usos) siguen exactamente igual, en rojo.
  */
 export default function Wordmark({
   className = "",
   size = 22,
+  color,
 }: {
   className?: string;
   size?: number;
+  color?: string;
 }) {
   return (
     <span
       className={`font-wordmark text-thea-red leading-none ${className}`}
-      style={{ fontSize: size }}
+      style={{ fontSize: size, ...(color ? { color } : {}) }}
     >
       Theaveling
     </span>

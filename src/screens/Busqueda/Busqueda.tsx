@@ -159,6 +159,52 @@ import { generarFechasReales } from "../../utils/price";
  * viernes y el usuario busca "este fin de semana", tiene que coincidir
  * de verdad con una fecha de calendario real de esa experiencia, no con
  * una comparación de texto superficial.
+ *
+ * ESTILO "CUADRO FLOTANTE" — 2026-09-12, a pedido de Ana, que mandó de
+ * referencia una captura de otra app: buscador con un cuadro blanco
+ * flotante debajo, con accesos rápidos, un resultado de "lugar" aparte,
+ * y la lista de experiencias agrupada bajo un título. Ana aclaró que NO
+ * quiere el fondo blanco de esa referencia ("no fondo blanco nooo,
+ * verde") — se toma la ESTRUCTURA (tarjeta elevada con borde/sombra,
+ * filas con flecha a la derecha, separador entre filas) pero con los
+ * mismos tokens oscuros que ya usa el resto de la app (`bg-white-6`,
+ * bordes `border-white-12`, divisores `border-white-8` entre filas, como
+ * ya usa `LocationSheet.tsx`). Se aplica a TENDENCIAS, RESULTADOS y a la
+ * sugerencia de "sin resultados" por igual — Ana pidió que salga tanto
+ * al buscar por texto como al elegir fecha, y las 3 ya comparten la
+ * misma lógica de `hayBusquedaActiva`/`resultados`, así que un solo
+ * cambio de estilo cubre los 2 casos sin duplicar nada.
+ *
+ * Dos partes de esa referencia quedan AFUERA por ahora, a criterio
+ * propio (no confirmado con Ana, queda para cuando lo pida):
+ * (1) el resultado de "lugar" aparte (ej. "Cine Domo Maloka" con ícono
+ * de edificio) — hoy no existe ningún concepto de "venue" como entidad
+ * buscable en `data/experiences.ts`, solo como un campo de texto (`venue`)
+ * dentro de cada experiencia. Armarlo bien (agrupar experiencias por
+ * venue, decidir a dónde lleva tocarlo — no hay pantalla de detalle de
+ * venue) es un cambio de modelo de datos más grande, no un ajuste visual.
+ * (2) la fila superior fija "'{query}' — Ver todas las experiencias" —
+ * en esa app tiene sentido porque separa una vista previa corta de una
+ * pantalla de resultados completos aparte; acá `resultados` YA muestra
+ * todas las coincidencias sin recortar, así que esa fila sería un acceso
+ * directo a ningún lado nuevo — se omite en vez de agregar un botón que
+ * no hace nada distinto de lo que ya se ve debajo.
+ *
+ * 2026-09-11, IMPORTANTE — Ana pidió Desktop para esta pantalla y
+ * primero se intentó como una pantalla `/busqueda` propia con `hidden
+ * lg:block` (mismo patrón que Descubrir.tsx). Ana lo rechazó de raíz:
+ * "no pero no puede ser una pantalla aparte, tiene que ser una
+ * extencion" — en Desktop, buscar no debe navegar a ningún lado, tiene
+ * que aparecer como un panel flotante que sale del ícono de lupa de la
+ * navbar (`DesktopNavbar.tsx`), sin salir de la pantalla en la que ya
+ * se está. Ese intento se revirtió ACÁ (este archivo vuelve a ser
+ * exactamente el de mobile, sin ningún bloque Desktop) — el panel
+ * flotante de Desktop vive en su propio componente,
+ * `DesktopSearchDropdown.tsx`, con su propia copia de esta misma lógica
+ * (no se importa nada de este archivo para no tocar/mezclar el código
+ * de mobile — Ana fue explícita: "no se te ocurra mover allgo de mobile
+ * si no es que yo te lo digo"). Ver ese componente para el desarrollo de
+ * Desktop.
  */
 
 /** Sin distinguir mayúsculas ni tildes — para que la búsqueda encuentre
@@ -224,7 +270,10 @@ const TENDENCIAS_IDS = [
  * (categoría + venue) porque ahí sí importa mostrar POR QUÉ coincidió. */
 function FilaExperiencia({ exp, subtitulo }: { exp: Experience; subtitulo?: string }) {
   return (
-    <Link to={`/experiencia/${exp.id}`} className="flex items-center gap-4 py-4">
+    <Link
+      to={`/experiencia/${exp.id}`}
+      className="flex items-center gap-4 py-4 border-b border-white-8 last:border-b-0"
+    >
       <div className="relative h-10 w-10 rounded-xl overflow-hidden bg-white-8 shrink-0">
         {exp.imageUrl ? (
           <img src={exp.imageUrl} alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -232,12 +281,13 @@ function FilaExperiencia({ exp, subtitulo }: { exp: Experience; subtitulo?: stri
           <ImagePlaceholder />
         )}
       </div>
-      <div className="flex flex-col min-w-0">
+      <div className="flex flex-1 flex-col min-w-0">
         <span className="font-body text-sm text-white-100 truncate">{exp.title}</span>
         {subtitulo && (
           <span className="font-body text-[13px] text-white-60 truncate">{subtitulo}</span>
         )}
       </div>
+      <IconCaretRight className="w-4 h-4 text-white-40 shrink-0" />
     </Link>
   );
 }
@@ -320,7 +370,7 @@ export default function Busqueda() {
         </div>
 
         {!hayBusquedaActiva ? (
-          <div className="rounded-xl bg-white-6 p-4 flex flex-col">
+          <div className="rounded-2xl border border-white-12 bg-white-6 p-4 shadow-2xl flex flex-col">
             <h2 className="font-body font-semibold text-sm text-white-100">TENDENCIAS</h2>
             {tendencias.map((exp) => (
               <FilaExperiencia key={exp.id} exp={exp} />
@@ -343,7 +393,7 @@ export default function Busqueda() {
         ) : resultados.length > 0 ? (
           // Punto 3: coincide de verdad (texto y/o fecha real) — ver
           // `coincideConBusqueda` arriba.
-          <div className="rounded-xl bg-white-6 p-4 flex flex-col">
+          <div className="rounded-2xl border border-white-12 bg-white-6 p-4 shadow-2xl flex flex-col">
             <h2 className="font-body font-semibold text-sm text-white-100">
               RESULTADOS ({resultados.length})
             </h2>
@@ -366,7 +416,7 @@ export default function Busqueda() {
                 Pero tenemos estas experiencias que podrían interesarte.
               </p>
             </div>
-            <div className="rounded-xl bg-white-6 p-4 flex flex-col">
+            <div className="rounded-2xl border border-white-12 bg-white-6 p-4 shadow-2xl flex flex-col">
               {tendencias.map((exp) => (
                 <FilaExperiencia key={exp.id} exp={exp} />
               ))}

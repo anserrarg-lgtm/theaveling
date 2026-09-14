@@ -6163,6 +6163,875 @@ export const experiences: Experience[] = [
     },
   ],
 },
+
+/*
+ * 2026-09-12, a pedido de Ana ("en la carpeta aleatoria tienes unas img
+ * que dicen cine, que estan para hacer exp para la pantalla de ver mas...
+ * son 4 que puedes agregar"): 4 fotos nuevas que subió específicamente
+ * para sumar contenido a "Cine que nace cerca" (Cultura) — encontradas en
+ * la carpeta de stock "imagenes aleatorias para ver mas" con el nombre
+ * "cine 1 (1..4).jpg" (llegaron después de la tanda de 40 ya usada, por
+ * eso no estaban integradas todavía). Copiadas a esa misma carpeta con
+ * nombre descriptivo propio (`cine-*.jpg`, en vez del nombre genérico
+ * "cine 1 (N)" que traían) y comprimidas (pesaban 2-3.7MB cada una,
+ * fuera de rango del resto de la carpeta) sin cambiar el criterio de
+ * carpeta ni de uso.
+ *
+ * Mismo criterio que el resto de esta carpeta de stock: cada pieza se
+ * inventó mirando primero la foto y buscando dónde encaja (no al revés),
+ * contenido de primera pasada pendiente de revisión real. Las 4 quedan
+ * `ocultoEnCategoria: true` — exclusivas de `/ver-mas/cine-que-nace-cerca`,
+ * mismo tratamiento que el resto de fotos de esta carpeta (no se agregan
+ * al scroll de Home de Cultura, que ya tenía su reparto pensado). Esto
+ * alimenta tanto mobile como Desktop sin tocar ningún componente — los
+ * dos leen la misma `getExperiencesByCategories`/`getVerMasContent`.
+ */
+{
+  id: "cine-expandido-nave",
+  title: "Cine Expandido: Proyección en la Nave",
+  tag: "Cine expandido (instalación)",
+  category: "Cine",
+  ocultoEnCategoria: true,
+  description:
+    "Proyección a gran formato dentro de un galpón industrial reconvertido: varias pantallas suspendidas del techo, ninguna butaca — el público se acuesta en el piso para ver.",
+  venue: "Nave 4 — Centro de Arte Contemporáneo",
+  city: "Bogotá",
+  date: "Sábado 17 oct · 20:00",
+  price: "$30.000 COP",
+  rating: "8.8",
+  ratingCount: 63,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-nave-proyeccion.jpg",
+  asientoAsignado: false,
+  duracion: "90 minutos de proyección continua, sin butacas — se puede entrar y salir de la sala sin interrumpir a nadie.",
+  restriccionEdad: "Todo público.",
+  direccionCompleta: "Carrera 50 #13-20, Bogotá",
+  curiosidadDelLugar:
+    "El galpón perteneció a una textilera hasta los años 80 — las pantallas cuelgan de los mismos rieles que antes sostenían las telas en proceso, sin disimular su origen industrial.",
+  contextoBarrio:
+    "Zona industrial con varias bodegas convertidas en talleres y espacios de arte, poco iluminada de noche.",
+  venueCategoria: "Galpón industrial reconvertido en sala de proyección",
+  venueBarrio: "Puente Aranda",
+  porQueDescubrir:
+    "No hay una sola pantalla al frente ni una sola forma correcta de mirar: el material se reparte entre varias proyecciones y cada quien arma su propio recorrido con los ojos. Theaveling la eligió por sacar el cine de la butaca fija sin perder el silencio colectivo de una sala real.",
+  ficha: {
+    presentaciones: "Edición trimestral desde 2024",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "programación de cine expandido y videoarte, curaduría rotativa",
+    idioma: "Sin diálogo predominante (piezas mayormente visuales)",
+  },
+  artista: {
+    nombre: "Colectivo Nave 4",
+    categoria: "Curaduría de cine expandido",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "No pedimos que se sienten derecho ni que miren para el mismo lado — el piso es parte del diseño, no una falta de presupuesto.",
+  },
+  resenas: [
+    {
+      nombre: "Laura P.",
+      rating: "★ 8.5",
+      fecha: "Hace 5 días",
+      texto: "Lleva algo para acostarte, el piso es de cemento — vale la pena igual por la escala de las pantallas.",
+    },
+    {
+      nombre: "Simón R.",
+      rating: "★ 9.0",
+      fecha: "Hace 2 semanas",
+      texto: "Es más parecido a caminar por una instalación que a ver una película — nadie te obliga a mirar todo el tiempo al mismo lado.",
+    },
+    {
+      nombre: "Daniela F.",
+      rating: "★ 8.3",
+      fecha: "Hace 1 mes",
+      texto: "El sonido rebota bastante por lo alto del techo, en las filas de atrás se pierde un poco de diálogo (cuando lo hay).",
+    },
+    {
+      nombre: "Andrés M.",
+      rating: "★ 8.9",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó El Último Carrete — mismo cuidado por el formato en sí, no solo por el contenido.",
+    },
+  ],
+},
+{
+  id: "el-rostro-que-habla",
+  title: "El Rostro que Habla: Documental Inmersivo",
+  tag: "Documental inmersivo (formato íntimo)",
+  category: "Cineclub",
+  ocultoEnCategoria: true,
+  description:
+    "Sala pequeña forrada en cortinas, sin filas: el público se para a centímetros de la pantalla mientras una serie de rostros, en primer plano, cuentan una historia distinta cada uno a la vez.",
+  venue: "Cuarto Rojo — Cineclub de Documental",
+  city: "Bogotá",
+  date: "Jueves 5 nov · 19:00",
+  price: "$28.000 COP",
+  rating: "9.0",
+  ratingCount: 41,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-rostro-documental.jpg",
+  asientoAsignado: false,
+  duracion: "55 minutos, de pie — la sala no tiene sillas, pensada para grupos chicos.",
+  restriccionEdad: "Todo público.",
+  direccionCompleta: "Calle 57 #4-18, Bogotá",
+  curiosidadDelLugar:
+    "La sala completa mide menos de 20 metros cuadrados — entran máximo 15 personas por función, a propósito: el documental se grabó igual de cerca de cada persona entrevistada.",
+  contextoBarrio:
+    "Calles residenciales con casas convertidas en espacios culturales chicos, ambiente tranquilo incluso de noche.",
+  venueCategoria: "Sala inmersiva pequeña (cineclub)",
+  venueBarrio: "Chapinero",
+  porQueDescubrir:
+    "La cercanía no es un truco de puesta en escena: el documental se filmó exactamente así de cerca, así que ver la cara completa a centímetros no exagera nada, solo respeta la distancia real de la entrevista. Theaveling la eligió por esa honestidad de formato.",
+  ficha: {
+    presentaciones: "Función semanal, jueves, desde 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "documental independiente, producción local",
+    idioma: "Español",
+  },
+  artista: {
+    nombre: "Cuarto Rojo Cineclub",
+    categoria: "Cineclub de documental",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Si el aforo fuera más grande, tendríamos que alejar la pantalla — preferimos que quepan menos personas antes que perder esa distancia.",
+  },
+  resenas: [
+    {
+      nombre: "Valeria S.",
+      rating: "★ 9.2",
+      fecha: "Hace 3 días",
+      texto: "Incomoda un poco al principio estar tan cerca, pero a los 5 minutos se te olvida y quedás metido en la historia.",
+    },
+    {
+      nombre: "Tomás E.",
+      rating: "★ 8.6",
+      fecha: "Hace 2 semanas",
+      texto: "Se agotan rápido las 15 entradas — reserva con varios días de anticipación si puedes.",
+    },
+    {
+      nombre: "Renata O.",
+      rating: "★ 9.4",
+      fecha: "Hace 1 mes",
+      texto: "Fui sola y no se sintió raro pararme entre desconocidos, la sala genera un silencio bastante respetuoso.",
+    },
+    {
+      nombre: "Iván D.",
+      rating: "★ 8.8",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Materia y memoria — mismo tipo de cercanía incómoda que termina valiendo la pena.",
+    },
+  ],
+},
+{
+  id: "banda-en-vivo-mas-cortometraje",
+  title: "Banda en Vivo + Proyección de Cortometraje",
+  tag: "Cineclub con música en vivo",
+  category: "Cineclub",
+  ocultoEnCategoria: true,
+  description:
+    "Una banda toca en vivo mientras, en la pared de al lado, se proyecta un cortometraje sin sonido propio — la música no acompaña la película, la reemplaza por completo.",
+  venue: "Salón Cúpula",
+  city: "Bogotá",
+  date: "Viernes 20 nov · 22:00",
+  price: "$26.000 COP",
+  rating: "8.6",
+  ratingCount: 37,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-banda-en-vivo.jpg",
+  asientoAsignado: false,
+  duracion: "75 minutos — la banda toca de corrido, sin pausas entre canciones para no cortar la proyección.",
+  restriccionEdad: "+18 años — función nocturna, funciona como bar con barra abierta.",
+  direccionCompleta: "Carrera 13 #59-40, Bogotá",
+  curiosidadDelLugar:
+    "El salón tiene techo abovedado original de los años 50 — antes fue sala de billar, hoy la cúpula ayuda a que el sonido de la banda llene el espacio sin necesidad de muchos parlantes.",
+  contextoBarrio:
+    "Zona con bares y salones antiguos reconvertidos, animada las noches de fin de semana.",
+  venueCategoria: "Salón de eventos con cineclub nocturno",
+  venueBarrio: "Chapinero Alto",
+  porQueDescubrir:
+    "La banda no ensaya sobre la película con anticipación — la ve por primera vez la misma noche, igual que el público. Theaveling la eligió por esa tensión real de tocar a ciegas, sin red, frente a imágenes que nadie del grupo controla.",
+  ficha: {
+    presentaciones: "Evento mensual desde 2024",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "cortometrajes de archivo, banda invitada rotativa cada edición",
+    idioma: "Sin diálogo (cortometraje mudo con música en vivo)",
+  },
+  artista: {
+    nombre: "Salón Cúpula Cineclub",
+    categoria: "Cineclub con música en vivo",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Cada banda improvisa distinto, así que aunque repitamos el mismo corto la función nunca suena igual dos veces.",
+  },
+  resenas: [
+    {
+      nombre: "Felipe A.",
+      rating: "★ 8.3",
+      fecha: "Hace 6 días",
+      texto: "La banda que tocó cuando fui era más rock que ambiental, no esperaba que combinara tan bien con el corto.",
+    },
+    {
+      nombre: "Juliana C.",
+      rating: "★ 8.9",
+      fecha: "Hace 3 semanas",
+      texto: "Es de pie, se llena rápido cerca de la tarima — si prefieres ver bien la pantalla, ubícate más al fondo.",
+    },
+    {
+      nombre: "Mateo L.",
+      rating: "★ 8.4",
+      fecha: "Hace 1 mes",
+      texto: "No es un concierto normal ni una función de cine normal, es raro en el buen sentido.",
+    },
+    {
+      nombre: "Sara N.",
+      rating: "★ 8.7",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Cine Mudo + Set en Vivo — mismo espíritu de música improvisada sobre imagen muda.",
+    },
+  ],
+},
+{
+  id: "el-oficio-detras-del-cine",
+  title: "El Oficio Detrás del Cine: Charla con un Ingeniero de Sonido",
+  tag: "Cine local (detrás de cámaras)",
+  category: "Cine local",
+  ocultoEnCategoria: true,
+  description:
+    "Antes de la función, el público se sienta junto a la mesa de mezcla — no en las butacas — para ver en vivo cómo un ingeniero de sonido ajusta cada detalle de audio mientras la película corre.",
+  venue: "Cine Comunitario Girasol",
+  city: "Bogotá",
+  date: "Domingo 29 nov · 16:00",
+  price: "$18.000 COP",
+  rating: "8.5",
+  ratingCount: 22,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-mesa-de-sonido.jpg",
+  asientoAsignado: false,
+  duracion: "110 minutos — 20 de charla junto a la mesa de mezcla, 90 de función completa.",
+  restriccionEdad: "Todo público.",
+  direccionCompleta: "Calle 42 Sur #24-11, Bogotá",
+  curiosidadDelLugar:
+    "El cine funciona en lo que antes fue un salón comunal de barrio — la mesa de mezcla es la misma que se usa desde hace más de una década, reparada varias veces en vez de cambiada.",
+  contextoBarrio:
+    "Barrio popular con vida de calle activa, el cine es uno de los pocos espacios culturales fijos de la zona.",
+  venueCategoria: "Cine comunitario de barrio",
+  venueBarrio: "San Cristóbal",
+  porQueDescubrir:
+    "El sonido de una película se nota más cuando ves a alguien decidiendo en vivo cuánto subir cada voz o efecto — Theaveling la eligió porque vuelve visible un oficio que casi nadie mira, aunque todos lo escuchan.",
+  ficha: {
+    presentaciones: "Encuentro mensual desde 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "programación comunitaria de barrio, película rotativa cada mes",
+    idioma: "Español",
+  },
+  artista: {
+    nombre: "Cine Comunitario Girasol",
+    categoria: "Sala comunitaria de barrio",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Llevo diez años detrás de esa consola y esta es la primera vez que alguien viene específicamente a verme trabajar a mí, no la película.",
+  },
+  resenas: [
+    {
+      nombre: "Beatriz N.",
+      rating: "★ 8.2",
+      fecha: "Hace 4 días",
+      texto: "Muy buena para ir con adolescentes curiosos por el trabajo técnico detrás del cine, no solo por ver la película.",
+    },
+    {
+      nombre: "Óscar V.",
+      rating: "★ 8.7",
+      fecha: "Hace 3 semanas",
+      texto: "El ingeniero explica sin tecnicismos, se entiende aunque no sepas nada de sonido.",
+    },
+    {
+      nombre: "Ximena T.",
+      rating: "★ 8.3",
+      fecha: "Hace 1 mes",
+      texto: "El cupo junto a la mesa es limitado, el resto ve la charla por una pantalla chica al lado — igual vale la pena.",
+    },
+    {
+      nombre: "Nicolás B.",
+      rating: "★ 8.6",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Fronteras Difusas: Retrospectiva Analógica — mismo cariño por el lado técnico del cine.",
+    },
+  ],
+},
+
+/*
+ * 2026-09-12, a pedido de Ana ("tienes ahora en la carp varias 'para
+ * teatro' y 2 'para musica' para agregar a la pantalla de ver mas para
+ * ambos, mobile y desk"): mismo mecanismo que las 4 fotos de "cine" de
+ * más arriba — 6 fotos nuevas encontradas en la carpeta de stock
+ * "imagenes aleatorias para ver mas" con nombre "para teatro(.. 1..5).jpg"
+ * y 2 con nombre "para musica(.. 1).jpg", copiadas a esa misma carpeta con
+ * nombre descriptivo propio y comprimidas (pesaban hasta 8MB cada una).
+ * Mismo criterio de invención que el resto de esta carpeta: cada pieza
+ * sale de mirar la foto primero. Las 6 de teatro quedan `ocultoEnCategoria:
+ * true` dentro de "Escena teatral"; las 2 de música, dentro de "Música
+ * para vivirla de cerca" — ambas exclusivas de su propio `/ver-mas/:slug`,
+ * mismo tratamiento que el resto de esta carpeta. Dato compartido entre
+ * mobile y Desktop sin tocar ningún componente, mismo motivo que la nota
+ * de Cine de arriba.
+ */
+{
+  id: "el-cielo-de-hojalata",
+  title: "El Cielo de Hojalata",
+  tag: "Teatro musical (concierto escénico)",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Una compañía de actores-músicos monta una estación de radio interestelar sobre un set de art-decó futurista — cada canción es también una escena, sin separación entre concierto y obra.",
+  venue: "Teatro Astral",
+  city: "Bogotá",
+  date: "Sábado 24 oct · 20:00",
+  price: "$48.000 COP",
+  mostrarDesde: true,
+  rating: "9.1",
+  ratingCount: 97,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-escenografia-estelar.jpg",
+  asientoAsignado: true,
+  duracion: "100 minutos, sin intermedio.",
+  restriccionEdad: "Todo público.",
+  direccionCompleta: "Carrera 24 #39-15, Bogotá",
+  curiosidadDelLugar:
+    "El escenario del Astral conserva su fondo de estrellas pintado a mano desde los años 70 — la compañía lo integró a propósito en vez de cubrirlo con su propia escenografía.",
+  contextoBarrio:
+    "Zona universitaria con varias salas de teatro pequeñas concentradas en pocas cuadras.",
+  venueCategoria: "Sala de teatro con escenario a la italiana",
+  venueBarrio: "Teusaquillo",
+  porQueDescubrir:
+    "No hay un momento en que la música se detiene para que empiece la actuación — canción y escena son la misma unidad todo el tiempo. Theaveling la eligió por lograr esa fusión sin que se note la costura entre una disciplina y la otra.",
+  ficha: {
+    presentaciones: "20 funciones desde su estreno en 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza original de teatro musical",
+    idioma: "Español, con letras cantadas en inglés",
+  },
+  artista: {
+    nombre: "Compañía Radio Astral",
+    categoria: "Ensamble de teatro musical",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Todos en el elenco tocan un instrumento en vivo — no hay pista grabada escondida en ningún parlante.",
+  },
+  resenas: [
+    {
+      nombre: "Camila R.",
+      rating: "★ 9.3",
+      fecha: "Hace 4 días",
+      texto: "El sonido en vivo con toda la banda arriba del escenario se siente enorme para el tamaño de la sala.",
+    },
+    {
+      nombre: "Esteban V.",
+      rating: "★ 8.8",
+      fecha: "Hace 2 semanas",
+      texto: "La escenografía sola ya vale la entrada, antes de que empiece a pasar nada en el escenario.",
+    },
+    {
+      nombre: "Manuela T.",
+      rating: "★ 9.0",
+      fecha: "Hace 1 mes",
+      texto: "No esperaba que un concepto de ciencia ficción funcionara tan bien en formato teatro musical.",
+    },
+    {
+      nombre: "Andrés Q.",
+      rating: "★ 9.4",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó A Chorus Line: Historias Reales de Bogotá — mismo nivel de compromiso vocal de todo el elenco.",
+    },
+  ],
+},
+{
+  id: "el-cuarto-de-las-mascaras",
+  title: "El Cuarto de las Máscaras",
+  tag: "Teatro de objetos y máscara",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Cuatro personajes enmascarados, cada uno atrapado en su propio marco de luz, repiten un gesto ritual sin cruzar nunca miradas entre sí — hasta que uno rompe el patrón.",
+  venue: "Sala Intersticio",
+  city: "Bogotá",
+  date: "Jueves 29 oct · 19:30",
+  price: "$32.000 COP",
+  rating: "8.7",
+  ratingCount: 44,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-mascaras-en-la-sombra.jpg",
+  asientoAsignado: false,
+  duracion: "60 minutos, sin diálogo.",
+  restriccionEdad: "+14 años — atmósfera tensa, sin violencia explícita.",
+  direccionCompleta: "Calle 11 #4-56, Bogotá",
+  curiosidadDelLugar:
+    "La sala se puede reconfigurar completamente entre funciones — para esta pieza se armaron 4 cubículos separados, uno por personaje, en vez del escenario único que usa el resto de su programación.",
+  contextoBarrio:
+    "Calles empedradas del centro histórico, con teatros pequeños entre casas coloniales.",
+  venueCategoria: "Sala de teatro experimental",
+  venueBarrio: "La Candelaria",
+  porQueDescubrir:
+    "El silencio total no es ausencia de contenido, es la regla del juego — cada repetición del gesto cambia mínimamente y el público tiene que decidir solo cuándo empieza a importar esa diferencia. Theaveling la eligió por confiar tanto en la atención de quien mira.",
+  ficha: {
+    presentaciones: "Temporada corta, 8 funciones",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza original de teatro de objetos",
+    idioma: "Sin diálogo",
+  },
+  artista: {
+    nombre: "Colectivo Intersticio",
+    categoria: "Compañía de teatro experimental",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Pedimos que no se rían de los nervios en los primeros minutos — el silencio incomoda antes de empezar a decir algo.",
+  },
+  resenas: [
+    {
+      nombre: "Paula G.",
+      rating: "★ 8.5",
+      fecha: "Hace 6 días",
+      texto: "Los primeros 10 minutos cuestan, pero después uno entra en el ritmo repetitivo y se vuelve hipnótico.",
+    },
+    {
+      nombre: "Ricardo M.",
+      rating: "★ 9.0",
+      fecha: "Hace 3 semanas",
+      texto: "No es para todo el mundo, si buscas una historia clara con diálogo esta no es la función.",
+    },
+    {
+      nombre: "Sofía L.",
+      rating: "★ 8.4",
+      fecha: "Hace 1 mes",
+      texto: "Las máscaras son hechas a mano, se nota el detalle de cerca si te sientas en las primeras filas.",
+    },
+    {
+      nombre: "Diego F.",
+      rating: "★ 8.9",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Materia y memoria — mismo tipo de silencio que dice más que cualquier parlamento.",
+    },
+  ],
+},
+{
+  id: "linea-ocupada",
+  title: "Línea Ocupada",
+  tag: "Teatro de época",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Reconstrucción escénica de una central telefónica de los años 20, contada desde las operadoras que la hacían funcionar — un oficio femenino invisible que sostenía toda la comunicación de la ciudad.",
+  venue: "Teatro El Telégrafo",
+  city: "Bogotá",
+  date: "Domingo 8 nov · 17:00",
+  price: "$38.000 COP",
+  rating: "8.9",
+  ratingCount: 61,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-central-telefonica.jpg",
+  asientoAsignado: true,
+  duracion: "85 minutos, con un intermedio breve.",
+  restriccionEdad: "Todo público.",
+  direccionCompleta: "Carrera 7 #14-22, Bogotá",
+  curiosidadDelLugar:
+    "El teatro conserva una central telefónica antigua real, donada por un coleccionista — la compañía la restauró para poder usarla en escena en vez de construir una réplica.",
+  contextoBarrio:
+    "Zona institucional del centro, con edificios históricos y tránsito peatonal constante de día.",
+  venueCategoria: "Sala de teatro de época reconvertida",
+  venueBarrio: "Santa Fe",
+  porQueDescubrir:
+    "No es un dato de museo leído en voz alta, es una central que de verdad conecta y desconecta llamadas en vivo sobre el escenario, operada por las actrices igual que lo haría alguien real en 1925. Theaveling la eligió por poner ese oficio olvidado a funcionar de nuevo, no solo a describirlo.",
+  ficha: {
+    presentaciones: "Temporada mensual desde 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza documental basada en archivo histórico",
+    idioma: "Español",
+  },
+  artista: {
+    nombre: "Compañía El Telégrafo",
+    categoria: "Compañía de teatro documental",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Aprendimos a operar esa central de verdad — no es utilería, cada conexión que se ve en escena pasa de verdad por esos cables.",
+  },
+  resenas: [
+    {
+      nombre: "Isabel N.",
+      rating: "★ 9.1",
+      fecha: "Hace 5 días",
+      texto: "Muy buena para ir con la mamá o la abuela, el tema conecta generacionalmente distinto según la edad de quien mira.",
+    },
+    {
+      nombre: "Jorge P.",
+      rating: "★ 8.6",
+      fecha: "Hace 2 semanas",
+      texto: "La central telefónica real en el centro del escenario es un detalle que vale la pena ver de cerca antes de que empiece la función.",
+    },
+    {
+      nombre: "Natalia B.",
+      rating: "★ 8.8",
+      fecha: "Hace 1 mes",
+      texto: "Función de domingo por la tarde, buen horario para no trasnochar y salir directo a comer algo.",
+    },
+    {
+      nombre: "Camilo S.",
+      rating: "★ 9.2",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Dramaturgias Nómadas — mismo cuidado por integrar un espacio real a la historia que cuenta.",
+    },
+  ],
+},
+{
+  id: "el-bar-que-nunca-cierra",
+  title: "El Bar que Nunca Cierra",
+  tag: "Teatro inmersivo (formato bar)",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Teatro inmersivo montado dentro de un bar real: el público se sienta entre las mesas mientras la trama pasa a su alrededor — una partida de cartas en una esquina, un cantante bajo un foco en la otra, todo al mismo tiempo.",
+  venue: "Bar La Escondida",
+  city: "Bogotá",
+  date: "Viernes 13 nov · 21:00",
+  price: "$40.000 COP",
+  rating: "8.6",
+  ratingCount: 39,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-cabaret-de-barrio.jpg",
+  asientoAsignado: false,
+  duracion: "90 minutos — el público se mueve libremente entre las mesas.",
+  restriccionEdad: "+18 años — funciona como bar real, con barra abierta durante la función.",
+  direccionCompleta: "Carrera 5 #26-40, Bogotá",
+  curiosidadDelLugar:
+    "El bar sigue abierto al público normal las demás noches de la semana — los actores conocen a los clientes habituales y a veces los suman a la trama sin que se den cuenta al principio.",
+  contextoBarrio:
+    "Zona de bares y restaurantes con ambiente nocturno activo entre semana.",
+  venueCategoria: "Bar reconvertido en teatro inmersivo",
+  venueBarrio: "Chapinero",
+  porQueDescubrir:
+    "No hay un solo punto de vista correcto: quien se sienta cerca de la partida de cartas ve una historia distinta de quien se queda cerca del cantante. Theaveling la eligió porque cada función se arma distinto según dónde decida pararse cada persona.",
+  ficha: {
+    presentaciones: "Función semanal, viernes, desde 2024",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza original de teatro inmersivo",
+    idioma: "Español",
+  },
+  artista: {
+    nombre: "Compañía La Escondida",
+    categoria: "Compañía de teatro inmersivo",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Si te sientas en la barra en vez de en una mesa, te vas a perder la mitad de la trama — y está bien, nadie ve la misma función dos veces.",
+  },
+  resenas: [
+    {
+      nombre: "Valentina R.",
+      rating: "★ 8.3",
+      fecha: "Hace 4 días",
+      texto: "Llega temprano si quieres elegir dónde sentarte, la ubicación cambia bastante lo que ves.",
+    },
+    {
+      nombre: "Sebastián H.",
+      rating: "★ 8.9",
+      fecha: "Hace 3 semanas",
+      texto: "Fui con amigos y cada uno vio una escena distinta primero — comparamos notas después en la calle.",
+    },
+    {
+      nombre: "Laura C.",
+      rating: "★ 8.2",
+      fecha: "Hace 1 mes",
+      texto: "Es ruidoso porque el bar sigue funcionando de verdad, no esperes silencio de teatro tradicional.",
+    },
+    {
+      nombre: "Felipe D.",
+      rating: "★ 8.7",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Función de Esquina: Teatro de Barrio — mismo espíritu de mezclar función real de bar con la obra.",
+    },
+  ],
+},
+{
+  id: "la-jaula-de-hierro",
+  title: "La Jaula de Hierro",
+  tag: "Teatro físico (unipersonal)",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Un actor solo, encerrado en una estructura de barras hechas a mano y bañada en luz roja, repite el mismo intento de salir durante toda la función — sin lograrlo nunca del todo.",
+  venue: "Estudio 9",
+  city: "Bogotá",
+  date: "Miércoles 18 nov · 20:00",
+  price: "$30.000 COP",
+  rating: "8.8",
+  ratingCount: 33,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-jaula-de-luz-roja.jpg",
+  asientoAsignado: false,
+  duracion: "50 minutos.",
+  restriccionEdad: "+14 años — imágenes intensas de encierro.",
+  direccionCompleta: "Calle 65 #11-08, Bogotá",
+  curiosidadDelLugar:
+    "La jaula está armada con varillas atadas a mano, no soldadas — el actor participó en su construcción y la arma de nuevo antes de cada función como parte de su propio calentamiento.",
+  contextoBarrio:
+    "Zona residencial tranquila con estudios de danza y teatro pequeños repartidos entre casas.",
+  venueCategoria: "Estudio de teatro físico",
+  venueBarrio: "Chapinero Alto",
+  porQueDescubrir:
+    "No hay clímax de escape ni resolución — la pieza se sostiene en el esfuerzo repetido, no en el resultado. Theaveling la eligió por esa honestidad incómoda de mostrar el intento sin premiarlo con un final feliz.",
+  ficha: {
+    presentaciones: "Función quincenal desde 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza original de teatro físico",
+    idioma: "Sin diálogo",
+  },
+  artista: {
+    nombre: "Tomás Rincón",
+    categoria: "Actor de teatro físico",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "Termino la función con las manos marcadas por las varillas — no es maquillaje, es el esfuerzo real de 50 minutos.",
+  },
+  resenas: [
+    {
+      nombre: "Andrea L.",
+      rating: "★ 9.0",
+      fecha: "Hace 5 días",
+      texto: "Muy físico, se nota el esfuerzo real del actor — incomoda de ver en el buen sentido.",
+    },
+    {
+      nombre: "Mauricio T.",
+      rating: "★ 8.5",
+      fecha: "Hace 2 semanas",
+      texto: "Sala chica, se ve perfecto desde cualquier lugar, no hay mala ubicación.",
+    },
+    {
+      nombre: "Juliana P.",
+      rating: "★ 8.7",
+      fecha: "Hace 1 mes",
+      texto: "50 minutos se sienten justos, ni un minuto de más ni de menos para el concepto.",
+    },
+    {
+      nombre: "Nicolás F.",
+      rating: "★ 9.1",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Cuerpos en Tránsito — mismo nivel de exigencia física puesta al servicio de la idea.",
+    },
+  ],
+},
+{
+  id: "el-aquelarre",
+  title: "El Aquelarre",
+  tag: "Teatro gótico ritual",
+  category: "Teatro",
+  ocultoEnCategoria: true,
+  description:
+    "Un ensamble vestido de gala oscura recrea una ceremonia de aquelarre en una casona antigua — vestuario ornamentado, gestos lentos y una figura central que dirige el ritual sin decir una sola palabra.",
+  venue: "Casa Oscura",
+  city: "Bogotá",
+  date: "Sábado 21 nov · 22:00",
+  price: "$35.000 COP",
+  rating: "8.4",
+  ratingCount: 28,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-aquelarre.jpg",
+  asientoAsignado: false,
+  duracion: "70 minutos.",
+  restriccionEdad: "+18 años — estética oscura, temas de ritual y ocultismo.",
+  direccionCompleta: "Calle 10 #3-22, Bogotá",
+  curiosidadDelLugar:
+    "La casona tiene más de 100 años y varios vecinos aseguran que ya tenía fama de \"casa embrujada\" antes de que la compañía la alquilara — la producción decidió no desmentirlo.",
+  contextoBarrio:
+    "Casas coloniales del centro histórico, algunas convertidas en espacios culturales nocturnos.",
+  venueCategoria: "Casona reconvertida en sala ritual",
+  venueBarrio: "La Candelaria",
+  porQueDescubrir:
+    "El vestuario y la puesta en escena están más cerca de una sesión de fotos editorial que de un montaje de teatro convencional — Theaveling la eligió por ese nivel de producción visual aplicado a algo que se puede ver en vivo, no solo en una revista.",
+  ficha: {
+    presentaciones: "Función mensual desde 2025",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "pieza original de teatro ritual",
+    idioma: "Sin diálogo (gestual)",
+  },
+  artista: {
+    nombre: "Ensamble Casa Oscura",
+    categoria: "Compañía de teatro ritual",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "El vestuario pesa más de lo que parece — cada ensayo es también un entrenamiento de resistencia física.",
+  },
+  resenas: [
+    {
+      nombre: "Daniela V.",
+      rating: "★ 8.6",
+      fecha: "Hace 6 días",
+      texto: "Visualmente impresionante, el vestuario y la luz hacen la mitad del trabajo.",
+    },
+    {
+      nombre: "Alejandro M.",
+      rating: "★ 8.0",
+      fecha: "Hace 3 semanas",
+      texto: "Es lento a propósito, si buscas ritmo rápido esta pieza no es para esa noche.",
+    },
+    {
+      nombre: "Carolina D.",
+      rating: "★ 8.3",
+      fecha: "Hace 1 mes",
+      texto: "La casona sola ya da ambiente antes de que empiece cualquier cosa en escena.",
+    },
+    {
+      nombre: "Santiago R.",
+      rating: "★ 8.9",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó La que Grita en Rojo — mismo gusto por lo visualmente intenso sin necesitar palabras.",
+    },
+  ],
+},
+{
+  id: "el-galpon-electronico",
+  title: "El Galpón Electrónico",
+  tag: "Música electrónica en vivo",
+  category: "Música",
+  ocultoEnCategoria: true,
+  description:
+    "Un dúo electrónico toca en vivo dentro de un galpón industrial, rodeado del equipo completo de una banda que no está tocando esa noche — y una pintora trabaja en un lienzo al lado del escenario, en tiempo real, sin que nadie la presente.",
+  venue: "Galpón Turbina",
+  city: "Bogotá",
+  date: "Viernes 4 dic · 21:00",
+  price: "$34.000 COP",
+  rating: "8.7",
+  ratingCount: 51,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/musica-consola-en-la-fabrica.jpg",
+  asientoAsignado: false,
+  duracion: "3 horas — set continuo, sin cortes entre artistas.",
+  restriccionEdad: "+18 años.",
+  direccionCompleta: "Carrera 42 #16-30, Bogotá",
+  curiosidadDelLugar:
+    "El galpón fue una fábrica de turbinas hasta los 90 — las ventanas industriales originales siguen ahí, y de noche dejan pasar apenas la luz de la calle sobre el escenario.",
+  contextoBarrio:
+    "Zona industrial con varias bodegas convertidas en espacios de música electrónica los fines de semana.",
+  venueCategoria: "Galpón industrial reconvertido en sala de conciertos",
+  venueBarrio: "Puente Aranda",
+  porQueDescubrir:
+    "Nadie anuncia a la pintora ni explica por qué está ahí — simplemente trabaja mientras suena la música, y el lienzo terminado se sube a redes al final de la noche. Theaveling la eligió por sumar ese gesto extra sin convertirlo en el centro de la noche.",
+  ficha: {
+    presentaciones: "Evento mensual desde 2024",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "programación de música electrónica en vivo",
+    idioma: "Sin letra predominante (set instrumental)",
+  },
+  artista: {
+    nombre: "Dúo Turbina",
+    categoria: "Dúo de música electrónica",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "No tocamos con set list fijo — decidimos en vivo según cómo responde la sala esa noche.",
+  },
+  resenas: [
+    {
+      nombre: "Mariana F.",
+      rating: "★ 8.9",
+      fecha: "Hace 5 días",
+      texto: "El espacio solo ya vale la pena, el sonido rebota increíble en ese techo tan alto.",
+    },
+    {
+      nombre: "Julián R.",
+      rating: "★ 8.4",
+      fecha: "Hace 2 semanas",
+      texto: "3 horas se sienten cortas, el set nunca baja de energía.",
+    },
+    {
+      nombre: "Valeria M.",
+      rating: "★ 8.6",
+      fecha: "Hace 1 mes",
+      texto: "La pintora trabajando al lado del escenario es un detalle que no esperaba y terminó siendo mi parte favorita.",
+    },
+    {
+      nombre: "Andrés P.",
+      rating: "★ 9.0",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — mismo tipo de set electroacústico pensado como experiencia completa.",
+    },
+  ],
+},
+{
+  id: "fiesta-en-la-reja",
+  title: "Fiesta en la Reja",
+  tag: "Fiesta electrónica al aire libre",
+  category: "Música",
+  ocultoEnCategoria: true,
+  description:
+    "Fiesta electrónica en un patio industrial abierto: un DJ toca pegado a una reja metálica iluminada en rojo mientras la gente baila encima de contenedores y estructuras de metal alrededor.",
+  venue: "La Reja",
+  city: "Bogotá",
+  date: "Sábado 12 dic · 23:00",
+  price: "$45.000 COP",
+  rating: "8.5",
+  ratingCount: 68,
+  imageUrl:
+    "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/musica-rave-de-galpon.jpg",
+  asientoAsignado: false,
+  duracion: "5 horas, hasta la madrugada.",
+  restriccionEdad: "+18 años.",
+  direccionCompleta: "Calle 8 Sur #38-14, Bogotá",
+  curiosidadDelLugar:
+    "El patio funcionaba como bodega de reciclaje antes de la primera fiesta — la reja que le da nombre al lugar es la misma que separaba el material clasificado, nunca se quitó.",
+  contextoBarrio:
+    "Zona industrial con poca vida nocturna oficial, la fiesta corre casi de boca en boca.",
+  venueCategoria: "Fiesta electrónica en espacio industrial abierto",
+  venueBarrio: "Puente Aranda",
+  porQueDescubrir:
+    "No hay producción de luces sofisticada ni escenario elevado — el DJ toca al mismo nivel que la gente que baila, pegado a una reja que ni siquiera se molestaron en pintar de otro color. Theaveling la eligió por esa crudeza real, sin intento de parecer más grande de lo que es.",
+  ficha: {
+    presentaciones: "Edición bimensual desde 2024",
+    festivales: "no aplica",
+    premios: "no aplica",
+    origen: "fiesta independiente, line-up rotativo",
+    idioma: "Sin letra predominante (set instrumental)",
+  },
+  artista: {
+    nombre: "Colectivo La Reja",
+    categoria: "Colectivo de fiestas electrónicas",
+    ciudad: "Bogotá, Colombia",
+    saludo:
+      "No queremos crecer más de lo que este patio aguanta — si se llena, se llena, no metemos gente de más.",
+  },
+  resenas: [
+    {
+      nombre: "Camilo A.",
+      rating: "★ 8.2",
+      fecha: "Hace 4 días",
+      texto: "Es al aire libre así que lleva chaqueta, en la madrugada refresca bastante.",
+    },
+    {
+      nombre: "Daniela P.",
+      rating: "★ 8.8",
+      fecha: "Hace 3 semanas",
+      texto: "Ambiente muy under, se siente distinto a las fiestas electrónicas más comerciales de la ciudad.",
+    },
+    {
+      nombre: "Sergio N.",
+      rating: "★ 8.1",
+      fecha: "Hace 1 mes",
+      texto: "El piso es de tierra compactada, no vayas con zapatos que no quieras ensuciar.",
+    },
+    {
+      nombre: "Manuela V.",
+      rating: "★ 8.7",
+      fecha: "Hace 2 meses",
+      texto: "Si te gustó esto, también me gustó El Galpón Electrónico — mismo gusto por hacer fiesta en espacios que no fueron pensados para eso.",
+    },
+  ],
+},
 ];
 
 /*
