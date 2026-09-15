@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconSearch, IconMapPin } from "./icons";
+import { IconSearch, IconMapPin, IconGlobe } from "./icons";
 import Wordmark from "./Wordmark";
 import IdiomaMonedaModal from "./IdiomaMonedaModal";
 import DesktopSearchDropdown from "./DesktopSearchDropdown";
@@ -97,15 +97,26 @@ import type { CategoryTab } from "./CategoryTabs";
  *
  * 2026-09-14 (segunda vuelta), a pedido de Ana ("cuando el usuario
  * ingrese la opcion de moneda y lenguaje que esta en la barra debe pasar
- * a vivir en el perfil"): el ícono de globo suelto (entre la lupa y el
- * separador) se saca de acá — ya no vive como botón propio de la navbar.
- * `IdiomaMonedaModal` sigue montado ACÁ (no se mueve a
+ * a vivir en el perfil"): "ingrese" acá quería decir "cuando inicie
+ * sesión" — mientras NO hay sesión, el ícono de globo se queda en la
+ * barra como siempre; solo cuando hay sesión iniciada se muda adentro del
+ * panel de perfil. `IdiomaMonedaModal` sigue montado ACÁ (no se mueve a
  * DesktopPerfilDropdown) porque si viviera dentro del panel de perfil se
  * desmontaría junto con él apenas se cierra el panel para abrir el modal
  * (mismo `perfilAbierto` controlando ambos) — en vez de eso, se le pasa a
  * `DesktopPerfilDropdown` el callback `onAbrirIdiomaMoneda`
  * (`handleAbrirIdiomaMoneda` acá abajo), que cierra el panel de perfil Y
  * abre el modal en un solo paso, ambos con estado que vive acá.
+ *
+ * 2026-09-15, corrección a pedido de Ana ("vi que quitaste lo del
+ * lenguaje y moneda de la nav, la idea era que mientras no se inicia
+ * sesion este y cuando se inicia queda dentro de perfil"): la vez pasada
+ * se sacó el ícono de globo de la barra SIEMPRE, sin importar si había
+ * sesión o no — se leyó mal el pedido original. Ahora el botón de globo
+ * vuelve a la barra (mismo lugar de antes: entre la lupa y el separador),
+ * pero solo se muestra cuando `!loggedIn`; con sesión iniciada sigue sin
+ * aparecer acá — se abre desde "Idioma y moneda" dentro del panel de
+ * perfil, como ya quedó el 2026-09-14.
  *
  * z-index del header: 2026-09-14 (quinta vuelta), Ana reportó con captura
  * que al abrir el panel de perfil, la flechita circular del riel de
@@ -213,6 +224,19 @@ export default function DesktopNavbar({
             <DesktopSearchDropdown onClose={() => setBusquedaAbierta(false)} />
           )}
         </div>
+
+        {/* Idioma/moneda — 2026-09-15, ver la nota grande de arriba: solo
+            visible sin sesión iniciada. Con sesión, este mismo modal se
+            abre desde "Idioma y moneda" en el panel de perfil. */}
+        {!loggedIn && (
+          <button
+            onClick={() => setPrefsAbierto(true)}
+            aria-label="Idioma y moneda"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-white-100 hover:bg-white-8"
+          >
+            <IconGlobe className="h-5 w-5" />
+          </button>
+        )}
 
         <div className="h-5 w-px bg-white-20" />
 

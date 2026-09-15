@@ -313,11 +313,25 @@ export default function Descubrir() {
                     mismo que ya usa Desktop para esta sección (antes
                     mobile tenía una bajada distinta, más corta) — a
                     pedido explícito de Ana ("que sea la misma que tenemos
-                    ene desk para curado"). */}
+                    ene desk para curado").
+
+                    2026-09-15 (segunda vuelta), a pedido de Ana ("coloca
+                    (en mobile) el curado por theaveling despues del texto
+                    q explica la seleccion exclusiva"): se reordena — el
+                    texto explicativo pasa a ir ANTES, y el título "Curado
+                    por Theaveling" (con su flechita, Link a
+                    `/ver-mas/curado`) queda al final del bloque, no en
+                    medio del eyebrow y el texto. */}
                 <div className="flex flex-col gap-2 px-5">
                   <span className="font-body font-semibold text-[11px] uppercase text-thea-mint">
                     Selección exclusiva
                   </span>
+                  <p className="font-body text-[13px] text-white-60">
+                    Nuestra selección de experiencias alternativas más
+                    rigurosa. Encuentros íntimos, estéticas radicales y
+                    manifestaciones artísticas al margen del circuito
+                    comercial habitual.
+                  </p>
                   <Link
                     to="/ver-mas/curado"
                     className="flex items-center justify-between"
@@ -327,12 +341,6 @@ export default function Descubrir() {
                     </h2>
                     <IconCaretRight className="text-white-60" />
                   </Link>
-                  <p className="font-body text-[13px] text-white-60">
-                    Nuestra selección de experiencias alternativas más
-                    rigurosa. Encuentros íntimos, estéticas radicales y
-                    manifestaciones artísticas al margen del circuito
-                    comercial habitual.
-                  </p>
                 </div>
                 {/* Sin padding acá a propósito: las cards Curado van a sangre
                     (edge-to-edge), spec real de Figma (`1753:518`) — a
