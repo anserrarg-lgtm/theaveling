@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import Wordmark from "../../components/Wordmark";
 import { IconArrowRight } from "../../components/icons";
-import splashBg from "../../assets/splash-bg.png";
+// 2026-09-15: reemplazado por .jpg comprimido — pesaba 1.17MB en .png,
+// ahora ~47KB. Esta es la foto de fondo del onboarding mobile, así que
+// pesaba directo en el primer arranque de la app.
+import splashBg from "../../assets/splash-bg.jpg";
 
 /*
  * Bienvenida — 2026-09-06, propuesta de valor del Onboarding, "01 —
@@ -202,6 +205,23 @@ export default function Bienvenida({ onContinuar }: { onContinuar: () => void })
         style={{
           background:
             "linear-gradient(to top, rgb(1 20 20 / 90%), rgb(1 20 20 / 45%) 55%, transparent)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* 2026-09-15, PRUEBA a pedido de Ana ("ponerle degradado verde
+          arriba a la foto del onboarding mobile, el verde deep, para ver
+          como se ve"): mismo criterio que el degradado de abajo (mismos
+          stops de color, Thea Deep — rgb(1,20,20) — en vez de inventar un
+          tono nuevo), pero espejado hacia arriba y más corto (h-1/3 en
+          vez de h-2/3, ya que el wordmark ocupa mucho menos alto que el
+          bloque de texto de abajo). Es una prueba visual — si no
+          convence, se saca este bloque entero y queda como estaba. */}
+      <div
+        className="absolute inset-x-0 top-0 h-1/2 -z-10 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgb(1 20 20 / 95%), rgb(1 20 20 / 65%) 60%, transparent)",
         }}
         aria-hidden="true"
       />

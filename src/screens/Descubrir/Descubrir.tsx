@@ -483,7 +483,8 @@ export default function Descubrir() {
                       width={300}
                       height={310}
                       count={40}
-                      imageUrl="/assets/images/ver%20mas-descubrimientos.png"
+                      // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~965KB en .png).
+                      imageUrl="/assets/images/ver%20mas-descubrimientos.jpg"
                     />
                   </Link>
                 </div>

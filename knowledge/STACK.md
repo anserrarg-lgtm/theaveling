@@ -1,7 +1,7 @@
 # Stack
 
-> Describe las herramientas y el sistema visual de Theaveling hasta ahora.
-> No hay stack de código decidido todavía — Ana quiere primero terminar los cambios de design system en Figma antes de pasar a código/responsive.
+> Describe las herramientas y el sistema visual de Theaveling.
+> Actualizado 2026-09-15: el stack de código ya está decidido y construido — ver "Código" al final de este documento. El resto del documento (Figma, sistema de color, tipografía) sigue vigente: el Design System se terminó en Figma y después se tradujo a código tal cual, sin cambiar de dirección visual.
 
 ---
 
@@ -93,8 +93,33 @@ Dos familias documentadas en `01.2 — Typography`: **Archivo** para Display/Hea
 
 ---
 
-## Código — no decidido
+## Código (actualizado 2026-09-15)
 
-Todavía no se ha elegido stack para construir el producto ni el case study. Cuando se decida, documentar aquí siguiendo el mismo formato que `orbit-app/knowledge/STACK.md` (framework, routing, UI/componentes, IA si aplica, datos, infraestructura, estructura de carpetas).
+El producto está construido. Stack real:
 
-**Antes de llegar a esta etapa**, según lo acordado con Ana: primero se terminan los cambios de design system en Figma, luego se pasa a trabajar la responsividad, y solo después se decide cómo se traduce a código.
+- **Framework:** React + TypeScript, servido con **Vite**.
+- **Estilos:** Tailwind CSS (utilidades combinadas directo en cada componente, sin hojas de estilo aparte). Los colores y tipografías del Design System viven como variables en `src/index.css` — nunca se escribe un color suelto "a mano" en un componente.
+- **Routing:** React Router (`src/router.tsx` es el mapa completo de pantallas/rutas).
+- **Datos:** sin backend real — `localStorage` del navegador guarda sesión, favoritos y reservas (ver `src/context/`). El catálogo de experiencias es un dataset fijo en `src/data/experiences.ts`.
+- **Responsive:** una sola base de código para mobile y escritorio — la mayoría de las pantallas tienen un bloque mobile y un bloque de escritorio conviviendo en el mismo archivo, mostrando uno u otro según el ancho de pantalla (1024px de punto de quiebre).
+
+**Estructura de carpetas** (carpeta raíz del proyecto: `C:\Users\anser\theaveling`):
+
+```
+theaveling/
+├── knowledge/        # esta carpeta — documentos de contexto e investigación
+├── public/
+│   ├── assets/images/  # fotos reales de experiencias, venues, avatares
+│   ├── assets/videos/  # videos usados en algunas experiencias
+│   └── fonts/          # tipografía descargada a mano (Carnivalee Freakshow)
+└── src/
+    ├── screens/       # una carpeta por pantalla (Descubrir, Perfil, Reservas...)
+    ├── components/    # piezas reutilizables (navbar, cards, modales, íconos)
+    ├── context/       # estado compartido: sesión, ciudad, favoritos, reservas
+    ├── data/          # catálogo de experiencias (contenido de ejemplo)
+    ├── utils/         # funciones chicas de apoyo (precios, mapas, fechas)
+    ├── router.tsx     # mapa de rutas/pantallas de la app
+    └── index.css      # colores y tipografía (design tokens)
+```
+
+Figma sigue siendo la referencia de diseño para pantallas nuevas que todavía no existen en código, pero para lo que YA está construido, el código (`src/`) es la fuente de verdad — no Figma ni este documento.

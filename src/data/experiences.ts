@@ -357,7 +357,10 @@ export const experiences: Experience[] = [
     // El video manda en el Hero de Detalle, pero la card de Curado en
     // Descubrir solo pinta imagen (no video) — por eso también necesita
     // imageUrl para su miniatura.
-    imageUrl: "/assets/images/Dramaturgias%20N%C3%B3madas.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~860KB en .png,
+    // ahora ~80KB) — mismo criterio en todo este archivo, ver nota en
+    // README/STACK sobre optimización de fotos pesadas.
+    imageUrl: "/assets/images/Dramaturgias%20N%C3%B3madas.jpg",
     // 2026-09-04: primera pasada de contenido — se había quedado afuera
     // de la ronda inicial (2026-09-03) por error: esa vez se trató a
     // "comite-del-fracaso" como si fuera la única pieza con contenido
@@ -478,7 +481,8 @@ export const experiences: Experience[] = [
     rating: "9.1",
     ratingCount: 96,
     rail: "curado",
-    imageUrl: "/assets/images/La%20consagraci%C3%B3n%20del%20oto%C3%B1o.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.1MB en .png).
+    imageUrl: "/assets/images/La%20consagraci%C3%B3n%20del%20oto%C3%B1o.jpg",
     // 2026-09-03: video generado en Pika (imagen de referencia +
     // secuencia de venia/saludo/aplauso armada con Ana). Solo se usa en
     // Detalle — en Home (Curado) sigue la foto, a pedido explícito de Ana
@@ -588,7 +592,8 @@ export const experiences: Experience[] = [
     contextoBarrio: "Barrio residencial tranquilo, con parqueo fácil los fines de semana.",
     rating: "9.2",
     ratingCount: 58,
-    imageUrl: "/assets/images/comite%20del%20fracaso.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.8MB en .png).
+    imageUrl: "/assets/images/comite%20del%20fracaso.jpg",
     rail: "curado",
     // 2026-09-03: video generado en Pika (imagen de referencia + payasos
     // girando a ver cámara, saludo y mueca final, armado con Ana). Solo
@@ -936,7 +941,8 @@ export const experiences: Experience[] = [
     rating: "9.0",
     ratingCount: 71,
     rail: "mas-reservados",
-    imageUrl: "/assets/images/La%20casa%20de%20los%20silencios.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~970KB en .png).
+    imageUrl: "/assets/images/La%20casa%20de%20los%20silencios.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
@@ -1022,7 +1028,8 @@ export const experiences: Experience[] = [
     rating: "9.4",
     ratingCount: 88,
     rail: "mas-reservados",
-    imageUrl: "/assets/images/Cuerpos%20en%20tr%C3%A1nsito.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~935KB en .png).
+    imageUrl: "/assets/images/Cuerpos%20en%20tr%C3%A1nsito.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba. Acá `porQueDescubrir` retoma
     // el mismo dato real del lugar que ya trae `description` (la
@@ -1442,7 +1449,8 @@ export const experiences: Experience[] = [
     // ahora de la carpeta real de Ana. "A chorus line.jpg" (la foto de
     // grupo del elenco) se queda solo en `artista.imageUrl`, más abajo,
     // que es donde siempre debió estar.
-    imageUrl: "/assets/images/a%20chorus.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.2MB en .png).
+    imageUrl: "/assets/images/a%20chorus.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba. Acá los datos de la obra
     // ORIGINAL (Broadway 1975, Pulitzer 1976) sí son reales — ya estaban
@@ -1644,7 +1652,8 @@ export const experiences: Experience[] = [
     ratingCount: 63,
     rail: "descubrimientos",
     imageUrl:
-      "/assets/images/Clase%20de%20improvisaci%C3%B3n%20del%20ritmo%20esc%C3%A9nico.png",
+      // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~955KB en .png).
+      "/assets/images/Clase%20de%20improvisaci%C3%B3n%20del%20ritmo%20esc%C3%A9nico.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba. Es un taller, no una obra —
     // `ficha` usa N/A en los campos que no aplican (festivales/premios)
@@ -1828,7 +1837,8 @@ export const experiences: Experience[] = [
     rating: "8.9",
     ratingCount: 19,
     rail: "descubrimientos",
-    imageUrl: "/assets/images/Materia%20y%20memoria.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~760KB en .png).
+    imageUrl: "/assets/images/Materia%20y%20memoria.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
@@ -2022,7 +2032,8 @@ export const experiences: Experience[] = [
     venueBarrio: "Chapinero",
     // 2026-09-04: Ana reemplazó el archivo dos veces — ahora es
     // "ditirambo teatro.png" (antes "ditirambo.jpg").
-    venueImageUrl: "/assets/images/ditirambo%20teatro.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.5MB en .png).
+    venueImageUrl: "/assets/images/ditirambo%20teatro.jpg",
     date: "Sábado 19 dic · 18:00",
     price: "Gratis",
     duracion: "75 minutos, incluye espacio de preguntas del público.",
@@ -3368,7 +3379,8 @@ export const experiences: Experience[] = [
     // la card grande del carrusel de FestivalesCarousel.
     // 2026-09-08: Ana volvió a subir el afiche, esta vez como
     // "festival teatro y circo.png" — se reemplaza acá.
-    imageUrl: "/assets/images/festival%20teatro%20y%20circo.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.3MB en .png).
+    imageUrl: "/assets/images/festival%20teatro%20y%20circo.jpg",
     date: "En curso · hasta el 21 de septiembre",
     price: "Gratis",
     asientoAsignado: false,
@@ -3434,7 +3446,8 @@ export const experiences: Experience[] = [
     // Ana — mismo criterio que el festival anterior.
     // 2026-09-08: Ana volvió a subir el afiche 2 veces más — esta versión
     // final ("festival jazz.png") es la que queda.
-    imageUrl: "/assets/images/festival%20jazz.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.3MB en .png).
+    imageUrl: "/assets/images/festival%20jazz.jpg",
     date: "Este fin de semana · 12 y 13 de septiembre",
     price: "Gratis",
     asientoAsignado: false,
@@ -3501,7 +3514,8 @@ export const experiences: Experience[] = [
     // 2026-09-08: Ana volvió a subir el afiche como "filbo.png" — se
     // reemplaza acá (el archivo "filbo bogota.webp" anterior ya no
     // estaba en la carpeta).
-    imageUrl: "/assets/images/filbo.png",
+    // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~1.3MB en .png).
+    imageUrl: "/assets/images/filbo.jpg",
     // 2026-09-08, a pedido de Ana: el recorte centrado tapaba "15 de
     // Octubre" del lado derecho del afiche — se corre el encuadre hacia
     // la izquierda (mostrando más del lado derecho del afiche original)

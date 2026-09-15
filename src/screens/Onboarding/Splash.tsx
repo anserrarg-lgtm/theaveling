@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import Wordmark from "../../components/Wordmark";
-import splashBg from "../../assets/splash-bg.png";
+// 2026-09-15: reemplazado por .jpg comprimido — pesaba 1.17MB en .png,
+// ahora ~47KB. Esta es la foto de fondo del onboarding mobile, así que
+// pesaba directo en el primer arranque de la app.
+import splashBg from "../../assets/splash-bg.jpg";
 
 /*
  * Splash — 2026-09-06, primer paso del Onboarding, a pedido explícito:

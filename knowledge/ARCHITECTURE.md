@@ -1,7 +1,55 @@
 # Architecture — Información, Sitemap y User Flow
 
-> Describe la arquitectura de información real de Theaveling tal como existe HOY en Figma (archivo "Prototipo final", `Bas9SSdMLitN1S37kjFeOy`), no la versión aspiracional.
-> Este documento distingue entre lo que ya está construido/documentado y lo que solo existe como diagrama conceptual.
+> Este documento nació describiendo la arquitectura de información de Theaveling tal como existía en Figma, antes de que hubiera código. Esa etapa ya pasó — ver la sección "Arquitectura real en código" justo abajo para el estado actual. El resto del documento (desde "Arquitectura de información (Sitemap...)" en adelante) queda como registro histórico del proceso de decisión en Figma — varias cosas que ahí se marcan como "pendiente" o "no construido" ya están resueltas en el código real, y algunos detalles (como las ciudades del selector) terminaron implementándose distinto a como se planeó ahí. Ante cualquier diferencia, el código manda.
+
+---
+
+## Arquitectura real en código (actualizado 2026-09-15)
+
+Así quedó construida la arquitectura de información, verificado directo en `src/router.tsx` y `src/data/experiences.ts`:
+
+```
+TODO
+├─ Curado por Theaveling (selección editorial, hero a sangre)
+├─ Más reservados
+└─ Descubrimientos
+
+ESCENA
+├─ Escena teatral        (Teatro)
+├─ Hablan los cuerpos    (Danza)
+├─ El arte fuera de formato (Performance)
+└─ Música para vivirla de cerca (Música)
+
+CULTURA
+├─ Cine que nace cerca   (Cine, Cine local, Cineclub)
+└─ Encuentros para crear y compartir (Charlas, Talleres, Lecturas dramáticas)
+
+BÚSQUEDA
+└─ Sugerencias curadas + búsqueda por palabra
+
+EXPERIENCIA (página individual, /experiencia/:id)
+├─ Hero (foto/video + favorito + compartir)
+├─ Información / descripción
+├─ Ficha del lugar (venue, mapa, curiosidad del lugar)
+├─ Artista / compañía
+├─ Reseñas (comunidad)
+└─ Ver opciones → Compra
+
+PERFIL
+├─ Datos de cuenta (info, notificaciones, preferencias)
+├─ Mis reservas (ruta propia /reservas, no vive dentro de Perfil)
+├─ Favoritos (ruta propia /favoritos en escritorio; dentro de Perfil en mobile)
+└─ Ayuda / contacto
+```
+
+Diferencias frente a lo planeado en Figma (documentado más abajo, quedan resueltas así):
+
+- **Selección de ciudad:** no quedó con el selector Bogotá/Madrid/Buenos Aires que se planeó el 2026-08-31 — el código detecta o pide la ciudad una sola vez (Onboarding en mobile, automático en escritorio) y la guarda en `CiudadContext`. No hay contenido curado distinto por ciudad todavía.
+- **Reservas y Favoritos** sí quedaron como se decidió (tabs/rutas propias, no enterrados dentro de Perfil), confirmando la razón documentada más abajo (frecuencia de uso, referencia de Airbnb "Trips").
+- **Perfil** sí se terminó construyendo (no era el caso cuando se escribió este documento originalmente) — con datos de cuenta, notificaciones, preferencias y ayuda.
+- **Escritorio (Desktop):** esta arquitectura de información se construyó primero pensando en mobile; después se agregó una versión de escritorio completa (navbar propia, paneles flotantes para búsqueda/ubicación/perfil) que convive en los mismos archivos — no documentada en el resto de este archivo porque se decidió y construyó directo en código, no en Figma.
+
+Para el detalle de cada pantalla y sus rutas, ver la tabla de "Pantallas principales" que ya se armó en la página de contexto de Theaveling (o directamente `src/router.tsx`).
 
 ---
 

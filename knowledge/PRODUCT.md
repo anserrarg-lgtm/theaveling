@@ -73,8 +73,10 @@ La comunidad (reseñas, tips de quienes ya asistieron) es una capa secundaria qu
 
 ---
 
-## Estado actual
+## Estado actual (actualizado 2026-09-15)
 
-Theaveling tiene un prototipo hi-fi en Figma con el flujo principal completo (Presentación → Onboarding → Login → Home → Búsqueda → Detalle → Reserva → Pago → Confirmación → Tickets). La arquitectura de información fue actualizada recientemente (Sitemap y User Flow ya reflejan TODO/ESCENA/CULTURA) pero **la pantalla Home y la navegación inferior todavía no se actualizaron** a esa misma arquitectura — ver ARCHITECTURE.md.
+Theaveling ya no es solo un prototipo de Figma — **es una app funcionando, construida en código** (React + TypeScript + Vite + Tailwind CSS, ver STACK.md). El flujo principal completo está implementado: Onboarding (con selección de ciudad) → Descubrir (Todo/Escena/Cultura) → Búsqueda → Detalle de experiencia → Compra → Confirmación, más Reservas, Favoritos y Perfil (datos de cuenta, notificaciones, ayuda). La app tiene versión mobile y versión de escritorio, viviendo en la misma base de código — cada pantalla decide qué mostrar según el ancho de la ventana (1024px es el punto de quiebre).
 
-Todavía no existe código de producto ni se decidió stack — este es el estado de consolidación de investigación y narrativa antes de esa etapa. Ver ROADMAP.md.
+No hay backend real todavía: la sesión, los favoritos y las reservas se guardan en el navegador de quien prueba la app (localStorage), no en un servidor — es un prototipo funcional/portafolio, no un producto en producción con base de datos propia.
+
+El contenido de la carpeta `knowledge/` sigue siendo la referencia de investigación y narrativa (por qué existe Theaveling, filosofía, research) — ver ARCHITECTURE.md para cómo quedó la arquitectura de información real en el código, y STACK.md para el sistema de color, tipografía y la estructura de carpetas del proyecto.
