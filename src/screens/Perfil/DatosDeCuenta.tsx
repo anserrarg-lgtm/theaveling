@@ -204,8 +204,9 @@ export default function DatosDeCuenta() {
         </div>
       </div>
 
-      {/* Desktop — ver nota grande arriba. */}
-      <div className="hidden bg-[rgb(1,20,20)] text-white-100 font-body lg:block">
+      {/* Desktop — ver nota grande arriba. Sticky footer — ver la nota
+          completa en Favoritos.tsx. */}
+      <div className="hidden min-h-[160vh] flex-col bg-[rgb(1,20,20)] text-white-100 font-body lg:flex">
         <DesktopNavbar
           active={activeCategory}
           onChange={(tab) => {
@@ -214,7 +215,7 @@ export default function DatosDeCuenta() {
           }}
         />
 
-        <div className="mx-auto max-w-[1440px] px-20 pt-16 pb-20">
+        <div className="mx-auto w-full max-w-[1440px] flex-1 px-20 pt-16 pb-20">
           {/* 2026-09-14 (sexta vuelta), a pedido de Ana: sin flecha de
               volver en Desktop, ver la nota en Favoritos.tsx. */}
           <h1 className="mb-10 font-display text-3xl text-white-100">

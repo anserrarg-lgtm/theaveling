@@ -2134,15 +2134,22 @@ export default function DetalleExperiencia() {
                 <div className="h-px w-full bg-white-12" />
 
                 <div className="mx-auto flex w-full max-w-[720px] flex-col gap-3">
-                  {/* Un poco más grande — 2026-09-14, a pedido de Ana
-                      ("pon el mapa mas grandecito"): sube de 320×480 a
-                      400×600, sigue centrado (`mx-auto`) dentro de esta
-                      misma columna de 720px. */}
+                  {/* Más grande y más rectangular — 2026-09-14, a pedido de
+                      Ana ("QUIERO EL MAPA DE DETALLE MAS RECCTANGULAR
+                      GRANDE"): antes tenía un tope propio de
+                      `max-w-[600px]` centrado dentro de esta columna de
+                      720px, con alto fijo de 400px — quedaba angosto y con
+                      forma más cuadrada (600×400, relación 1.5:1) que la
+                      de un mapa real. Se saca ese tope (`w-full` en vez de
+                      `mx-auto max-w-[600px]`): ahora ocupa el ancho
+                      completo de la columna (720px) y sube el alto a
+                      440px, relación ~1.6:1, más ancho que alto y más
+                      grande en las dos dimensiones. */}
                   <MapPreview
                     venue={experiencia.venue}
                     city={experiencia.city}
                     variant="dark"
-                    className="mx-auto h-[400px] max-w-[600px]"
+                    className="w-full h-[440px]"
                   />
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="font-body text-[13px] text-white-60">

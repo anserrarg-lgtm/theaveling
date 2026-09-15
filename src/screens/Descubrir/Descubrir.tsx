@@ -290,29 +290,48 @@ export default function Descubrir() {
           {activeCategory === "Todo" && (
             <>
               <section className="flex flex-col gap-4">
-                {/* 2026-09-07, copy editorial pedido por Ana, mismo
-                    patrón que se armó para "El arte se toma la ciudad"
-                    (Festivales) en Cultura: eyebrow + título + bajada
-                    descriptiva. "Curado por Theaveling" pasa de título
-                    grande a eyebrow (ya es un nombre reconocible de
-                    marca, no hace falta que sea lo más grande de la
-                    sección); "Elegimos lo que vale la pena descubrir."
-                    pasa a ser el título real. Se saca la flechita que
-                    tenía al lado — el botón "Más Curados" de abajo ya
-                    cumple ese rol, mismo criterio que se usó en
-                    Festivales (ahí tampoco quedó flechita en el
-                    encabezado, la señal de "hay más" vive en el aviso
-                    de abajo). */}
+                {/* 2026-09-15, corrección a pedido de Ana ("en mobile
+                    tambien podriamos hacer lo de 'seleccion exclusiva' en
+                    verde como esta ahora curado por.. y luego abajo si
+                    poner como titulo de seccion curado por theaveling, con
+                    su respectiva flechita como las demas y que obviamente
+                    te lleve a la paantalla de ver mas"): reemplaza el
+                    criterio anterior (2026-09-07, ver historial) que había
+                    convertido "Curado por Theaveling" en el eyebrow y
+                    puesto un título aparte inventado. Ahora el eyebrow es
+                    "Selección exclusiva" (mismo texto que ya usa el
+                    bloque Desktop de este mismo archivo para esta
+                    sección, aunque ahí va en blanco — acá se mantiene en
+                    mint, tratamiento ya establecido en mobile) y "Curado
+                    por Theaveling" vuelve a ser el título real de la
+                    sección, ahora como
+                    encabezado clickeable con su flechita — mismo patrón
+                    que "Más reservados"/"Descubrimientos" de acá abajo
+                    (`<h2>` + `IconCaretRight`, todo el bloque un `<Link>`
+                    real a `/ver-mas/curado`, misma ruta que ya usaba "Más
+                    Curados"). El texto de abajo pasa a ser EXACTAMENTE el
+                    mismo que ya usa Desktop para esta sección (antes
+                    mobile tenía una bajada distinta, más corta) — a
+                    pedido explícito de Ana ("que sea la misma que tenemos
+                    ene desk para curado"). */}
                 <div className="flex flex-col gap-2 px-5">
                   <span className="font-body font-semibold text-[11px] uppercase text-thea-mint">
-                    Curado por Theaveling
+                    Selección exclusiva
                   </span>
-                  <h2 className="font-display text-lg text-white-100">
-                    Elegimos lo que vale la pena descubrir.
-                  </h2>
+                  <Link
+                    to="/ver-mas/curado"
+                    className="flex items-center justify-between"
+                  >
+                    <h2 className="font-display text-lg text-white-100">
+                      Curado por Theaveling
+                    </h2>
+                    <IconCaretRight className="text-white-60" />
+                  </Link>
                   <p className="font-body text-[13px] text-white-60">
-                    Una selección de experiencias que destacan por su
-                    propuesta y merecen un lugar en tu recorrido.
+                    Nuestra selección de experiencias alternativas más
+                    rigurosa. Encuentros íntimos, estéticas radicales y
+                    manifestaciones artísticas al margen del circuito
+                    comercial habitual.
                   </p>
                 </div>
                 {/* Sin padding acá a propósito: las cards Curado van a sangre

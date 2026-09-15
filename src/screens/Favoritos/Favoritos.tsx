@@ -61,7 +61,21 @@ export default function Favoritos() {
           Redirige a /perfil, donde mobile sí tiene Favoritos. */}
       <MobileRedirect />
 
-      <div className="hidden bg-[rgb(1,20,20)] text-white-100 font-body lg:block">
+      {/* 2026-09-14 (novena vuelta), a pedido de Ana ("se ve mucho como la
+          parte de abajo... podrias darle mas espacio en verde oscuro a la
+          pantalla, pasa sobre todo con notificaciones, reservas y favs"):
+          con el estado vacío (poco contenido), esta pantalla terminaba muy
+          corta y el footer (`bg-thea-green`, un verde más claro) quedaba
+          pegado justo debajo, sin casi nada del verde oscuro sólido de
+          separación — se leía como si el estado vacío y el footer fueran
+          el mismo bloque. `min-h-screen flex-col` acá + `flex-1` en el
+          contenido de abajo hacen que el contenido siempre estire hasta
+          el borde de la pantalla antes de que aparezca el footer (mismo
+          patrón de "sticky footer"), sin agregar `overflow-x-hidden` en
+          ningún lado — eso fue lo que causó el bug real que Ana reportó en
+          Descubrir.tsx (bloque oscuro + doble scroll, ver la nota grande
+          en App.tsx), así que se evita a propósito acá. */}
+      <div className="hidden min-h-[160vh] flex-col bg-[rgb(1,20,20)] text-white-100 font-body lg:flex">
         <DesktopNavbar
           active={activeCategory}
           onChange={(tab) => {
@@ -70,7 +84,7 @@ export default function Favoritos() {
           }}
         />
 
-        <div className="mx-auto max-w-[1440px] px-20 pt-16 pb-20">
+        <div className="mx-auto w-full max-w-[1440px] flex-1 px-20 pt-16 pb-20">
           {/* 2026-09-14 (sexta vuelta), a pedido de Ana: en Desktop el
               título ya NO es un botón de "volver" con flecha — "no es
               necesario en desktop" (la navbar siempre está arriba para ir

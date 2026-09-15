@@ -295,8 +295,10 @@ export default function Reservas() {
         )}
       </div>
 
-      {/* Desktop — ver nota grande arriba. */}
-      <div className="hidden bg-[rgb(1,20,20)] text-white-100 font-body lg:block">
+      {/* Desktop — ver nota grande arriba. Sticky footer (min-h-screen +
+          flex-col + flex-1 abajo) — ver la nota completa en Favoritos.tsx
+          sobre por qué se hace así y no con overflow-x-hidden. */}
+      <div className="hidden min-h-[160vh] flex-col bg-[rgb(1,20,20)] text-white-100 font-body lg:flex">
         <DesktopNavbar
           active={activeCategory}
           onChange={(tab) => {
@@ -305,7 +307,7 @@ export default function Reservas() {
           }}
         />
 
-        <div className="mx-auto max-w-[1440px] px-20 pt-16 pb-20">
+        <div className="mx-auto w-full max-w-[1440px] flex-1 px-20 pt-16 pb-20">
           {/* 2026-09-14 (sexta vuelta), a pedido de Ana: sin flecha de
               volver en Desktop, ver la nota igual en Favoritos.tsx. */}
           <h1 className="mb-10 font-display text-3xl text-white-100">
@@ -363,7 +365,16 @@ export default function Reservas() {
             // (`gap-3`) en vez de la línea divisoria fina que usaba antes
             // — ahora se leen como tarjetas individuales, no como una
             // lista plana con separadores.
-            <div className="mx-auto flex max-w-[640px] flex-col gap-10">
+            //
+            // 2026-09-14 (décima vuelta), corrección a pedido de Ana ("TE
+            // DIJE QUE LA RESERVA EN LA PANTALLA DE RESERVA TENIA QUE ESTA
+            // ALINEADA A LA IZQ"): tenía `mx-auto`, que centraba esta
+            // columna en la página — quedaba descuadrada respecto al
+            // título "Reservas" de arriba, que sí está pegado a la
+            // izquierda. Se saca el `mx-auto`: la columna queda alineada a
+            // la izquierda, debajo del título, mismo ancho de lectura
+            // (`max-w-[640px]`).
+            <div className="flex max-w-[640px] flex-col gap-10">
               {proximas.length > 0 && (
                 <section className="flex flex-col gap-3">
                   <h2 className="font-body text-[13px] font-semibold uppercase tracking-wide text-white-40">
