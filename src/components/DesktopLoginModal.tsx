@@ -167,7 +167,7 @@ export default function DesktopLoginModal({
           </div>
 
           <p className="pt-1 text-center font-body text-xs text-white-60">
-            Esta es una demo — no se crea ninguna cuenta real ni se guarda
+            Esta es una demo: no se crea ninguna cuenta real ni se guarda
             tu correo en ningún servidor.
           </p>
         </div>

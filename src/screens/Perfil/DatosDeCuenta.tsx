@@ -278,8 +278,8 @@ export default function DatosDeCuenta() {
                       Correo electrónico
                     </h2>
                     <p className="font-body text-sm text-white-60">
-                      Es donde recibes toda la información de tus reservas
-                      — confirmaciones, cambios y recordatorios.
+                      Es donde recibes toda la información de tus reservas:
+                      confirmaciones, cambios y recordatorios.
                     </p>
                     <div className="h-px w-full bg-white-12" />
                     <span className="font-body text-[15px] text-white-100">

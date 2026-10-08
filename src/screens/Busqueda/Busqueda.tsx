@@ -355,7 +355,7 @@ export default function Busqueda() {
           >
             <IconMapPin className="w-4 h-4 text-white-100 shrink-0" />
             <span className="font-body text-sm text-white-100 underline underline-offset-2">
-              Ubicación — {ciudad}
+              Ubicación: {ciudad}
             </span>
           </button>
           <button
@@ -387,7 +387,7 @@ export default function Busqueda() {
               Todavía no estamos en {ciudad}
             </p>
             <p className="font-body text-[13px] text-white-40 max-w-[260px]">
-              Theaveling por ahora solo opera en Bogotá — vamos sumando ciudades de a poco.
+              Theaveling por ahora solo opera en Bogotá. Vamos sumando ciudades de a poco.
             </p>
           </div>
         ) : resultados.length > 0 ? (

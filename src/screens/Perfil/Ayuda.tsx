@@ -47,12 +47,12 @@ const PREGUNTAS_FRECUENTES = [
   {
     pregunta: "¿Puedo cancelar o cambiar mi reserva?",
     respuesta:
-      "Depende de la política de cada experiencia — revisa los detalles de cancelación en la pantalla de tu reserva antes de comprar. Si ya compraste y necesitas ayuda puntual, escríbenos por correo.",
+      "Depende de la política de cada experiencia: revisa los detalles de cancelación en la pantalla de tu reserva antes de comprar. Si ya compraste y necesitas ayuda puntual, escríbenos por correo.",
   },
   {
     pregunta: "¿Cómo recibo mis boletos?",
     respuesta:
-      "Quedan disponibles dentro de la app, en Reservas, apenas se confirma el pago — no necesitas imprimir nada, se muestran en el celular el día del evento.",
+      "Quedan disponibles dentro de la app, en Reservas, apenas se confirma el pago. No necesitas imprimir nada: se muestran en el celular el día del evento.",
   },
   {
     pregunta: "¿Qué pasa si el evento se cancela o se reprograma?",
@@ -62,7 +62,7 @@ const PREGUNTAS_FRECUENTES = [
   {
     pregunta: "¿Puedo comprar boletos para otra persona?",
     respuesta:
-      "Sí — al momento de la compra puedes ingresar los datos de quien va a asistir, aunque no sea tu cuenta la que paga.",
+      "Sí, al momento de la compra puedes ingresar los datos de quien va a asistir, aunque no sea tu cuenta la que paga.",
   },
 ] as const;
 

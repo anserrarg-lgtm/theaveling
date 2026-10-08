@@ -33,9 +33,12 @@ export default function VerMas() {
   // las pantallas acompana la navbar" / "...la parte de abajo donde dice
   // sobre la politica etc". Esto reemplaza la decisión vieja de acá abajo
   // ("Sin DesktopNavbar: esta pantalla es una sub-pantalla...") — Ana la
-  // pide ahora en TODAS las pantallas, esta incluida. El botón "Volver"
-  // propio se mantiene tal cual (sigue siendo útil para volver al riel
-  // exacto de origen, cosa que la navbar no resuelve).
+  // pide ahora en TODAS las pantallas, esta incluida.
+  // 2026-10-07: el botón "Volver" propio de Desktop (que en 09-14 se
+  // había mantenido) se saca — mismo criterio ya aplicado en
+  // DetalleExperiencia.tsx ("en desk no lo necesitamos", Desktop no
+  // depende de un botón de volver como mobile, hay navbar + historial
+  // del navegador). Mobile conserva su "Volver" tal cual, sin tocar.
   const { activeCategory, setActiveCategory } = useDescubrirTab();
   const contenido = getVerMasContent(slug);
 
@@ -119,19 +122,12 @@ export default function VerMas() {
           }}
         />
         <div className="mx-auto max-w-[1440px] px-20 pt-16 pb-8">
-          <button
-            onClick={() => navigate(-1)}
-            className="mb-10 flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
-          >
-            <IconCaretRight className="h-4 w-4 rotate-180" />
-            Volver
-          </button>
           <h1 className="flex items-center gap-3 font-display text-5xl font-thin tracking-[-1px] text-white-100">
             <span className="h-8 w-1.5 shrink-0 rounded-full bg-thea-mint" />
             {contenido?.titulo ?? "Ver más"}
           </h1>
           {contenido && contenido.experiencias.length > 0 && (
-            <p className="mt-3 font-body text-[13px] text-white-60">
+            <p className="mt-3 font-body text-base text-white-60">
               {contenido.experiencias.length}{" "}
               {contenido.experiencias.length === 1 ? "experiencia" : "experiencias"}
             </p>

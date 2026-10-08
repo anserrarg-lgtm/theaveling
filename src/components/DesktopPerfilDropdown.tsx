@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   IconX,
@@ -110,15 +111,27 @@ export default function DesktopPerfilDropdown({
   const { favoritos } = useFavorites();
   const { reservas } = useReservations();
   const proximas = reservas.filter((r) => r.estado === "proxima").length;
+  // 2026-10-07: ref del panel, usado por el listener de clic-afuera (ver
+  // la nota idéntica en DesktopLocationDropdown.tsx/
+  // DesktopSearchDropdown.tsx para el detalle completo del problema que
+  // esto corrige — el "doble clic" al cambiar de panel en la navbar).
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handlePointerDown(e: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [onClose]);
 
   return (
-    <>
-      <button
-        aria-label="Cerrar menú de perfil"
-        onClick={onClose}
-        className="fixed inset-0 z-40"
-      />
-      <div className="desktop-panel-slide-right absolute right-0 top-[calc(100%+12px)] z-50 flex w-[360px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl">
+    <div
+      ref={panelRef}
+      className="desktop-panel-slide-right absolute right-0 top-[calc(100%+12px)] z-50 flex w-[360px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl"
+    >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
@@ -222,7 +235,6 @@ export default function DesktopPerfilDropdown({
         >
           <span className="font-body text-sm text-white-100">Salir</span>
         </button>
-      </div>
-    </>
+    </div>
   );
 }

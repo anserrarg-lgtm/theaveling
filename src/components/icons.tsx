@@ -731,3 +731,59 @@ export function IconGrid({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/* icon/spotlight e icon/clapperboard — 2026-10-08, a pedido de Ana para
+ * las 2 cards del desplegable "Categorías" de Desktop (ver
+ * DesktopNavbar.tsx): "encuentra iconos mejores" — `IconTicket`/
+ * `IconBookOpen` (los que se habían usado de entrada, reciclados de otro
+ * lado) no leían bien como "Escena"/"Cultura". En vez de seguir
+ * reciclando íconos con otro significado ya establecido en el proyecto
+ * (`IconBuilding` = venue sin foto, `IconFlag` = festivales de una
+ * experiencia puntual, `IconAward` = premios, `IconMessageCircle` =
+ * contacto — todos ya "tomados"), se dibujan 2 nuevos, geometría propia
+ * simple, mismo criterio de placeholder ya usado para el resto de este
+ * archivo (trazo currentColor, grosor 1.2–1.6, sin trazo real de Figma
+ * que calcar porque esta sección de Desktop tampoco viene de un nodo de
+ * Figma real).
+ * - `IconSpotlight` (Escena): un reflector de teatro — foco circular +
+ *   haz de luz en cono hacia abajo — evoca escenario/función en vivo más
+ *   directo que un ticket genérico.
+ * - `IconClapperboard` (Cultura): claqueta de cine — lee "cine/cultura"
+ *   de forma universal, más reconocible que un libro para un grupo que
+ *   incluye cine, charlas, talleres y festivales. */
+export function IconSpotlight({ className = "" }: { className?: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="12" cy="4.3" r="2.3" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M9.9 6.3L4.5 19.5H19.5L14.1 6.3"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 19.5C8 19.5 9.8 21 12 21C14.2 21 16 19.5 16 19.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function IconClapperboard({ className = "" }: { className?: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={className}>
+      <rect x="3.5" y="9.8" width="17" height="10.7" rx="1.2" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M3.5 9.8L5.3 4.5H19L17.3 9.8"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path d="M7.8 4.5L6.4 9.8" stroke="currentColor" strokeWidth="1.1" />
+      <path d="M12.2 4.5L10.8 9.8" stroke="currentColor" strokeWidth="1.1" />
+      <path d="M16.6 4.5L15.2 9.8" stroke="currentColor" strokeWidth="1.1" />
+    </svg>
+  );
+}

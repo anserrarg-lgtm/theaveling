@@ -443,6 +443,35 @@ button:not(:disabled) {
 }
 
 /*
+ * desktop-panel-slide-down — 2026-10-07, a pedido de Ana: se quitan los
+ * tabs "Escena"/"Cultura" de la navbar de Desktop (siguen en mobile tal
+ * cual, ver CategoryTabs.tsx) y pasan a vivir adentro de un desplegable
+ * "Categorías" (ver DesktopNavbar.tsx). Mismo criterio de animación que
+ * `desktop-panel-slide-left/-right` arriba (chico y corto, 180ms) pero
+ * desde ARRIBA — este disparador vive centrado en la navbar, no pegado a
+ * un costado, así que no hay "izquierda" ni "derecha" de la que entrar:
+ * entra desde su propio disparador, hacia abajo.
+ */
+@keyframes desktopPanelSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.desktop-panel-slide-down {
+  animation: desktopPanelSlideDown 180ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-panel-slide-down {
+    animation: none;
+  }
+}
+
+/*
  * wordmark-slot / bienvenida-copy / bienvenida-boton — 2026-09-07, a
  * pedido de Ana: "quiero que theaveling se vaya hacia arriba y sobre la
  * misma foto aparezca el texto de descubre la escena, tiene que

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DesktopLocationDropdown from "./DesktopLocationDropdown";
 import ImagePlaceholder from "./ImagePlaceholder";
@@ -38,12 +38,16 @@ import { experiences, getExperienceById, type Experience } from "../data/experie
  * posicionado `absolute` relativo al botón de lupa (que dejó de ser un
  * `<Link to="/busqueda">` y pasó a ser un botón que togglea ese estado).
  *
- * Cerrar — un fondo invisible de pantalla completa (`fixed inset-0`,
- * SIN oscurecer nada — a diferencia de LocationSheet/FechaSheet, que sí
- * son bottom sheets con backdrop oscuro; este es un dropdown liviano,
- * como cualquier menú de navbar) cierra el panel al tocar afuera. Elegir
- * una experiencia (Link a `/experiencia/:id`) también lo cierra, para
- * que no quede abierto de fondo si el usuario vuelve para atrás.
+ * Cerrar — sin oscurecer nada, a diferencia de LocationSheet/FechaSheet,
+ * que sí son bottom sheets con backdrop oscuro; este es un dropdown
+ * liviano, como cualquier menú de navbar. Elegir una experiencia (Link a
+ * `/experiencia/:id`) también lo cierra, para que no quede abierto de
+ * fondo si el usuario vuelve para atrás.
+ * 2026-10-07: dejó de usar un `<button>` invisible `fixed inset-0` para
+ * detectar el clic afuera — ver la nota grande junto al `useEffect` de
+ * clic-afuera, más abajo, para el porqué (ese backdrop físico tapaba
+ * toda la pantalla y se comía el clic antes de que le llegara a otro
+ * ícono de la navbar).
  *
  * Animación de entrada — 2026-09-11, a pedido de Ana: "para busqueda
  * desde la derecha" — clase `desktop-panel-slide-right` (ver index.css),
@@ -77,6 +81,22 @@ import { experiences, getExperienceById, type Experience } from "../data/experie
  * componente `DesktopFechaDropdown.tsx` (borrado, sin uso en ningún
  * lado). Mobile no se toca — `FechaSheet.tsx`/`Busqueda.tsx` siguen
  * exactamente igual, esto es solo para Desktop.
+ *
+ * Cajas internas — 2026-10-07, a pedido de Ana: "el panel de búsqueda no
+ * se parece al de ubicación/usuario, tiene contenedores semitransparentes
+ * conteniendo la información, no quiero eso". Las 2 vueltas de "sin
+ * borde" de arriba sacaron el `border`, pero dejaron el fondo
+ * `bg-white-6` + `rounded-2xl`/`rounded-xl` + `shadow-2xl` en la fila de
+ * Ubicación y en los 3 bloques internos (Tendencias/Resultados/sin-
+ * resultados) — eso es justo lo que se ve como "caja semitransparente
+ * aparte" encima del panel. Se sacan esos 4 wrappers por completo: el
+ * panel principal ya aporta su propio fondo sólido (`bg-thea-green`) y
+ * padding (`p-4`), mismo criterio que `DesktopLocationDropdown.tsx`/
+ * `DesktopPerfilDropdown.tsx` (lista plana, sin cajas propias, separada
+ * por líneas finas `h-px bg-white-8` entre secciones y `border-b
+ * border-white-8` entre filas de `FilaExperiencia`). La fila de Ubicación
+ * gana `hover:bg-white-6` (solo al pasar el mouse, no fija) para que
+ * siga leyéndose como fila clickeable sin volver a ser una caja.
  */
 
 /** Sin distinguir mayúsculas ni tildes — mismo criterio que la búsqueda
@@ -147,6 +167,9 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
   const [ubicacionAbierta, setUbicacionAbierta] = useState(false);
   const { ciudad: ciudadCompartida } = useCiudad();
   const ciudad = ciudadCompartida ?? "Bogotá";
+  // 2026-10-07: ref del panel, usado por el listener de clic-afuera (ver
+  // la nota grande junto al `useEffect` de abajo).
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const tendencias = TENDENCIAS_IDS.map((id) => getExperienceById(id)).filter(
     (exp): exp is NonNullable<typeof exp> => exp !== undefined,
@@ -160,19 +183,31 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
       ? experiences.filter((exp) => coincideConBusqueda(exp, queryNormalizada))
       : [];
 
-  return (
-    <>
-      {/* Fondo invisible — cierra al tocar afuera, sin oscurecer la
-          pantalla (esto es un dropdown, no un bottom sheet). `<button>`
-          en vez de `<div>`, mismo patrón que el backdrop de
-          LocationSheet/FechaSheet (accesible + cursor de mano real). */}
-      <button
-        aria-label="Cerrar búsqueda"
-        onClick={onClose}
-        className="fixed inset-0 z-40"
-      />
+  // Cerrar al tocar afuera — 2026-10-07, corrección a pedido de Ana (ver
+  // la nota idéntica en DesktopLocationDropdown.tsx para el detalle
+  // completo del problema): el `<button>` invisible `fixed inset-0 z-40`
+  // de abajo cerraba este panel, pero por tapar TODA la pantalla también
+  // se comía el clic antes de que le llegara al ícono de Ubicación/
+  // Usuario de al lado — hacía falta un doble clic para pasar de un
+  // panel a otro. Se reemplaza por un listener de `mousedown` en
+  // `document` contra `panelRef`: cierra si el clic cae afuera, pero al
+  // no ser un elemento físico no bloquea que ese mismo clic le siga
+  // llegando también al botón que se haya tocado.
+  useEffect(() => {
+    function handlePointerDown(e: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [onClose]);
 
-      <div className="desktop-panel-slide-right absolute right-0 top-[calc(100%+12px)] z-50 flex w-[400px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl">
+  return (
+    <div
+      ref={panelRef}
+      className="desktop-panel-slide-right absolute right-0 top-[calc(100%+12px)] z-50 flex w-[400px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl"
+    >
         <label className="flex h-11 items-center gap-2.5 rounded-xl bg-white-8 px-4">
           <IconSearch className="w-4 h-4 text-white-100 shrink-0" />
           <input
@@ -184,32 +219,36 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
           />
         </label>
 
-        <div className="rounded-xl bg-white-6 px-4 py-1">
-          <div className="relative">
-            <button
-              onClick={() => setUbicacionAbierta((v) => !v)}
-              className="flex items-center gap-2 py-3 w-full text-left"
-            >
-              <IconMapPin className="w-4 h-4 text-white-100 shrink-0" />
-              <span className="font-body text-sm text-white-100 underline underline-offset-2">
-                Ubicación — {ciudad}
-              </span>
-            </button>
-            {ubicacionAbierta && (
-              <DesktopLocationDropdown onClose={() => setUbicacionAbierta(false)} />
-            )}
-          </div>
+        <div className="h-px w-full bg-white-8" />
+
+        <div className="relative">
+          <button
+            onClick={() => setUbicacionAbierta((v) => !v)}
+            className="flex items-center gap-2 w-full text-left rounded-xl px-2 py-3 -mx-2 hover:bg-white-6"
+          >
+            <IconMapPin className="w-4 h-4 text-white-100 shrink-0" />
+            <span className="font-body text-sm text-white-100 underline underline-offset-2">
+              Ubicación: {ciudad}
+            </span>
+          </button>
+          {ubicacionAbierta && (
+            <DesktopLocationDropdown onClose={() => setUbicacionAbierta(false)} />
+          )}
         </div>
 
+        <div className="h-px w-full bg-white-8" />
+
         {!hayBusquedaActiva ? (
-          <div className="flex max-h-[420px] flex-col overflow-y-auto rounded-2xl bg-white-6 p-4 shadow-2xl">
-            <h2 className="font-body font-semibold text-sm text-white-100">TENDENCIAS</h2>
+          <div className="flex max-h-[420px] flex-col overflow-y-auto scrollbar-none">
+            <h2 className="font-body font-semibold text-[13px] text-white-40 uppercase tracking-wide px-2 pb-1">
+              Tendencias
+            </h2>
             {tendencias.map((exp) => (
               <FilaExperiencia key={exp.id} exp={exp} onNavegar={onClose} />
             ))}
           </div>
         ) : !ciudadEsReal ? (
-          <div className="flex flex-col items-center gap-2 rounded-xl bg-white-6 p-4 py-10 text-center">
+          <div className="flex flex-col items-center gap-2 py-10 text-center">
             <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
               <IconMapPin className="w-5 h-5 text-white-40" />
             </span>
@@ -217,13 +256,13 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
               Todavía no estamos en {ciudad}
             </p>
             <p className="font-body text-[13px] text-white-40 max-w-[260px]">
-              Theaveling por ahora solo opera en Bogotá — vamos sumando ciudades de a poco.
+              Theaveling por ahora solo opera en Bogotá. Vamos sumando ciudades de a poco.
             </p>
           </div>
         ) : resultados.length > 0 ? (
-          <div className="flex max-h-[420px] flex-col overflow-y-auto rounded-2xl bg-white-6 p-4 shadow-2xl">
-            <h2 className="font-body font-semibold text-sm text-white-100">
-              RESULTADOS ({resultados.length})
+          <div className="flex max-h-[420px] flex-col overflow-y-auto scrollbar-none">
+            <h2 className="font-body font-semibold text-[13px] text-white-40 uppercase tracking-wide px-2 pb-1">
+              Resultados ({resultados.length})
             </h2>
             {resultados.map((exp) => (
               <FilaExperiencia
@@ -236,7 +275,7 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col items-center gap-2 rounded-xl bg-white-6 p-4 py-10 text-center">
+            <div className="flex flex-col items-center gap-2 py-10 text-center">
               <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
                 <IconSearch className="w-5 h-5 text-white-40" />
               </span>
@@ -247,14 +286,13 @@ export default function DesktopSearchDropdown({ onClose }: { onClose: () => void
                 Pero tenemos estas experiencias que podrían interesarte.
               </p>
             </div>
-            <div className="flex max-h-[340px] flex-col overflow-y-auto rounded-2xl bg-white-6 p-4 shadow-2xl">
+            <div className="flex max-h-[340px] flex-col overflow-y-auto scrollbar-none">
               {tendencias.map((exp) => (
                 <FilaExperiencia key={exp.id} exp={exp} onNavegar={onClose} />
               ))}
             </div>
           </div>
         )}
-      </div>
-    </>
+    </div>
   );
 }

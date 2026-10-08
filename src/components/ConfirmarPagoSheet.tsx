@@ -526,7 +526,7 @@ export default function ConfirmarPagoSheet({
             que no existen (ver nota grande de arriba). */}
         <p className="font-body text-xs" style={{ color: "rgba(17,44,44,0.5)" }}>
           Al tocar "Confirmar y pagar" aceptas los términos de la reserva de
-          Theaveling. Esta es una demo — no se procesa ningún pago real.
+          Theaveling. Esta es una demo: no se procesa ningún pago real.
         </p>
       </div>
 

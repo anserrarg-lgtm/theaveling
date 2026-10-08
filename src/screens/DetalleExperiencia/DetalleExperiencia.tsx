@@ -818,7 +818,7 @@ export default function DetalleExperiencia() {
             style={{ color: "rgba(251,251,251,0.7)" }}
           >
             {experiencia?.porQueDescubrir ??
-              "Argumento curatorial de Theaveling — pendiente de contenido real."}
+              "Argumento curatorial de Theaveling: pendiente de contenido real."}
           </p>
         </section>
 
@@ -906,7 +906,7 @@ export default function DetalleExperiencia() {
           ) : (
             <p className="text-white-80 text-sm">
               Duración, restricción de edad, presentaciones, festivales,
-              premios, origen, idioma — pendiente de contenido real.
+              premios, origen, idioma: pendiente de contenido real.
             </p>
           )}
         </section>
@@ -951,7 +951,7 @@ export default function DetalleExperiencia() {
             </>
           ) : (
             <p className="text-white-80 text-sm text-center">
-              Quiénes hacen parte — pendiente de contenido real.
+              Quiénes hacen parte: pendiente de contenido real.
             </p>
           )}
         </section>
@@ -1012,8 +1012,8 @@ export default function DetalleExperiencia() {
                       usuarios mock, así que se usa un círculo con la
                       inicial del nombre en vez de inventar una foto de
                       una persona real que no existe. */}
-                  <div className="h-10 w-10 rounded-full bg-white-12 flex items-center justify-center shrink-0">
-                    <span className="font-body font-semibold text-sm text-white-100">
+                  <div className="h-10 w-10 rounded-full border border-thea-mint/30 bg-thea-mint/15 flex items-center justify-center shrink-0">
+                    <span className="font-body font-semibold text-sm text-thea-mint">
                       {reseña.nombre.charAt(0)}
                     </span>
                   </div>
@@ -1025,7 +1025,8 @@ export default function DetalleExperiencia() {
                       className="font-body text-xs"
                       style={{ color: "rgba(251,251,251,0.6)" }}
                     >
-                      {reseña.rating} · {reseña.fecha}
+                      <span className="font-semibold text-thea-mint">★ {reseña.rating}</span>{" "}
+                      · {reseña.fecha}
                     </span>
                   </div>
                 </div>
@@ -1197,7 +1198,7 @@ export default function DetalleExperiencia() {
               </div>
               <p className="font-body text-sm text-white-100 w-full leading-[1.4]">
                 {experiencia.curiosidadDelLugar ??
-                  "Curiosidad del lugar — pendiente de contenido real."}
+                  "Curiosidad del lugar: pendiente de contenido real."}
               </p>
             </div>
 
@@ -1253,7 +1254,7 @@ export default function DetalleExperiencia() {
               </div>
               <p className="font-body text-sm text-white-100 leading-[1.4] w-full">
                 {experiencia.contextoBarrio ??
-                  "Contexto del barrio — pendiente de contenido real."}
+                  "Contexto del barrio: pendiente de contenido real."}
               </p>
             </div>
           </section>
@@ -1292,7 +1293,7 @@ export default function DetalleExperiencia() {
               <div className="flex items-start gap-3">
                 <IconAlertCircle className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
                 <p className="flex-1 font-body text-sm text-white-100 leading-[1.4]">
-                  Se recomienda llegar 20 minutos antes — el ingreso se
+                  Se recomienda llegar 20 minutos antes: el ingreso se
                   cierra al iniciar la función.
                 </p>
               </div>
@@ -1307,7 +1308,7 @@ export default function DetalleExperiencia() {
                 <IconCalendarX className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
                 <p className="flex-1 font-body text-sm text-white-100 leading-[1.4]">
                   Cancelación gratuita hasta 24 horas antes de la
-                  función — después de ese plazo no hay reembolso.
+                  función: después de ese plazo no hay reembolso.
                 </p>
               </div>
             </div>
@@ -1680,7 +1681,7 @@ export default function DetalleExperiencia() {
                   </h2>
                   <p className="max-w-[720px] font-body text-[15px] leading-normal text-white-70">
                     {experiencia?.porQueDescubrir ??
-                      "Argumento curatorial de Theaveling — pendiente de contenido real."}
+                      "Argumento curatorial de Theaveling: pendiente de contenido real."}
                   </p>
                 </section>
 
@@ -1751,7 +1752,7 @@ export default function DetalleExperiencia() {
                   ) : (
                     <p className="text-sm text-white-80">
                       Duración, restricción de edad, presentaciones, festivales,
-                      premios, origen, idioma — pendiente de contenido real.
+                      premios, origen, idioma: pendiente de contenido real.
                     </p>
                   )}
                 </section>
@@ -1780,7 +1781,7 @@ export default function DetalleExperiencia() {
                     </div>
                   ) : (
                     <p className="text-sm text-white-80">
-                      Quiénes hacen parte — pendiente de contenido real.
+                      Quiénes hacen parte: pendiente de contenido real.
                     </p>
                   )}
                 </section>
@@ -2126,7 +2127,7 @@ export default function DetalleExperiencia() {
                     </div>
                     <p className="font-body text-sm leading-[1.4] text-white-100">
                       {experiencia.curiosidadDelLugar ??
-                        "Curiosidad del lugar — pendiente de contenido real."}
+                        "Curiosidad del lugar: pendiente de contenido real."}
                     </p>
                   </div>
                 </div>
@@ -2176,7 +2177,7 @@ export default function DetalleExperiencia() {
                   </div>
                   <p className="font-body text-sm leading-[1.4] text-white-100">
                     {experiencia.contextoBarrio ??
-                      "Contexto del barrio — pendiente de contenido real."}
+                      "Contexto del barrio: pendiente de contenido real."}
                   </p>
                 </div>
               </section>
@@ -2197,7 +2198,7 @@ export default function DetalleExperiencia() {
                   <div className="flex items-start gap-3">
                     <IconAlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
                     <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
-                      Se recomienda llegar 20 minutos antes — el ingreso se
+                      Se recomienda llegar 20 minutos antes: el ingreso se
                       cierra al iniciar la función.
                     </p>
                   </div>
@@ -2211,8 +2212,8 @@ export default function DetalleExperiencia() {
                   <div className="flex items-start gap-3">
                     <IconCalendarX className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
                     <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
-                      Cancelación gratuita hasta 24 horas antes de la función
-                      — después de ese plazo no hay reembolso.
+                      Cancelación gratuita hasta 24 horas antes de la función:
+                      después de ese plazo no hay reembolso.
                     </p>
                   </div>
                 </div>
@@ -2336,7 +2337,7 @@ export default function DetalleExperiencia() {
 
                 <p className="font-body text-xs text-white-50">
                   Al tocar "Confirmar y pagar" aceptas los términos de la
-                  reserva de Theaveling. Esta es una demo — no se procesa
+                  reserva de Theaveling. Esta es una demo: no se procesa
                   ningún pago real.
                 </p>
 

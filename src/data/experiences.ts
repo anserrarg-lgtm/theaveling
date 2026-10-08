@@ -343,10 +343,10 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/nomadas.jpg",
     date: "Viernes 2 oct · 21:00",
     price: "$42.000 COP",
-    duracion: "80 minutos, sin intermedio — el ritmo está pensado para verse de un tirón, sin corte.",
+    duracion: "80 minutos, sin intermedio: el ritmo está pensado para verse de un tirón, sin corte.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 22 #6-35, Bogotá",
-    curiosidadDelLugar: "El edificio fue una fábrica textil hasta los años 90 — la compañía conservó los rieles del techo, hoy parte de la escenografía.",
+    curiosidadDelLugar: "El edificio fue una fábrica textil hasta los años 90: la compañía conservó los rieles del techo, hoy parte de la escenografía.",
     contextoBarrio: "Una zona de bodegas reconvertidas en espacios culturales, a pocas cuadras del centro.",
     rating: "9.3",
     ratingCount: 214,
@@ -372,7 +372,7 @@ export const experiences: Experience[] = [
     // pantallas de Detalle seguidas. Mismo criterio de invención que el
     // resto de esta ronda — ver nota completa en "la-consagracion-del-otono".
     porQueDescubrir:
-      "Danza, texto y video en vivo conviven acá sin que ninguna disciplina domine sobre las otras — montado en una nave industrial reconvertida que todavía conserva parte de la maquinaria original. Theaveling la eligió por esa hibridación real, no solo anunciada en el programa de mano.",
+      "Danza, texto y video en vivo conviven acá sin que ninguna disciplina domine sobre las otras, montado en una nave industrial reconvertida que todavía conserva parte de la maquinaria original. Theaveling la eligió por esa hibridación real, no solo anunciada en el programa de mano.",
     ficha: {
       presentaciones: "14 funciones desde su estreno en 2025",
       festivales: "Festival Internacional de Teatro de Bogotá (FITB) 2025",
@@ -400,7 +400,7 @@ export const experiences: Experience[] = [
       // (mismo archivo, sin alterar el original en la carpeta de Ana).
       imageUrl: "/assets/images/dramatugia%20recorte.jpg",
       saludo:
-        "Somos Compañía Nómada — un grupo de artistas de distintos países que se conoció trabajando en Europa y decidió seguir haciéndolo desde Bogotá. Ninguno de nosotros viene solo del teatro.",
+        "Somos Compañía Nómada: un grupo de artistas de distintos países que se conoció trabajando en Europa y decidió seguir haciéndolo desde Bogotá. Ninguno de nosotros viene solo del teatro.",
     },
     resenas: [
       {
@@ -408,7 +408,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.5",
         fecha: "Hace 3 días",
         texto:
-          "Llegué con tiempo pero igual la fila para entrar a la nave industrial es larga — mejor llegar 20 minutos antes de lo que dice el ticket.",
+          "Llegué con tiempo pero igual la fila para entrar a la nave industrial es larga: mejor llegar 20 minutos antes de lo que dice el ticket.",
       },
       {
         nombre: "Andrés L.",
@@ -429,7 +429,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — mismo tipo de riesgo formal, distinto lenguaje.",
+          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo: mismo tipo de riesgo formal, distinto lenguaje.",
       },
       {
         nombre: "Paula H.",
@@ -474,9 +474,9 @@ export const experiences: Experience[] = [
     // Pieza de danza formal en sala — butacas típicas de este formato.
     asientoAsignado: true,
     duracion: "65 minutos, sin intermedio.",
-    restriccionEdad: "+14 años — el lenguaje corporal del butoh es intenso, y algunas imágenes pueden resultar fuertes para público infantil.",
+    restriccionEdad: "+14 años: el lenguaje corporal del butoh es intenso, y algunas imágenes pueden resultar fuertes para público infantil.",
     direccionCompleta: "Carrera 5 #26-42, Bogotá",
-    curiosidadDelLugar: "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70 — algunas de las prensas originales siguen expuestas en el vestíbulo. Para esta pieza en particular la escenografía no se monta adentro de la sala: se hace afuera, en el tramo de calle que se cierra al tráfico justo al lado del teatro.",
+    curiosidadDelLugar: "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70: algunas de las prensas originales siguen expuestas en el vestíbulo. Para esta pieza en particular la escenografía no se monta adentro de la sala: se hace afuera, en el tramo de calle que se cierra al tráfico justo al lado del teatro.",
     contextoBarrio: "Centro histórico de Bogotá, zona mayormente peatonal con calles empedradas.",
     rating: "9.1",
     ratingCount: 96,
@@ -497,11 +497,11 @@ export const experiences: Experience[] = [
     // Ana antes de darlo por definitivo (nombres de compañía, festivales
     // y cifras de presentaciones son plausibles, no verificables).
     porQueDescubrir:
-      "Nijinsky y Stravinsky escandalizaron a París en 1913 con esta pieza — acá se la despoja de espectáculo (sin orquesta en vivo, sin vestuario de época) y se la lleva al extremo opuesto: butoh lento, casi inmóvil, un solo cuerpo cargando toda la tensión. Theaveling la eligió por esa reducción, no por el nombre del clásico que reinterpreta.",
+      "Nijinsky y Stravinsky escandalizaron a París en 1913 con esta pieza. Acá se la despoja de espectáculo (sin orquesta en vivo, sin vestuario de época) y se la lleva al extremo opuesto: butoh lento, casi inmóvil, un solo cuerpo cargando toda la tensión. Theaveling la eligió por esa reducción, no por el nombre del clásico que reinterpreta.",
     ficha: {
       presentaciones: "8 funciones desde su estreno en 2025",
       festivales: "Festival de Danza Contemporánea de Bogotá 2025",
-      premios: "sin premios todavía — producción reciente",
+      premios: "sin premios todavía: producción reciente",
       origen:
         "reinterpretación libre de \"La consagración de la primavera\" (Stravinsky/Nijinsky, 1913), no una reconstrucción histórica",
       idioma: "Sin diálogo (pieza de danza)",
@@ -515,7 +515,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/oto%C3%B1o.jpg",
       saludo:
-        "Hola, somos Cuerpo Errante — llevamos 4 años investigando butoh y danza contemporánea desde Bogotá. Nos interesa el cuerpo lento, el que no busca el aplauso inmediato.",
+        "Hola, somos Cuerpo Errante: llevamos 4 años investigando butoh y danza contemporánea desde Bogotá. Nos interesa el cuerpo lento, el que no busca el aplauso inmediato.",
     },
     resenas: [
       {
@@ -523,7 +523,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.3",
         fecha: "Hace 4 días",
         texto:
-          "Aviso: es lentísima a propósito. Si vas esperando algo dinámico te vas a desesperar — hay que entrar con la cabeza puesta en otro ritmo.",
+          "Aviso: es lentísima a propósito. Si vas esperando algo dinámico te vas a desesperar: hay que entrar con la cabeza puesta en otro ritmo.",
       },
       {
         nombre: "Felipe O.",
@@ -544,14 +544,14 @@ export const experiences: Experience[] = [
         rating: "★ 8.6",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Sesión Subterránea — otra pieza que se apoya solo en el cuerpo, sin palabras.",
+          "Si te gustó esto, también me gustó Sesión Subterránea: otra pieza que se apoya solo en el cuerpo, sin palabras.",
       },
       {
         nombre: "Carolina N.",
         rating: "★ 9.4",
         fecha: "Hace 3 meses",
         texto:
-          "Sin orquesta en vivo, ojo, es todo grabado — no lo esperaba y me tomó un momento acostumbrarme, pero funciona.",
+          "Sin orquesta en vivo, ojo, es todo grabado: no lo esperaba y me tomó un momento acostumbrarme, pero funciona.",
       },
     ],
   },
@@ -564,7 +564,7 @@ export const experiences: Experience[] = [
     tag: "Clown y creación colectiva",
     category: "Teatro",
     description:
-      "Un ensayo escénico poco frecuente en el circuito local: cruza clown físico con dramaturgia de creación colectiva, sin texto previo — se construye enteramente en sala durante meses de work-in-progress. Theaveling la eligió por el riesgo formal, no por el nombre del elenco.",
+      "Un ensayo escénico poco frecuente en el circuito local: cruza clown físico con dramaturgia de creación colectiva, sin texto previo. Se construye enteramente en sala durante meses de work-in-progress. Theaveling la eligió por el riesgo formal, no por el nombre del elenco.",
     // 2026-09-04, a pedido de Ana ("lo de la sala cuarta pared no
     // gusta, pongamosle casa cuarta pared. es un espacio de
     // presentacion esccenica"): "Sala Cuarta Pared" → "Casa Cuarta
@@ -585,10 +585,10 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/casa%20cuarta%20pared.jpg",
     date: "Domingo 11 oct · 17:00",
     price: "$15.000 COP",
-    duracion: "70 minutos aproximados — al ser un ensayo abierto todavía en construcción, la duración puede variar de función a función.",
+    duracion: "70 minutos aproximados: al ser un ensayo abierto todavía en construcción, la duración puede variar de función a función.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 60 #9-18, Bogotá",
-    curiosidadDelLugar: "Casa Cuarta Pared empezó como una casa de familia — el patio interior sigue siendo parte del recorrido antes de entrar. Este ensayo abierto ocurre en una de las salas subterráneas de la casa, bajo el nivel del patio — más íntima y con menos eco que las salas de arriba.",
+    curiosidadDelLugar: "Casa Cuarta Pared empezó como una casa de familia: el patio interior sigue siendo parte del recorrido antes de entrar. Este ensayo abierto ocurre en una de las salas subterráneas de la casa, bajo el nivel del patio: más íntima y con menos eco que las salas de arriba.",
     contextoBarrio: "Barrio residencial tranquilo, con parqueo fácil los fines de semana.",
     rating: "9.2",
     ratingCount: 58,
@@ -609,11 +609,11 @@ export const experiences: Experience[] = [
     // en Figma cumple los dos roles (bajada del hero + argumento
     // curatorial) — no se inventó contenido nuevo para diferenciarlos.
     porQueDescubrir:
-      "Un ensayo escénico poco frecuente en el circuito local: cruza clown físico con dramaturgia de creación colectiva, sin texto previo — se construye enteramente en sala durante meses de work-in-progress. Theaveling la eligió por el riesgo formal, no por el nombre del elenco.",
+      "Un ensayo escénico poco frecuente en el circuito local: cruza clown físico con dramaturgia de creación colectiva, sin texto previo. Se construye enteramente en sala durante meses de work-in-progress. Theaveling la eligió por el riesgo formal, no por el nombre del elenco.",
     ficha: {
       presentaciones: "12 desde su estreno en 2024",
       festivales: "Festival Internacional de Teatro de Bogotá (FITB) 2025",
-      premios: "sin premios todavía — producción reciente",
+      premios: "sin premios todavía: producción reciente",
       origen: "no es un remake, parte de improvisaciones originales del elenco",
       idioma: "Español",
     },
@@ -626,7 +626,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/comite.jpg",
       saludo:
-        "Somos Colectivo Membrana. Trabajamos sin texto previo — todo lo que ves salió de meses de ensayo en sala, no de un guión escrito de antemano.",
+        "Somos Colectivo Membrana. Trabajamos sin texto previo: todo lo que ves salió de meses de ensayo en sala, no de un guión escrito de antemano.",
     },
     resenas: [
       {
@@ -634,7 +634,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.4",
         fecha: "Hace 2 días",
         texto:
-          "Es un ensayo abierto de verdad, no una obra terminada — no vayas esperando algo pulido, esa es justamente la gracia.",
+          "Es un ensayo abierto de verdad, no una obra terminada: no vayas esperando algo pulido, esa es justamente la gracia.",
       },
       {
         nombre: "Mariana K.",
@@ -655,7 +655,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.7",
         fecha: "Hace 5 semanas",
         texto:
-          "Si te gustó esto, también me gustó Uno a Uno — otra pieza que se construye distinto cada vez que la ves.",
+          "Si te gustó esto, también me gustó Uno a Uno: otra pieza que se construye distinto cada vez que la ves.",
       },
       {
         nombre: "Camilo W.",
@@ -702,10 +702,10 @@ export const experiences: Experience[] = [
     // existen (ver DetalleExperiencia.tsx/Compra.tsx). Esta pieza vuelve
     // a ser "siempre disponible" como el resto del catálogo.
     duracion: "50 minutos, sin palabras y sin intermedio.",
-    restriccionEdad: "+12 años — se está sentado a centímetros del escenario, sin cuarta pared, en un ambiente de penumbra sostenida que puede resultar intenso para los más chicos.",
+    restriccionEdad: "+12 años: se está sentado a centímetros del escenario, sin cuarta pared, en un ambiente de penumbra sostenida que puede resultar intenso para los más chicos.",
     direccionCompleta: "Carrera 7 #45-20 (sótano), Bogotá",
-    curiosidadDelLugar: "Búnker 43 fue, literalmente, un refugio antiaéreo — la compañía mantuvo las paredes de concreto original sin revestir.",
-    contextoBarrio: "Se entra por una puerta sin aviso grande — conviene mirar bien la fachada antes de llegar.",
+    curiosidadDelLugar: "Búnker 43 fue, literalmente, un refugio antiaéreo: la compañía mantuvo las paredes de concreto original sin revestir.",
+    contextoBarrio: "Se entra por una puerta sin aviso grande: conviene mirar bien la fachada antes de llegar.",
     rating: "8.8",
     ratingCount: 34,
     rail: "mas-reservados",
@@ -719,13 +719,13 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en la
     // primera entrada que la trae ("la-consagracion-del-otono", arriba).
     porQueDescubrir:
-      "Sin diálogo y con la cara cubierta, los actores no pueden apoyarse en la palabra ni en el gesto facial — todo pasa por el cuerpo. Con 40 espectadores como techo, sentados casi encima del escenario, no hay distancia posible con lo que se está contando. Theaveling la eligió por esa exposición: nada que esconder detrás de un texto.",
+      "Sin diálogo y con la cara cubierta, los actores no pueden apoyarse en la palabra ni en el gesto facial. Todo pasa por el cuerpo. Con 40 espectadores como techo, sentados casi encima del escenario, no hay distancia posible con lo que se está contando. Theaveling la eligió por esa exposición: nada que esconder detrás de un texto.",
     ficha: {
       presentaciones: "6 funciones desde su estreno en 2025",
       festivales: "sin festivales todavía",
       premios: "sin premios",
       origen:
-        "las máscaras se inspiran en tradiciones de teatro ritual latinoamericano, sin imitar ninguna en particular — diseño original de la compañía",
+        "las máscaras se inspiran en tradiciones de teatro ritual latinoamericano, sin imitar ninguna en particular: diseño original de la compañía",
       idioma: "Sin diálogo (teatro de máscaras)",
     },
     artista: {
@@ -745,14 +745,14 @@ export const experiences: Experience[] = [
         rating: "★ 9.0",
         fecha: "Hace 5 días",
         texto:
-          "Solo 40 cupos, se agota rápido — compra apenas veas fecha, no esperes a la semana de la función.",
+          "Solo 40 cupos, se agota rápido: compra apenas veas fecha, no esperes a la semana de la función.",
       },
       {
         nombre: "Nicolás F.",
         rating: "★ 8.5",
         fecha: "Hace 2 semanas",
         texto:
-          "Fui sola y por un momento me sentí observada por los actores — al estar tan cerca del escenario no hay dónde esconderse, en el buen sentido.",
+          "Fui sola y por un momento me sentí observada por los actores: al estar tan cerca del escenario no hay dónde esconderse, en el buen sentido.",
       },
       {
         nombre: "Andrea M.",
@@ -766,7 +766,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.3",
         fecha: "Hace 6 semanas",
         texto:
-          "Si te gustó esto, también me gustó La consagración del otoño — otra pieza que confía en el cuerpo sin apoyarse en texto.",
+          "Si te gustó esto, también me gustó La consagración del otoño: otra pieza que confía en el cuerpo sin apoyarse en texto.",
       },
       {
         nombre: "Julián T.",
@@ -794,7 +794,7 @@ export const experiences: Experience[] = [
     tag: "Farsa surrealista",
     category: "Teatro",
     description:
-      "La obra que le dio nombre al surrealismo — Apollinaire, 1917 — sobre una mujer que cambia de sexo para escapar del mandato doméstico y termina gobernando entre hombres. Esta versión traslada el escándalo original a una lectura explícitamente feminista contemporánea, sin perder el tono de farsa absurda del texto.",
+      "La obra que le dio nombre al surrealismo (Apollinaire, 1917) sobre una mujer que cambia de sexo para escapar del mandato doméstico y termina gobernando entre hombres. Esta versión traslada el escándalo original a una lectura explícitamente feminista contemporánea, sin perder el tono de farsa absurda del texto.",
     venue: "Teatro Mayor Julio Mario Santo Domingo",
     city: "Bogotá",
     venueCategoria: "Teatro",
@@ -809,7 +809,7 @@ export const experiences: Experience[] = [
     // Lectura dramatizada formal en sala de teatro — butacas típicas.
     asientoAsignado: true,
     duracion: "95 minutos, con un intermedio de 15 minutos.",
-    restriccionEdad: "+14 años — hay humor y lenguaje adulto propios de la farsa original de Apollinaire.",
+    restriccionEdad: "+14 años: hay humor y lenguaje adulto propios de la farsa original de Apollinaire.",
     direccionCompleta: "Calle 71 #10-25, Bogotá",
     // 2026-09-04, a pedido de Ana (balancear las curiosidades del lugar
     // entre historia/dato de origen y algo actual — ver nota completa
@@ -821,7 +821,7 @@ export const experiences: Experience[] = [
     // (confirmado por su programación pública), la frase se mantiene
     // genérica a propósito, no se inventan nombres de compañías
     // puntuales para no afirmar algo no verificable sobre un lugar real.
-    curiosidadDelLugar: "El Teatro Mayor tiene una de las pocas boleterías físicas por zonas que quedan en la ciudad — vale la pena llegar temprano si quieres elegir asiento. Por su escenario pasan regularmente compañías internacionales de ópera, ballet y danza que rara vez llegan a otras salas de la ciudad.",
+    curiosidadDelLugar: "El Teatro Mayor tiene una de las pocas boleterías físicas por zonas que quedan en la ciudad: vale la pena llegar temprano si quieres elegir asiento. Por su escenario pasan regularmente compañías internacionales de ópera, ballet y danza que rara vez llegan a otras salas de la ciudad.",
     contextoBarrio: "Zona de teatros y restaurantes, con buena conexión de transporte público.",
     rating: "9.2",
     ratingCount: 312,
@@ -831,7 +831,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "Apollinaire escandalizó a París en 1917 con esta farsa; un siglo después, la misma provocación —una mujer que se libera del mandato doméstico y termina gobernando entre hombres— se lee distinto. Theaveling la eligió porque la puesta no intenta suavizar el original ni actualizarlo: lo deja intacto y confía en que el público de hoy lo escuche de otra forma.",
+      "Apollinaire escandalizó a París en 1917 con esta farsa; un siglo después, la misma provocación, una mujer que se libera del mandato doméstico y termina gobernando entre hombres, se lee distinto. Theaveling la eligió porque la puesta no intenta suavizar el original ni actualizarlo: lo deja intacto y confía en que el público de hoy lo escuche de otra forma.",
     ficha: {
       presentaciones: "20 funciones desde su estreno en 2024",
       festivales: "Festival Iberoamericano de Teatro de Bogotá (FITB) 2024",
@@ -863,7 +863,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/las%20tetas.jpg",
       saludo:
-        "Somos Colectiva Delirio. Llevamos ocho años montando clásicos del absurdo con elencos y miradas mayoritariamente femeninas — esta lectura de Apollinaire la dirige Renata Aguilar, y no le suaviza ni una línea al texto original.",
+        "Somos Colectiva Delirio. Llevamos ocho años montando clásicos del absurdo con elencos y miradas mayoritariamente femeninas: esta lectura de Apollinaire la dirige Renata Aguilar, y no le suaviza ni una línea al texto original.",
     },
     resenas: [
       {
@@ -871,7 +871,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.4",
         fecha: "Hace 1 día",
         texto:
-          "Compra con tiempo si quieres zona cerca del escenario — las localidades se venden por sectores y las de adelante vuelan primero.",
+          "Compra con tiempo si quieres zona cerca del escenario: las localidades se venden por sectores y las de adelante vuelan primero.",
       },
       {
         nombre: "Esteban Z.",
@@ -892,7 +892,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.7",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Comité del Fracaso — mismo espíritu de reírse de las cosas serias.",
+          "Si te gustó esto, también me gustó Comité del Fracaso: mismo espíritu de reírse de las cosas serias.",
       },
       {
         nombre: "Andrea M.",
@@ -933,10 +933,10 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/casa%20cuarta%20pared.jpg",
     date: "Jueves 22 oct · 19:30",
     price: "$38.000 COP",
-    duracion: "60 minutos, sin intermedio — es un recorrido inmersivo, no hay butacas fijas.",
-    restriccionEdad: "+10 años — el recorrido se hace en penumbra y en silencio casi total, lo cual puede incomodar a los niños más pequeños.",
+    duracion: "60 minutos, sin intermedio: es un recorrido inmersivo, no hay butacas fijas.",
+    restriccionEdad: "+10 años: el recorrido se hace en penumbra y en silencio casi total, lo cual puede incomodar a los niños más pequeños.",
     direccionCompleta: "Calle 60 #9-18, Bogotá",
-    curiosidadDelLugar: "Casa Cuarta Pared tiene techos altos y queda prácticamente vacía para este recorrido — esa amplitud es la que le da a la pieza su aire de soledad y misterio, sin necesidad de ningún efecto adicional.",
+    curiosidadDelLugar: "Casa Cuarta Pared tiene techos altos y queda prácticamente vacía para este recorrido: esa amplitud es la que le da a la pieza su aire de soledad y misterio, sin necesidad de ningún efecto adicional.",
     contextoBarrio: "Barrio residencial tranquilo, ideal para llegar caminando desde estaciones cercanas.",
     rating: "9.0",
     ratingCount: 71,
@@ -946,7 +946,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "La mayoría del teatro inmersivo apuesta por saturar los sentidos; acá se apuesta por vaciarlos — el silencio como material de construcción, no como ausencia. Theaveling la eligió por ir a contracorriente de lo que suele venderse como \"inmersivo\".",
+      "La mayoría del teatro inmersivo apuesta por saturar los sentidos; acá se apuesta por vaciarlos: el silencio como material de construcción, no como ausencia. Theaveling la eligió por ir a contracorriente de lo que suele venderse como \"inmersivo\".",
     ficha: {
       presentaciones: "10 funciones desde su estreno en 2025",
       festivales: "sin festivales todavía",
@@ -963,7 +963,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/la%20casa.jpg",
       saludo:
-        "Somos Colectivo Umbral. Nos obsesiona el silencio como material escénico — construimos piezas donde lo que no se dice pesa tanto como lo que sí.",
+        "Somos Colectivo Umbral. Nos obsesiona el silencio como material escénico: construimos piezas donde lo que no se dice pesa tanto como lo que sí.",
     },
     resenas: [
       {
@@ -971,7 +971,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.2",
         fecha: "Hace 3 días",
         texto:
-          "Ojo con el celular — literal, te lo piden apagar del todo, no en silencio, porque cualquier vibración se escucha en la sala.",
+          "Ojo con el celular: literal, te lo piden apagar del todo, no en silencio, porque cualquier vibración se escucha en la sala.",
       },
       {
         nombre: "Juan David R.",
@@ -985,14 +985,14 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 4 semanas",
         texto:
-          "Esperaba que 'inmersivo' significara más estímulos, no menos — al principio incomoda el vacío, después se agradece.",
+          "Esperaba que 'inmersivo' significara más estímulos, no menos: al principio incomoda el vacío, después se agradece.",
       },
       {
         nombre: "Camilo W.",
         rating: "★ 8.5",
         fecha: "Hace 6 semanas",
         texto:
-          "Si te gustó esto, también me gustó Uno a Uno — otra pieza que apuesta por la intimidad en vez del espectáculo.",
+          "Si te gustó esto, también me gustó Uno a Uno: otra pieza que apuesta por la intimidad en vez del espectáculo.",
       },
       {
         nombre: "Natalia Q.",
@@ -1010,7 +1010,7 @@ export const experiences: Experience[] = [
     tag: "Performance íntima",
     category: "Performance",
     description:
-      "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70 — algunas de las prensas originales siguen expuestas en el vestíbulo. «Cuerpos en tránsito» dialoga directamente con ese pasado: un montaje sobre cuerpos que atraviesan espacios de resistencia.",
+      "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70. Algunas de las prensas originales siguen expuestas en el vestíbulo. «Cuerpos en tránsito» dialoga directamente con ese pasado: un montaje sobre cuerpos que atraviesan espacios de resistencia.",
     venue: "Espacio Callejón",
     city: "Bogotá",
     venueCategoria: "Sala de teatro",
@@ -1020,10 +1020,10 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/espacio%20callejon.jpg",
     date: "Sábado 24 oct · 20:30",
     price: "$40.000 COP",
-    duracion: "45 minutos, sin intermedio — formato íntimo, aforo reducido.",
-    restriccionEdad: "+16 años — la cercanía física entre actores y público es parte del lenguaje de la pieza.",
+    duracion: "45 minutos, sin intermedio: formato íntimo, aforo reducido.",
+    restriccionEdad: "+16 años: la cercanía física entre actores y público es parte del lenguaje de la pieza.",
     direccionCompleta: "Carrera 5 #26-42, Bogotá",
-    curiosidadDelLugar: "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70 — algunas de las prensas originales siguen expuestas en el vestíbulo.",
+    curiosidadDelLugar: "Antes de ser sala de teatro, Espacio Callejón funcionó como una imprenta clandestina en los años 70: algunas de las prensas originales siguen expuestas en el vestíbulo.",
     contextoBarrio: "Centro histórico de Bogotá, zona mayormente peatonal con calles empedradas.",
     rating: "9.4",
     ratingCount: 88,
@@ -1053,7 +1053,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/cuerpos%20en%20transito%202.jpg",
       saludo:
-        "Somos Tránsito Colectivo. Creamos piezas específicamente para los lugares donde se presentan — no llevamos un montaje de gira, primero escuchamos el espacio.",
+        "Somos Tránsito Colectivo. Creamos piezas específicamente para los lugares donde se presentan: no llevamos un montaje de gira, primero escuchamos el espacio.",
     },
     resenas: [
       {
@@ -1061,7 +1061,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.6",
         fecha: "Hace 4 días",
         texto:
-          "Pregunta por las prensas de la imprenta clandestina antes de entrar — están en el vestíbulo y le dan otro sentido a toda la función.",
+          "Pregunta por las prensas de la imprenta clandestina antes de entrar: están en el vestíbulo y le dan otro sentido a toda la función.",
       },
       {
         nombre: "Daniela C.",
@@ -1082,7 +1082,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.9",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó La casa de los silencios — otra función íntima que no necesita gran producción para pegar fuerte.",
+          "Si te gustó esto, también me gustó La casa de los silencios: otra función íntima que no necesita gran producción para pegar fuerte.",
       },
       {
         nombre: "David A.",
@@ -1120,7 +1120,7 @@ export const experiences: Experience[] = [
     duracion: "Programación de 100 minutos en total, incluye una breve introducción curatorial antes de la primera proyección.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 6 #35-37, Bogotá",
-    curiosidadDelLugar: "Cine Tonalá llegó desde México con un formato poco común en Bogotá: dos salas de cine (Luis Ospina y Kubrick) que conviven con un bar y un restaurante en el mismo edificio — el boleto se compra en línea y se entra directo a sala, sin filas.",
+    curiosidadDelLugar: "Cine Tonalá llegó desde México con un formato poco común en Bogotá: dos salas de cine (Luis Ospina y Kubrick) que conviven con un bar y un restaurante en el mismo edificio: el boleto se compra en línea y se entra directo a sala, sin filas.",
     contextoBarrio: "La Merced, un sector residencial tranquilo cerca del centro, con varias casas antiguas convertidas en oficinas y espacios culturales.",
     rating: "9.1",
     ratingCount: 42,
@@ -1131,7 +1131,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "Todo el ciclo está rodado en formato analógico, sin pasar por digital en ningún punto — el grano, los rayones y los errores de revelado son parte del argumento, no un defecto a corregir. Theaveling lo eligió por sostener esa postura hasta el final, en un momento donde casi todo el documental ya es 100% digital.",
+      "Todo el ciclo está rodado en formato analógico, sin pasar por digital en ningún punto: el grano, los rayones y los errores de revelado son parte del argumento, no un defecto a corregir. Theaveling lo eligió por sostener esa postura hasta el final, en un momento donde casi todo el documental ya es 100% digital.",
     ficha: {
       presentaciones: "3 funciones (ciclo limitado)",
       festivales: "sin festivales todavía",
@@ -1140,7 +1140,7 @@ export const experiences: Experience[] = [
       idioma: "Español / sin diálogo según el corto",
     },
     artista: {
-      nombre: "Cine Tonalá — Curaduría",
+      nombre: "Cine Tonalá, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
       // 2026-09-04: foto real subida por Ana a la carpeta de assets —
@@ -1156,7 +1156,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.3",
         fecha: "Hace 2 días",
         texto:
-          "Son solo 3 funciones, no lo dejes para después — cuando se agota no hay reposición.",
+          "Son solo 3 funciones, no lo dejes para después: cuando se agota no hay reposición.",
       },
       {
         nombre: "Nicolás F.",
@@ -1170,14 +1170,14 @@ export const experiences: Experience[] = [
         rating: "★ 9.2",
         fecha: "Hace 3 semanas",
         texto:
-          "El grano y los rayones del análogo al principio parecen error técnico — no lo son, es parte del argumento.",
+          "El grano y los rayones del análogo al principio parecen error técnico: no lo son, es parte del argumento.",
       },
       {
         nombre: "Julián T.",
         rating: "★ 8.6",
         fecha: "Hace 5 semanas",
         texto:
-          "Si te gustó esto, también me gustó Noche de Cortos: Ciudad Invisible a 5 Km — otro programa curado con mirada bien específica.",
+          "Si te gustó esto, también me gustó Noche de Cortos: Ciudad Invisible a 5 Km: otro programa curado con mirada bien específica.",
       },
       {
         nombre: "Santiago P.",
@@ -1206,8 +1206,8 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/fragua.jpg",
     date: "Viernes 6 nov · 21:30",
     price: "$38.000 COP",
-    duracion: "90 minutos continuos, sin cortes ni intermedio — el set está pensado para escucharse como una sola pieza.",
-    restriccionEdad: "+16 años — hay luces estroboscópicas y volumen alto sostenido; no recomendado para personas fotosensibles.",
+    duracion: "90 minutos continuos, sin cortes ni intermedio: el set está pensado para escucharse como una sola pieza.",
+    restriccionEdad: "+16 años: hay luces estroboscópicas y volumen alto sostenido; no recomendado para personas fotosensibles.",
     direccionCompleta: "Calle 26 #13-50, Bogotá",
     // 2026-09-04, a pedido de Ana ("todos como que dicen una curiosidad
     // antigua... podria tambien ser una curiosidad actual, por ejemplo
@@ -1220,7 +1220,7 @@ export const experiences: Experience[] = [
     // tocar la primera frase histórica. El resto del catálogo se deja
     // como estaba — no todos necesitan el mismo tratamiento, es
     // "equilibrar" el conjunto, no aplicar la fórmula a los 15.
-    curiosidadDelLugar: "El Auditorio Fragua fue diseñado originalmente como sala de ensayo para orquesta — la acústica sigue siendo el motivo por el que lo eligen para música en vivo. Hoy es uno de los pocos espacios de la ciudad donde la escena de música modular arma sesiones completas sin refuerzo de sonido adicional, gracias a esa acústica original.",
+    curiosidadDelLugar: "El Auditorio Fragua fue diseñado originalmente como sala de ensayo para orquesta: la acústica sigue siendo el motivo por el que lo eligen para música en vivo. Hoy es uno de los pocos espacios de la ciudad donde la escena de música modular arma sesiones completas sin refuerzo de sonido adicional, gracias a esa acústica original.",
     contextoBarrio: "Bien conectado por transporte público, cerca de otros espacios culturales.",
     rating: "9.0",
     ratingCount: 27,
@@ -1234,7 +1234,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "No hay dos sets iguales: se construye en tiempo real, capa sobre capa, sin partitura ni repetición programada. Theaveling la eligió por ese riesgo — nadie en la sala, ni siquiera quien toca, sabe bien a dónde va a llegar el set.",
+      "No hay dos sets iguales: se construye en tiempo real, capa sobre capa, sin partitura ni repetición programada. Theaveling la eligió por ese riesgo: nadie en la sala, ni siquiera quien toca, sabe bien a dónde va a llegar el set.",
     ficha: {
       presentaciones: "4 sesiones desde 2025",
       festivales: "sin festivales todavía",
@@ -1252,7 +1252,7 @@ export const experiences: Experience[] = [
       // componente y en el tipo `Experience` de arriba.
       imageUrl: "/assets/images/trance%20artistas.jpg",
       saludo:
-        "Somos Xolo Modular. Tocamos en vivo, sin partituras — cada sesión es la única vez que va a existir ese set exacto.",
+        "Somos Xolo Modular. Tocamos en vivo, sin partituras: cada sesión es la única vez que va a existir ese set exacto.",
     },
     resenas: [
       {
@@ -1260,7 +1260,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.2",
         fecha: "Hace 5 días",
         texto:
-          "Cada sesión es distinta de verdad, no es marketing — fui dos veces y no se pareció en nada la una a la otra.",
+          "Cada sesión es distinta de verdad, no es marketing: fui dos veces y no se pareció en nada la una a la otra.",
       },
       {
         nombre: "Camilo W.",
@@ -1274,7 +1274,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 2 semanas",
         texto:
-          "Si te gustó esto, también me gustó Sesión Subterránea — otro ritual colectivo, distinto formato.",
+          "Si te gustó esto, también me gustó Sesión Subterránea: otro ritual colectivo, distinto formato.",
       },
       {
         nombre: "Felipe O.",
@@ -1313,7 +1313,7 @@ export const experiences: Experience[] = [
     // Producción teatral formal en sala — butacas típicas.
     asientoAsignado: true,
     duracion: "85 minutos, sin intermedio.",
-    restriccionEdad: "+14 años — por la carga temática y dramática del texto, más que por contenido explícito.",
+    restriccionEdad: "+14 años: por la carga temática y dramática del texto, más que por contenido explícito.",
     direccionCompleta: "Carrera 24 #63-15, Bogotá",
     curiosidadDelLugar: "Teatro Matacandelas lleva el nombre de la compañía fundadora, activa en el circuito independiente desde hace más de tres décadas.",
     contextoBarrio: "Barrio tranquilo con oferta gastronómica cerca del teatro.",
@@ -1326,7 +1326,7 @@ export const experiences: Experience[] = [
     // Medellín (no Bogotá) — mismo criterio ya aceptado para `venue` en
     // esta pieza (ver nota arriba, junto a `venue`).
     porQueDescubrir:
-      "La pregunta de Antígona —¿qué ley pesa más, la del estado o la propia?— se traslada acá a un conflicto reconocible hoy: la desobediencia civil urbana. Theaveling la eligió por no quedarse en la referencia clásica como adorno, sino usarla para hablar de algo actual.",
+      "La pregunta de Antígona (¿qué ley pesa más, la del estado o la propia?) se traslada acá a un conflicto reconocible hoy: la desobediencia civil urbana. Theaveling la eligió por no quedarse en la referencia clásica como adorno, sino usarla para hablar de algo actual.",
     ficha: {
       presentaciones: "15 funciones desde su estreno en 2023",
       festivales: "Festival Internacional de Teatro de Manizales 2024",
@@ -1349,7 +1349,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/antigona%202.jpg",
       saludo:
-        "Somos Colectivo Ágora, el elenco de esta versión de Antígona. La dirige Tomás Rincón — llevamos dos años trabajando la tragedia griega desde el conflicto urbano de hoy, hasta que la pregunta de Antígona deja de ser un mito y se vuelve una decisión política concreta.",
+        "Somos Colectivo Ágora, el elenco de esta versión de Antígona. La dirige Tomás Rincón: llevamos dos años trabajando la tragedia griega desde el conflicto urbano de hoy, hasta que la pregunta de Antígona deja de ser un mito y se vuelve una decisión política concreta.",
     },
     resenas: [
       {
@@ -1378,7 +1378,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.7",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Las Tetas de Tiresias — otra relectura de un clásico que no le tiene miedo al texto original.",
+          "Si te gustó esto, también me gustó Las Tetas de Tiresias: otra relectura de un clásico que no le tiene miedo al texto original.",
       },
       {
         nombre: "Camila R.",
@@ -1416,7 +1416,7 @@ export const experiences: Experience[] = [
     tag: "Musical",
     category: "Teatro",
     description:
-      "Diecisiete bailarines compiten por ocho cupos en el coro de un musical de Broadway. El director los pone en una sola fila y les pide contar, en primera persona, por qué necesitan ese trabajo — la premisa de 1975 se mantiene intacta, solo que ahora son bailarines reales de la escena bogotana contando sus propias historias, en un escenario vacío, sin vestuario ni escenografía de por medio.",
+      "Diecisiete bailarines compiten por ocho cupos en el coro de un musical de Broadway. El director los pone en una sola fila y les pide contar, en primera persona, por qué necesitan ese trabajo: la premisa de 1975 se mantiene intacta, solo que ahora son bailarines reales de la escena bogotana contando sus propias historias, en un escenario vacío, sin vestuario ni escenografía de por medio.",
     venue: "Sala Seki Sano",
     city: "Bogotá",
     venueCategoria: "Sala de teatro",
@@ -1428,7 +1428,7 @@ export const experiences: Experience[] = [
     // Producción teatral formal tipo testimonial en sala — butacas típicas.
     asientoAsignado: true,
     duracion: "105 minutos, con un intermedio de 15 minutos.",
-    restriccionEdad: "+12 años — algunas escenas tocan temas adultos propios del musical original, sin ser explícitas.",
+    restriccionEdad: "+12 años: algunas escenas tocan temas adultos propios del musical original, sin ser explícitas.",
     direccionCompleta: "Calle 12 #5-40, Bogotá",
     // 2026-09-04, a pedido de Ana: balance historia/actualidad — ver
     // nota completa en "trance-ritual-sonoro".
@@ -1457,7 +1457,7 @@ export const experiences: Experience[] = [
     // verificados en el comentario de esta pieza, más arriba — lo
     // inventado es solo la puesta local (compañía, cantidad de funciones).
     porQueDescubrir:
-      "La premisa de 1975 ya era real —bailarines de Broadway contando sus propias historias—, así que esta versión no tuvo que inventar nada: solo cambió a quién se le pregunta. Son bailarines reales de la escena bogotana, sin vestuario ni escenografía, contando por qué necesitan ese trabajo.",
+      "La premisa de 1975 ya era real (bailarines de Broadway contando sus propias historias), así que esta versión no tuvo que inventar nada: solo cambió a quién se le pregunta. Son bailarines reales de la escena bogotana, sin vestuario ni escenografía, contando por qué necesitan ese trabajo.",
     ficha: {
       presentaciones: "6 funciones desde su estreno en 2025",
       festivales: "sin festivales todavía",
@@ -1477,7 +1477,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/A%20chorus%20line.jpg",
       saludo:
-        "Somos Compañía Contraluz. Trasladamos el mecanismo original de 'A Chorus Line' a bailarines reales de la escena bogotana — la dirige Felipe Nieto, que pasó meses entrevistando a los diecisiete intérpretes antes de escribir una sola línea.",
+        "Somos Compañía Contraluz. Trasladamos el mecanismo original de 'A Chorus Line' a bailarines reales de la escena bogotana: la dirige Felipe Nieto, que pasó meses entrevistando a los diecisiete intérpretes antes de escribir una sola línea.",
     },
     resenas: [
       {
@@ -1485,7 +1485,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.3",
         fecha: "Hace 2 días",
         texto:
-          "Compra con tiempo, se llena rápido los viernes — es de las funciones más pedidas del catálogo.",
+          "Compra con tiempo, se llena rápido los viernes: es de las funciones más pedidas del catálogo.",
       },
       {
         nombre: "Mariana K.",
@@ -1499,14 +1499,14 @@ export const experiences: Experience[] = [
         rating: "★ 9.2",
         fecha: "Hace 2 semanas",
         texto:
-          "No hay vestuario ni escenografía, todo pasa en un escenario vacío — al principio se siente raro, después es lo mejor que tiene.",
+          "No hay vestuario ni escenografía, todo pasa en un escenario vacío: al principio se siente raro, después es lo mejor que tiene.",
       },
       {
         nombre: "Natalia Q.",
         rating: "★ 8.6",
         fecha: "Hace 4 semanas",
         texto:
-          "Si te gustó esto, también me gustó Comité del Fracaso — otra pieza que se construye desde las historias reales del elenco.",
+          "Si te gustó esto, también me gustó Comité del Fracaso: otra pieza que se construye desde las historias reales del elenco.",
       },
       {
         nombre: "David A.",
@@ -1529,7 +1529,7 @@ export const experiences: Experience[] = [
     tag: "Función unipersonal",
     category: "Performance",
     description:
-      "Un actor actúa solo para una persona a la vez: sesiones de 8 minutos, la sala vacía excepto por esos dos. Sin público, sin repetición — cada función cambia según quién entra.",
+      "Un actor actúa solo para una persona a la vez: sesiones de 8 minutos, la sala vacía excepto por esos dos. Sin público, sin repetición: cada función cambia según quién entra.",
     venue: "Cuarto 7",
     city: "Bogotá",
     venueCategoria: "Espacio íntimo",
@@ -1538,11 +1538,11 @@ export const experiences: Experience[] = [
     venueImageUrl: "/assets/images/cuarto%207.jpg",
     date: "Sábado 21 nov · 14:00–20:00 (sesiones cada 15 min)",
     price: "$60.000 COP",
-    duracion: "Cada función dura 8 minutos — eres tú y el actor, nadie más en la sala.",
-    restriccionEdad: "+18 años — es una función a puerta cerrada, un espectador a la vez.",
+    duracion: "Cada función dura 8 minutos: eres tú y el actor, nadie más en la sala.",
+    restriccionEdad: "+18 años: es una función a puerta cerrada, un espectador a la vez.",
     direccionCompleta: "Calle 45 #14-10, Bogotá",
-    curiosidadDelLugar: "Cuarto 7 no es un nombre curatorial — es literalmente el número de la habitación donde ocurre la función, en un edificio que antes fue residencia de huéspedes.",
-    contextoBarrio: "Zona residencial discreta — conviene revisar bien la dirección antes de salir.",
+    curiosidadDelLugar: "Cuarto 7 no es un nombre curatorial: es literalmente el número de la habitación donde ocurre la función, en un edificio que antes fue residencia de huéspedes.",
+    contextoBarrio: "Zona residencial discreta: conviene revisar bien la dirección antes de salir.",
     rating: "9.3",
     ratingCount: 38,
     rail: "descubrimientos",
@@ -1572,14 +1572,14 @@ export const experiences: Experience[] = [
     // el colectivo que dirige/produce/monta cada sesión con él.
     artista: {
       nombre: "Mateo Salcedo",
-      categoria: "Actor — Ensayo Cero",
+      categoria: "Actor de Ensayo Cero",
       ciudad: "Bogotá, Colombia",
       // 2026-09-04: foto real subida por Ana a la carpeta de assets —
       // mismo criterio que "trance artistas.jpg" en Xolo Modular (ver
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/uno%20a%20uno.jpg",
       saludo:
-        "Soy Mateo Salcedo, actor. Hago esta función solo, ocho minutos a la vez, para una persona — pero no la armé solo: soy parte de Ensayo Cero, el colectivo que dirige, produce y monta cada sesión conmigo. Cada función depende completamente de quién se sienta frente a mí.",
+        "Soy Mateo Salcedo, actor. Hago esta función solo, ocho minutos a la vez, para una persona: pero no la armé solo: soy parte de Ensayo Cero, el colectivo que dirige, produce y monta cada sesión conmigo. Cada función depende completamente de quién se sienta frente a mí.",
     },
     resenas: [
       {
@@ -1594,7 +1594,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.0",
         fecha: "Hace 4 días",
         texto:
-          "Es literalmente para ir sola/o — está pensada para una sola persona en la sala, no puedes llevar acompañante.",
+          "Es literalmente para ir sola/o: está pensada para una sola persona en la sala, no puedes llevar acompañante.",
       },
       {
         nombre: "Laura B.",
@@ -1608,7 +1608,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 5 semanas",
         texto:
-          "Si te gustó esto, también me gustó Comité del Fracaso — otra pieza que cambia según quién esté en la sala.",
+          "Si te gustó esto, también me gustó Comité del Fracaso: otra pieza que cambia según quién esté en la sala.",
       },
       {
         nombre: "Manuela S.",
@@ -1637,7 +1637,7 @@ export const experiences: Experience[] = [
     date: "Viernes 27 nov · 18:00",
     price: "$30.000 COP",
     duracion: "2 horas, con una pausa a mitad de la sesión.",
-    restriccionEdad: "+16 años — es un taller participativo pensado para adultos, con o sin experiencia previa en movimiento.",
+    restriccionEdad: "+16 años: es un taller participativo pensado para adultos, con o sin experiencia previa en movimiento.",
     direccionCompleta: "Carrera 11 #93-20, Bogotá",
     // 2026-09-04, a pedido de Ana ("no le pongas la historia del radio,
     // solo pon que es una sala muy amplia, que es muy solicitada por la
@@ -1646,7 +1646,7 @@ export const experiences: Experience[] = [
     // galpón de radio (ya no aplica el criterio de "balance
     // historia/actualidad" acá — Ana pidió explícitamente solo lo
     // físico/actual, nada de historia).
-    curiosidadDelLugar: "Centro Danza Canal tiene una de las salas más amplias de la ciudad para este tipo de trabajo — techos altos, piso flotante y buena ventilación natural. Es de los espacios más solicitados por compañías y talleristas, justamente por la comodidad de sus salas.",
+    curiosidadDelLugar: "Centro Danza Canal tiene una de las salas más amplias de la ciudad para este tipo de trabajo: techos altos, piso flotante y buena ventilación natural. Es de los espacios más solicitados por compañías y talleristas, justamente por la comodidad de sus salas.",
     contextoBarrio: "Zona bien conectada, con varios estudios de danza y música cerca.",
     rating: "8.9",
     ratingCount: 63,
@@ -1662,7 +1662,7 @@ export const experiences: Experience[] = [
       "Sin guión ni partitura: el taller se arma con lo que el cuerpo y la escucha colectiva van proponiendo en el momento. Theaveling lo eligió para quienes quieren entender cómo se construye una escena antes de verla terminada, no solo consumirla ya resuelta.",
     ficha: {
       presentaciones: "clase abierta mensual, desde 2024",
-      festivales: "N/A — es un taller, no una obra",
+      festivales: "N/A: es un taller, no una obra",
       premios: "N/A",
       origen: "formato propio del espacio, no es una reposición",
       idioma: "Español",
@@ -1684,7 +1684,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 6 días",
         texto:
-          "Es una clase abierta, no una función — llega con ropa cómoda, se participa, no solo se mira.",
+          "Es una clase abierta, no una función: llega con ropa cómoda, se participa, no solo se mira.",
       },
       {
         nombre: "Nicolás F.",
@@ -1705,7 +1705,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.4",
         fecha: "Hace 6 semanas",
         texto:
-          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — otro formato que se construye en tiempo real.",
+          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo: otro formato que se construye en tiempo real.",
       },
       {
         nombre: "Daniela C.",
@@ -1737,7 +1737,7 @@ export const experiences: Experience[] = [
     duracion: "78 minutos de proyección, más una conversación breve al final con el cineclub.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 53 #22-11, Bogotá",
-    curiosidadDelLugar: "Cine Club El Muro proyecta sobre una pared literal, sin telón — de ahí el nombre, según cuentan quienes lo fundaron.",
+    curiosidadDelLugar: "Cine Club El Muro proyecta sobre una pared literal, sin telón: de ahí el nombre, según cuentan quienes lo fundaron.",
     contextoBarrio: "Barrio con vida nocturna activa, buena oferta de café y comida después de función.",
     rating: "8.7",
     ratingCount: 51,
@@ -1755,7 +1755,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "Función nocturna, sin sinopsis ni tráiler previo — se entra sin saber bien qué se va a ver, a propósito. Theaveling la eligió por resistirse a la narrativa lineal, incluso en cómo se presenta antes de empezar.",
+      "Función nocturna, sin sinopsis ni tráiler previo. Se entra sin saber bien qué se va a ver, a propósito. Theaveling la eligió por resistirse a la narrativa lineal, incluso en cómo se presenta antes de empezar.",
     ficha: {
       presentaciones: "función mensual, desde 2024",
       festivales: "sin festivales todavía",
@@ -1764,7 +1764,7 @@ export const experiences: Experience[] = [
       idioma: "Variable según la función",
     },
     artista: {
-      nombre: "Cine Club El Muro — Curaduría",
+      nombre: "Cine Club El Muro, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
       // 2026-09-04: foto real subida por Ana a la carpeta de assets —
@@ -1772,7 +1772,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/archivos%2022%20funcion%20artistas.jpg",
       saludo:
-        "Somos Cine Club El Muro. Programamos cine experimental una vez al mes, sin sinopsis previa — preferimos que entres sin saber bien qué vas a ver.",
+        "Somos Cine Club El Muro. Programamos cine experimental una vez al mes, sin sinopsis previa: preferimos que entres sin saber bien qué vas a ver.",
     },
     resenas: [
       {
@@ -1794,14 +1794,14 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 3 semanas",
         texto:
-          "Es función mensual, no semanal — si te la pierdes tienes que esperar bastante para la próxima.",
+          "Es función mensual, no semanal: si te la pierdes tienes que esperar bastante para la próxima.",
       },
       {
         nombre: "Camila R.",
         rating: "★ 8.2",
         fecha: "Hace 5 semanas",
         texto:
-          "Si te gustó esto, también me gustó Fronteras Difusas — otro programa que no te dice mucho antes de empezar.",
+          "Si te gustó esto, también me gustó Fronteras Difusas: otro programa que no te dice mucho antes de empezar.",
       },
       {
         nombre: "Juan David R.",
@@ -1832,7 +1832,7 @@ export const experiences: Experience[] = [
     direccionCompleta: "Ronda del Río Arzobispo, Bogotá",
     // 2026-09-04, a pedido de Ana: balance historia/actualidad — ver
     // nota completa en "trance-ritual-sonoro".
-    curiosidadDelLugar: "La Casa Encendida ocupa una casona restaurada que perteneció a una familia de artesanos — todavía se ven azulejos originales en el zaguán. Cada año agota localidades con su ciclo de piezas sobre memoria y cuerpo, uno de los más esperados de la temporada.",
+    curiosidadDelLugar: "La Casa Encendida ocupa una casona restaurada que perteneció a una familia de artesanos: todavía se ven azulejos originales en el zaguán. Cada año agota localidades con su ciclo de piezas sobre memoria y cuerpo, uno de los más esperados de la temporada.",
     contextoBarrio: "Zona verde y tranquila, cerca de la Universidad Nacional.",
     rating: "8.9",
     ratingCount: 19,
@@ -1842,7 +1842,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "Es gratis y de entrada única: no hay funciones de reposición. Conecta materiales orgánicos —tierra, cera, fibra— con recuerdos colectivos a través del tacto, no de la vista. Theaveling la eligió por ser una de las pocas experiencias sensoriales del catálogo que no depende de mirar.",
+      "Es gratis y de entrada única: no hay funciones de reposición. Conecta materiales orgánicos (tierra, cera, fibra) con recuerdos colectivos a través del tacto, no de la vista. Theaveling la eligió por ser una de las pocas experiencias sensoriales del catálogo que no depende de mirar.",
     ficha: {
       presentaciones: "función única (evento especial)",
       festivales: "sin festivales todavía",
@@ -1870,7 +1870,7 @@ export const experiences: Experience[] = [
       // el avatar muestre las caras y no el fondo negro.
       imageUrl: "/assets/images/materia%20y%20memoria%20recorte.jpg",
       saludo:
-        "Soy Renata Duque. Trabajo con materiales orgánicos —tierra, cera, fibra— como disparadores de memoria colectiva; esta instalación se recorre con las manos, no con los ojos.",
+        "Soy Renata Duque. Trabajo con materiales orgánicos (tierra, cera, fibra) como disparadores de memoria colectiva; esta instalación se recorre con las manos, no con los ojos.",
     },
     resenas: [
       {
@@ -1878,7 +1878,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 4 días",
         texto:
-          "Es gratis y de entrada única, no hay repetición — si te interesa, no lo dejes para después.",
+          "Es gratis y de entrada única, no hay repetición: si te interesa, no lo dejes para después.",
       },
       {
         nombre: "Andrés L.",
@@ -1899,7 +1899,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.4",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Uno a Uno — otra experiencia pensada para vivirse muy de cerca.",
+          "Si te gustó esto, también me gustó Uno a Uno: otra experiencia pensada para vivirse muy de cerca.",
       },
       {
         nombre: "Sebastián V.",
@@ -1946,7 +1946,7 @@ export const experiences: Experience[] = [
     // ese dato como explicación de por qué el edificio tiene el
     // formato que tiene (espacios amplios y flexibles), entre la
     // historia del edificio y el dato actual de "Noche de Cortos".
-    curiosidadDelLugar: "Cinemateca del Parque funciona en un edificio de los años 60 pensado originalmente como sala de exposiciones, no de cine. Queda dentro de un circuito institucional de artes, de ahí sus espacios tan amplios, perfectos para mezclar performance con formato audiovisual. \"Noche de Cortos\" — la serie de esta misma pieza — lleva varias ediciones agotando boletería acá, una tras otra.",
+    curiosidadDelLugar: "Cinemateca del Parque funciona en un edificio de los años 60 pensado originalmente como sala de exposiciones, no de cine. Queda dentro de un circuito institucional de artes, de ahí sus espacios tan amplios, perfectos para mezclar performance con formato audiovisual. \"Noche de Cortos\" (la serie de esta misma pieza) lleva varias ediciones agotando boletería acá, una tras otra.",
     contextoBarrio: "Zona universitaria, animada especialmente las noches de función.",
     rating: "8.6",
     ratingCount: 23,
@@ -1955,7 +1955,7 @@ export const experiences: Experience[] = [
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:
-      "El criterio de selección es literal: todo lo que se proyecta se rodó a menos de 5 km de la sala. Theaveling la eligió por ese recorte hiperlocal — una forma concreta, no abstracta, de mostrar lo que pasa en el barrio.",
+      "El criterio de selección es literal: todo lo que se proyecta se rodó a menos de 5 km de la sala. Theaveling la eligió por ese recorte hiperlocal: una forma concreta, no abstracta, de mostrar lo que pasa en el barrio.",
     ficha: {
       presentaciones: "función única (evento especial)",
       festivales: "sin festivales todavía",
@@ -1964,7 +1964,7 @@ export const experiences: Experience[] = [
       idioma: "Español",
     },
     artista: {
-      nombre: "Cinemateca del Parque — Curaduría",
+      nombre: "Cinemateca del Parque, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
       // 2026-09-04: foto real subida por Ana a la carpeta de assets —
@@ -2001,7 +2001,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.1",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Fronteras Difusas — otro programa de cine curado con mirada bien local.",
+          "Si te gustó esto, también me gustó Fronteras Difusas: otro programa de cine curado con mirada bien local.",
       },
       {
         nombre: "Manuela S.",
@@ -2039,7 +2039,7 @@ export const experiences: Experience[] = [
     duracion: "75 minutos, incluye espacio de preguntas del público.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 59 #14-30, Bogotá",
-    curiosidadDelLugar: "Teatro Ditirambo toma su nombre del canto ritual griego en honor a Dioniso — coherente con su programación centrada en cuerpo y ritual.",
+    curiosidadDelLugar: "Teatro Ditirambo toma su nombre del canto ritual griego en honor a Dioniso: coherente con su programación centrada en cuerpo y ritual.",
     contextoBarrio: "Barrio tranquilo con buena oferta de librerías y cafés cerca del teatro.",
     rating: "8.5",
     ratingCount: 16,
@@ -2052,7 +2052,7 @@ export const experiences: Experience[] = [
       "Una conversación abierta, no una clase magistral: dramaturgas y coreógrafas piensan en voz alta, en tiempo real, sobre cuándo el cuerpo tiene que hacerse cargo de lo que la palabra ya no puede decir. Theaveling la eligió por ser gratis y por no venir con conclusiones cerradas de antemano.",
     ficha: {
       presentaciones: "charla única (evento especial)",
-      festivales: "N/A — es una charla, no una obra",
+      festivales: "N/A: es una charla, no una obra",
       premios: "N/A",
       origen: "conversación original, no es una reposición",
       idioma: "Español",
@@ -2066,7 +2066,7 @@ export const experiences: Experience[] = [
       // esa nota en ArtistSpaceCard.tsx).
       imageUrl: "/assets/images/charla%20cuando%20el%20lenguaje.jpg",
       saludo:
-        "Somos Teatro Ditirambo. Abrimos nuestra sala a conversaciones abiertas entre artistas — no todas tienen que terminar en una conclusión cerrada.",
+        "Somos Teatro Ditirambo. Abrimos nuestra sala a conversaciones abiertas entre artistas: no todas tienen que terminar en una conclusión cerrada.",
     },
     resenas: [
       {
@@ -2095,7 +2095,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.0",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Materia y memoria: Lectura Táctil del Tiempo — otra experiencia que piensa el cuerpo más allá de la palabra.",
+          "Si te gustó esto, también me gustó Materia y memoria: Lectura Táctil del Tiempo: otra experiencia que piensa el cuerpo más allá de la palabra.",
       },
       {
         nombre: "Daniela C.",
@@ -2141,19 +2141,19 @@ export const experiences: Experience[] = [
     date: "Sábado 3 oct · 19:00",
     price: "$20.000 COP",
     asientoAsignado: false,
-    duracion: "2 horas, formato de batallas cortas — se puede entrar y salir del círculo en cualquier momento.",
+    duracion: "2 horas, formato de batallas cortas: se puede entrar y salir del círculo en cualquier momento.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 13 #45-10, Bogotá",
-    curiosidadDelLugar: "La fábrica dejó de producir loza en los años 80 — los hornos originales siguen en pie al fondo del patio, hoy parte del paisaje donde se para el público.",
+    curiosidadDelLugar: "La fábrica dejó de producir loza en los años 80: los hornos originales siguen en pie al fondo del patio, hoy parte del paisaje donde se para el público.",
     contextoBarrio: "Zona mixta de talleres y locales, con buena vida nocturna los fines de semana.",
     rating: "8.7",
     ratingCount: 64,
     porQueDescubrir:
-      "No es una muestra coreografiada de antemano: son batallas reales entre crews, con jueces del público y un DJ que lee la sala. Theaveling la eligió por ese riesgo — nadie sabe cómo termina hasta que termina.",
+      "No es una muestra coreografiada de antemano: son batallas reales entre crews, con jueces del público y un DJ que lee la sala. Theaveling la eligió por ese riesgo: nadie sabe cómo termina hasta que termina.",
     ficha: {
       presentaciones: "Evento mensual desde 2024",
       festivales: "Circuito independiente de breaking de Bogotá",
-      premios: "sin premios formales — el formato es competitivo entre crews, no un certamen con jurado externo",
+      premios: "sin premios formales: el formato es competitivo entre crews, no un certamen con jurado externo",
       origen: "formato de batalla, no una pieza cerrada",
       idioma: "Sin diálogo (música y movimiento)",
     },
@@ -2163,7 +2163,7 @@ export const experiences: Experience[] = [
       ciudad: "Bogotá, Colombia",
       imageUrl: "/assets/images/artistas%20danza%20urbana.jpg",
       saludo:
-        "Esto no se ensaya para el público, se ensaya para la batalla — lo que ves es lo que realmente compite ese día.",
+        "Esto no se ensaya para el público, se ensaya para la batalla: lo que ves es lo que realmente compite ese día.",
     },
     resenas: [
       {
@@ -2192,7 +2192,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 2 meses",
         texto:
-          "Si te gustó esto, también me gustó Noche de Son — otra experiencia donde el baile pasa en el público, no en un escenario.",
+          "Si te gustó esto, también me gustó Noche de Son: otra experiencia donde el baile pasa en el público, no en un escenario.",
       },
     ],
   },
@@ -2215,16 +2215,16 @@ export const experiences: Experience[] = [
     duracion: "50 minutos, sin intermedio.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 39 #24-08, Bogotá",
-    curiosidadDelLugar: "El estudio funciona en una casa de los años 50 sin remodelar del todo — el piso de madera original, algo desnivelado, es parte deliberada de la propuesta de la pieza.",
+    curiosidadDelLugar: "El estudio funciona en una casa de los años 50 sin remodelar del todo: el piso de madera original, algo desnivelado, es parte deliberada de la propuesta de la pieza.",
     contextoBarrio: "Barrio universitario y residencial, tranquilo entre semana.",
     rating: "9.0",
     ratingCount: 41,
     porQueDescubrir:
-      "Casi no hay salto ni virtuosismo visible acá — el trabajo está en cómo dos cuerpos negocian el peso del otro sin soltarlo. Theaveling la eligió por esa contención, poco común en la danza contemporánea local.",
+      "Casi no hay salto ni virtuosismo visible acá: el trabajo está en cómo dos cuerpos negocian el peso del otro sin soltarlo. Theaveling la eligió por esa contención, poco común en la danza contemporánea local.",
     ficha: {
       presentaciones: "5 funciones desde su estreno en 2026",
-      festivales: "sin festival todavía — estreno en temporada propia del estudio",
-      premios: "sin premios todavía — producción reciente",
+      festivales: "sin festival todavía: estreno en temporada propia del estudio",
+      premios: "sin premios todavía: producción reciente",
       origen: "pieza original, no reinterpretación",
       idioma: "Sin diálogo (pieza de danza)",
     },
@@ -2234,7 +2234,7 @@ export const experiences: Experience[] = [
       ciudad: "Bogotá, Colombia",
       imageUrl: "/assets/images/artista%20dos%20cuerpos.jpg",
       saludo:
-        "Trabajamos con el peso real del otro cuerpo, no con una versión coreografiada de él — por eso cambia un poco cada función.",
+        "Trabajamos con el peso real del otro cuerpo, no con una versión coreografiada de él: por eso cambia un poco cada función.",
     },
     resenas: [
       {
@@ -2242,7 +2242,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 5 días",
         texto:
-          "Es lentísima y por momentos incómoda de ver, en el buen sentido — cuesta dejar de mirar aunque no pase 'nada'.",
+          "Es lentísima y por momentos incómoda de ver, en el buen sentido: cuesta dejar de mirar aunque no pase 'nada'.",
       },
       {
         nombre: "Juan David R.",
@@ -2256,7 +2256,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.3",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó La consagración del otoño — mismo criterio de cuerpo lento y sin adorno.",
+          "Si te gustó esto, también me gustó La consagración del otoño: mismo criterio de cuerpo lento y sin adorno.",
       },
       {
         nombre: "Manuela S.",
@@ -2271,9 +2271,20 @@ export const experiences: Experience[] = [
     id: "noche-de-son-salsa-en-vivo",
     title: "Noche de Son: Salsa en Vivo",
     tag: "Baile de salón",
-    category: "Danza",
+    // 2026-10-07, corrección a pedido de Ana ("noche de son no puede ir
+    // en danza, porque eso es una clase"): pasa de "Danza" a "Talleres"
+    // — el contenido real de la pieza (`duracion`/`description`, ver
+    // más abajo) es justo eso, una clase de 30 minutos de salsa antes de
+    // la pista abierta, no una presentación de danza para mirar. De las
+    // 3 categorías que agrupa "Encuentros para crear y compartir"
+    // (Charlas/Talleres/Lecturas dramáticas, ver SECCIONES_CULTURA más
+    // abajo), "Talleres" es la que corresponde a una clase participativa
+    // como esta — "Charlas" es formato de conversación/panel y "Lecturas
+    // dramáticas" es lectura actuada, ninguna de las 2 es "gente
+    // bailando en una clase".
+    category: "Talleres",
     description:
-      "Orquesta en vivo y pista abierta en un salón social clásico — clase breve de introducción antes de que empiece el baile libre.",
+      "Orquesta en vivo y pista abierta en un salón social clásico, con una clase breve de introducción antes de que empiece el baile libre.",
     venue: "Salón Los Alpes",
     city: "Bogotá",
     venueCategoria: "Salón social de baile",
@@ -2283,10 +2294,10 @@ export const experiences: Experience[] = [
     date: "Sábado 17 oct · 21:00",
     price: "$25.000 COP",
     asientoAsignado: false,
-    duracion: "4 horas — clase de 30 minutos al inicio, después pista abierta toda la noche.",
-    restriccionEdad: "+18 años — es un salón con barra, funciona como evento social nocturno.",
+    duracion: "4 horas: clase de 30 minutos al inicio, después pista abierta toda la noche.",
+    restriccionEdad: "+18 años: es un salón con barra, funciona como evento social nocturno.",
     direccionCompleta: "Carrera 24 #63-15, Bogotá",
-    curiosidadDelLugar: "El salón funciona desde los años 70 sin cambiar casi nada de su decoración original — el mismo piso de baldosa que pisaron generaciones de bailadores de salsa en Bogotá.",
+    curiosidadDelLugar: "El salón funciona desde los años 70 sin cambiar casi nada de su decoración original: el mismo piso de baldosa que pisaron generaciones de bailadores de salsa en Bogotá.",
     contextoBarrio: "Barrio tradicional del centro-oriente, con varios salones de baile históricos cerca.",
     rating: "8.9",
     ratingCount: 112,
@@ -2294,7 +2305,7 @@ export const experiences: Experience[] = [
       "No es una presentación para mirar sentado: es pista abierta de verdad, con gente que lleva años bailando ahí y gente que llega por primera vez. Theaveling la eligió porque la salsa en Bogotá se vive bailando, no mirando.",
     ficha: {
       presentaciones: "Evento semanal desde hace más de 10 años",
-      festivales: "no aplica — evento social recurrente, no de festival",
+      festivales: "no aplica: evento social recurrente, no de festival",
       premios: "no aplica",
       origen: "tradición de salón de baile, sin autoría de pieza individual",
       idioma: "Español",
@@ -2305,7 +2316,7 @@ export const experiences: Experience[] = [
       ciudad: "Bogotá, Colombia",
       imageUrl: "/assets/images/orquesta%20la%20referencia.jpg",
       saludo:
-        "Tocamos para que la gente baile, no para que nos escuche sentada — si el salón está quieto, no estamos haciendo bien el trabajo.",
+        "Tocamos para que la gente baile, no para que nos escuche sentada: si el salón está quieto, no estamos haciendo bien el trabajo.",
     },
     resenas: [
       {
@@ -2354,19 +2365,19 @@ export const experiences: Experience[] = [
     date: "Jueves 22 oct · 19:30",
     price: "$22.000 COP",
     asientoAsignado: false,
-    duracion: "45 minutos — la acción se hace en tiempo real, sin cortes.",
-    restriccionEdad: "+16 años — contenido con desnudez parcial y temas de vulnerabilidad corporal.",
+    duracion: "45 minutos: la acción se hace en tiempo real, sin cortes.",
+    restriccionEdad: "+16 años: contenido con desnudez parcial y temas de vulnerabilidad corporal.",
     direccionCompleta: "Carrera 4 #26-30, Bogotá",
-    curiosidadDelLugar: "La galería es una casa antigua dividida en salas pequeñas — el aforo de esta función es de apenas 25 personas, todas de pie alrededor de la acción.",
+    curiosidadDelLugar: "La galería es una casa antigua dividida en salas pequeñas: el aforo de esta función es de apenas 25 personas, todas de pie alrededor de la acción.",
     contextoBarrio: "Zona de galerías y talleres de artistas, empinada y con vista al centro.",
     rating: "8.6",
     ratingCount: 37,
     porQueDescubrir:
-      "El cuerpo como material, no como sujeto que actúa — acá la artista se convierte literalmente en objeto a medida que avanza la pieza. Theaveling la eligió por lo incómoda que se permite ser.",
+      "El cuerpo como material, no como sujeto que actúa: acá la artista se convierte literalmente en objeto a medida que avanza la pieza. Theaveling la eligió por lo incómoda que se permite ser.",
     ficha: {
       presentaciones: "3 funciones desde su estreno en 2026",
       festivales: "sin festival todavía",
-      premios: "sin premios todavía — producción reciente",
+      premios: "sin premios todavía: producción reciente",
       origen: "pieza original",
       idioma: "Sin diálogo",
     },
@@ -2376,7 +2387,7 @@ export const experiences: Experience[] = [
       ciudad: "Bogotá, Colombia",
       imageUrl: "/assets/images/renata%20sarmiento.jpg",
       saludo:
-        "No actúo un personaje, dejo que el material me inmovilice de verdad — lo que ves es lo que me está pasando en ese momento.",
+        "No actúo un personaje, dejo que el material me inmovilice de verdad: lo que ves es lo que me está pasando en ese momento.",
     },
     resenas: [
       {
@@ -2398,7 +2409,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.3",
         fecha: "Hace 1 mes",
         texto:
-          "Si te gustó esto, también me gustó Uno a Uno — otra pieza que se apoya en lo incómodo de estar tan cerca.",
+          "Si te gustó esto, también me gustó Uno a Uno: otra pieza que se apoya en lo incómodo de estar tan cerca.",
       },
       {
         nombre: "Carolina N.",
@@ -2431,7 +2442,7 @@ export const experiences: Experience[] = [
     // en Más reservados/Descubrimientos/Curado.
     soloVerMas: true,
     description:
-      "Ocho bailarinas cierran una revista de cabaret con un número de conjunto tan rápido que el vestuario de tul se vuelve un solo borrón de luz — la coreografía está pensada para verse justo así, deshecha por el movimiento.",
+      "Ocho bailarinas cierran una revista de cabaret con un número de conjunto tan rápido que el vestuario de tul se vuelve un solo borrón de luz: la coreografía está pensada para verse justo así, deshecha por el movimiento.",
     venue: "Teatro Cariátides",
     city: "Bogotá",
     venueCategoria: "Sala de teatro de revista",
@@ -2441,16 +2452,16 @@ export const experiences: Experience[] = [
     date: "Domingo 25 oct · 19:00",
     price: "$32.000 COP",
     asientoAsignado: true,
-    duracion: "50 minutos, número de cierre de una revista más larga — se puede comprar boleta solo para este segmento final.",
+    duracion: "50 minutos, número de cierre de una revista más larga: se puede comprar boleta solo para este segmento final.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 63 #11-40, Bogotá",
     curiosidadDelLugar:
-      "El teatro instaló luces especiales de contraste azul y rosa solo para este número — el resto de la revista usa iluminación blanca estándar. La compañía pidió el cambio después de ver cómo esos dos tonos se mezclaban en el tul durante los ensayos.",
+      "El teatro instaló luces especiales de contraste azul y rosa solo para este número: el resto de la revista usa iluminación blanca estándar. La compañía pidió el cambio después de ver cómo esos dos tonos se mezclaban en el tul durante los ensayos.",
     contextoBarrio: "Chapinero mezcla teatros de revista con vida nocturna variada, con buena oferta de transporte para salir tarde entre semana.",
     rating: "8.9",
     ratingCount: 67,
     porQueDescubrir:
-      "No hay un solo cuerpo protagonista — el número está armado para que ninguna bailarina se distinga de las demás, todas parte del mismo borrón de tela. Theaveling lo eligió por esa apuesta de conjunto puro, poco común en un formato que suele buscar una figura central.",
+      "No hay un solo cuerpo protagonista. El número está armado para que ninguna bailarina se distinga de las demás, todas parte del mismo borrón de tela. Theaveling lo eligió por esa apuesta de conjunto puro, poco común en un formato que suele buscar una figura central.",
     ficha: {
       presentaciones: "Número de cierre de temporada, funciones desde 2026",
       festivales: "circuito del Festival de Teatro y Circo de Bogotá",
@@ -2463,7 +2474,7 @@ export const experiences: Experience[] = [
       categoria: "Compañía de danza de revista",
       ciudad: "Bogotá, Colombia",
       saludo:
-        "Ensayamos meses para que no se note quién lleva el paso — cuando alguien nos dice que no pudo distinguir a nadie en particular, sabemos que salió bien.",
+        "Ensayamos meses para que no se note quién lleva el paso: cuando alguien nos dice que no pudo distinguir a nadie en particular, sabemos que salió bien.",
     },
     resenas: [
       {
@@ -2516,9 +2527,9 @@ export const experiences: Experience[] = [
     price: "$35.000 COP",
     asientoAsignado: false,
     duracion: "40 minutos, seguidos de una charla breve opcional sobre el sistema técnico usado.",
-    restriccionEdad: "Todo público — luces estroboscópicas puntuales, aviso en la entrada.",
+    restriccionEdad: "Todo público: luces estroboscópicas puntuales, aviso en la entrada.",
     direccionCompleta: "Carrera 7 #54-20, Bogotá",
-    curiosidadDelLugar: "El laboratorio ocupa lo que antes era un taller de electrónica — varios de los sensores que usa la pieza fueron construidos ahí mismo por el propio artista.",
+    curiosidadDelLugar: "El laboratorio ocupa lo que antes era un taller de electrónica: varios de los sensores que usa la pieza fueron construidos ahí mismo por el propio artista.",
     contextoBarrio: "Zona residencial en altura, con vistas a los cerros orientales.",
     rating: "8.9",
     ratingCount: 29,
@@ -2589,7 +2600,7 @@ export const experiences: Experience[] = [
     duracion: "Duración variable, entre 1 y 2 horas según cuánto participe el público esa noche.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 12 #3-45, Bogotá",
-    curiosidadDelLugar: "La casa conserva sus patios internos originales — las acciones se reparten por distintos cuartos y patios, no hay un único punto donde pararse a mirar.",
+    curiosidadDelLugar: "La casa conserva sus patios internos originales: las acciones se reparten por distintos cuartos y patios, no hay un único punto donde pararse a mirar.",
     contextoBarrio: "Centro histórico, muy cerca de la Plaza de Bolívar.",
     rating: "8.4",
     ratingCount: 22,
@@ -2597,7 +2608,7 @@ export const experiences: Experience[] = [
       "No hay obra terminada que mirar, solo instrucciones (\"llena un vaso de agua y pásalo a alguien que no conozcas\") que cualquiera puede seguir. Theaveling la eligió por su rechazo genuino a la idea de espectáculo.",
     ficha: {
       presentaciones: "Encuentro mensual desde 2025",
-      festivales: "sin festival — encuentro autogestionado",
+      festivales: "sin festival: encuentro autogestionado",
       premios: "no aplica",
       origen: "inspirado en partituras de eventos de Fluxus histórico, ejecutadas de forma libre",
       idioma: "Español",
@@ -2661,7 +2672,7 @@ export const experiences: Experience[] = [
     duracion: "75 minutos, con una breve pausa a mitad de programa.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 45 #20-12, Bogotá",
-    curiosidadDelLugar: "El estudio se construyó originalmente para grabación, no para público en vivo — el aislamiento acústico pensado para microfonía hace que el sonido se sienta inusualmente cercano y seco, sin la reverberación de una sala de conciertos tradicional.",
+    curiosidadDelLugar: "El estudio se construyó originalmente para grabación, no para público en vivo: el aislamiento acústico pensado para microfonía hace que el sonido se sienta inusualmente cercano y seco, sin la reverberación de una sala de conciertos tradicional.",
     contextoBarrio: "Barrio universitario, tranquilo entre semana, con varios estudios y talleres pequeños.",
     rating: "9.1",
     ratingCount: 48,
@@ -2669,7 +2680,7 @@ export const experiences: Experience[] = [
       "Sin escenario elevado ni distancia de auditorio: la primera fila queda a menos de dos metros del cuarteto. Theaveling la eligió por esa cercanía poco común en música de cámara en Bogotá.",
     ficha: {
       presentaciones: "Tercera edición de la serie, mensual desde 2026",
-      festivales: "sin festival — serie propia del estudio",
+      festivales: "sin festival: serie propia del estudio",
       premios: "sin premios formales",
       origen: "programa propio, repertorio rotativo de cuerdas",
       idioma: "Sin diálogo (con comentarios breves en español entre piezas)",
@@ -2680,7 +2691,7 @@ export const experiences: Experience[] = [
       ciudad: "Bogotá, Colombia",
       imageUrl: "/assets/images/cuarteto%20once.jpg",
       saludo:
-        "Elegimos salas chicas a propósito — la música de cámara se pensó para distancias cortas, no para auditorios grandes.",
+        "Elegimos salas chicas a propósito: la música de cámara se pensó para distancias cortas, no para auditorios grandes.",
     },
     resenas: [
       {
@@ -2709,7 +2720,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 3 meses",
         texto:
-          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — otra experiencia sonora íntima, aunque muy distinta en estilo.",
+          "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo: otra experiencia sonora íntima, aunque muy distinta en estilo.",
       },
     ],
   },
@@ -2732,12 +2743,12 @@ export const experiences: Experience[] = [
     duracion: "2 horas, hasta el anochecer.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 22 con Carrera 32, Bogotá",
-    curiosidadDelLugar: "El parque queda junto al antiguo Matadero Distrital, hoy convertido en centro cultural — parte del público llega caminando desde ahí después de otras actividades del día.",
+    curiosidadDelLugar: "El parque queda junto al antiguo Matadero Distrital, hoy convertido en centro cultural: parte del público llega caminando desde ahí después de otras actividades del día.",
     contextoBarrio: "Zona en transición, con varios espacios culturales nuevos alrededor del parque.",
     rating: "8.7",
     ratingCount: 76,
     porQueDescubrir:
-      "Es gratis y sin producción compleja — solo una banda, un parque y quien quiera sentarse a escuchar. Theaveling la eligió por lo poco que necesita para funcionar.",
+      "Es gratis y sin producción compleja: solo una banda, un parque y quien quiera sentarse a escuchar. Theaveling la eligió por lo poco que necesita para funcionar.",
     ficha: {
       presentaciones: "Serie de conciertos de parque, mensual entre septiembre y diciembre",
       festivales: "no aplica",
@@ -2754,7 +2765,7 @@ export const experiences: Experience[] = [
       // reusa la misma foto de la experiencia.
       imageUrl: "/assets/images/verde%20y%20sonido.jpg",
       saludo:
-        "Tocamos igual para diez personas que para doscientas — el parque decide cuánta gente llega, no nosotros.",
+        "Tocamos igual para diez personas que para doscientas: el parque decide cuánta gente llega, no nosotros.",
     },
     resenas: [
       {
@@ -2815,10 +2826,10 @@ export const experiences: Experience[] = [
     date: "Viernes 4 dic · 20:00",
     price: "$22.000 COP",
     asientoAsignado: false,
-    duracion: "50 minutos, sin pausas — pensado para no cortar el ambiente del bar.",
-    restriccionEdad: "+18 años — el bar sigue con la barra abierta durante el show.",
+    duracion: "50 minutos, sin pausas: pensado para no cortar el ambiente del bar.",
+    restriccionEdad: "+18 años: el bar sigue con la barra abierta durante el show.",
     direccionCompleta: "Carrera 4A #26-53, Bogotá",
-    curiosidadDelLugar: "El bar solo corre las mesas del fondo para estas noches — el resto de la semana funciona como bar normal, sin escenario fijo ni anuncio previo del repertorio.",
+    curiosidadDelLugar: "El bar solo corre las mesas del fondo para estas noches: el resto de la semana funciona como bar normal, sin escenario fijo ni anuncio previo del repertorio.",
     contextoBarrio: "Zona de bares y galerías pequeñas, mezcla de vecinos del barrio y gente que viene de otras partes de la ciudad.",
     rating: "9.0",
     ratingCount: 34,
@@ -2826,7 +2837,7 @@ export const experiences: Experience[] = [
       "Sin tarima ni distancia de auditorio: el piano queda al lado de la barra y las canciones se escuchan con el ruido de fondo normal de un bar, no en silencio de sala de concierto. Theaveling la eligió por esa cercanía cruda, sin la solemnidad de un recital formal.",
     ficha: {
       presentaciones: "Función única",
-      festivales: "sin festival — show independiente",
+      festivales: "sin festival: show independiente",
       premios: "sin premios formales",
       origen: "repertorio de su álbum Cuarto Piso, más canciones nuevas para voz y piano",
       idioma: "Español, con partes instrumentales",
@@ -2840,7 +2851,7 @@ export const experiences: Experience[] = [
       // reusa la misma foto de la experiencia.
       imageUrl: "/assets/images/recital%20de%20una%20noche.jpg",
       saludo:
-        "Prefiero un bar chico a un auditorio grande — se siente más parecido a cantarle a alguien que a actuar para un público.",
+        "Prefiero un bar chico a un auditorio grande: se siente más parecido a cantarle a alguien que a actuar para un público.",
     },
     resenas: [
       {
@@ -2869,7 +2880,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.7",
         fecha: "Hace 2 meses",
         texto:
-          "Si te gustó esto, también me gustó Sesión de Cámara N°3 — otra experiencia musical íntima, aunque esa es en un estudio formal y esta es puro bar.",
+          "Si te gustó esto, también me gustó Sesión de Cámara N°3: otra experiencia musical íntima, aunque esa es en un estudio formal y esta es puro bar.",
       },
     ],
   },
@@ -2893,7 +2904,7 @@ export const experiences: Experience[] = [
     tag: "Cine experimental",
     category: "Cine",
     description:
-      "Proyección en formato analógico real de 16mm, con el proyeccionista operando a la vista del público — el ruido del carrete es parte de la experiencia, no un defecto a esconder.",
+      "Proyección en formato analógico real de 16mm, con el proyeccionista operando a la vista del público: el ruido del carrete es parte de la experiencia, no un defecto a esconder.",
     venue: "Cine Embajador",
     city: "Bogotá",
     venueCategoria: "Sala de cine independiente",
@@ -2906,7 +2917,7 @@ export const experiences: Experience[] = [
     duracion: "95 minutos, incluye una pieza corta antes del largometraje principal.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 14 #59-58, Bogotá",
-    curiosidadDelLugar: "El Embajador es una de las pocas salas de Bogotá que conserva su proyector de 16mm original en uso — la mayoría de las copias que se muestran vienen de un archivo privado, no de distribución comercial.",
+    curiosidadDelLugar: "El Embajador es una de las pocas salas de Bogotá que conserva su proyector de 16mm original en uso: la mayoría de las copias que se muestran vienen de un archivo privado, no de distribución comercial.",
     contextoBarrio: "Zona comercial de Chapinero, con vida nocturna variada.",
     rating: "8.8",
     ratingCount: 45,
@@ -2916,7 +2927,7 @@ export const experiences: Experience[] = [
       "No es una proyección digital disfrazada de analógica: es el carrete real, con sus rayones y su sonido de proyector de fondo. Theaveling la eligió por sostener ese formato cuando ya casi nadie lo hace.",
     ficha: {
       presentaciones: "Función mensual desde 2025",
-      festivales: "sin festival — programación propia de archivo",
+      festivales: "sin festival: programación propia de archivo",
       premios: "no aplica",
       origen: "programación de archivo, títulos rotativos",
       idioma: "Español y subtítulos según la película",
@@ -2928,7 +2939,7 @@ export const experiences: Experience[] = [
       // 2026-09-08: foto real subida por Ana.
       imageUrl: "/assets/images/cine%20club%20el%20carrete.jpg",
       saludo:
-        "Cuidamos estas copias como se cuidan objetos frágiles — cada función es literalmente única, la cinta se desgasta un poco cada vez que pasa por el proyector.",
+        "Cuidamos estas copias como se cuidan objetos frágiles: cada función es literalmente única, la cinta se desgasta un poco cada vez que pasa por el proyector.",
     },
     resenas: [
       {
@@ -2957,7 +2968,7 @@ export const experiences: Experience[] = [
         rating: "★ 9.1",
         fecha: "Hace 2 meses",
         texto:
-          "Si te gustó esto, también me gustó Fronteras Difusas — otra experiencia de cine pensada para gente que valora el formato, no solo el contenido.",
+          "Si te gustó esto, también me gustó Fronteras Difusas: otra experiencia de cine pensada para gente que valora el formato, no solo el contenido.",
       },
     ],
   },
@@ -2977,10 +2988,10 @@ export const experiences: Experience[] = [
     date: "Sábado 24 oct · 18:00",
     price: "$12.000 COP",
     asientoAsignado: false,
-    duracion: "2 horas — 6 cortometrajes seguidos de 20 minutos de conversación.",
+    duracion: "2 horas: 6 cortometrajes seguidos de 20 minutos de conversación.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 19 #17-30 Sur, Bogotá",
-    curiosidadDelLugar: "La sala funcionaba antes como salón comunal del barrio — sigue prestando ese uso entre semana, y los sábados se convierte en sala de cine improvisada.",
+    curiosidadDelLugar: "La sala funcionaba antes como salón comunal del barrio: sigue prestando ese uso entre semana, y los sábados se convierte en sala de cine improvisada.",
     contextoBarrio: "Barrio popular del sur, con fuerte identidad de producción audiovisual independiente.",
     rating: "8.6",
     ratingCount: 31,
@@ -3052,16 +3063,16 @@ export const experiences: Experience[] = [
     price: "$15.000 COP",
     asientoAsignado: false,
     duracion: "110 minutos, más 30 minutos de conversación abierta al final.",
-    restriccionEdad: "+18 años — contenido de cine de culto con temáticas adultas.",
+    restriccionEdad: "+18 años: contenido de cine de culto con temáticas adultas.",
     direccionCompleta: "Calle 63 #9-40, Bogotá",
-    curiosidadDelLugar: "Sala Oscura funciona en el sótano de un edificio residencial — el cineclub lleva más de 8 años pasando películas ahí sin cambiar de dirección, un dato que casi nadie fuera del círculo conoce.",
+    curiosidadDelLugar: "Sala Oscura funciona en el sótano de un edificio residencial: el cineclub lleva más de 8 años pasando películas ahí sin cambiar de dirección, un dato que casi nadie fuera del círculo conoce.",
     contextoBarrio: "Zona residencial tranquila de día, con vida nocturna discreta.",
     rating: "8.9",
     ratingCount: 58,
     // 2026-09-08: foto real subida por Ana.
     imageUrl: "/assets/images/club%20de%20culto.jpg",
     porQueDescubrir:
-      "El título de cada función se revela solo unos días antes, nunca con mucha anticipación — parte de la identidad del cineclub. Theaveling la eligió por sostener ese misterio en vez de anunciar cartelera fija.",
+      "El título de cada función se revela solo unos días antes, nunca con mucha anticipación, parte de la identidad del cineclub. Theaveling la eligió por sostener ese misterio en vez de anunciar cartelera fija.",
     ficha: {
       presentaciones: "Función semanal desde 2018",
       festivales: "no aplica",
@@ -3077,7 +3088,7 @@ export const experiences: Experience[] = [
       // lugar"): el cineclub y el venue comparten nombre y foto.
       imageUrl: "/assets/images/sala%20oscura.jpg",
       saludo:
-        "No avisamos qué vamos a pasar hasta último momento — así la gente llega a ver cine, no a ver un título.",
+        "No avisamos qué vamos a pasar hasta último momento: así la gente llega a ver cine, no a ver un título.",
     },
     resenas: [
       {
@@ -3129,14 +3140,14 @@ export const experiences: Experience[] = [
     duracion: "90 minutos, incluye ronda de preguntas.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 48B Sur #21-13, Bogotá",
-    curiosidadDelLugar: "La biblioteca tiene un auditorio pequeño poco conocido fuera del barrio — varias charlas culturales del sur de Bogotá pasan por ahí sin mucha promoción por fuera de la zona.",
+    curiosidadDelLugar: "La biblioteca tiene un auditorio pequeño poco conocido fuera del barrio: varias charlas culturales del sur de Bogotá pasan por ahí sin mucha promoción por fuera de la zona.",
     contextoBarrio: "Zona residencial del sur, con el parque El Tunal como referencia del sector.",
     rating: "8.5",
     ratingCount: 27,
     // 2026-09-08: foto real subida por Ana.
     imageUrl: "/assets/images/el%20arte%20que%20habita%20en%20la%20calle.jpg",
     porQueDescubrir:
-      "No es una charla teórica sobre arte urbano desde afuera — quien habla pinta en la calle todas las semanas. Theaveling la eligió por esa voz de primera mano, no de comentarista.",
+      "No es una charla teórica sobre arte urbano desde afuera. Quien habla pinta en la calle todas las semanas. Theaveling la eligió por esa voz de primera mano, no de comentarista.",
     ficha: {
       presentaciones: "Encuentro único",
       festivales: "no aplica",
@@ -3151,7 +3162,7 @@ export const experiences: Experience[] = [
       // 2026-09-08: foto real subida por Ana.
       imageUrl: "/assets/images/david%20pe%C3%B1a.jpg",
       saludo:
-        "Pinto en la calle desde hace 12 años — esta charla es de las pocas veces que hablo del oficio en vez de solo hacerlo.",
+        "Pinto en la calle desde hace 12 años: esta charla es de las pocas veces que hablo del oficio en vez de solo hacerlo.",
     },
     resenas: [
       {
@@ -3180,7 +3191,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 2 meses",
         texto:
-          "Si te gustó esto, también me gustó la Charla: Cuando el Lenguaje No Alcanza — mismo formato de conversación abierta y cercana.",
+          "Si te gustó esto, también me gustó la Charla: Cuando el Lenguaje No Alcanza: mismo formato de conversación abierta y cercana.",
       },
     ],
   },
@@ -3201,16 +3212,16 @@ export const experiences: Experience[] = [
     price: "$28.000 COP",
     asientoAsignado: false,
     duracion: "3 horas, con una pausa a mitad de sesión.",
-    restriccionEdad: "+16 años — taller participativo pensado para adultos y jóvenes.",
+    restriccionEdad: "+16 años: taller participativo pensado para adultos y jóvenes.",
     direccionCompleta: "Calle 14 #3-41, Bogotá",
-    curiosidadDelLugar: "La casa perteneció al poeta José Asunción Silva — hoy funciona como espacio cultural dedicado sobre todo a la palabra, aunque este taller es de las pocas actividades ahí enfocadas en teatro y no solo en poesía.",
+    curiosidadDelLugar: "La casa perteneció al poeta José Asunción Silva: hoy funciona como espacio cultural dedicado sobre todo a la palabra, aunque este taller es de las pocas actividades ahí enfocadas en teatro y no solo en poesía.",
     contextoBarrio: "Centro histórico, rodeado de casas coloniales convertidas en espacios culturales.",
     rating: "8.9",
     ratingCount: 24,
     // 2026-09-08: foto real subida por Ana.
     imageUrl: "/assets/images/escritura%20escenica.jpg",
     porQueDescubrir:
-      "No hace falta experiencia previa ni saber de teatro — el taller arranca de cero con ejercicios cortos que cualquiera puede intentar. Theaveling la eligió por ser un punto de entrada real, no un espacio solo para quienes ya escriben.",
+      "No hace falta experiencia previa ni saber de teatro. El taller arranca de cero con ejercicios cortos que cualquiera puede intentar. Theaveling la eligió por ser un punto de entrada real, no un espacio solo para quienes ya escriben.",
     ficha: {
       presentaciones: "Edición mensual desde 2026",
       festivales: "no aplica",
@@ -3225,7 +3236,7 @@ export const experiences: Experience[] = [
       // 2026-09-08: foto real subida por Ana.
       imageUrl: "/assets/images/laura%20espitia.jpg",
       saludo:
-        "No enseño a escribir 'bien', enseño a terminar un ejercicio corto y ver qué sale — de ahí sale todo lo demás.",
+        "No enseño a escribir 'bien', enseño a terminar un ejercicio corto y ver qué sale: de ahí sale todo lo demás.",
     },
     resenas: [
       {
@@ -3277,14 +3288,14 @@ export const experiences: Experience[] = [
     duracion: "55 minutos, sin intermedio.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 5 #33-20, Bogotá",
-    curiosidadDelLugar: "La casa funcionaba antes como imprenta de barrio — el patio donde se hace la lectura conserva parte del piso original de baldosa de la imprenta.",
+    curiosidadDelLugar: "La casa funcionaba antes como imprenta de barrio: el patio donde se hace la lectura conserva parte del piso original de baldosa de la imprenta.",
     contextoBarrio: "Barrio tradicional de calles empinadas, cerca del centro.",
     rating: "8.7",
     ratingCount: 19,
     // 2026-09-08: foto real subida por Ana.
     imageUrl: "/assets/images/cartas%20no%20enviadas.jpg",
     porQueDescubrir:
-      "Sin escenografía ni memorización — los actores leen de atril, apoyados solo en el texto y la voz. Theaveling la eligió por esa desnudez formal, donde todo depende de las palabras.",
+      "Sin escenografía ni memorización, los actores leen de atril, apoyados solo en el texto y la voz. Theaveling la eligió por esa desnudez formal, donde todo depende de las palabras.",
     ficha: {
       presentaciones: "Función única",
       festivales: "no aplica",
@@ -3299,7 +3310,7 @@ export const experiences: Experience[] = [
       // 2026-09-08: foto real subida por Ana.
       imageUrl: "/assets/images/duo%20dos%20voces.jpg",
       saludo:
-        "No actuamos personajes completos, prestamos la voz al texto — la diferencia se nota apenas empieza la lectura.",
+        "No actuamos personajes completos, prestamos la voz al texto: la diferencia se nota apenas empieza la lectura.",
     },
     resenas: [
       {
@@ -3328,7 +3339,7 @@ export const experiences: Experience[] = [
         rating: "★ 8.8",
         fecha: "Hace 2 meses",
         texto:
-          "Si te gustó esto, también me gustó Materia y memoria — otra experiencia que se apoya solo en texto y voz, sin puesta en escena.",
+          "Si te gustó esto, también me gustó Materia y memoria: otra experiencia que se apoya solo en texto y voz, sin puesta en escena.",
       },
     ],
   },
@@ -3385,23 +3396,23 @@ export const experiences: Experience[] = [
     price: "Gratis",
     asientoAsignado: false,
     duracion: "Programación de varios días, con decenas de funciones simultáneas en distintos puntos de la ciudad.",
-    restriccionEdad: "Todo público — algunas funciones nocturnas puntuales marcan restricción propia.",
-    direccionCompleta: "Sedes distribuidas por toda Bogotá — cada función indica su propio punto de encuentro.",
-    curiosidadDelLugar: "Organizado por Idartes (Instituto Distrital de las Artes), es la mayor fiesta de artes escénicas locales del año — nació como programación de salas y terminó tomando también plazas públicas, que hoy son buena parte de su identidad.",
-    contextoBarrio: "Sin barrio único — la gracia es justamente que pasa en toda la ciudad al mismo tiempo.",
+    restriccionEdad: "Todo público: algunas funciones nocturnas puntuales marcan restricción propia.",
+    direccionCompleta: "Sedes distribuidas por toda Bogotá: cada función indica su propio punto de encuentro.",
+    curiosidadDelLugar: "Organizado por Idartes (Instituto Distrital de las Artes), es la mayor fiesta de artes escénicas locales del año: nació como programación de salas y terminó tomando también plazas públicas, que hoy son buena parte de su identidad.",
+    contextoBarrio: "Sin barrio único: la gracia es justamente que pasa en toda la ciudad al mismo tiempo.",
     rating: "9.2",
     ratingCount: 312,
     porQueDescubrir:
-      "No es una sola función: es la ciudad entera funcionando como escenario durante varios días, con buena parte de la programación gratis en plazas públicas. Theaveling lo destaca como la puerta de entrada más grande — y más accesible — a las artes escénicas de Bogotá.",
+      "No es una sola función: es la ciudad entera funcionando como escenario durante varios días, con buena parte de la programación gratis en plazas públicas. Theaveling lo destaca como la puerta de entrada más grande, y más accesible, a las artes escénicas de Bogotá.",
     ficha: {
       presentaciones: "Programación de varios días, decenas de funciones simultáneas",
-      festivales: "no aplica — este perfil es del festival en sí",
+      festivales: "no aplica: este perfil es del festival en sí",
       premios: "no aplica",
       origen: "evento distrital propio, con ediciones anuales",
       idioma: "Español, con compañías internacionales invitadas según la edición",
     },
     artista: {
-      nombre: "Idartes — Instituto Distrital de las Artes",
+      nombre: "Idartes (Instituto Distrital de las Artes)",
       categoria: "Organizador distrital",
       ciudad: "Bogotá, Colombia",
       saludo:
@@ -3437,7 +3448,7 @@ export const experiences: Experience[] = [
     tag: "Festival de música",
     category: "Festivales",
     description:
-      "Jazz en vivo y al aire libre, gratis, en el parque más grande de la ciudad — una de las citas musicales más esperadas del año.",
+      "Jazz en vivo y al aire libre, gratis, en el parque más grande de la ciudad, una de las citas musicales más esperadas del año.",
     venue: "Parque Metropolitano Simón Bolívar",
     city: "Bogotá",
     venueCategoria: "Parque público, festival al aire libre",
@@ -3454,7 +3465,7 @@ export const experiences: Experience[] = [
     duracion: "2 días completos, con tarima principal y escenarios alternos.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Parque Metropolitano Simón Bolívar, Bogotá",
-    curiosidadDelLugar: "Es parte de \"Festivales al Parque\", la serie de festivales gratuitos que el distrito organiza a lo largo del año en el Simón Bolívar (la misma familia de Rock al Parque, Salsa al Parque, Hip Hop al Parque y Colombia al Parque) — Jazz al Parque lleva más de dos décadas siendo uno de los más queridos, aunque nunca convoque tanta gente como Rock al Parque.",
+    curiosidadDelLugar: "Es parte de \"Festivales al Parque\", la serie de festivales gratuitos que el distrito organiza a lo largo del año en el Simón Bolívar (la misma familia de Rock al Parque, Salsa al Parque, Hip Hop al Parque y Colombia al Parque): Jazz al Parque lleva más de dos décadas siendo uno de los más queridos, aunque nunca convoque tanta gente como Rock al Parque.",
     contextoBarrio: "El parque público más grande de Bogotá, con varios escenarios funcionando al mismo tiempo durante el festival.",
     rating: "9.4",
     ratingCount: 540,
@@ -3468,7 +3479,7 @@ export const experiences: Experience[] = [
       idioma: "Sin diálogo (música en vivo)",
     },
     artista: {
-      nombre: "Festivales al Parque — Idartes",
+      nombre: "Festivales al Parque, Idartes",
       categoria: "Programación distrital de música",
       ciudad: "Bogotá, Colombia",
       saludo:
@@ -3524,18 +3535,18 @@ export const experiences: Experience[] = [
     date: "En curso · hasta el 28 de septiembre",
     price: "$8.000 COP",
     asientoAsignado: false,
-    duracion: "Dos semanas, con agenda propia cada día — conferencias, talleres y firmas de libros.",
+    duracion: "Dos semanas, con agenda propia cada día: conferencias, talleres y firmas de libros.",
     restriccionEdad: "Todo público.",
     direccionCompleta: "Av. Eldorado #52-43, Bogotá",
-    curiosidadDelLugar: "Es el evento cultural literario más masivo de Colombia — cada edición invita a un país como protagonista, con su propia programación y pabellón dedicado dentro de la feria.",
+    curiosidadDelLugar: "Es el evento cultural literario más masivo de Colombia: cada edición invita a un país como protagonista, con su propia programación y pabellón dedicado dentro de la feria.",
     contextoBarrio: "Zona ferial y de negocios de Bogotá, con buena conexión de transporte público durante el evento.",
     rating: "9.0",
     ratingCount: 275,
     porQueDescubrir:
-      "Dos semanas donde editoriales, escritores y lectores de toda la región se cruzan en un mismo lugar. Theaveling lo suma para no limitar 'Cultura' solo a experiencias en vivo — la lectura también es parte de la escena cultural de la ciudad.",
+      "Dos semanas donde editoriales, escritores y lectores de toda la región se cruzan en un mismo lugar. Theaveling lo suma para no limitar 'Cultura' solo a experiencias en vivo: la lectura también es parte de la escena cultural de la ciudad.",
     ficha: {
       presentaciones: "Dos semanas, agenda diaria de conferencias y actividades",
-      festivales: "no aplica — este perfil es del evento en sí",
+      festivales: "no aplica: este perfil es del evento en sí",
       premios: "no aplica",
       origen: "feria anual, con país invitado de honor en cada edición",
       idioma: "Español, con invitados internacionales según el país de honor",
@@ -3545,7 +3556,7 @@ export const experiences: Experience[] = [
       categoria: "Organizador ferial",
       ciudad: "Bogotá, Colombia",
       saludo:
-        "Dos semanas para que la ciudad entera hable de libros — desde las novedades editoriales hasta el país invitado de cada edición.",
+        "Dos semanas para que la ciudad entera hable de libros: desde las novedades editoriales hasta el país invitado de cada edición.",
     },
     resenas: [
       {
@@ -3601,11 +3612,11 @@ export const experiences: Experience[] = [
     venueBarrio: "Quinta Camacho",
     date: "Jueves 8 oct · 21:00",
     price: "$35.000 COP",
-    duracion: "70 minutos, sin intermedio — set corrido de improvisación.",
-    restriccionEdad: "+18 años — venue de bar, se sirve licor durante la función.",
+    duracion: "70 minutos, sin intermedio: set corrido de improvisación.",
+    restriccionEdad: "+18 años: venue de bar, se sirve licor durante la función.",
     direccionCompleta: "Carrera 13 #67-22, Bogotá",
     curiosidadDelLugar:
-      "El Foso funciona en el sótano de una casa republicana reformada — el nombre viene literalmente del foso original del edificio, hoy la pista donde toca la banda. Los jueves de trompeta solista llevan dos años llenando la barra completa.",
+      "El Foso funciona en el sótano de una casa republicana reformada: el nombre viene literalmente del foso original del edificio, hoy la pista donde toca la banda. Los jueves de trompeta solista llevan dos años llenando la barra completa.",
     contextoBarrio: "Zona residencial con varios bares pequeños de música en vivo, ambiente tranquilo entre semana.",
     rating: "9.0",
     ratingCount: 47,
@@ -3613,7 +3624,7 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/christian-agbede-wC1yNRJvq18-unsplash.jpg",
     porQueDescubrir:
-      "Sin banda detrás, sin partitura fija: es un trompetista solo improvisando bajo un foco, nada más. Theaveling la eligió por reducir el jazz a su gesto más simple — una persona, un instrumento, una decisión por segundo.",
+      "Sin banda detrás, sin partitura fija: es un trompetista solo improvisando bajo un foco, nada más. Theaveling la eligió por reducir el jazz a su gesto más simple: una persona, un instrumento, una decisión por segundo.",
     ficha: {
       presentaciones: "sesión semanal, jueves, desde 2024",
       festivales: "sin festivales todavía",
@@ -3625,13 +3636,13 @@ export const experiences: Experience[] = [
       nombre: "Simón Rangel",
       categoria: "Trompetista solista",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Simón Rangel. No toco lo mismo dos jueves seguidos — llego con el foso vacío y dejo que la trompeta decida.",
+      saludo: "Soy Simón Rangel. No toco lo mismo dos jueves seguidos: llego con el foso vacío y dejo que la trompeta decida.",
     },
     resenas: [
       { nombre: "Camilo W.", rating: "★ 9.1", fecha: "Hace 3 días", texto: "Llega temprano, las mesas cerca de la tarima se llenan rápido entre semana." },
       { nombre: "Valentina G.", rating: "★ 8.8", fecha: "Hace 1 semana", texto: "Fui sola un jueves cualquiera y nadie te mira raro, el ambiente del bar ayuda." },
       { nombre: "Esteban Z.", rating: "★ 9.3", fecha: "Hace 3 semanas", texto: "No repite nada, cada sesión es distinta de verdad, vale la pena volver más de una vez." },
-      { nombre: "Mariana K.", rating: "★ 8.6", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Jazz al Parque — otra forma de ver improvisación en vivo, aunque acá es mucho más íntimo." },
+      { nombre: "Mariana K.", rating: "★ 8.6", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Jazz al Parque: otra forma de ver improvisación en vivo, aunque acá es mucho más íntimo." },
     ],
   },
   {
@@ -3652,7 +3663,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público, aunque el ambiente es más de adultos por el horario.",
     direccionCompleta: "Calle 45A #17-08, Bogotá",
     curiosidadDelLugar:
-      "Café Rincón Once cabe apenas veinte personas — las sillas se acomodan distinto cada noche según cuántos lleguen. No hay tarima, la cantautora se sienta al mismo nivel que el público.",
+      "Café Rincón Once cabe apenas veinte personas: las sillas se acomodan distinto cada noche según cuántos lleguen. No hay tarima, la cantautora se sienta al mismo nivel que el público.",
     contextoBarrio: "Barrio universitario con varios cafés pequeños, buen ambiente para llegar caminando de noche.",
     rating: "8.6",
     ratingCount: 29,
@@ -3672,13 +3683,13 @@ export const experiences: Experience[] = [
       nombre: "Isabela Concha",
       categoria: "Cantautora",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Isabela Concha. Toco sentada, sin banda, para poder ver las caras de quienes escuchan — así compongo mejor la próxima canción.",
+      saludo: "Soy Isabela Concha. Toco sentada, sin banda, para poder ver las caras de quienes escuchan: así compongo mejor la próxima canción.",
     },
     resenas: [
       { nombre: "Andrea M.", rating: "★ 8.9", fecha: "Hace 4 días", texto: "Reserva con tiempo, son pocas sillas y se llena rápido." },
       { nombre: "Julián T.", rating: "★ 8.3", fecha: "Hace 2 semanas", texto: "Fui solo un viernes y terminé hablando con la cantautora al final, el ambiente lo permite." },
       { nombre: "Paula H.", rating: "★ 8.7", fecha: "Hace 3 semanas", texto: "Canciones propias, nada de covers, se agradece que no sea la típica sesión de bar." },
-      { nombre: "Santiago P.", rating: "★ 8.4", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Recital de una Noche — otro formato pequeño y cercano." },
+      { nombre: "Santiago P.", rating: "★ 8.4", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Recital de una Noche: otro formato pequeño y cercano." },
     ],
   },
   {
@@ -3698,7 +3709,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 7 con Calle 36, Bogotá",
     curiosidadDelLugar:
-      "El piano se transporta hasta el parque en una camioneta adaptada y se afina en el sitio antes de cada función — quienes llegan temprano ven ese proceso también.",
+      "El piano se transporta hasta el parque en una camioneta adaptada y se afina en el sitio antes de cada función: quienes llegan temprano ven ese proceso también.",
     contextoBarrio: "Parque muy transitado los domingos, con ciclovía y varios puestos de comida cerca.",
     rating: "8.8",
     ratingCount: 64,
@@ -3718,13 +3729,13 @@ export const experiences: Experience[] = [
       nombre: "Valeria Puentes",
       categoria: "Pianista",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Valeria Puentes. Prefiero tocar afuera, para gente que no compró boleta — a veces el mejor público es el que se detiene por accidente.",
+      saludo: "Soy Valeria Puentes. Prefiero tocar afuera, para gente que no compró boleta: a veces el mejor público es el que se detiene por accidente.",
     },
     resenas: [
       { nombre: "Daniela C.", rating: "★ 9.0", fecha: "Hace 5 días", texto: "Llega antes de las 11, se arma un círculo de gente y después cuesta acercarse bien." },
       { nombre: "Nicolás F.", rating: "★ 8.5", fecha: "Hace 2 semanas", texto: "Fui solo a caminar por el parque y terminé quedándome las tres tandas, ni lo tenía planeado." },
       { nombre: "Carolina N.", rating: "★ 8.9", fecha: "Hace 1 mes", texto: "No es todos los domingos, revisa bien la fecha antes de ir hasta allá." },
-      { nombre: "David A.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Verde y Sonido — otra experiencia que saca la música del formato de sala." },
+      { nombre: "David A.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Verde y Sonido: otra experiencia que saca la música del formato de sala." },
     ],
   },
   {
@@ -3746,7 +3757,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 85 #11-40, Bogotá",
     curiosidadDelLugar:
-      "Teatro Astor tiene una sala pequeña pensada para piezas de un solo intérprete — el escenario mide apenas seis por seis metros, casi del tamaño de un estudio de ensayo.",
+      "Teatro Astor tiene una sala pequeña pensada para piezas de un solo intérprete: el escenario mide apenas seis por seis metros, casi del tamaño de un estudio de ensayo.",
     contextoBarrio: "Zona residencial de estrato alto, buena oferta de restaurantes para ir antes o después de función.",
     rating: "9.2",
     ratingCount: 88,
@@ -3754,13 +3765,13 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/ariel-salgado-bp0fC50ExiY-unsplash.jpg",
     porQueDescubrir:
-      "Es el mismo giro repetido durante media hora, hasta que el cuerpo se cansa y el movimiento cambia de sentido. Theaveling la eligió por convertir la repetición —lo más aburrido que puede pasar en un escenario— en el centro de la pieza.",
+      "Es el mismo giro repetido durante media hora, hasta que el cuerpo se cansa y el movimiento cambia de sentido. Theaveling la eligió por convertir la repetición (lo más aburrido que puede pasar en un escenario) en el centro de la pieza.",
     ficha: {
       presentaciones: "temporada corta, 8 funciones",
       festivales: "sin festivales todavía",
       premios: "sin premios",
       origen: "pieza original, coreografía propia",
-      idioma: "N/A — pieza sin texto",
+      idioma: "N/A: pieza sin texto",
     },
     artista: {
       nombre: "Antonia Reyes",
@@ -3772,7 +3783,7 @@ export const experiences: Experience[] = [
       { nombre: "Laura B.", rating: "★ 9.4", fecha: "Hace 2 días", texto: "Compra con tiempo, la sala es chiquita y se agota rápido para sábado." },
       { nombre: "Sebastián V.", rating: "★ 8.9", fecha: "Hace 1 semana", texto: "Fui solo y no dejé de mirar ni un segundo, la repetición hipnotiza más de lo que esperaba." },
       { nombre: "Andrés L.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Dura poco pero no le sobra nada, se siente completa igual." },
-      { nombre: "Camila R.", rating: "★ 9.3", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó La consagración del otoño — otra pieza de danza que exige mirar con paciencia." },
+      { nombre: "Camila R.", rating: "★ 9.3", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó La consagración del otoño: otra pieza de danza que exige mirar con paciencia." },
     ],
   },
   {
@@ -3790,10 +3801,10 @@ export const experiences: Experience[] = [
     date: "Viernes 30 oct · 20:00",
     price: "$30.000 COP",
     duracion: "50 minutos, sin intermedio, aforo en el piso.",
-    restriccionEdad: "+14 años — hay pintura corporal y vestuario mínimo.",
+    restriccionEdad: "+14 años: hay pintura corporal y vestuario mínimo.",
     direccionCompleta: "Calle 75 #20-15, Bogotá",
     curiosidadDelLugar:
-      "Nave Once ocupa una antigua bodega textil — el piso de concreto pulido se dejó a propósito, sin tarima, para que la coreografía pueda usar todo el espacio disponible.",
+      "Nave Once ocupa una antigua bodega textil: el piso de concreto pulido se dejó a propósito, sin tarima, para que la coreografía pueda usar todo el espacio disponible.",
     contextoBarrio: "Barrio de galerías y talleres de artistas, ambiente bohemio entre semana y fines de semana.",
     rating: "8.7",
     ratingCount: 33,
@@ -3801,25 +3812,25 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/bruno-dias-K-S1dt7V3NY-unsplash.jpg",
     porQueDescubrir:
-      "Cruza gesto ritual amazónico con vocabulario de danza contemporánea, sin explicar cuál es cuál. Theaveling la eligió por no traducir del todo esa mezcla — deja que el cuerpo cargue con la ambigüedad.",
+      "Cruza gesto ritual amazónico con vocabulario de danza contemporánea, sin explicar cuál es cuál. Theaveling la eligió por no traducir del todo esa mezcla: deja que el cuerpo cargue con la ambigüedad.",
     ficha: {
       presentaciones: "6 funciones desde su estreno en 2025",
       festivales: "sin festivales todavía",
       premios: "sin premios",
       origen: "pieza original, investigación de campo en el Amazonas colombiano",
-      idioma: "N/A — pieza sin texto",
+      idioma: "N/A: pieza sin texto",
     },
     artista: {
       nombre: "Colectivo Raíz Doble",
       categoria: "Compañía de danza contemporánea",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos Colectivo Raíz Doble. Investigamos gesto ritual amazónico durante casi un año antes de llevarlo a un vocabulario contemporáneo — no quisimos folclorizarlo ni quitarle el peso.",
+      saludo: "Somos Colectivo Raíz Doble. Investigamos gesto ritual amazónico durante casi un año antes de llevarlo a un vocabulario contemporáneo: no quisimos folclorizarlo ni quitarle el peso.",
     },
     resenas: [
-      { nombre: "Manuela S.", rating: "★ 8.9", fecha: "Hace 6 días", texto: "Es en el piso, sin sillas — lleva algo para sentarte si te cuesta estar de pie tanto tiempo." },
+      { nombre: "Manuela S.", rating: "★ 8.9", fecha: "Hace 6 días", texto: "Es en el piso, sin sillas: lleva algo para sentarte si te cuesta estar de pie tanto tiempo." },
       { nombre: "Juan David R.", rating: "★ 8.4", fecha: "Hace 2 semanas", texto: "Fui solo, el aforo es chico y se siente muy cerca de las bailarinas, casi incómodo de lo cerca." },
       { nombre: "Felipe O.", rating: "★ 8.8", fecha: "Hace 1 mes", texto: "No esperes que te expliquen nada, la pieza no traduce el ritual, hay que dejarse llevar." },
-      { nombre: "Natalia Q.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — otra pieza que trabaja el ritual desde el cuerpo." },
+      { nombre: "Natalia Q.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo: otra pieza que trabaja el ritual desde el cuerpo." },
     ],
   },
   {
@@ -3840,7 +3851,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Plazoleta del Rosario, Bogotá",
     curiosidadDelLugar:
-      "No hay marcación de dónde empieza ni termina la función — el payaso simplemente camina por la plazoleta como cualquier transeúnte hasta que algo en su gesto delata que está actuando.",
+      "No hay marcación de dónde empieza ni termina la función: el payaso simplemente camina por la plazoleta como cualquier transeúnte hasta que algo en su gesto delata que está actuando.",
     contextoBarrio: "Zona histórica con mucho tránsito peatonal nocturno los fines de semana.",
     rating: "8.5",
     ratingCount: 52,
@@ -3848,25 +3859,25 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/alexiz-mora-803DZ7808YU-unsplash.jpg",
     porQueDescubrir:
-      "No hay anuncio ni marco que separe la función de la calle real — el payaso camina como cualquier transeúnte hasta que un gesto lo delata. Theaveling la eligió por borrar esa línea a propósito, sin avisar cuándo empieza.",
+      "No hay anuncio ni marco que separe la función de la calle real: el payaso camina como cualquier transeúnte hasta que un gesto lo delata. Theaveling la eligió por borrar esa línea a propósito, sin avisar cuándo empieza.",
     ficha: {
       presentaciones: "función semanal, sábados, desde 2024",
       festivales: "sin festivales todavía",
       premios: "sin premios",
       origen: "pieza de calle original, sin texto",
-      idioma: "N/A — pieza sin diálogo",
+      idioma: "N/A: pieza sin diálogo",
     },
     artista: {
       nombre: "Tobías Lemos",
       categoria: "Payaso de calle",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Tobías Lemos. No aviso cuándo empiezo, camino como cualquiera hasta que alguien nota que algo no cuadra — ese momento es lo que busco.",
+      saludo: "Soy Tobías Lemos. No aviso cuándo empiezo, camino como cualquiera hasta que alguien nota que algo no cuadra: ese momento es lo que busco.",
     },
     resenas: [
       { nombre: "Camilo W.", rating: "★ 8.6", fecha: "Hace 3 días", texto: "No hay hora exacta de inicio, llega con tiempo y camina por la plazoleta, ahí lo vas a encontrar." },
       { nombre: "Esteban Z.", rating: "★ 8.2", fecha: "Hace 1 semana", texto: "Fui solo de noche y al principio no sabía si era parte de la función o un transeúnte cualquiera, esa confusión es el punto." },
       { nombre: "Valentina G.", rating: "★ 8.7", fecha: "Hace 3 semanas", texto: "Es gratis y sin aviso previo, si pasas por la Candelaria un sábado de noche igual vale la pena buscarlo." },
-      { nombre: "Mariana K.", rating: "★ 8.4", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Comité del Fracaso: Ensayo Abierto — otra pieza de clown que juega con lo que el público espera." },
+      { nombre: "Mariana K.", rating: "★ 8.4", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Comité del Fracaso: Ensayo Abierto: otra pieza de clown que juega con lo que el público espera." },
     ],
   },
   {
@@ -3888,10 +3899,10 @@ export const experiences: Experience[] = [
     date: "Domingo 15 nov · 16:00",
     price: "Gratis",
     duracion: "20 minutos de inmovilidad total, seguidos de una conversación abierta con el público.",
-    restriccionEdad: "Todo público — se pide no interrumpir a quienes están en el piso.",
+    restriccionEdad: "Todo público: se pide no interrumpir a quienes están en el piso.",
     direccionCompleta: "Plaza de Lourdes, Bogotá",
     curiosidadDelLugar:
-      "El número de participantes cambia cada vez que se hace — a veces son cuarenta personas, a veces más de cien, dependiendo de quién se sume ese domingo.",
+      "El número de participantes cambia cada vez que se hace: a veces son cuarenta personas, a veces más de cien, dependiendo de quién se sume ese domingo.",
     contextoBarrio: "Plaza comercial muy transitada, con cafés y restaurantes alrededor.",
     rating: "8.9",
     ratingCount: 71,
@@ -3899,25 +3910,25 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/gary-parris-xzwP2N3pK7w-unsplash.jpg",
     porQueDescubrir:
-      "El número de cuerpos en el piso cambia cada domingo según quién decida sumarse — no hay elenco fijo ni ensayo previo entre todos. Theaveling la eligió por convertir la plaza misma, con su gente de paso, en parte del elenco.",
+      "El número de cuerpos en el piso cambia cada domingo según quién decida sumarse. No hay elenco fijo ni ensayo previo entre todos. Theaveling la eligió por convertir la plaza misma, con su gente de paso, en parte del elenco.",
     ficha: {
       presentaciones: "domingos alternos, desde 2025",
       festivales: "sin festivales todavía",
       premios: "sin premios",
       origen: "pieza de participación abierta, sin elenco fijo",
-      idioma: "N/A — pieza sin texto",
+      idioma: "N/A: pieza sin texto",
     },
     artista: {
       nombre: "Colectivo Aforo Cero",
       categoria: "Colectivo de arte de acción",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos Colectivo Aforo Cero. No tenemos elenco fijo — cada domingo se suma quien quiera tirarse al piso con nosotros, eso es literalmente la pieza.",
+      saludo: "Somos Colectivo Aforo Cero. No tenemos elenco fijo: cada domingo se suma quien quiera tirarse al piso con nosotros, eso es literalmente la pieza.",
     },
     resenas: [
       { nombre: "Andrés L.", rating: "★ 9.0", fecha: "Hace 4 días", texto: "Puedes sumarte tú también, no es solo para mirar, pregunta antes de empezar." },
       { nombre: "Julián T.", rating: "★ 8.5", fecha: "Hace 2 semanas", texto: "Fui solo a ver y terminé acostado en el piso con los demás, no lo tenía planeado." },
       { nombre: "Paula H.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "La gente que pasa y no sabe qué es esto reacciona de formas muy distintas, eso también es parte de la gracia." },
-      { nombre: "Santiago P.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Vértigo de Tul: Coro Final — otra pieza que apuesta todo al conjunto antes que a una figura central." },
+      { nombre: "Santiago P.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Vértigo de Tul: Coro Final: otra pieza que apuesta todo al conjunto antes que a una figura central." },
     ],
   },
   {
@@ -3936,10 +3947,10 @@ export const experiences: Experience[] = [
     price: "$28.000 COP",
     asientoAsignado: true,
     duracion: "60 minutos, sin intermedio.",
-    restriccionEdad: "+14 años — temas de aislamiento y soledad tratados con crudeza.",
+    restriccionEdad: "+14 años: temas de aislamiento y soledad tratados con crudeza.",
     direccionCompleta: "Calle 9 #4-51, Bogotá",
     curiosidadDelLugar:
-      "Sala Fenicia monta la escenografía completa —cama, libros, cajones— sobre el mismo piso de madera original del edificio, sin tarima elevada, para que el público sienta que entra literalmente al cuarto.",
+      "Sala Fenicia monta la escenografía completa (cama, libros, cajones) sobre el mismo piso de madera original del edificio, sin tarima elevada, para que el público sienta que entra literalmente al cuarto.",
     contextoBarrio: "Barrio histórico del sur de La Candelaria, calles empedradas y poco tráfico de noche.",
     rating: "9.1",
     ratingCount: 24,
@@ -3947,7 +3958,7 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/fairuz-naufal-zaki-Fv6HWouf29k-unsplash.jpg",
     porQueDescubrir:
-      "Empieza como un monólogo hablado a la nada y en algún punto, sin marcarlo, se vuelve una conversación directa con quien está mirando. Theaveling la eligió por ese quiebre que no se anuncia — hay que estar atento para notarlo.",
+      "Empieza como un monólogo hablado a la nada y en algún punto, sin marcarlo, se vuelve una conversación directa con quien está mirando. Theaveling la eligió por ese quiebre que no se anuncia: hay que estar atento para notarlo.",
     ficha: {
       presentaciones: "temporada corta, 10 funciones",
       festivales: "sin festivales todavía",
@@ -3957,15 +3968,15 @@ export const experiences: Experience[] = [
     },
     artista: {
       nombre: "Ámbar Cifuentes",
-      categoria: "Actriz — pieza unipersonal",
+      categoria: "Actriz en pieza unipersonal",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Ámbar Cifuentes. Empiezo hablando sola, como si nadie me escuchara, y en algún momento —no aviso cuándo— empiezo a hablarle a quien está ahí sentado.",
+      saludo: "Soy Ámbar Cifuentes. Empiezo hablando sola, como si nadie me escuchara, y en algún momento (no aviso cuándo) empiezo a hablarle a quien está ahí sentado.",
     },
     resenas: [
       { nombre: "Daniela C.", rating: "★ 9.3", fecha: "Hace 2 días", texto: "La sala es pequeña, siéntate adelante si puedes, se pierde detalle desde el fondo." },
       { nombre: "David A.", rating: "★ 8.8", fecha: "Hace 1 semana", texto: "Fui solo y el quiebre hacia el público me tomó totalmente por sorpresa, no lo vi venir." },
       { nombre: "Nicolás F.", rating: "★ 9.0", fecha: "Hace 3 semanas", texto: "Los libros regados por el piso no son solo decoración, en un punto los usa, presta atención a los detalles." },
-      { nombre: "Carolina N.", rating: "★ 9.2", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Uno a Uno: Función a Puerta Cerrada — otra pieza que se siente hablada directo a vos." },
+      { nombre: "Carolina N.", rating: "★ 9.2", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Uno a Uno: Función a Puerta Cerrada: otra pieza que se siente hablada directo a vos." },
     ],
   },
   {
@@ -3987,7 +3998,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Carrera 8 #4-30, Bogotá",
     curiosidadDelLugar:
-      "Todas las máscaras de la función están talladas por el mismo actor —no las compra, las hace él— y se guardan a la vista del público en una mesa lateral del escenario durante toda la obra.",
+      "Todas las máscaras de la función están talladas por el mismo actor (no las compra, las hace él) y se guardan a la vista del público en una mesa lateral del escenario durante toda la obra.",
     contextoBarrio: "Barrio tradicional del centro, calles angostas con historia, poco iluminado de noche.",
     rating: "8.8",
     ratingCount: 41,
@@ -3995,7 +4006,7 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/jayanth-muppaneni-9-g2xFGF3EA-unsplash.jpg",
     porQueDescubrir:
-      "Las máscaras están a la vista todo el tiempo, sobre una mesa al lado del escenario — no hay truco ni cambio a escondidas, el público ve exactamente cuándo un personaje reemplaza a otro. Theaveling la eligió por hacer visible el mecanismo en vez de esconderlo.",
+      "Las máscaras están a la vista todo el tiempo, sobre una mesa al lado del escenario. No hay truco ni cambio a escondidas: el público ve exactamente cuándo un personaje reemplaza a otro. Theaveling la eligió por hacer visible el mecanismo en vez de esconderlo.",
     ficha: {
       presentaciones: "8 funciones desde su estreno en 2025",
       festivales: "sin festivales todavía",
@@ -4007,13 +4018,13 @@ export const experiences: Experience[] = [
       nombre: "Horacio Bello",
       categoria: "Actor y tallador de máscaras",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Horacio Bello. Tallo cada máscara yo mismo antes de actuarla — cambiar de personaje siete veces en la misma obra no funciona si la máscara no pesa lo que tiene que pesar.",
+      saludo: "Soy Horacio Bello. Tallo cada máscara yo mismo antes de actuarla: cambiar de personaje siete veces en la misma obra no funciona si la máscara no pesa lo que tiene que pesar.",
     },
     resenas: [
       { nombre: "Camila R.", rating: "★ 9.0", fecha: "Hace 5 días", texto: "Siéntate cerca, los cambios de máscara son rápidos y desde el fondo se pierde el detalle de las manos." },
       { nombre: "Sebastián V.", rating: "★ 8.5", fecha: "Hace 2 semanas", texto: "Fui solo y conté los siete cambios, cada personaje tiene una voz distinta aunque sea el mismo actor." },
       { nombre: "Andrea M.", rating: "★ 8.9", fecha: "Hace 1 mes", texto: "Las máscaras quedan a la vista todo el rato, dan ganas de ir después a mirarlas de cerca." },
-      { nombre: "Felipe O.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Sesión Subterránea: Ritual de Máscaras — otra pieza que trabaja con máscaras desde otro ángulo, más ritual." },
+      { nombre: "Felipe O.", rating: "★ 8.6", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Sesión Subterránea: Ritual de Máscaras: otra pieza que trabaja con máscaras desde otro ángulo, más ritual." },
     ],
   },
   {
@@ -4034,7 +4045,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Calle 6 #2-15, Bogotá",
     curiosidadDelLugar:
-      "Casa Taller Egipto guarda cerca de dos mil libros donados por vecinos del barrio — la lectora elige los fragmentos de esa misma colección, nunca de libros propios.",
+      "Casa Taller Egipto guarda cerca de dos mil libros donados por vecinos del barrio: la lectora elige los fragmentos de esa misma colección, nunca de libros propios.",
     contextoBarrio: "Barrio histórico de calles empinadas, vista privilegiada hacia el centro de la ciudad.",
     rating: "8.6",
     ratingCount: 18,
@@ -4054,13 +4065,13 @@ export const experiences: Experience[] = [
       nombre: "Rocío Vanegas",
       categoria: "Lectora escénica",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Rocío Vanegas. No leo libros míos — elijo entre los que la gente del barrio donó a la casa, así que la historia cambia según qué haya llegado ese mes.",
+      saludo: "Soy Rocío Vanegas. No leo libros míos: elijo entre los que la gente del barrio donó a la casa, así que la historia cambia según qué haya llegado ese mes.",
     },
     resenas: [
       { nombre: "Juan David R.", rating: "★ 8.8", fecha: "Hace 3 días", texto: "Es en el piso sobre cojines, lleva algo abrigado si vas de noche, la casa no tiene calefacción." },
       { nombre: "Manuela S.", rating: "★ 8.3", fecha: "Hace 1 semana", texto: "Fui sola y se siente muy hogareño, casi como estar en la sala de la casa de alguien." },
       { nombre: "Natalia Q.", rating: "★ 8.7", fecha: "Hace 3 semanas", texto: "Los libros cambian cada mes según lo que donen, así que no es la misma lectura dos veces." },
-      { nombre: "Esteban Z.", rating: "★ 8.5", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Cartas No Enviadas: Lectura Dramática — otra lectura que arma su propia historia con fragmentos sueltos." },
+      { nombre: "Esteban Z.", rating: "★ 8.5", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Cartas No Enviadas: Lectura Dramática: otra lectura que arma su propia historia con fragmentos sueltos." },
     ],
   },
   {
@@ -4080,7 +4091,7 @@ export const experiences: Experience[] = [
     category: "Música",
     ocultoEnCategoria: true,
     description:
-      "Antes de cada concierto del ciclo, un músico sale a tocar unas notas a la sala todavía vacía —sin género fijo, varía según el concierto de la noche— como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
+      "Antes de cada concierto del ciclo, un músico sale a tocar unas notas a la sala todavía vacía (sin género fijo, varía según el concierto de la noche), como ensayando ante un público que llega diez minutos después a ocupar esos mismos asientos.",
     venue: "Teatro Colonial",
     city: "Bogotá",
     venueCategoria: "Sala de conciertos",
@@ -4092,7 +4103,7 @@ export const experiences: Experience[] = [
     restriccionEdad: "Todo público.",
     direccionCompleta: "Avenida Caracas #45-12, Bogotá",
     curiosidadDelLugar:
-      "Teatro Colonial funciona como sala de conciertos desde los años 50 y conserva casi todas sus butacas originales de madera — el preludio nació porque a alguien le pareció una lástima que la sala se llenara solo diez minutos antes de que arrancara el concierto.",
+      "Teatro Colonial funciona como sala de conciertos desde los años 50 y conserva casi todas sus butacas originales de madera: el preludio nació porque a alguien le pareció una lástima que la sala se llenara solo diez minutos antes de que arrancara el concierto.",
     contextoBarrio: "Zona con buen acceso en transporte público, cerca de varias universidades.",
     rating: "8.9",
     ratingCount: 56,
@@ -4109,16 +4120,16 @@ export const experiences: Experience[] = [
       idioma: "Variable según la función",
     },
     artista: {
-      nombre: "Teatro Colonial — Curaduría",
+      nombre: "Teatro Colonial, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos la curaduría de Teatro Colonial. El preludio nació de la lástima de ver la sala vacía diez minutos antes de cada concierto — ahora es parte fija del ciclo.",
+      saludo: "Somos la curaduría de Teatro Colonial. El preludio nació de la lástima de ver la sala vacía diez minutos antes de cada concierto: ahora es parte fija del ciclo.",
     },
     resenas: [
       { nombre: "Laura B.", rating: "★ 9.0", fecha: "Hace 4 días", texto: "Llega temprano si quieres ver el preludio completo, mucha gente entra justo cuando empieza el concierto." },
       { nombre: "Andrés L.", rating: "★ 8.6", fecha: "Hace 1 semana", texto: "Fui solo un domingo y la sala tiene un encanto de teatro viejo que ya no se ve mucho." },
       { nombre: "Camilo W.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las butacas originales son de madera, no esperes la comodidad de una sala moderna." },
-      { nombre: "Valentina G.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Piano al Aire: Recital de Parque — otro programa que cuida el silencio antes de que empiece la música." },
+      { nombre: "Valentina G.", rating: "★ 8.7", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Piano al Aire: Recital de Parque: otro programa que cuida el silencio antes de que empiece la música." },
     ],
   },
   {
@@ -4142,10 +4153,10 @@ export const experiences: Experience[] = [
     date: "Sábado 5 dic · 21:00",
     price: "$15.000 COP",
     duracion: "Función de 70 minutos, sin intermedio.",
-    restriccionEdad: "+18 años — venue de bar, se sirve licor durante la función.",
+    restriccionEdad: "+18 años: venue de bar, se sirve licor durante la función.",
     direccionCompleta: "Calle 19 Sur #16-04, Bogotá",
     curiosidadDelLugar:
-      "Las mesas que se corren para hacer sitio a la función vuelven exactamente al mismo lugar apenas termina — nadie usa cinta ni marcas en el piso, el bar vuelve a ser bar en minutos.",
+      "Las mesas que se corren para hacer sitio a la función vuelven exactamente al mismo lugar apenas termina: nadie usa cinta ni marcas en el piso, el bar vuelve a ser bar en minutos.",
     contextoBarrio: "Barrio comercial y residencial, ambiente de barrio tradicional con mucha vida nocturna de fin de semana.",
     rating: "8.4",
     ratingCount: 22,
@@ -4153,7 +4164,7 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/asif-ul-haque-bxPEvaPudOA-unsplash.jpg",
     porQueDescubrir:
-      "No hay escenario, ni telón, ni luces especiales — los actores actúan al mismo nivel que el público, entre las mesas normales de cualquier otra noche. Theaveling la eligió por no disfrazar de teatro formal lo que en realidad es un bar de barrio que decidió montar una escena una vez al mes.",
+      "No hay escenario, ni telón, ni luces especiales: los actores actúan al mismo nivel que el público, entre las mesas normales de cualquier otra noche. Theaveling la eligió por no disfrazar de teatro formal lo que en realidad es un bar de barrio que decidió montar una escena una vez al mes.",
     ficha: {
       presentaciones: "función mensual, desde 2023",
       festivales: "sin festivales todavía",
@@ -4162,16 +4173,16 @@ export const experiences: Experience[] = [
       idioma: "Español",
     },
     artista: {
-      nombre: "Bar Escena — Curaduría",
+      nombre: "Bar Escena, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos la curaduría de Bar Escena. No pretendemos ser una sala de teatro — somos un bar que un viernes al mes corre las mesas y monta una escena.",
+      saludo: "Somos la curaduría de Bar Escena. No pretendemos ser una sala de teatro: somos un bar que un viernes al mes corre las mesas y monta una escena.",
     },
     resenas: [
       { nombre: "Mariana K.", rating: "★ 8.6", fecha: "Hace 6 días", texto: "Es un bar normal con una escena de teatro encima, no esperes silencio de sala formal." },
       { nombre: "David A.", rating: "★ 8.1", fecha: "Hace 2 semanas", texto: "Fui solo y nadie se extraña, la mitad de la gente está ahí solo por el bar y descubre el teatro de casualidad." },
       { nombre: "Paula H.", rating: "★ 8.5", fecha: "Hace 1 mes", texto: "La producción no es la de un teatro grande, pero el ambiente compensa." },
-      { nombre: "Santiago P.", rating: "★ 8.3", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó El Rostro Prestado: Teatro de Máscara — otra función que tampoco necesita un escenario formal para funcionar." },
+      { nombre: "Santiago P.", rating: "★ 8.3", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó El Rostro Prestado: Teatro de Máscara: otra función que tampoco necesita un escenario formal para funcionar." },
     ],
   },
   {
@@ -4201,10 +4212,10 @@ export const experiences: Experience[] = [
     price: "$25.000 COP",
     asientoAsignado: true,
     duracion: "65 minutos de performance lumínica con intervención en vivo, sin intermedio.",
-    restriccionEdad: "+18 años — función nocturna en zona de bares.",
+    restriccionEdad: "+18 años: función nocturna en zona de bares.",
     direccionCompleta: "Carrera 15 #33-08, Bogotá",
     curiosidadDelLugar:
-      "Nictálope solo proyecta material encontrado —placas y diapositivas compradas en mercados de pulgas, cajas donadas sin dueño conocido— nunca imagen restaurada ni digitalizada en alta calidad.",
+      "Nictálope solo proyecta material encontrado (placas y diapositivas compradas en mercados de pulgas, cajas donadas sin dueño conocido), nunca imagen restaurada ni digitalizada en alta calidad.",
     contextoBarrio: "Zona de vida nocturna intensa, mejor moverse acompañado después de la función.",
     rating: "9.0",
     ratingCount: 39,
@@ -4212,7 +4223,7 @@ export const experiences: Experience[] = [
     soloVerMas: true,
     imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/hulki-okan-tabak-36nkusNL0mA-unsplash.jpg",
     porQueDescubrir:
-      "Todo lo que se proyecta es material encontrado, sin restaurar — rayado, quemado, a veces casi irreconocible. Theaveling la eligió por dejar que el deterioro mismo de la imagen sea parte del espectáculo, no un defecto que se disculpa.",
+      "Todo lo que se proyecta es material encontrado, sin restaurar: rayado, quemado, a veces casi irreconocible. Theaveling la eligió por dejar que el deterioro mismo de la imagen sea parte del espectáculo, no un defecto que se disculpa.",
     ficha: {
       presentaciones: "función mensual, desde 2024",
       festivales: "sin festivales todavía",
@@ -4221,16 +4232,16 @@ export const experiences: Experience[] = [
       idioma: "Variable según la función",
     },
     artista: {
-      nombre: "Nictálope — Curaduría",
+      nombre: "Nictálope, Curaduría",
       categoria: "Programa curatorial",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos Nictálope. Buscamos placas y diapositivas sin dueño en mercados de pulgas y las proyectamos tal como llegan, rayadas y quemadas — no restauramos nada.",
+      saludo: "Somos Nictálope. Buscamos placas y diapositivas sin dueño en mercados de pulgas y las proyectamos tal como llegan, rayadas y quemadas: no restauramos nada.",
     },
     resenas: [
       { nombre: "Julián T.", rating: "★ 9.2", fecha: "Hace 3 días", texto: "Es nocturno de verdad, empieza tarde, no es plan para madrugar al otro día." },
       { nombre: "Camila R.", rating: "★ 8.7", fecha: "Hace 1 semana", texto: "Fui sola y el ambiente es más silencioso de lo que esperaba, se respeta mucho el silencio durante la función." },
       { nombre: "Andrea M.", rating: "★ 9.1", fecha: "Hace 3 semanas", texto: "Las imágenes se ven mal a propósito, si buscas alta definición este no es tu plan." },
-      { nombre: "Nicolás F.", rating: "★ 8.8", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Cuerpos Caídos — otro programa de performance lumínica nocturno." },
+      { nombre: "Nicolás F.", rating: "★ 8.8", fecha: "Hace 1 mes", texto: "Si te gustó esto, también me gustó Cuerpos Caídos: otro programa de performance lumínica nocturno." },
     ],
   },
   {
@@ -4262,7 +4273,7 @@ export const experiences: Experience[] = [
       "No es una charla en auditorio: pasa dentro del taller real, entre máscaras de veinte años de trabajo colgadas sin ningún orden. Theaveling la eligió por dejar ver el desorden real de un oficio en vez de una versión limpia para exhibición.",
     ficha: {
       presentaciones: "charla única (evento especial)",
-      festivales: "N/A — es una charla, no una obra",
+      festivales: "N/A: es una charla, no una obra",
       premios: "N/A",
       origen: "conversación original, no es una reposición",
       idioma: "Español",
@@ -4271,13 +4282,13 @@ export const experiences: Experience[] = [
       nombre: "Wilson Quiroga",
       categoria: "Tallador de máscaras",
       ciudad: "Bogotá, Colombia",
-      saludo: "Soy Wilson Quiroga. Llevo veinte años tallando máscaras para teatro — mi taller no está ordenado para visitas, así que quien venga lo va a ver tal cual es todos los días.",
+      saludo: "Soy Wilson Quiroga. Llevo veinte años tallando máscaras para teatro: mi taller no está ordenado para visitas, así que quien venga lo va a ver tal cual es todos los días.",
     },
     resenas: [
       { nombre: "Esteban Z.", rating: "★ 8.5", fecha: "Hace 5 días", texto: "Es gratis pero el taller es chico, llega con tiempo para conseguir buen lugar." },
       { nombre: "Valentina G.", rating: "★ 8.0", fecha: "Hace 2 semanas", texto: "Fui sola y Wilson conversa muy fácil, no se siente una charla formal sino una visita a su taller." },
       { nombre: "Mariana K.", rating: "★ 8.4", fecha: "Hace 1 mes", texto: "Las máscaras cuelgan de todos lados, tómate tiempo para mirarlas antes de que empiece." },
-      { nombre: "Camilo W.", rating: "★ 8.2", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Charla: El Arte que Habita la Calle — otra charla que prefiere mostrar el oficio real antes que una versión pulida." },
+      { nombre: "Camilo W.", rating: "★ 8.2", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Charla: El Arte que Habita la Calle: otra charla que prefiere mostrar el oficio real antes que una versión pulida." },
     ],
   },
   {
@@ -4295,10 +4306,10 @@ export const experiences: Experience[] = [
     date: "Domingo 20 dic · 15:00",
     price: "$26.000 COP",
     duracion: "2 horas, con rotación de grupos cada 20 minutos.",
-    restriccionEdad: "+14 años — taller participativo con contacto físico moderado.",
+    restriccionEdad: "+14 años: taller participativo con contacto físico moderado.",
     direccionCompleta: "Carrera 7 #119-30, Bogotá",
     curiosidadDelLugar:
-      "Galpón 12 fue bodega de una fábrica de muebles — las sillas de madera que usa el taller para el público que observa son piezas descartadas de esa misma fábrica, restauradas por quienes dan la clase.",
+      "Galpón 12 fue bodega de una fábrica de muebles: las sillas de madera que usa el taller para el público que observa son piezas descartadas de esa misma fábrica, restauradas por quienes dan la clase.",
     contextoBarrio: "Zona residencial tranquila, buena oferta de transporte los domingos.",
     rating: "8.7",
     ratingCount: 35,
@@ -4309,7 +4320,7 @@ export const experiences: Experience[] = [
       "Nadie se queda solo mirando todo el taller: cada veinte minutos quienes observan desde las sillas cambian de lugar con quienes están moviéndose en el centro. Theaveling la eligió por no dejar a nadie del lado fijo de espectador.",
     ficha: {
       presentaciones: "clase abierta mensual, desde 2025",
-      festivales: "N/A — es un taller, no una obra",
+      festivales: "N/A: es un taller, no una obra",
       premios: "N/A",
       origen: "formato propio del espacio, no es una reposición",
       idioma: "Español",
@@ -4318,13 +4329,13 @@ export const experiences: Experience[] = [
       nombre: "Colectivo Galpón 12",
       categoria: "Espacio de formación en movimiento",
       ciudad: "Bogotá, Colombia",
-      saludo: "Somos Colectivo Galpón 12. Nadie se queda fijo mirando toda la clase — cada veinte minutos rotamos, así que quien mira también termina moviéndose.",
+      saludo: "Somos Colectivo Galpón 12. Nadie se queda fijo mirando toda la clase: cada veinte minutos rotamos, así que quien mira también termina moviéndose.",
     },
     resenas: [
       { nombre: "Felipe O.", rating: "★ 9.0", fecha: "Hace 4 días", texto: "Lleva ropa cómoda aunque pienses que solo vas a mirar, en algún momento te toca moverte." },
       { nombre: "Natalia Q.", rating: "★ 8.4", fecha: "Hace 2 semanas", texto: "Fui sola sin experiencia previa y la rotación ayuda mucho a perder la vergüenza inicial." },
       { nombre: "Juan David R.", rating: "★ 8.9", fecha: "Hace 1 mes", texto: "Las sillas restauradas de la fábrica de muebles son un detalle bonito, pregúntale a los profes por su historia." },
-      { nombre: "Daniela C.", rating: "★ 8.5", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Clase de improvisación del ritmo escénico — otro taller que se construye distinto cada vez según quién llegue." },
+      { nombre: "Daniela C.", rating: "★ 8.5", fecha: "Hace 2 meses", texto: "Si te gustó esto, también me gustó Clase de improvisación del ritmo escénico: otro taller que se construye distinto cada vez según quién llegue." },
     ],
   },
 
@@ -4359,7 +4370,7 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público. Los niños pequeños pueden sentarse en cojines de primera fila si llegan temprano.",
   direccionCompleta: "Calle 119 #6-14, Bogotá",
   curiosidadDelLugar:
-    "Las tinajas de barro que las bailarinas llevan en la cabeza son las mismas que decoran el patio como maceteros el resto de la semana — las bajan y las lavan antes de cada función. La casona es una de las pocas construcciones de la zona que conserva su patio central original de finales del siglo XIX.",
+    "Las tinajas de barro que las bailarinas llevan en la cabeza son las mismas que decoran el patio como maceteros el resto de la semana: las bajan y las lavan antes de cada función. La casona es una de las pocas construcciones de la zona que conserva su patio central original de finales del siglo XIX.",
   contextoBarrio:
     "Usaquén conserva su trazado de pueblo colonial entre restaurantes y galerías, con un mercado de pulgas los domingos que atrae tanto a vecinos como a visitantes de otras zonas de la ciudad.",
   rating: "9.1",
@@ -4383,7 +4394,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de danza folclórica",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos Compañía Cántaro. Empezamos ensayando en un garaje con vasijas plásticas antes de atrevernos con barro de verdad — cada función es, todavía, un poco un acto de fe.",
+      "Somos Compañía Cántaro. Empezamos ensayando en un garaje con vasijas plásticas antes de atrevernos con barro de verdad: cada función es, todavía, un poco un acto de fe.",
   },
   resenas: [
     {
@@ -4391,14 +4402,14 @@ export const experiences: Experience[] = [
       rating: "★ 9.3",
       fecha: "Hace 4 días",
       texto:
-        "Llega 20 minutos antes — te dan un vino de bienvenida en el patio y ver a las bailarinas calentar ya vale la entrada.",
+        "Llega 20 minutos antes: te dan un vino de bienvenida en el patio y ver a las bailarinas calentar ya vale la entrada.",
     },
     {
       nombre: "Nicolás F.",
       rating: "★ 8.8",
       fecha: "Hace 1 semana",
       texto:
-        "Fui solo y terminé sentado en la mesa de una familia que no conocía — el formato de patio compartido hace que no se sienta raro ir sin compañía.",
+        "Fui solo y terminé sentado en la mesa de una familia que no conocía: el formato de patio compartido hace que no se sienta raro ir sin compañía.",
     },
     {
       nombre: "Camila R.",
@@ -4431,11 +4442,11 @@ export const experiences: Experience[] = [
   date: "Viernes 16 oct · 21:00",
   price: "$30.000 COP",
   asientoAsignado: false,
-  duracion: "50 minutos sin intermedio — formato de sesión, no de concierto tradicional.",
+  duracion: "50 minutos sin intermedio: formato de sesión, no de concierto tradicional.",
   restriccionEdad: "Todo público, aunque el ambiente y el horario son más de adultos.",
   direccionCompleta: "Carrera 9 #63-21, Bogotá",
   curiosidadDelLugar:
-    "El local fue una imprenta hasta los años 90 y todavía conserva parte del cableado eléctrico original visible en el techo, que los dueños decidieron dejar como parte de la decoración. El aislamiento acústico es artesanal —paneles de espuma cubiertos en tela— y por eso solo caben 35 personas por función.",
+    "El local fue una imprenta hasta los años 90 y todavía conserva parte del cableado eléctrico original visible en el techo, que los dueños decidieron dejar como parte de la decoración. El aislamiento acústico es artesanal (paneles de espuma cubiertos en tela) y por eso solo caben 35 personas por función.",
   contextoBarrio:
     "Chapinero mezcla edificios de apartamentos de mitad de siglo con bares pequeños escondidos en segundos pisos, muchos sin aviso visible desde la calle.",
   rating: "8.7",
@@ -4445,7 +4456,7 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/akbar-nemati-hSYY_GFO-7A-unsplash.jpg",
   porQueDescubrir:
-    "Sin batería ni bajo que llenen los silencios, cada respiración de los vientos queda expuesta — el trío compone pensando explícitamente en ese vacío. Theaveling la eligió por el aforo mínimo: a esa distancia, se escucha el aire entrando al instrumento antes que la nota misma.",
+    "Sin batería ni bajo que llenen los silencios, cada respiración de los vientos queda expuesta: el trío compone pensando explícitamente en ese vacío. Theaveling la eligió por el aforo mínimo: a esa distancia, se escucha el aire entrando al instrumento antes que la nota misma.",
   ficha: {
     presentaciones: "9 sesiones desde 2025",
     festivales: "sin festivales todavía",
@@ -4458,28 +4469,28 @@ export const experiences: Experience[] = [
     categoria: "Trío acústico experimental",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos Trío Hondura. Componemos pensando en lo que pasa entre las notas, no solo en las notas — por eso tocamos tan cerca del público, para que ese espacio también se escuche.",
+      "Somos Trío Hondura. Componemos pensando en lo que pasa entre las notas, no solo en las notas: por eso tocamos tan cerca del público, para que ese espacio también se escuche.",
   },
   resenas: [
     {
       nombre: "Mariana K.",
       rating: "★ 9.0",
       fecha: "Hace 6 días",
-      texto: "Solo 35 cupos — se agota entre semana, no dejes la compra para el mismo día.",
+      texto: "Solo 35 cupos: se agota entre semana, no dejes la compra para el mismo día.",
     },
     {
       nombre: "Esteban Z.",
       rating: "★ 8.2",
       fecha: "Hace 2 semanas",
       texto:
-        "Fui solo un jueves cualquiera y terminé conversando con el clarinetista al final — el formato invita a quedarse un rato después.",
+        "Fui solo un jueves cualquiera y terminé conversando con el clarinetista al final: el formato invita a quedarse un rato después.",
     },
     {
       nombre: "Valentina G.",
       rating: "★ 8.9",
       fecha: "Hace 1 mes",
       texto:
-        "Se nota el trabajo en la afinación entre los tres — nada suena improvisado aunque parezca informal.",
+        "Se nota el trabajo en la afinación entre los tres: nada suena improvisado aunque parezca informal.",
     },
     {
       nombre: "David A.",
@@ -4534,26 +4545,26 @@ export const experiences: Experience[] = [
     categoria: "Banda de folk indie",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos Los Cristales. Empezamos tocando en la sala de la casa de la baterista y todavía preferimos las salas pequeñas — se siente más parecido a eso.",
+      "Somos Los Cristales. Empezamos tocando en la sala de la casa de la baterista y todavía preferimos las salas pequeñas: se siente más parecido a eso.",
   },
   resenas: [
     {
       nombre: "Camilo W.",
       rating: "★ 8.9",
       fecha: "Hace 5 días",
-      texto: "Llega temprano si quieres estar cerca del escenario — no hay asientos y se llena rápido en la mitad.",
+      texto: "Llega temprano si quieres estar cerca del escenario: no hay asientos y se llena rápido en la mitad.",
     },
     {
       nombre: "Natalia Q.",
       rating: "★ 8.0",
       fecha: "Hace 2 semanas",
-      texto: "Fui sola sin conocer la banda y salí con el nombre anotado en el celular — buena puerta de entrada.",
+      texto: "Fui sola sin conocer la banda y salí con el nombre anotado en el celular: buena puerta de entrada.",
     },
     {
       nombre: "Sebastián V.",
       rating: "★ 8.4",
       fecha: "Hace 1 mes",
-      texto: "El techo pintado se ve mejor de lo que esperaba en fotos — vale la pena mirar hacia arriba entre canciones.",
+      texto: "El techo pintado se ve mejor de lo que esperaba en fotos: vale la pena mirar hacia arriba entre canciones.",
     },
     {
       nombre: "Andrea M.",
@@ -4570,7 +4581,7 @@ export const experiences: Experience[] = [
   category: "Performance",
   ocultoEnCategoria: true,
   description:
-    "Un número de cabaret contemporáneo —plumas, tacones y un salto de pierna que casi toca el techo— dentro de un salón de baile art-decó restaurado, con mesas altas alrededor del escenario en vez de butacas. Mezcla de cabaret clásico europeo y humor bogotano.",
+    "Un número de cabaret contemporáneo (plumas, tacones y un salto de pierna que casi toca el techo) dentro de un salón de baile art-decó restaurado, con mesas altas alrededor del escenario en vez de butacas. Mezcla de cabaret clásico europeo y humor bogotano.",
   venue: "Salón Astoria",
   city: "Bogotá",
   venueCategoria: "Salón de eventos art-decó",
@@ -4579,8 +4590,8 @@ export const experiences: Experience[] = [
   price: "$45.000 COP",
   asientoAsignado: false,
   duracion:
-    "75 minutos sin intermedio — el formato de cabaret no lo permite, hay entradas y salidas de artistas constantes.",
-  restriccionEdad: "+16 años — humor adulto y algo de piel, propios del formato.",
+    "75 minutos sin intermedio: el formato de cabaret no lo permite, hay entradas y salidas de artistas constantes.",
+  restriccionEdad: "+16 años: humor adulto y algo de piel, propios del formato.",
   direccionCompleta: "Carrera 13 #70-45, Bogotá",
   curiosidadDelLugar:
     "El salón fue la sala de baile de una casa republicana privada y conserva su piso de parqué original, pulido de nuevo hace apenas dos años. Los espejos biselados de las paredes son parte del diseño original de los años 40.",
@@ -4593,7 +4604,7 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/eryk-piotr-munk-cu7VNLe0ct0-unsplash.jpg",
   porQueDescubrir:
-    "No es un show de imitación de cabaret europeo: el colectivo escribe sus propios números y los actualiza cada temporada con referencias locales. Theaveling la eligió por el nivel físico exigido —los saltos y giros no tienen doble ni truco de cámara— servido con la cercanía de un salón, no de un teatro grande.",
+    "No es un show de imitación de cabaret europeo: el colectivo escribe sus propios números y los actualiza cada temporada con referencias locales. Theaveling la eligió por el nivel físico exigido (los saltos y giros no tienen doble ni truco de cámara), servido con la cercanía de un salón, no de un teatro grande.",
   ficha: {
     presentaciones: "15 funciones desde 2025",
     festivales: "sin festivales todavía",
@@ -4606,26 +4617,26 @@ export const experiences: Experience[] = [
     categoria: "Colectivo de cabaret",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos La Compañía del Plumón. Nos gusta que el público esté cerca, casi en la pista — el cabaret pierde algo esencial si se ve desde muy lejos.",
+      "Somos La Compañía del Plumón. Nos gusta que el público esté cerca, casi en la pista: el cabaret pierde algo esencial si se ve desde muy lejos.",
   },
   resenas: [
     {
       nombre: "Paula H.",
       rating: "★ 9.5",
       fecha: "Hace 3 días",
-      texto: "Reserva mesa alta cerca del escenario si puedes — desde el fondo se pierde parte del trabajo de piernas.",
+      texto: "Reserva mesa alta cerca del escenario si puedes: desde el fondo se pierde parte del trabajo de piernas.",
     },
     {
       nombre: "Felipe O.",
       rating: "★ 9.0",
       fecha: "Hace 1 semana",
-      texto: "Fui solo un jueves y nadie te mira raro por venir sin pareja — el ambiente es más de amigos sueltos que de citas.",
+      texto: "Fui solo un jueves y nadie te mira raro por venir sin pareja: el ambiente es más de amigos sueltos que de citas.",
     },
     {
       nombre: "Manuela S.",
       rating: "★ 9.4",
       fecha: "Hace 3 semanas",
-      texto: "El humor es más filoso de lo que esperaba, en el buen sentido — no es solo estética, hay texto detrás.",
+      texto: "El humor es más filoso de lo que esperaba, en el buen sentido: no es solo estética, hay texto detrás.",
     },
     {
       nombre: "Santiago P.",
@@ -4650,7 +4661,7 @@ export const experiences: Experience[] = [
   date: "Sábado 14 nov · 15:00",
   price: "$40.000 COP",
   duracion: "3 horas, con un descanso corto de 15 minutos a la mitad.",
-  restriccionEdad: "+12 años — requiere destreza manual con herramientas pequeñas (agujas, alicates finos).",
+  restriccionEdad: "+12 años: requiere destreza manual con herramientas pequeñas (agujas, alicates finos).",
   direccionCompleta: "Calle 9 #2-14, Bogotá",
   curiosidadDelLugar:
     "Los títeres que cuelgan de las paredes son parte de la colección personal del fundador, reunida durante más de veinte años en mercados y talleres de otros países. Algunos tienen más de cuarenta años y todavía se usan como modelo de articulación para los talleres.",
@@ -4663,7 +4674,7 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/beth-macdonald-CWrqG5xsk6c-unsplash.jpg",
   porQueDescubrir:
-    "No es una manualidad rápida: cada marioneta requiere entender de dónde cuelga el peso del cuerpo para que camine sin enredarse. Theaveling lo eligió porque el taller no se queda en la teoría — todos salen con un títere propio, torpe o no, que efectivamente camina.",
+    "No es una manualidad rápida: cada marioneta requiere entender de dónde cuelga el peso del cuerpo para que camine sin enredarse. Theaveling lo eligió porque el taller no se queda en la teoría: todos salen con un títere propio, torpe o no, que efectivamente camina.",
   ficha: {
     presentaciones: "30 talleres dictados desde 2024",
     festivales: "sin festivales todavía",
@@ -4676,20 +4687,20 @@ export const experiences: Experience[] = [
     categoria: "Taller de construcción de títeres",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos El Hilo Suelto. Llevamos años coleccionando títeres antes de decidirnos a enseñar a hacerlos — creemos que entender el peso de un cuerpo de madera cambia cómo uno mira cualquier función de títeres después.",
+      "Somos El Hilo Suelto. Llevamos años coleccionando títeres antes de decidirnos a enseñar a hacerlos: creemos que entender el peso de un cuerpo de madera cambia cómo uno mira cualquier función de títeres después.",
   },
   resenas: [
     {
       nombre: "Daniela C.",
       rating: "★ 9.1",
       fecha: "Hace 1 semana",
-      texto: "Cupo de 10 personas, se llena rápido — resérvalo con al menos dos semanas de anticipación.",
+      texto: "Cupo de 10 personas, se llena rápido: resérvalo con al menos dos semanas de anticipación.",
     },
     {
       nombre: "Andrés L.",
       rating: "★ 8.5",
       fecha: "Hace 3 semanas",
-      texto: "Fui solo sin saber nada de manualidades y terminé con una marioneta que camina de verdad — el instructor no deja a nadie atrás.",
+      texto: "Fui solo sin saber nada de manualidades y terminé con una marioneta que camina de verdad: el instructor no deja a nadie atrás.",
     },
     {
       nombre: "Carolina N.",
@@ -4747,20 +4758,20 @@ export const experiences: Experience[] = [
     categoria: "Actriz y lectora escénica",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Soy Mónica Reyes. Llevo años comprando cajas de cartas viejas en mercados de pulgas sin saber bien para qué — esta lectura es lo que finalmente encontré que hacer con ellas.",
+      "Soy Mónica Reyes. Llevo años comprando cajas de cartas viejas en mercados de pulgas sin saber bien para qué: esta lectura es lo que finalmente encontré que hacer con ellas.",
   },
   resenas: [
     {
       nombre: "Esteban Z.",
       rating: "★ 8.8",
       fecha: "Hace 4 días",
-      texto: "Sala muy pequeña — si te sientas en la primera fila, la actriz prácticamente lee mirándote a los ojos.",
+      texto: "Sala muy pequeña: si te sientas en la primera fila, la actriz prácticamente lee mirándote a los ojos.",
     },
     {
       nombre: "Andrea M.",
       rating: "★ 8.3",
       fecha: "Hace 2 semanas",
-      texto: "Fui sola y me quedé después a hojear los libros del piso — nadie apura a nadie para salir.",
+      texto: "Fui sola y me quedé después a hojear los libros del piso: nadie apura a nadie para salir.",
     },
     {
       nombre: "David A.",
@@ -4772,7 +4783,7 @@ export const experiences: Experience[] = [
       nombre: "Carolina N.",
       rating: "★ 8.5",
       fecha: "Hace 2 meses",
-      texto: "Corta pero densa — no es una obra para llegar cansado, hay que poder concentrarse en el texto.",
+      texto: "Corta pero densa: no es una obra para llegar cansado, hay que poder concentrarse en el texto.",
     },
   ],
 },
@@ -4791,11 +4802,11 @@ export const experiences: Experience[] = [
   date: "Jueves 3 dic · 21:00",
   price: "Gratis",
   asientoAsignado: false,
-  duracion: "40 minutos, formato de calle — el público puede moverse y no hay asientos fijos.",
-  restriccionEdad: "Todo público — pensado también para asistir en familia.",
+  duracion: "40 minutos, formato de calle: el público puede moverse y no hay asientos fijos.",
+  restriccionEdad: "Todo público: pensado también para asistir en familia.",
   direccionCompleta: "Carrera 5 Este #26-10, Bogotá",
   curiosidadDelLugar:
-    "El burro de peluche tiene nombre propio —Efraín— y ya lleva más de una década apareciendo en las fiestas del barrio, remendado varias veces. La casa cultural funciona en lo que antes fue una fábrica de tejidos pequeña, reconvertida por la comunidad en los años 90.",
+    "El burro de peluche tiene nombre propio (Efraín) y ya lleva más de una década apareciendo en las fiestas del barrio, remendado varias veces. La casa cultural funciona en lo que antes fue una fábrica de tejidos pequeña, reconvertida por la comunidad en los años 90.",
   contextoBarrio:
     "La Perseverancia es un barrio histórico y pequeño cerca del centro, conocido por su vida comunitaria estrecha y sus fiestas de barrio, que resisten pese a la transformación de las zonas que lo rodean.",
   rating: "9.4",
@@ -4805,7 +4816,7 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/anton-acosta-AkGg3pr1bSs-unsplash.jpg",
   porQueDescubrir:
-    "No es un acto for turistas: es un personaje que existía en las fiestas del barrio mucho antes de que Theaveling lo programara, y sigue improvisando según quién esté en la sala esa noche. Theaveling lo eligió por esa vigencia real —el humor no está guionado del todo, cambia con el público.",
+    "No es un acto for turistas: es un personaje que existía en las fiestas del barrio mucho antes de que Theaveling lo programara, y sigue improvisando según quién esté en la sala esa noche. Theaveling lo eligió por esa vigencia real: el humor no está guionado del todo, cambia con el público.",
   ficha: {
     presentaciones: "más de 60 presentaciones en fiestas de barrio desde 2015",
     festivales: "sin festivales todavía",
@@ -4818,20 +4829,20 @@ export const experiences: Experience[] = [
     categoria: "Performer de comedia folclórica",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Soy Doña Reyes, y este es Efraín, mi burro. Llevamos años haciendo reír al barrio antes de que a alguien se le ocurriera ponerlo en una plataforma — para nosotros esto sigue siendo, sobre todo, una fiesta.",
+      "Soy Doña Reyes, y este es Efraín, mi burro. Llevamos años haciendo reír al barrio antes de que a alguien se le ocurriera ponerlo en una plataforma: para nosotros esto sigue siendo, sobre todo, una fiesta.",
   },
   resenas: [
     {
       nombre: "Manuela S.",
       rating: "★ 9.6",
       fecha: "Hace 2 días",
-      texto: "Gratis pero llega temprano — el salón es chico y se llena de gente del barrio que ya la conoce.",
+      texto: "Gratis pero llega temprano: el salón es chico y se llena de gente del barrio que ya la conoce.",
     },
     {
       nombre: "Felipe O.",
       rating: "★ 9.2",
       fecha: "Hace 1 semana",
-      texto: "Fui solo sin conocer a nadie y en diez minutos ya me tenía metido en un chiste con todo el público — imposible quedarse por fuera.",
+      texto: "Fui solo sin conocer a nadie y en diez minutos ya me tenía metido en un chiste con todo el público: imposible quedarse por fuera.",
     },
     {
       nombre: "Camilo W.",
@@ -4843,7 +4854,7 @@ export const experiences: Experience[] = [
       nombre: "Natalia Q.",
       rating: "★ 9.0",
       fecha: "Hace 1 mes",
-      texto: "Llevé a mis papás y se rieron más que yo — el humor cruza generaciones sin esfuerzo.",
+      texto: "Llevé a mis papás y se rieron más que yo: el humor cruza generaciones sin esfuerzo.",
     },
   ],
 },
@@ -4867,7 +4878,7 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 11 #85-20, Bogotá",
   curiosidadDelLugar:
-    "La neblina que se ve antes de cada función es intencional — el director de iluminación la usa para que los primeros compases se vean tanto como se escuchan. El auditorio conserva un órgano de tubos de la remodelación original, poco usado pero todavía funcional.",
+    "La neblina que se ve antes de cada función es intencional: el director de iluminación la usa para que los primeros compases se vean tanto como se escuchan. El auditorio conserva un órgano de tubos de la remodelación original, poco usado pero todavía funcional.",
   contextoBarrio:
     "Rosales es un barrio residencial tranquilo cerca de parques y sedes diplomáticas, con calles arboladas y poco tráfico incluso en horas pico.",
   rating: "9.0",
@@ -4890,20 +4901,20 @@ export const experiences: Experience[] = [
     categoria: "Ensamble de cámara",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Somos Ensamble Nueve Cuerdas. Nos formamos en el conservatorio, pero decidimos escribir lo nuestro en vez de tocar solo el repertorio de siempre — esta sala nos deja hacerlo a una escala que se siente seria sin dejar de ser cercana.",
+      "Somos Ensamble Nueve Cuerdas. Nos formamos en el conservatorio, pero decidimos escribir lo nuestro en vez de tocar solo el repertorio de siempre: esta sala nos deja hacerlo a una escala que se siente seria sin dejar de ser cercana.",
   },
   resenas: [
     {
       nombre: "Sebastián V.",
       rating: "★ 9.2",
       fecha: "Hace 3 días",
-      texto: "La boletería es por zonas, como en las salas formales — llega con tiempo si quieres elegir bien el puesto.",
+      texto: "La boletería es por zonas, como en las salas formales: llega con tiempo si quieres elegir bien el puesto.",
     },
     {
       nombre: "Paula H.",
       rating: "★ 8.7",
       fecha: "Hace 2 semanas",
-      texto: "Fui sola una noche de sábado y no desentoné para nada — hay bastante público que viene solo, sobre todo en la zona alta.",
+      texto: "Fui sola una noche de sábado y no desentoné para nada: hay bastante público que viene solo, sobre todo en la zona alta.",
     },
     {
       nombre: "Andrés L.",
@@ -4915,7 +4926,7 @@ export const experiences: Experience[] = [
       nombre: "Mariana K.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "El momento antes de que empiece, con la neblina y las luces cruzadas, ya es parte del espectáculo — no llegues tarde.",
+      texto: "El momento antes de que empiece, con la neblina y las luces cruzadas, ya es parte del espectáculo: no llegues tarde.",
     },
   ],
 },
@@ -4953,7 +4964,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Una mujer envuelta en un mantón rojo recita fragmentos de una carta que nunca mandó, a medio camino entre el teatro y el cante — la sala queda tan cerca que se escucha la respiración entre frase y frase.",
+    "Una mujer envuelta en un mantón rojo recita fragmentos de una carta que nunca mandó, a medio camino entre el teatro y el cante: la sala queda tan cerca que se escucha la respiración entre frase y frase.",
   venue: "Teatro El Rincón del Cante",
   city: "Bogotá",
   date: "Viernes 9 oct · 20:00",
@@ -4962,17 +4973,17 @@ export const experiences: Experience[] = [
   ratingCount: 58,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/maryam-tello-XeAiD4OJMp8-unsplash.jpg",
   asientoAsignado: true,
-  duracion: "60 minutos, sin intermedio — la actriz pidió que no haya cortes de luz ni aplausos a mitad de función.",
+  duracion: "60 minutos, sin intermedio: la actriz pidió que no haya cortes de luz ni aplausos a mitad de función.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Calle 3 Este #2-18, Bogotá",
   curiosidadDelLugar:
-    "El teatro funciona en una casa republicana de dos pisos en Egipto — la sala de función era antes el patio cubierto de la casa, y todavía se nota el desnivel del piso original bajo las sillas.",
+    "El teatro funciona en una casa republicana de dos pisos en Egipto: la sala de función era antes el patio cubierto de la casa, y todavía se nota el desnivel del piso original bajo las sillas.",
   contextoBarrio:
     "Barrio histórico de calles empinadas junto a La Candelaria, con vida cultural discreta y poco turismo comparado con el centro.",
   venueCategoria: "Sala de teatro íntima",
   venueBarrio: "Egipto",
   porQueDescubrir:
-    "No hay banda ni coro detrás, solo la voz de la actriz sosteniendo sola toda la tensión de la sala. Theaveling la eligió por esa desnudez — nada que esconder un mal momento de la función.",
+    "No hay banda ni coro detrás, solo la voz de la actriz sosteniendo sola toda la tensión de la sala. Theaveling la eligió por esa desnudez: nada que esconder un mal momento de la función.",
   ficha: {
     presentaciones: "Temporada de 6 funciones, estrenada en 2026",
     festivales: "sin festivales todavía",
@@ -4985,7 +4996,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro-canción",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Esta pieza se ensayó gritando bajito, en un apartamento — por eso funciona mejor en salas chicas como esta.",
+      "Esta pieza se ensayó gritando bajito, en un apartamento: por eso funciona mejor en salas chicas como esta.",
   },
   resenas: [
     {
@@ -5010,7 +5021,7 @@ export const experiences: Experience[] = [
       nombre: "Santiago P.",
       rating: "★ 9.2",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó La Casa de los Silencios — mismo tipo de silencio incómodo bien usado.",
+      texto: "Si te gustó esto, también me gustó La Casa de los Silencios: mismo tipo de silencio incómodo bien usado.",
     },
   ],
 },
@@ -5031,7 +5042,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Un solo intérprete en negro construye, sin decir una palabra, la coreografía de alguien que se defiende de algo que nunca se nombra — cada gesto es una frase completa.",
+    "Un solo intérprete en negro construye, sin decir una palabra, la coreografía de alguien que se defiende de algo que nunca se nombra: cada gesto es una frase completa.",
   venue: "Estudio Los Cuervos",
   city: "Bogotá",
   date: "Miércoles 14 oct · 20:00",
@@ -5040,17 +5051,17 @@ export const experiences: Experience[] = [
   ratingCount: 37,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/nicola-dowie-txNf7WFFDiM-unsplash.jpg",
   asientoAsignado: true,
-  duracion: "45 minutos, sin intermedio — formato corto e intenso, pensado para no perder tensión.",
-  restriccionEdad: "+14 años — temática de tensión y confrontación, sin lenguaje explícito.",
+  duracion: "45 minutos, sin intermedio: formato corto e intenso, pensado para no perder tensión.",
+  restriccionEdad: "+14 años: temática de tensión y confrontación, sin lenguaje explícito.",
   direccionCompleta: "Carrera 4A #26-15, Bogotá",
   curiosidadDelLugar:
-    "El estudio ocupa el garaje reconvertido de una casa de La Macarena — el intérprete eligió el lugar porque el techo bajo obliga a un tipo de movimiento más cerrado, casi de jaula.",
+    "El estudio ocupa el garaje reconvertido de una casa de La Macarena: el intérprete eligió el lugar porque el techo bajo obliga a un tipo de movimiento más cerrado, casi de jaula.",
   contextoBarrio:
     "Barrio de calles empinadas y casas de artistas, cerca del Parque Nacional, con ambiente tranquilo entre semana.",
   venueCategoria: "Estudio de teatro físico",
   venueBarrio: "La Macarena",
   porQueDescubrir:
-    "Es teatro físico sin red de diálogo que lo explique — el cuerpo tiene que sostener sola toda la historia. Theaveling la eligió por atreverse a no aclarar nada con palabras.",
+    "Es teatro físico sin red de diálogo que lo explique: el cuerpo tiene que sostener sola toda la historia. Theaveling la eligió por atreverse a no aclarar nada con palabras.",
   ficha: {
     presentaciones: "8 funciones desde su estreno en 2026",
     festivales: "sin festivales todavía",
@@ -5088,7 +5099,7 @@ export const experiences: Experience[] = [
       nombre: "David A.",
       rating: "★ 9.1",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Comité del Fracaso — mismo tipo de cuerpo solo sosteniendo toda la función.",
+      texto: "Si te gustó esto, también me gustó Comité del Fracaso: mismo tipo de cuerpo solo sosteniendo toda la función.",
     },
   ],
 },
@@ -5109,7 +5120,7 @@ export const experiences: Experience[] = [
   // es del riel de "Todo", no de Escena/Cultura).
   soloVerMas: true,
   description:
-    "Revival casero de un musical de ciencia ficción colombiano de los 80 que casi nadie recuerda — vestuario de lentejuelas hecho a mano, coreografía de salón y un synth en vivo sonando desde bambalinas.",
+    "Revival casero de un musical de ciencia ficción colombiano de los 80 que casi nadie recuerda: vestuario de lentejuelas hecho a mano, coreografía de salón y un synth en vivo sonando desde bambalinas.",
   venue: "Teatro Galaxia",
   city: "Bogotá",
   date: "Viernes 30 oct · 20:00",
@@ -5122,13 +5133,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Avenida Carrera 24 #39-52, Bogotá",
   curiosidadDelLugar:
-    "El teatro guarda en un cuarto trasero el vestuario original de la producción de 1986 que este musical revive — parte de las lentejuelas de esta función son literalmente esas mismas piezas restauradas.",
+    "El teatro guarda en un cuarto trasero el vestuario original de la producción de 1986 que este musical revive: parte de las lentejuelas de esta función son literalmente esas mismas piezas restauradas.",
   contextoBarrio:
     "Barrio universitario y de oficinas, con varios teatros pequeños repartidos entre las mismas cuadras.",
   venueCategoria: "Sala de teatro musical",
   venueBarrio: "Teusaquillo",
   porQueDescubrir:
-    "Nadie en la producción pretende que esto sea de buen gusto — es campy a propósito, con el orgullo de un musical de culto que se resiste a desaparecer. Theaveling la eligió por esa fidelidad sin vergüenza a lo cursi original.",
+    "Nadie en la producción pretende que esto sea de buen gusto: es campy a propósito, con el orgullo de un musical de culto que se resiste a desaparecer. Theaveling la eligió por esa fidelidad sin vergüenza a lo cursi original.",
   ficha: {
     presentaciones: "Revival de temporada, funciones desde 2026",
     festivales: "sin festivales todavía",
@@ -5141,7 +5152,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro musical",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Esto no se está actualizando ni se está bajando el nivel de cursilería — se está honrando tal cual era, sombreros de estrellas incluidos.",
+      "Esto no se está actualizando ni se está bajando el nivel de cursilería: se está honrando tal cual era, sombreros de estrellas incluidos.",
   },
   resenas: [
     {
@@ -5166,7 +5177,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés L.",
       rating: "★ 9.0",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó A Chorus Line — mismo espíritu de musical hecho con cariño y pocos recursos.",
+      texto: "Si te gustó esto, también me gustó A Chorus Line: mismo espíritu de musical hecho con cariño y pocos recursos.",
     },
   ],
 },
@@ -5185,7 +5196,7 @@ export const experiences: Experience[] = [
   // scroll llega a 8.
   soloVerMas: true,
   description:
-    "Drama de época sobre una familia campesina que decide, de un día para otro, dejarlo todo — dos hombres de sombrero sostienen a una mujer que se derrumba en el umbral de la única puerta que queda en pie.",
+    "Drama de época sobre una familia campesina que decide, de un día para otro, dejarlo todo. Dos hombres de sombrero sostienen a una mujer que se derrumba en el umbral de la única puerta que queda en pie.",
   venue: "Teatro La Otra Orilla",
   city: "Bogotá",
   date: "Domingo 22 nov · 18:00",
@@ -5195,16 +5206,16 @@ export const experiences: Experience[] = [
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/nicolas-ladino-silva-jnl7U7n6UP0-unsplash.jpg",
   asientoAsignado: true,
   duracion: "85 minutos, sin intermedio.",
-  restriccionEdad: "+14 años — temática de desplazamiento y pérdida.",
+  restriccionEdad: "+14 años: temática de desplazamiento y pérdida.",
   direccionCompleta: "Calle 10 #6-24, Bogotá",
   curiosidadDelLugar:
-    "La puerta roja que aparece en la escenografía es una puerta real, rescatada de una casa demolida en el centro — la producción la mantuvo sin restaurar a propósito, con los golpes que ya traía.",
+    "La puerta roja que aparece en la escenografía es una puerta real, rescatada de una casa demolida en el centro: la producción la mantuvo sin restaurar a propósito, con los golpes que ya traía.",
   contextoBarrio:
     "Zona del centro con casas antiguas convertidas en oficinas y espacios culturales, tranquila de noche los domingos.",
   venueCategoria: "Sala de teatro dramático",
   venueBarrio: "Santa Fe",
   porQueDescubrir:
-    "No es un drama de época decorativo — la puerta gastada y los sombreros reales le dan un peso concreto a una historia que en otras manos podría sentirse genérica. Theaveling la eligió por esa atención al objeto real, no al símbolo bonito.",
+    "No es un drama de época decorativo: la puerta gastada y los sombreros reales le dan un peso concreto a una historia que en otras manos podría sentirse genérica. Theaveling la eligió por esa atención al objeto real, no al símbolo bonito.",
   ficha: {
     presentaciones: "Temporada de 10 funciones desde 2026",
     festivales: "sin festivales todavía",
@@ -5217,7 +5228,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro dramático",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Usamos objetos reales, no réplicas — esa puerta pesa lo que pesa una puerta real, y eso se nota en cómo la cargamos en escena.",
+      "Usamos objetos reales, no réplicas: esa puerta pesa lo que pesa una puerta real, y eso se nota en cómo la cargamos en escena.",
   },
   resenas: [
     {
@@ -5242,7 +5253,7 @@ export const experiences: Experience[] = [
       nombre: "Felipe O.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Antígona Ahora — mismo tipo de peso dramático sin exagerar el montaje.",
+      texto: "Si te gustó esto, también me gustó Antígona Ahora: mismo tipo de peso dramático sin exagerar el montaje.",
     },
   ],
 },
@@ -5259,7 +5270,7 @@ export const experiences: Experience[] = [
   // usa en Más reservados/Descubrimientos/Curado.
   soloVerMas: true,
   description:
-    "Una bailarina se mueve entre franjas de luz proyectada en el piso, como si cada sombra le impusiera una regla distinta de movimiento — sola, lenta, sin música que la guíe hasta el final.",
+    "Una bailarina se mueve entre franjas de luz proyectada en el piso, como si cada sombra le impusiera una regla distinta de movimiento, sola, lenta, sin música que la guíe hasta el final.",
   venue: "Estudio Cal y Canto",
   city: "Bogotá",
   date: "Sábado 10 oct · 20:00",
@@ -5272,16 +5283,16 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Calle 45 #13-20, Bogotá",
   curiosidadDelLugar:
-    "El diseño de luces del estudio usa una malla metálica vieja, encontrada en la misma bodega, para proyectar las sombras que la bailarina sigue en el piso — no es un gobo comprado, es literalmente el techo del lugar.",
+    "El diseño de luces del estudio usa una malla metálica vieja, encontrada en la misma bodega, para proyectar las sombras que la bailarina sigue en el piso: no es un gobo comprado, es literalmente el techo del lugar.",
   contextoBarrio:
     "Barrio residencial y universitario, con estudios de danza y música repartidos en casas antiguas.",
   venueCategoria: "Estudio de danza contemporánea",
   venueBarrio: "La Soledad",
   porQueDescubrir:
-    "Casi no hay música, solo el sonido de los pies sobre la madera y la respiración — Theaveling la eligió por esa valentía de sostener el silencio en vez de llenarlo.",
+    "Casi no hay música, solo el sonido de los pies sobre la madera y la respiración. Theaveling la eligió por esa valentía de sostener el silencio en vez de llenarlo.",
   ficha: {
     presentaciones: "4 funciones desde su estreno en 2026",
-    festivales: "sin festival todavía — estreno en temporada propia del estudio",
+    festivales: "sin festival todavía: estreno en temporada propia del estudio",
     premios: "sin premios todavía",
     origen: "pieza original, no reinterpretación",
     idioma: "Sin diálogo (pieza de danza)",
@@ -5291,7 +5302,7 @@ export const experiences: Experience[] = [
     categoria: "Bailarina y coreógrafa",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Trabajo con la sombra real del lugar, no con una proyectada aparte — por eso la pieza solo existe tal cual en este estudio.",
+      "Trabajo con la sombra real del lugar, no con una proyectada aparte: por eso la pieza solo existe tal cual en este estudio.",
   },
   resenas: [
     {
@@ -5316,7 +5327,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés L.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Materia en Suspensión — mismo tipo de danza lenta y contenida.",
+      texto: "Si te gustó esto, también me gustó Materia en Suspensión: mismo tipo de danza lenta y contenida.",
     },
   ],
 },
@@ -5350,16 +5361,16 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 7 #119-30, Bogotá",
   curiosidadDelLugar:
-    "La academia guarda vestuario de sus funciones desde hace más de 20 años — algunas de las faldas que usan las alumnas más chicas las usaron antes bailarinas que hoy son profesoras ahí mismo.",
+    "La academia guarda vestuario de sus funciones desde hace más de 20 años: algunas de las faldas que usan las alumnas más chicas las usaron antes bailarinas que hoy son profesoras ahí mismo.",
   contextoBarrio:
     "Zona residencial del norte, con varios colegios y academias de artes cerca.",
   venueCategoria: "Academia de ballet",
   venueBarrio: "Usaquén",
   porQueDescubrir:
-    "No es una función profesional pulida a la perfección — es una función real de academia, con nervios de verdad detrás de cada niña en escena. Theaveling la eligió por esa honestidad de recital escolar, sin pretender ser otra cosa.",
+    "No es una función profesional pulida a la perfección: es una función real de academia, con nervios de verdad detrás de cada niña en escena. Theaveling la eligió por esa honestidad de recital escolar, sin pretender ser otra cosa.",
   ficha: {
     presentaciones: "Función anual desde hace más de 15 años",
-    festivales: "no aplica — función de academia, no de festival",
+    festivales: "no aplica: función de academia, no de festival",
     premios: "no aplica",
     origen: "puesta clásica adaptada por la academia",
     idioma: "Sin diálogo (pieza de danza)",
@@ -5369,7 +5380,7 @@ export const experiences: Experience[] = [
     categoria: "Academia de ballet",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Cada alumna sale a bailar lo que le toca según su nivel — la función crece con ellas año a año, literalmente.",
+      "Cada alumna sale a bailar lo que le toca según su nivel: la función crece con ellas año a año, literalmente.",
   },
   resenas: [
     {
@@ -5415,7 +5426,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Dúo de danza contemporánea con raíces afro que usa una fachada pintada de calle vieja como único decorado — el baile ocurre literalmente en el umbral entre la casa y la calle.",
+    "Dúo de danza contemporánea con raíces afro que usa una fachada pintada de calle vieja como único decorado: el baile ocurre literalmente en el umbral entre la casa y la calle.",
   venue: "Set Escenográfico San Felipe",
   city: "Bogotá",
   date: "Viernes 6 nov · 19:00",
@@ -5424,11 +5435,11 @@ export const experiences: Experience[] = [
   ratingCount: 52,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/moon-bouy-SF0IY5CLe34-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "35 minutos, formato de calle — el público puede moverse alrededor del set durante la función.",
+  duracion: "35 minutos, formato de calle: el público puede moverse alrededor del set durante la función.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Calle 76 #20-33, Bogotá",
   curiosidadDelLugar:
-    "El set es una fachada real construida por la compañía para otra producción, guardada en la bodega del barrio — decidieron reusarla para esta pieza en vez de construir un decorado nuevo.",
+    "El set es una fachada real construida por la compañía para otra producción, guardada en la bodega del barrio: decidieron reusarla para esta pieza en vez de construir un decorado nuevo.",
   contextoBarrio:
     "San Felipe, zona de galerías y talleres de artistas, con calles cerradas al tráfico algunos fines de semana.",
   venueCategoria: "Set escenográfico al aire libre",
@@ -5472,7 +5483,7 @@ export const experiences: Experience[] = [
       nombre: "Laura B.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Bloque B: Cifrado Urbano — mismo espíritu de danza sin escenario tradicional.",
+      texto: "Si te gustó esto, también me gustó Bloque B: Cifrado Urbano: mismo espíritu de danza sin escenario tradicional.",
     },
   ],
 },
@@ -5493,7 +5504,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Una intérprete suspendida y envuelta en un vestido hecho enteramente de papel se deja caer, girar y desarmar poco a poco frente al público — el papel se rasga un poco más en cada función.",
+    "Una intérprete suspendida y envuelta en un vestido hecho enteramente de papel se deja caer, girar y desarmar poco a poco frente al público: el papel se rasga un poco más en cada función.",
   venue: "Bodega Blanca",
   city: "Bogotá",
   date: "Martes 13 oct · 20:00",
@@ -5502,17 +5513,17 @@ export const experiences: Experience[] = [
   ratingCount: 33,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/kazuo-ota-vxNG68ITf7I-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "30 minutos, formato único e irrepetible — el vestido de papel no se repara entre funciones.",
+  duracion: "30 minutos, formato único e irrepetible: el vestido de papel no se repara entre funciones.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 24 #56-11, Bogotá",
   curiosidadDelLugar:
-    "Bodega Blanca fue antes un depósito de textiles — quedan estanterías metálicas vacías en las paredes, que la producción decidió dejar a la vista en vez de esconder con telón.",
+    "Bodega Blanca fue antes un depósito de textiles: quedan estanterías metálicas vacías en las paredes, que la producción decidió dejar a la vista en vez de esconder con telón.",
   contextoBarrio:
     "Zona industrial reconvertida en espacios de arte, con poca vida nocturna fuera de eventos puntuales.",
   venueCategoria: "Bodega de arte reconvertida",
   venueBarrio: "Chapinero Alto",
   porQueDescubrir:
-    "El vestido de papel se va rompiendo un poco más cada función y nunca se repara del todo — quien va temprano en la temporada ve una pieza distinta de quien va al final. Theaveling la eligió por ese deterioro real, no simulado.",
+    "El vestido de papel se va rompiendo un poco más cada función y nunca se repara del todo. Quien va temprano en la temporada ve una pieza distinta de quien va al final. Theaveling la eligió por ese deterioro real, no simulado.",
   ficha: {
     presentaciones: "6 funciones, cada una con el mismo vestido sin reparar",
     festivales: "sin festivales todavía",
@@ -5525,7 +5536,7 @@ export const experiences: Experience[] = [
     categoria: "Artista de performance",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "El vestido no se arregla entre función y función a propósito — quiero que se vea el desgaste real del papel, no una versión nueva cada vez.",
+      "El vestido no se arregla entre función y función a propósito: quiero que se vea el desgaste real del papel, no una versión nueva cada vez.",
   },
   resenas: [
     {
@@ -5550,7 +5561,7 @@ export const experiences: Experience[] = [
       nombre: "Sebastián V.",
       rating: "★ 9.1",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Cuerpos en Tránsito — mismo tipo de performance que se apoya en un objeto que se va deteriorando.",
+      texto: "Si te gustó esto, también me gustó Cuerpos en Tránsito: mismo tipo de performance que se apoya en un objeto que se va deteriorando.",
     },
   ],
 },
@@ -5580,11 +5591,11 @@ export const experiences: Experience[] = [
   ratingCount: 29,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/marcos-soares-WSe_N6CFfDw-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "25 minutos, al aire libre — se recomienda llegar antes del anochecer para ubicarse bien.",
+  duracion: "25 minutos, al aire libre: se recomienda llegar antes del anochecer para ubicarse bien.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 9 Bis #64-40, Bogotá",
   curiosidadDelLugar:
-    "La cancha sigue siendo cancha de fútbol de barrio entre semana — la producción solo pide el espacio prestado los domingos en la noche, sin modificar nada de la estructura.",
+    "La cancha sigue siendo cancha de fútbol de barrio entre semana: la producción solo pide el espacio prestado los domingos en la noche, sin modificar nada de la estructura.",
   contextoBarrio:
     "Zona residencial de Chapinero con vida barrial fuerte, canchas y parques usados a toda hora.",
   venueCategoria: "Cancha de barrio (sitio específico)",
@@ -5603,7 +5614,7 @@ export const experiences: Experience[] = [
     categoria: "Artista de performance",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Elegí esta cancha porque tiene su propia historia de barrio — no quiero un espacio en blanco, quiero que se note dónde estoy parada.",
+      "Elegí esta cancha porque tiene su propia historia de barrio: no quiero un espacio en blanco, quiero que se note dónde estoy parada.",
   },
   resenas: [
     {
@@ -5628,7 +5639,7 @@ export const experiences: Experience[] = [
       nombre: "Julián T.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó La Esquina que Baila — mismo espíritu de performance en un espacio no pensado para eso.",
+      texto: "Si te gustó esto, también me gustó La Esquina que Baila: mismo espíritu de performance en un espacio no pensado para eso.",
     },
   ],
 },
@@ -5645,7 +5656,7 @@ export const experiences: Experience[] = [
   // usa en Más reservados/Descubrimientos/Curado.
   soloVerMas: true,
   description:
-    "Banda de calle con vestuario de pájaros de carnaval invade una bodega convertida en sala — más un happening colectivo que un concierto formal, con el público mezclado entre los músicos disfrazados.",
+    "Banda de calle con vestuario de pájaros de carnaval invade una bodega convertida en sala, más un happening colectivo que un concierto formal, con el público mezclado entre los músicos disfrazados.",
   venue: "Nave 7",
   city: "Bogotá",
   date: "Viernes 13 nov · 21:00",
@@ -5654,11 +5665,11 @@ export const experiences: Experience[] = [
   ratingCount: 47,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/pierre-goiffon-k4y8zA76TpM-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "1 hora y media, sin pausas — la banda entra y sale tocando entre el público.",
-  restriccionEdad: "+18 años — evento nocturno con barra.",
+  duracion: "1 hora y media, sin pausas: la banda entra y sale tocando entre el público.",
+  restriccionEdad: "+18 años: evento nocturno con barra.",
   direccionCompleta: "Calle 13 #32-50, Bogotá",
   curiosidadDelLugar:
-    "Nave 7 fue una bodega de repuestos hasta hace pocos años — todavía tiene el letrero metálico original oxidándose sobre la puerta principal, que nadie ha querido quitar.",
+    "Nave 7 fue una bodega de repuestos hasta hace pocos años: todavía tiene el letrero metálico original oxidándose sobre la puerta principal, que nadie ha querido quitar.",
   contextoBarrio:
     "Zona industrial de Puente Aranda, con poca vida nocturna fuera de este tipo de eventos puntuales.",
   venueCategoria: "Bodega reconvertida en sala",
@@ -5677,7 +5688,7 @@ export const experiences: Experience[] = [
     categoria: "Colectivo de performance-concierto",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Cada pájaro del colectivo se inventó su propio personaje — no hay guion fijo de quién entra primero, cambia según la energía de la noche.",
+      "Cada pájaro del colectivo se inventó su propio personaje: no hay guion fijo de quién entra primero, cambia según la energía de la noche.",
   },
   resenas: [
     {
@@ -5702,7 +5713,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés L.",
       rating: "★ 8.6",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Bloque B: Cifrado Urbano — mismo tipo de energía de calle metida en un espacio cerrado.",
+      texto: "Si te gustó esto, también me gustó Bloque B: Cifrado Urbano: mismo tipo de energía de calle metida en un espacio cerrado.",
     },
   ],
 },
@@ -5727,7 +5738,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Documental restaurado sobre una compañía de ballet bogotana que desapareció en los años 90 — el material original en blanco y negro, rescatado de cintas dañadas, se proyecta con el grano y los saltos intactos.",
+    "Documental restaurado sobre una compañía de ballet bogotana que desapareció en los años 90: el material original en blanco y negro, rescatado de cintas dañadas, se proyecta con el grano y los saltos intactos.",
   venue: "Sala Ancha",
   city: "Bogotá",
   date: "Jueves 22 oct · 19:30",
@@ -5740,13 +5751,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 13 #52-08, Bogotá",
   curiosidadDelLugar:
-    "La sala instaló hace poco un proyector capaz de manejar archivo digitalizado de baja resolución sin sobre-nitidizarlo — decisión tomada justamente pensando en documentales de archivo como este.",
+    "La sala instaló hace poco un proyector capaz de manejar archivo digitalizado de baja resolución sin sobre-nitidizarlo: decisión tomada justamente pensando en documentales de archivo como este.",
   contextoBarrio:
     "Zona comercial de Chapinero con oferta cultural variada, cines pequeños y librerías de segunda.",
   venueCategoria: "Sala de cine independiente",
   venueBarrio: "Chapinero",
   porQueDescubrir:
-    "No se limpió el material para que se vea como nuevo — se conservó el grano y los saltos de la cinta original dañada, como parte de la historia que cuenta. Theaveling la eligió por respetar el estado real del archivo en vez de maquillarlo.",
+    "No se limpió el material para que se vea como nuevo: se conservó el grano y los saltos de la cinta original dañada, como parte de la historia que cuenta. Theaveling la eligió por respetar el estado real del archivo en vez de maquillarlo.",
   ficha: {
     presentaciones: "Función especial, proyecciones limitadas",
     festivales: "sin festivales todavía",
@@ -5759,7 +5770,7 @@ export const experiences: Experience[] = [
     categoria: "Colectivo de restauración audiovisual",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Encontramos estas cintas casi por accidente en una bodega — restaurarlas fue más rescatar memoria que hacer cine.",
+      "Encontramos estas cintas casi por accidente en una bodega: restaurarlas fue más rescatar memoria que hacer cine.",
   },
   resenas: [
     {
@@ -5784,7 +5795,7 @@ export const experiences: Experience[] = [
       nombre: "Camilo W.",
       rating: "★ 8.8",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó El Último Carrete — mismo cuidado por el material original sin digitalizar de más.",
+      texto: "Si te gustó esto, también me gustó El Último Carrete: mismo cuidado por el material original sin digitalizar de más.",
     },
   ],
 },
@@ -5821,13 +5832,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 24 #39-91, Bogotá",
   curiosidadDelLugar:
-    "Cine Delfos reserva desde hace años su sala principal para estrenos nacionales de bajo presupuesto que no consiguen cupo en las cadenas grandes — este estreno llena justo ese espacio.",
+    "Cine Delfos reserva desde hace años su sala principal para estrenos nacionales de bajo presupuesto que no consiguen cupo en las cadenas grandes: este estreno llena justo ese espacio.",
   contextoBarrio:
     "Barrio universitario y de oficinas, con oferta variada de teatros y salas independientes cerca.",
   venueCategoria: "Sala de cine independiente",
   venueBarrio: "Teusaquillo",
   porQueDescubrir:
-    "Es una película pequeña, filmada casi toda en un solo teatro real, sin actores conocidos — y aun así logra que el nerviosismo de una función se sienta genuino en pantalla. Theaveling la eligió por ese realismo de bastidores, sin glamour de industria.",
+    "Es una película pequeña, filmada casi toda en un solo teatro real, sin actores conocidos, y aun así logra que el nerviosismo de una función se sienta genuino en pantalla. Theaveling la eligió por ese realismo de bastidores, sin glamour de industria.",
   ficha: {
     presentaciones: "Estreno único, luego funciones limitadas",
     festivales: "sin festivales todavía",
@@ -5840,7 +5851,7 @@ export const experiences: Experience[] = [
     categoria: "Directora de cine",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Filmamos con el teatro real todavía funcionando de día — la película se hizo literalmente entre función y función de otra obra.",
+      "Filmamos con el teatro real todavía funcionando de día: la película se hizo literalmente entre función y función de otra obra.",
   },
   resenas: [
     {
@@ -5865,7 +5876,7 @@ export const experiences: Experience[] = [
       nombre: "Nicolás F.",
       rating: "★ 9.0",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Fronteras Difusas — mismo tipo de cine colombiano pequeño y bien hecho.",
+      texto: "Si te gustó esto, también me gustó Fronteras Difusas: mismo tipo de cine colombiano pequeño y bien hecho.",
     },
   ],
 },
@@ -5886,7 +5897,7 @@ export const experiences: Experience[] = [
   ocultoEnCategoria: true,
   soloVerMas: true,
   description:
-    "Rock emergente en formato de bar: varias bandas se turnan la tarima la misma noche, sets cortos de 20 minutos cada una — nadie se queda sentado todo el rato. Esta edición suma a Los Alambres, que estrenan canciones de su EP Corriente Alterna junto a las otras bandas de la noche.",
+    "Rock emergente en formato de bar: varias bandas se turnan la tarima la misma noche, sets cortos de 20 minutos cada una, nadie se queda sentado todo el rato. Esta edición suma a Los Alambres, que estrenan canciones de su EP Corriente Alterna junto a las otras bandas de la noche.",
   venue: "Bar El Trébol",
   city: "Bogotá",
   date: "Miércoles 21 oct · 21:00",
@@ -5895,11 +5906,11 @@ export const experiences: Experience[] = [
   ratingCount: 41,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/les-taylor-ZlMxJQ_H_nw-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "3 horas — 4 sets cortos de bandas distintas, uno detrás de otro.",
-  restriccionEdad: "+18 años — funciona como bar con barra activa toda la noche.",
+  duracion: "3 horas: 4 sets cortos de bandas distintas, uno detrás de otro.",
+  restriccionEdad: "+18 años: funciona como bar con barra activa toda la noche.",
   direccionCompleta: "Carrera 13 #63-22, Bogotá",
   curiosidadDelLugar:
-    "El bar armó la tarima con palés de madera apilados, no con un escenario de verdad — decisión original del dueño, que nunca instaló uno porque 'la de palés ya funcionaba bien'.",
+    "El bar armó la tarima con palés de madera apilados, no con un escenario de verdad: decisión original del dueño, que nunca instaló uno porque 'la de palés ya funcionaba bien'.",
   contextoBarrio:
     "Zona comercial de Chapinero con buena vida nocturna entre semana, varios bares con programación cultural puntual.",
   venueCategoria: "Bar con programación cultural",
@@ -5918,7 +5929,7 @@ export const experiences: Experience[] = [
     categoria: "Programación cultural de bar",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No queremos que la noche se sienta como un solo concierto largo — por eso rotamos varias bandas cortas, para que se sienta como una noche completa de barrio.",
+      "No queremos que la noche se sienta como un solo concierto largo: por eso rotamos varias bandas cortas, para que se sienta como una noche completa de barrio.",
   },
   resenas: [
     {
@@ -5943,7 +5954,7 @@ export const experiences: Experience[] = [
       nombre: "Julián T.",
       rating: "★ 8.5",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Trompeta en Sombra: Sesión de Jazz Nocturno — mismo espíritu de música en bar hecho sin pretensiones.",
+      texto: "Si te gustó esto, también me gustó Trompeta en Sombra: Sesión de Jazz Nocturno: mismo espíritu de música en bar hecho sin pretensiones.",
     },
   ],
 },
@@ -5959,7 +5970,7 @@ export const experiences: Experience[] = [
   ocultoEnCategoria: true,
   soloVerMas: true,
   description:
-    "Maratón de cortometrajes hechos por fans bogotanos, con concurso de disfraces entre función y función y el público grabando todo con el celular en alto — más fiesta de fandom que sala de cine tradicional.",
+    "Maratón de cortometrajes hechos por fans bogotanos, con concurso de disfraces entre función y función y el público grabando todo con el celular en alto, más fiesta de fandom que sala de cine tradicional.",
   venue: "Centro Cultural Aluna",
   city: "Bogotá",
   date: "Domingo 6 dic · 15:00",
@@ -5968,21 +5979,21 @@ export const experiences: Experience[] = [
   ratingCount: 58,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/les-taylor-TcRvqdgLZsQ-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "4 horas — 8 cortometrajes cortos intercalados con el concurso de disfraces.",
+  duracion: "4 horas: 8 cortometrajes cortos intercalados con el concurso de disfraces.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 19 #45-30, Bogotá",
   curiosidadDelLugar:
-    "El centro cultural presta su auditorio los domingos para eventos de fans desde hace 3 años — empezó como un grupo pequeño de aficionados al anime y hoy convoca cientos de personas cada edición.",
+    "El centro cultural presta su auditorio los domingos para eventos de fans desde hace 3 años: empezó como un grupo pequeño de aficionados al anime y hoy convoca cientos de personas cada edición.",
   contextoBarrio:
     "Barrio de Teusaquillo, con varios centros culturales y casas convertidas en espacios comunitarios.",
   venueCategoria: "Centro cultural comunitario",
   venueBarrio: "Teusaquillo",
   porQueDescubrir:
-    "Los cortos no siempre son perfectos técnicamente, pero el nivel de compromiso del público — disfraces hechos a mano, coreografías aprendidas de memoria — es lo que realmente vale la entrada. Theaveling la eligió por esa energía de comunidad, no por el pulido del contenido.",
+    "Los cortos no siempre son perfectos técnicamente, pero el nivel de compromiso del público (disfraces hechos a mano, coreografías aprendidas de memoria) es lo que realmente vale la entrada. Theaveling la eligió por esa energía de comunidad, no por el pulido del contenido.",
   ficha: {
     presentaciones: "Edición trimestral desde 2023",
     festivales: "circuito de convenciones fan de Bogotá",
-    premios: "sin premios formales — el concurso de disfraces es interno del evento",
+    premios: "sin premios formales: el concurso de disfraces es interno del evento",
     origen: "selección curada de cortometrajes hechos por fans",
     idioma: "Español",
   },
@@ -5991,7 +6002,7 @@ export const experiences: Experience[] = [
     categoria: "Colectivo de cine y cultura fan",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No filtramos por calidad técnica, filtramos por si el corto se nota hecho con ganas — de ahí sale todo lo demás.",
+      "No filtramos por calidad técnica, filtramos por si el corto se nota hecho con ganas: de ahí sale todo lo demás.",
   },
   resenas: [
     {
@@ -6037,7 +6048,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Proyección de cine mudo de archivo con un productor improvisando en vivo la banda sonora completa desde una mesa de mezcla — cada función suena distinto, aunque la película sea la misma.",
+    "Proyección de cine mudo de archivo con un productor improvisando en vivo la banda sonora completa desde una mesa de mezcla: cada función suena distinto, aunque la película sea la misma.",
   venue: "Sótano 8",
   city: "Bogotá",
   date: "Viernes 11 dic · 23:00",
@@ -6046,17 +6057,17 @@ export const experiences: Experience[] = [
   ratingCount: 52,
   imageUrl: "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/matt-palmer-XLAeDbI52Ek-unsplash.jpg",
   asientoAsignado: false,
-  duracion: "100 minutos — 70 de película muda y 30 de set extendido después de los créditos.",
-  restriccionEdad: "+18 años — función de medianoche, funciona como club con barra.",
+  duracion: "100 minutos: 70 de película muda y 30 de set extendido después de los créditos.",
+  restriccionEdad: "+18 años: función de medianoche, funciona como club con barra.",
   direccionCompleta: "Calle 63 #9-12, Bogotá",
   curiosidadDelLugar:
-    "Sótano 8 comparte edificio con Sala Oscura, el cineclub de medianoche del mismo bloque — ambos empezaron como el mismo proyecto antes de dividirse en dos programaciones distintas.",
+    "Sótano 8 comparte edificio con Sala Oscura, el cineclub de medianoche del mismo bloque: ambos empezaron como el mismo proyecto antes de dividirse en dos programaciones distintas.",
   contextoBarrio:
     "Zona residencial de Chapinero Alto, con vida nocturna discreta concentrada en pocos puntos.",
   venueCategoria: "Cineclub independiente",
   venueBarrio: "Chapinero Alto",
   porQueDescubrir:
-    "No hay partitura fija ni banda pregrabada, el productor improvisa en el momento leyendo la reacción de la sala — Theaveling la eligió porque cada función es literalmente irrepetible, aunque la película en pantalla no cambie.",
+    "No hay partitura fija ni banda pregrabada, el productor improvisa en el momento leyendo la reacción de la sala. Theaveling la eligió porque cada función es literalmente irrepetible, aunque la película en pantalla no cambie.",
   ficha: {
     presentaciones: "Función mensual desde 2025",
     festivales: "no aplica",
@@ -6069,7 +6080,7 @@ export const experiences: Experience[] = [
     categoria: "Cineclub independiente",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No repito nunca el mismo set para la misma película — si ya la viste con nosotros antes, la vas a escuchar distinta esta vez.",
+      "No repito nunca el mismo set para la misma película: si ya la viste con nosotros antes, la vas a escuchar distinta esta vez.",
   },
   resenas: [
     {
@@ -6094,7 +6105,7 @@ export const experiences: Experience[] = [
       nombre: "Santiago P.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Club de Culto: Función de Medianoche — mismo tipo de misterio y horario nocturno.",
+      texto: "Si te gustó esto, también me gustó Club de Culto: Función de Medianoche: mismo tipo de misterio y horario nocturno.",
     },
   ],
 },
@@ -6115,7 +6126,7 @@ export const experiences: Experience[] = [
   rail: "curado",
   soloVerMas: true,
   description:
-    "Una bailarina y narradora oral combina charla con demostración en vivo — habla de dónde viene cada gesto de danza tradicional que usa y, a mitad de frase, lo hace con el cuerpo en vez de solo describirlo con palabras.",
+    "Una bailarina y narradora oral combina charla con demostración en vivo: habla de dónde viene cada gesto de danza tradicional que usa y, a mitad de frase, lo hace con el cuerpo en vez de solo describirlo con palabras.",
   venue: "Casa de la Cultura La Soledad",
   city: "Bogotá",
   date: "Miércoles 16 dic · 18:00",
@@ -6129,13 +6140,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 24 #45-12, Bogotá",
   curiosidadDelLugar:
-    "La casa cultural tiene un auditorio pequeño con tarima baja, casi al nivel del público — la artista pidió justo ese formato para poder moverse entre las filas sin necesitar un escenario alto.",
+    "La casa cultural tiene un auditorio pequeño con tarima baja, casi al nivel del público: la artista pidió justo ese formato para poder moverse entre las filas sin necesitar un escenario alto.",
   contextoBarrio:
     "Barrio universitario y residencial, con oferta cultural gratuita repartida en casas culturales pequeñas.",
   venueCategoria: "Casa cultural",
   venueBarrio: "La Soledad",
   porQueDescubrir:
-    "No es una charla teórica sobre danza, es alguien que se para a mitad de una frase y responde con el cuerpo en vez de terminarla con palabras — Theaveling la eligió por esa honestidad de mostrar en vez de solo explicar.",
+    "No es una charla teórica sobre danza, es alguien que se para a mitad de una frase y responde con el cuerpo en vez de terminarla con palabras. Theaveling la eligió por esa honestidad de mostrar en vez de solo explicar.",
   ficha: {
     presentaciones: "Encuentro único",
     festivales: "no aplica",
@@ -6148,7 +6159,7 @@ export const experiences: Experience[] = [
     categoria: "Bailarina y narradora oral",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Llevo años tratando de explicar con palabras algo que en realidad vive en el cuerpo — esta charla es donde finalmente dejo de intentarlo y simplemente lo muestro.",
+      "Llevo años tratando de explicar con palabras algo que en realidad vive en el cuerpo: esta charla es donde finalmente dejo de intentarlo y simplemente lo muestro.",
   },
   resenas: [
     {
@@ -6161,7 +6172,7 @@ export const experiences: Experience[] = [
       nombre: "Paula H.",
       rating: "★ 8.9",
       fecha: "Hace 2 semanas",
-      texto: "Fui sola y terminé participando en un ejercicio corto que propuso al final — no es solo escuchar sentado.",
+      texto: "Fui sola y terminé participando en un ejercicio corto que propuso al final: no es solo escuchar sentado.",
     },
     {
       nombre: "Camilo W.",
@@ -6173,7 +6184,7 @@ export const experiences: Experience[] = [
       nombre: "Valentina G.",
       rating: "★ 9.0",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Vals en Azul — la misma idea de que el cuerpo puede decir lo que las palabras no alcanzan.",
+      texto: "Si te gustó esto, también me gustó Vals en Azul: la misma idea de que el cuerpo puede decir lo que las palabras no alcanzan.",
     },
   ],
 },
@@ -6207,8 +6218,8 @@ export const experiences: Experience[] = [
   category: "Cine",
   ocultoEnCategoria: true,
   description:
-    "Proyección a gran formato dentro de un galpón industrial reconvertido: varias pantallas suspendidas del techo, ninguna butaca — el público se acuesta en el piso para ver.",
-  venue: "Nave 4 — Centro de Arte Contemporáneo",
+    "Proyección a gran formato dentro de un galpón industrial reconvertido: varias pantallas suspendidas del techo, ninguna butaca. El público se acuesta en el piso para ver.",
+  venue: "Nave 4, Centro de Arte Contemporáneo",
   city: "Bogotá",
   date: "Sábado 17 oct · 20:00",
   price: "$30.000 COP",
@@ -6217,11 +6228,11 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-nave-proyeccion.jpg",
   asientoAsignado: false,
-  duracion: "90 minutos de proyección continua, sin butacas — se puede entrar y salir de la sala sin interrumpir a nadie.",
+  duracion: "90 minutos de proyección continua, sin butacas: se puede entrar y salir de la sala sin interrumpir a nadie.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 50 #13-20, Bogotá",
   curiosidadDelLugar:
-    "El galpón perteneció a una textilera hasta los años 80 — las pantallas cuelgan de los mismos rieles que antes sostenían las telas en proceso, sin disimular su origen industrial.",
+    "El galpón perteneció a una textilera hasta los años 80: las pantallas cuelgan de los mismos rieles que antes sostenían las telas en proceso, sin disimular su origen industrial.",
   contextoBarrio:
     "Zona industrial con varias bodegas convertidas en talleres y espacios de arte, poco iluminada de noche.",
   venueCategoria: "Galpón industrial reconvertido en sala de proyección",
@@ -6240,20 +6251,20 @@ export const experiences: Experience[] = [
     categoria: "Curaduría de cine expandido",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No pedimos que se sienten derecho ni que miren para el mismo lado — el piso es parte del diseño, no una falta de presupuesto.",
+      "No pedimos que se sienten derecho ni que miren para el mismo lado: el piso es parte del diseño, no una falta de presupuesto.",
   },
   resenas: [
     {
       nombre: "Laura P.",
       rating: "★ 8.5",
       fecha: "Hace 5 días",
-      texto: "Lleva algo para acostarte, el piso es de cemento — vale la pena igual por la escala de las pantallas.",
+      texto: "Lleva algo para acostarte, el piso es de cemento: vale la pena igual por la escala de las pantallas.",
     },
     {
       nombre: "Simón R.",
       rating: "★ 9.0",
       fecha: "Hace 2 semanas",
-      texto: "Es más parecido a caminar por una instalación que a ver una película — nadie te obliga a mirar todo el tiempo al mismo lado.",
+      texto: "Es más parecido a caminar por una instalación que a ver una película: nadie te obliga a mirar todo el tiempo al mismo lado.",
     },
     {
       nombre: "Daniela F.",
@@ -6265,7 +6276,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés M.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó El Último Carrete — mismo cuidado por el formato en sí, no solo por el contenido.",
+      texto: "Si te gustó esto, también me gustó El Último Carrete: mismo cuidado por el formato en sí, no solo por el contenido.",
     },
   ],
 },
@@ -6277,7 +6288,7 @@ export const experiences: Experience[] = [
   ocultoEnCategoria: true,
   description:
     "Sala pequeña forrada en cortinas, sin filas: el público se para a centímetros de la pantalla mientras una serie de rostros, en primer plano, cuentan una historia distinta cada uno a la vez.",
-  venue: "Cuarto Rojo — Cineclub de Documental",
+  venue: "Cuarto Rojo, Cineclub de Documental",
   city: "Bogotá",
   date: "Jueves 5 nov · 19:00",
   price: "$28.000 COP",
@@ -6286,11 +6297,11 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-rostro-documental.jpg",
   asientoAsignado: false,
-  duracion: "55 minutos, de pie — la sala no tiene sillas, pensada para grupos chicos.",
+  duracion: "55 minutos, de pie: la sala no tiene sillas, pensada para grupos chicos.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Calle 57 #4-18, Bogotá",
   curiosidadDelLugar:
-    "La sala completa mide menos de 20 metros cuadrados — entran máximo 15 personas por función, a propósito: el documental se grabó igual de cerca de cada persona entrevistada.",
+    "La sala completa mide menos de 20 metros cuadrados: entran máximo 15 personas por función, a propósito: el documental se grabó igual de cerca de cada persona entrevistada.",
   contextoBarrio:
     "Calles residenciales con casas convertidas en espacios culturales chicos, ambiente tranquilo incluso de noche.",
   venueCategoria: "Sala inmersiva pequeña (cineclub)",
@@ -6309,7 +6320,7 @@ export const experiences: Experience[] = [
     categoria: "Cineclub de documental",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Si el aforo fuera más grande, tendríamos que alejar la pantalla — preferimos que quepan menos personas antes que perder esa distancia.",
+      "Si el aforo fuera más grande, tendríamos que alejar la pantalla: preferimos que quepan menos personas antes que perder esa distancia.",
   },
   resenas: [
     {
@@ -6322,7 +6333,7 @@ export const experiences: Experience[] = [
       nombre: "Tomás E.",
       rating: "★ 8.6",
       fecha: "Hace 2 semanas",
-      texto: "Se agotan rápido las 15 entradas — reserva con varios días de anticipación si puedes.",
+      texto: "Se agotan rápido las 15 entradas: reserva con varios días de anticipación si puedes.",
     },
     {
       nombre: "Renata O.",
@@ -6334,7 +6345,7 @@ export const experiences: Experience[] = [
       nombre: "Iván D.",
       rating: "★ 8.8",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Materia y memoria — mismo tipo de cercanía incómoda que termina valiendo la pena.",
+      texto: "Si te gustó esto, también me gustó Materia y memoria: mismo tipo de cercanía incómoda que termina valiendo la pena.",
     },
   ],
 },
@@ -6345,7 +6356,7 @@ export const experiences: Experience[] = [
   category: "Cineclub",
   ocultoEnCategoria: true,
   description:
-    "Una banda toca en vivo mientras, en la pared de al lado, se proyecta un cortometraje sin sonido propio — la música no acompaña la película, la reemplaza por completo.",
+    "Una banda toca en vivo mientras, en la pared de al lado, se proyecta un cortometraje sin sonido propio: la música no acompaña la película, la reemplaza por completo.",
   venue: "Salón Cúpula",
   city: "Bogotá",
   date: "Viernes 20 nov · 22:00",
@@ -6355,17 +6366,17 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-banda-en-vivo.jpg",
   asientoAsignado: false,
-  duracion: "75 minutos — la banda toca de corrido, sin pausas entre canciones para no cortar la proyección.",
-  restriccionEdad: "+18 años — función nocturna, funciona como bar con barra abierta.",
+  duracion: "75 minutos: la banda toca de corrido, sin pausas entre canciones para no cortar la proyección.",
+  restriccionEdad: "+18 años: función nocturna, funciona como bar con barra abierta.",
   direccionCompleta: "Carrera 13 #59-40, Bogotá",
   curiosidadDelLugar:
-    "El salón tiene techo abovedado original de los años 50 — antes fue sala de billar, hoy la cúpula ayuda a que el sonido de la banda llene el espacio sin necesidad de muchos parlantes.",
+    "El salón tiene techo abovedado original de los años 50: antes fue sala de billar, hoy la cúpula ayuda a que el sonido de la banda llene el espacio sin necesidad de muchos parlantes.",
   contextoBarrio:
     "Zona con bares y salones antiguos reconvertidos, animada las noches de fin de semana.",
   venueCategoria: "Salón de eventos con cineclub nocturno",
   venueBarrio: "Chapinero Alto",
   porQueDescubrir:
-    "La banda no ensaya sobre la película con anticipación — la ve por primera vez la misma noche, igual que el público. Theaveling la eligió por esa tensión real de tocar a ciegas, sin red, frente a imágenes que nadie del grupo controla.",
+    "La banda no ensaya sobre la película con anticipación: la ve por primera vez la misma noche, igual que el público. Theaveling la eligió por esa tensión real de tocar a ciegas, sin red, frente a imágenes que nadie del grupo controla.",
   ficha: {
     presentaciones: "Evento mensual desde 2024",
     festivales: "no aplica",
@@ -6391,7 +6402,7 @@ export const experiences: Experience[] = [
       nombre: "Juliana C.",
       rating: "★ 8.9",
       fecha: "Hace 3 semanas",
-      texto: "Es de pie, se llena rápido cerca de la tarima — si prefieres ver bien la pantalla, ubícate más al fondo.",
+      texto: "Es de pie, se llena rápido cerca de la tarima: si prefieres ver bien la pantalla, ubícate más al fondo.",
     },
     {
       nombre: "Mateo L.",
@@ -6403,7 +6414,7 @@ export const experiences: Experience[] = [
       nombre: "Sara N.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Cine Mudo + Set en Vivo — mismo espíritu de música improvisada sobre imagen muda.",
+      texto: "Si te gustó esto, también me gustó Cine Mudo + Set en Vivo: mismo espíritu de música improvisada sobre imagen muda.",
     },
   ],
 },
@@ -6414,7 +6425,7 @@ export const experiences: Experience[] = [
   category: "Cine local",
   ocultoEnCategoria: true,
   description:
-    "Antes de la función, el público se sienta junto a la mesa de mezcla — no en las butacas — para ver en vivo cómo un ingeniero de sonido ajusta cada detalle de audio mientras la película corre.",
+    "Antes de la función, el público se sienta junto a la mesa de mezcla, no en las butacas, para ver en vivo cómo un ingeniero de sonido ajusta cada detalle de audio mientras la película corre.",
   venue: "Cine Comunitario Girasol",
   city: "Bogotá",
   date: "Domingo 29 nov · 16:00",
@@ -6424,17 +6435,17 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/cine-mesa-de-sonido.jpg",
   asientoAsignado: false,
-  duracion: "110 minutos — 20 de charla junto a la mesa de mezcla, 90 de función completa.",
+  duracion: "110 minutos: 20 de charla junto a la mesa de mezcla, 90 de función completa.",
   restriccionEdad: "Todo público.",
   direccionCompleta: "Calle 42 Sur #24-11, Bogotá",
   curiosidadDelLugar:
-    "El cine funciona en lo que antes fue un salón comunal de barrio — la mesa de mezcla es la misma que se usa desde hace más de una década, reparada varias veces en vez de cambiada.",
+    "El cine funciona en lo que antes fue un salón comunal de barrio: la mesa de mezcla es la misma que se usa desde hace más de una década, reparada varias veces en vez de cambiada.",
   contextoBarrio:
     "Barrio popular con vida de calle activa, el cine es uno de los pocos espacios culturales fijos de la zona.",
   venueCategoria: "Cine comunitario de barrio",
   venueBarrio: "San Cristóbal",
   porQueDescubrir:
-    "El sonido de una película se nota más cuando ves a alguien decidiendo en vivo cuánto subir cada voz o efecto — Theaveling la eligió porque vuelve visible un oficio que casi nadie mira, aunque todos lo escuchan.",
+    "El sonido de una película se nota más cuando ves a alguien decidiendo en vivo cuánto subir cada voz o efecto. Theaveling la eligió porque vuelve visible un oficio que casi nadie mira, aunque todos lo escuchan.",
   ficha: {
     presentaciones: "Encuentro mensual desde 2025",
     festivales: "no aplica",
@@ -6466,13 +6477,13 @@ export const experiences: Experience[] = [
       nombre: "Ximena T.",
       rating: "★ 8.3",
       fecha: "Hace 1 mes",
-      texto: "El cupo junto a la mesa es limitado, el resto ve la charla por una pantalla chica al lado — igual vale la pena.",
+      texto: "El cupo junto a la mesa es limitado, el resto ve la charla por una pantalla chica al lado: igual vale la pena.",
     },
     {
       nombre: "Nicolás B.",
       rating: "★ 8.6",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Fronteras Difusas: Retrospectiva Analógica — mismo cariño por el lado técnico del cine.",
+      texto: "Si te gustó esto, también me gustó Fronteras Difusas: Retrospectiva Analógica: mismo cariño por el lado técnico del cine.",
     },
   ],
 },
@@ -6500,7 +6511,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Una compañía de actores-músicos monta una estación de radio interestelar sobre un set de art-decó futurista — cada canción es también una escena, sin separación entre concierto y obra.",
+    "Una compañía de actores-músicos monta una estación de radio interestelar sobre un set de art-decó futurista: cada canción es también una escena, sin separación entre concierto y obra.",
   venue: "Teatro Astral",
   city: "Bogotá",
   date: "Sábado 24 oct · 20:00",
@@ -6515,13 +6526,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 24 #39-15, Bogotá",
   curiosidadDelLugar:
-    "El escenario del Astral conserva su fondo de estrellas pintado a mano desde los años 70 — la compañía lo integró a propósito en vez de cubrirlo con su propia escenografía.",
+    "El escenario del Astral conserva su fondo de estrellas pintado a mano desde los años 70: la compañía lo integró a propósito en vez de cubrirlo con su propia escenografía.",
   contextoBarrio:
     "Zona universitaria con varias salas de teatro pequeñas concentradas en pocas cuadras.",
   venueCategoria: "Sala de teatro con escenario a la italiana",
   venueBarrio: "Teusaquillo",
   porQueDescubrir:
-    "No hay un momento en que la música se detiene para que empiece la actuación — canción y escena son la misma unidad todo el tiempo. Theaveling la eligió por lograr esa fusión sin que se note la costura entre una disciplina y la otra.",
+    "No hay un momento en que la música se detiene para que empiece la actuación: canción y escena son la misma unidad todo el tiempo. Theaveling la eligió por lograr esa fusión sin que se note la costura entre una disciplina y la otra.",
   ficha: {
     presentaciones: "20 funciones desde su estreno en 2025",
     festivales: "no aplica",
@@ -6534,7 +6545,7 @@ export const experiences: Experience[] = [
     categoria: "Ensamble de teatro musical",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Todos en el elenco tocan un instrumento en vivo — no hay pista grabada escondida en ningún parlante.",
+      "Todos en el elenco tocan un instrumento en vivo: no hay pista grabada escondida en ningún parlante.",
   },
   resenas: [
     {
@@ -6559,7 +6570,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés Q.",
       rating: "★ 9.4",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó A Chorus Line: Historias Reales de Bogotá — mismo nivel de compromiso vocal de todo el elenco.",
+      texto: "Si te gustó esto, también me gustó A Chorus Line: Historias Reales de Bogotá: mismo nivel de compromiso vocal de todo el elenco.",
     },
   ],
 },
@@ -6570,7 +6581,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Cuatro personajes enmascarados, cada uno atrapado en su propio marco de luz, repiten un gesto ritual sin cruzar nunca miradas entre sí — hasta que uno rompe el patrón.",
+    "Cuatro personajes enmascarados, cada uno atrapado en su propio marco de luz, repiten un gesto ritual sin cruzar nunca miradas entre sí, hasta que uno rompe el patrón.",
   venue: "Sala Intersticio",
   city: "Bogotá",
   date: "Jueves 29 oct · 19:30",
@@ -6581,16 +6592,16 @@ export const experiences: Experience[] = [
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-mascaras-en-la-sombra.jpg",
   asientoAsignado: false,
   duracion: "60 minutos, sin diálogo.",
-  restriccionEdad: "+14 años — atmósfera tensa, sin violencia explícita.",
+  restriccionEdad: "+14 años: atmósfera tensa, sin violencia explícita.",
   direccionCompleta: "Calle 11 #4-56, Bogotá",
   curiosidadDelLugar:
-    "La sala se puede reconfigurar completamente entre funciones — para esta pieza se armaron 4 cubículos separados, uno por personaje, en vez del escenario único que usa el resto de su programación.",
+    "La sala se puede reconfigurar completamente entre funciones: para esta pieza se armaron 4 cubículos separados, uno por personaje, en vez del escenario único que usa el resto de su programación.",
   contextoBarrio:
     "Calles empedradas del centro histórico, con teatros pequeños entre casas coloniales.",
   venueCategoria: "Sala de teatro experimental",
   venueBarrio: "La Candelaria",
   porQueDescubrir:
-    "El silencio total no es ausencia de contenido, es la regla del juego — cada repetición del gesto cambia mínimamente y el público tiene que decidir solo cuándo empieza a importar esa diferencia. Theaveling la eligió por confiar tanto en la atención de quien mira.",
+    "El silencio total no es ausencia de contenido, es la regla del juego. Cada repetición del gesto cambia mínimamente y el público tiene que decidir solo cuándo empieza a importar esa diferencia. Theaveling la eligió por confiar tanto en la atención de quien mira.",
   ficha: {
     presentaciones: "Temporada corta, 8 funciones",
     festivales: "no aplica",
@@ -6603,7 +6614,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro experimental",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Pedimos que no se rían de los nervios en los primeros minutos — el silencio incomoda antes de empezar a decir algo.",
+      "Pedimos que no se rían de los nervios en los primeros minutos: el silencio incomoda antes de empezar a decir algo.",
   },
   resenas: [
     {
@@ -6628,7 +6639,7 @@ export const experiences: Experience[] = [
       nombre: "Diego F.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Materia y memoria — mismo tipo de silencio que dice más que cualquier parlamento.",
+      texto: "Si te gustó esto, también me gustó Materia y memoria: mismo tipo de silencio que dice más que cualquier parlamento.",
     },
   ],
 },
@@ -6639,7 +6650,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Reconstrucción escénica de una central telefónica de los años 20, contada desde las operadoras que la hacían funcionar — un oficio femenino invisible que sostenía toda la comunicación de la ciudad.",
+    "Reconstrucción escénica de una central telefónica de los años 20, contada desde las operadoras que la hacían funcionar: un oficio femenino invisible que sostenía toda la comunicación de la ciudad.",
   venue: "Teatro El Telégrafo",
   city: "Bogotá",
   date: "Domingo 8 nov · 17:00",
@@ -6653,7 +6664,7 @@ export const experiences: Experience[] = [
   restriccionEdad: "Todo público.",
   direccionCompleta: "Carrera 7 #14-22, Bogotá",
   curiosidadDelLugar:
-    "El teatro conserva una central telefónica antigua real, donada por un coleccionista — la compañía la restauró para poder usarla en escena en vez de construir una réplica.",
+    "El teatro conserva una central telefónica antigua real, donada por un coleccionista: la compañía la restauró para poder usarla en escena en vez de construir una réplica.",
   contextoBarrio:
     "Zona institucional del centro, con edificios históricos y tránsito peatonal constante de día.",
   venueCategoria: "Sala de teatro de época reconvertida",
@@ -6672,7 +6683,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro documental",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Aprendimos a operar esa central de verdad — no es utilería, cada conexión que se ve en escena pasa de verdad por esos cables.",
+      "Aprendimos a operar esa central de verdad: no es utilería, cada conexión que se ve en escena pasa de verdad por esos cables.",
   },
   resenas: [
     {
@@ -6697,7 +6708,7 @@ export const experiences: Experience[] = [
       nombre: "Camilo S.",
       rating: "★ 9.2",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Dramaturgias Nómadas — mismo cuidado por integrar un espacio real a la historia que cuenta.",
+      texto: "Si te gustó esto, también me gustó Dramaturgias Nómadas: mismo cuidado por integrar un espacio real a la historia que cuenta.",
     },
   ],
 },
@@ -6708,7 +6719,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Teatro inmersivo montado dentro de un bar real: el público se sienta entre las mesas mientras la trama pasa a su alrededor — una partida de cartas en una esquina, un cantante bajo un foco en la otra, todo al mismo tiempo.",
+    "Teatro inmersivo montado dentro de un bar real: el público se sienta entre las mesas mientras la trama pasa a su alrededor, una partida de cartas en una esquina, un cantante bajo un foco en la otra, todo al mismo tiempo.",
   venue: "Bar La Escondida",
   city: "Bogotá",
   date: "Viernes 13 nov · 21:00",
@@ -6718,11 +6729,11 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-cabaret-de-barrio.jpg",
   asientoAsignado: false,
-  duracion: "90 minutos — el público se mueve libremente entre las mesas.",
-  restriccionEdad: "+18 años — funciona como bar real, con barra abierta durante la función.",
+  duracion: "90 minutos: el público se mueve libremente entre las mesas.",
+  restriccionEdad: "+18 años: funciona como bar real, con barra abierta durante la función.",
   direccionCompleta: "Carrera 5 #26-40, Bogotá",
   curiosidadDelLugar:
-    "El bar sigue abierto al público normal las demás noches de la semana — los actores conocen a los clientes habituales y a veces los suman a la trama sin que se den cuenta al principio.",
+    "El bar sigue abierto al público normal las demás noches de la semana: los actores conocen a los clientes habituales y a veces los suman a la trama sin que se den cuenta al principio.",
   contextoBarrio:
     "Zona de bares y restaurantes con ambiente nocturno activo entre semana.",
   venueCategoria: "Bar reconvertido en teatro inmersivo",
@@ -6741,7 +6752,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro inmersivo",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Si te sientas en la barra en vez de en una mesa, te vas a perder la mitad de la trama — y está bien, nadie ve la misma función dos veces.",
+      "Si te sientas en la barra en vez de en una mesa, te vas a perder la mitad de la trama: y está bien, nadie ve la misma función dos veces.",
   },
   resenas: [
     {
@@ -6754,7 +6765,7 @@ export const experiences: Experience[] = [
       nombre: "Sebastián H.",
       rating: "★ 8.9",
       fecha: "Hace 3 semanas",
-      texto: "Fui con amigos y cada uno vio una escena distinta primero — comparamos notas después en la calle.",
+      texto: "Fui con amigos y cada uno vio una escena distinta primero: comparamos notas después en la calle.",
     },
     {
       nombre: "Laura C.",
@@ -6766,7 +6777,7 @@ export const experiences: Experience[] = [
       nombre: "Felipe D.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Función de Esquina: Teatro de Barrio — mismo espíritu de mezclar función real de bar con la obra.",
+      texto: "Si te gustó esto, también me gustó Función de Esquina: Teatro de Barrio: mismo espíritu de mezclar función real de bar con la obra.",
     },
   ],
 },
@@ -6777,7 +6788,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Un actor solo, encerrado en una estructura de barras hechas a mano y bañada en luz roja, repite el mismo intento de salir durante toda la función — sin lograrlo nunca del todo.",
+    "Un actor solo, encerrado en una estructura de barras hechas a mano y bañada en luz roja, repite el mismo intento de salir durante toda la función, sin lograrlo nunca del todo.",
   venue: "Estudio 9",
   city: "Bogotá",
   date: "Miércoles 18 nov · 20:00",
@@ -6788,16 +6799,16 @@ export const experiences: Experience[] = [
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-jaula-de-luz-roja.jpg",
   asientoAsignado: false,
   duracion: "50 minutos.",
-  restriccionEdad: "+14 años — imágenes intensas de encierro.",
+  restriccionEdad: "+14 años: imágenes intensas de encierro.",
   direccionCompleta: "Calle 65 #11-08, Bogotá",
   curiosidadDelLugar:
-    "La jaula está armada con varillas atadas a mano, no soldadas — el actor participó en su construcción y la arma de nuevo antes de cada función como parte de su propio calentamiento.",
+    "La jaula está armada con varillas atadas a mano, no soldadas: el actor participó en su construcción y la arma de nuevo antes de cada función como parte de su propio calentamiento.",
   contextoBarrio:
     "Zona residencial tranquila con estudios de danza y teatro pequeños repartidos entre casas.",
   venueCategoria: "Estudio de teatro físico",
   venueBarrio: "Chapinero Alto",
   porQueDescubrir:
-    "No hay clímax de escape ni resolución — la pieza se sostiene en el esfuerzo repetido, no en el resultado. Theaveling la eligió por esa honestidad incómoda de mostrar el intento sin premiarlo con un final feliz.",
+    "No hay clímax de escape ni resolución: la pieza se sostiene en el esfuerzo repetido, no en el resultado. Theaveling la eligió por esa honestidad incómoda de mostrar el intento sin premiarlo con un final feliz.",
   ficha: {
     presentaciones: "Función quincenal desde 2025",
     festivales: "no aplica",
@@ -6810,14 +6821,14 @@ export const experiences: Experience[] = [
     categoria: "Actor de teatro físico",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "Termino la función con las manos marcadas por las varillas — no es maquillaje, es el esfuerzo real de 50 minutos.",
+      "Termino la función con las manos marcadas por las varillas: no es maquillaje, es el esfuerzo real de 50 minutos.",
   },
   resenas: [
     {
       nombre: "Andrea L.",
       rating: "★ 9.0",
       fecha: "Hace 5 días",
-      texto: "Muy físico, se nota el esfuerzo real del actor — incomoda de ver en el buen sentido.",
+      texto: "Muy físico, se nota el esfuerzo real del actor: incomoda de ver en el buen sentido.",
     },
     {
       nombre: "Mauricio T.",
@@ -6835,7 +6846,7 @@ export const experiences: Experience[] = [
       nombre: "Nicolás F.",
       rating: "★ 9.1",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Cuerpos en Tránsito — mismo nivel de exigencia física puesta al servicio de la idea.",
+      texto: "Si te gustó esto, también me gustó Cuerpos en Tránsito: mismo nivel de exigencia física puesta al servicio de la idea.",
     },
   ],
 },
@@ -6846,7 +6857,7 @@ export const experiences: Experience[] = [
   category: "Teatro",
   ocultoEnCategoria: true,
   description:
-    "Un ensamble vestido de gala oscura recrea una ceremonia de aquelarre en una casona antigua — vestuario ornamentado, gestos lentos y una figura central que dirige el ritual sin decir una sola palabra.",
+    "Un ensamble vestido de gala oscura recrea una ceremonia de aquelarre en una casona antigua: vestuario ornamentado, gestos lentos y una figura central que dirige el ritual sin decir una sola palabra.",
   venue: "Casa Oscura",
   city: "Bogotá",
   date: "Sábado 21 nov · 22:00",
@@ -6857,16 +6868,16 @@ export const experiences: Experience[] = [
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/teatro-aquelarre.jpg",
   asientoAsignado: false,
   duracion: "70 minutos.",
-  restriccionEdad: "+18 años — estética oscura, temas de ritual y ocultismo.",
+  restriccionEdad: "+18 años: estética oscura, temas de ritual y ocultismo.",
   direccionCompleta: "Calle 10 #3-22, Bogotá",
   curiosidadDelLugar:
-    "La casona tiene más de 100 años y varios vecinos aseguran que ya tenía fama de \"casa embrujada\" antes de que la compañía la alquilara — la producción decidió no desmentirlo.",
+    "La casona tiene más de 100 años y varios vecinos aseguran que ya tenía fama de \"casa embrujada\" antes de que la compañía la alquilara: la producción decidió no desmentirlo.",
   contextoBarrio:
     "Casas coloniales del centro histórico, algunas convertidas en espacios culturales nocturnos.",
   venueCategoria: "Casona reconvertida en sala ritual",
   venueBarrio: "La Candelaria",
   porQueDescubrir:
-    "El vestuario y la puesta en escena están más cerca de una sesión de fotos editorial que de un montaje de teatro convencional — Theaveling la eligió por ese nivel de producción visual aplicado a algo que se puede ver en vivo, no solo en una revista.",
+    "El vestuario y la puesta en escena están más cerca de una sesión de fotos editorial que de un montaje de teatro convencional. Theaveling la eligió por ese nivel de producción visual aplicado a algo que se puede ver en vivo, no solo en una revista.",
   ficha: {
     presentaciones: "Función mensual desde 2025",
     festivales: "no aplica",
@@ -6879,7 +6890,7 @@ export const experiences: Experience[] = [
     categoria: "Compañía de teatro ritual",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "El vestuario pesa más de lo que parece — cada ensayo es también un entrenamiento de resistencia física.",
+      "El vestuario pesa más de lo que parece: cada ensayo es también un entrenamiento de resistencia física.",
   },
   resenas: [
     {
@@ -6904,7 +6915,7 @@ export const experiences: Experience[] = [
       nombre: "Santiago R.",
       rating: "★ 8.9",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó La que Grita en Rojo — mismo gusto por lo visualmente intenso sin necesitar palabras.",
+      texto: "Si te gustó esto, también me gustó La que Grita en Rojo: mismo gusto por lo visualmente intenso sin necesitar palabras.",
     },
   ],
 },
@@ -6915,7 +6926,7 @@ export const experiences: Experience[] = [
   category: "Música",
   ocultoEnCategoria: true,
   description:
-    "Un dúo electrónico toca en vivo dentro de un galpón industrial, rodeado del equipo completo de una banda que no está tocando esa noche — y una pintora trabaja en un lienzo al lado del escenario, en tiempo real, sin que nadie la presente.",
+    "Un dúo electrónico toca en vivo dentro de un galpón industrial, rodeado del equipo completo de una banda que no está tocando esa noche, y una pintora trabaja en un lienzo al lado del escenario, en tiempo real, sin que nadie la presente.",
   venue: "Galpón Turbina",
   city: "Bogotá",
   date: "Viernes 4 dic · 21:00",
@@ -6925,17 +6936,17 @@ export const experiences: Experience[] = [
   imageUrl:
     "/assets/images/imagenes%20aleatorias%20para%20ver%20mas/musica-consola-en-la-fabrica.jpg",
   asientoAsignado: false,
-  duracion: "3 horas — set continuo, sin cortes entre artistas.",
+  duracion: "3 horas: set continuo, sin cortes entre artistas.",
   restriccionEdad: "+18 años.",
   direccionCompleta: "Carrera 42 #16-30, Bogotá",
   curiosidadDelLugar:
-    "El galpón fue una fábrica de turbinas hasta los 90 — las ventanas industriales originales siguen ahí, y de noche dejan pasar apenas la luz de la calle sobre el escenario.",
+    "El galpón fue una fábrica de turbinas hasta los 90: las ventanas industriales originales siguen ahí, y de noche dejan pasar apenas la luz de la calle sobre el escenario.",
   contextoBarrio:
     "Zona industrial con varias bodegas convertidas en espacios de música electrónica los fines de semana.",
   venueCategoria: "Galpón industrial reconvertido en sala de conciertos",
   venueBarrio: "Puente Aranda",
   porQueDescubrir:
-    "Nadie anuncia a la pintora ni explica por qué está ahí — simplemente trabaja mientras suena la música, y el lienzo terminado se sube a redes al final de la noche. Theaveling la eligió por sumar ese gesto extra sin convertirlo en el centro de la noche.",
+    "Nadie anuncia a la pintora ni explica por qué está ahí: simplemente trabaja mientras suena la música, y el lienzo terminado se sube a redes al final de la noche. Theaveling la eligió por sumar ese gesto extra sin convertirlo en el centro de la noche.",
   ficha: {
     presentaciones: "Evento mensual desde 2024",
     festivales: "no aplica",
@@ -6948,7 +6959,7 @@ export const experiences: Experience[] = [
     categoria: "Dúo de música electrónica",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No tocamos con set list fijo — decidimos en vivo según cómo responde la sala esa noche.",
+      "No tocamos con set list fijo: decidimos en vivo según cómo responde la sala esa noche.",
   },
   resenas: [
     {
@@ -6973,7 +6984,7 @@ export const experiences: Experience[] = [
       nombre: "Andrés P.",
       rating: "★ 9.0",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo — mismo tipo de set electroacústico pensado como experiencia completa.",
+      texto: "Si te gustó esto, también me gustó Trance: Ritual Sonoro Colectivo: mismo tipo de set electroacústico pensado como experiencia completa.",
     },
   ],
 },
@@ -6998,13 +7009,13 @@ export const experiences: Experience[] = [
   restriccionEdad: "+18 años.",
   direccionCompleta: "Calle 8 Sur #38-14, Bogotá",
   curiosidadDelLugar:
-    "El patio funcionaba como bodega de reciclaje antes de la primera fiesta — la reja que le da nombre al lugar es la misma que separaba el material clasificado, nunca se quitó.",
+    "El patio funcionaba como bodega de reciclaje antes de la primera fiesta: la reja que le da nombre al lugar es la misma que separaba el material clasificado, nunca se quitó.",
   contextoBarrio:
     "Zona industrial con poca vida nocturna oficial, la fiesta corre casi de boca en boca.",
   venueCategoria: "Fiesta electrónica en espacio industrial abierto",
   venueBarrio: "Puente Aranda",
   porQueDescubrir:
-    "No hay producción de luces sofisticada ni escenario elevado — el DJ toca al mismo nivel que la gente que baila, pegado a una reja que ni siquiera se molestaron en pintar de otro color. Theaveling la eligió por esa crudeza real, sin intento de parecer más grande de lo que es.",
+    "No hay producción de luces sofisticada ni escenario elevado: el DJ toca al mismo nivel que la gente que baila, pegado a una reja que ni siquiera se molestaron en pintar de otro color. Theaveling la eligió por esa crudeza real, sin intento de parecer más grande de lo que es.",
   ficha: {
     presentaciones: "Edición bimensual desde 2024",
     festivales: "no aplica",
@@ -7017,7 +7028,7 @@ export const experiences: Experience[] = [
     categoria: "Colectivo de fiestas electrónicas",
     ciudad: "Bogotá, Colombia",
     saludo:
-      "No queremos crecer más de lo que este patio aguanta — si se llena, se llena, no metemos gente de más.",
+      "No queremos crecer más de lo que este patio aguanta: si se llena, se llena, no metemos gente de más.",
   },
   resenas: [
     {
@@ -7042,7 +7053,7 @@ export const experiences: Experience[] = [
       nombre: "Manuela V.",
       rating: "★ 8.7",
       fecha: "Hace 2 meses",
-      texto: "Si te gustó esto, también me gustó El Galpón Electrónico — mismo gusto por hacer fiesta en espacios que no fueron pensados para eso.",
+      texto: "Si te gustó esto, también me gustó El Galpón Electrónico: mismo gusto por hacer fiesta en espacios que no fueron pensados para eso.",
     },
   ],
 },

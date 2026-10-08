@@ -264,9 +264,9 @@ export default function LocationSheet({
                   {geoEstado === "buscando"
                     ? "Confirmando tu ciudad..."
                     : geoEstado === "sin-permiso"
-                      ? "No se pudo confirmar — Bogotá por defecto"
+                      ? "No se pudo confirmar: Bogotá por defecto"
                       : geoEstado === "fuera-de-cobertura"
-                        ? `Todavía no operamos donde estás — Bogotá${geoOrigenIntento === "ip" ? " (aproximada)" : ""} por defecto`
+                        ? `Todavía no operamos donde estás: Bogotá${geoOrigenIntento === "ip" ? " (aproximada)" : ""} por defecto`
                         : ciudad
                           ? `${ciudad}, Colombia${origen === "ip" ? " (aproximada)" : ""}`
                           : "Bogotá, Colombia"}
@@ -382,7 +382,7 @@ export default function LocationSheet({
                 Todavía no llegamos a "{query}"
               </p>
               <p className="font-body text-[13px] text-white-40 max-w-[260px]">
-                Theaveling por ahora solo opera en Bogotá — vamos sumando
+                Theaveling por ahora solo opera en Bogotá. Vamos sumando
                 ciudades de a poco.
               </p>
             </div>

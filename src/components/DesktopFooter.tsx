@@ -61,6 +61,33 @@ import Wordmark from "./Wordmark";
  * ninguna línea divisoria. El ancho de página (`max-w-[1440px]` +
  * padding) se mueve a un `<div>` interno para que el color de fondo siga
  * ocupando todo el ancho de la pantalla.
+ *
+ * 2026-10-08, a pedido de Ana (charlando sobre Airbnb vs. Fever: por qué
+ * uno integra "Modo Anfitrión" en el mismo menú y el otro lo separa por
+ * completo): Theaveling queda del lado de Fever, no de Airbnb — la
+ * propuesta de "curado" implica que el equipo selecciona cada
+ * experiencia, no es alta libre tipo marketplace. Eso significa que el
+ * punto de entrada de un organizador NO puede vivir en la navbar (le
+ * mandaría al consumidor la señal equivocada de "cualquiera publica
+ * acá") — va acá, como una 3ra columna de BAJA jerarquía más, mismo
+ * criterio que ya rige este footer (solo lo que Theaveling tiene de
+ * verdad hoy, nada de negocio inventado) — ahora que SÍ hay una decisión
+ * de negocio real detrás, esta columna deja de ser "negocio inventado" y
+ * pasa a ser contenido real. Un solo link ("Postula acá" → `/postula`,
+ * ver Postular.tsx para el formulario completo y el copy que explica que
+ * es una postulación con revisión, no un alta instantánea).
+ *
+ * 2026-10-08, corrección a pedido de Ana ("no lo pongas en argentino
+ * acento, neutral"): título de columna y link habían quedado en voseo
+ * ("¿Tenés...", "Postulá acá") — pasan a tuteo neutro ("¿Tienes...",
+ * "Postula acá"), mismo criterio que el resto del footer (ninguna otra
+ * columna usa voseo).
+ *
+ * 2026-10-08 (segunda vuelta), a pedido de Ana ("en vez de experiencia
+ * por descubrimiento"): mismo cambio de término que Postular.tsx —
+ * "experiencia" es el contenido ya curado, "descubrimiento" es más
+ * preciso para algo que todavía no pasó la curaduría (y hace eco del
+ * verbo "Descubrir" que ya usa el resto de la app).
  */
 function ColumnaFooter({
   titulo,
@@ -116,6 +143,12 @@ export default function DesktopFooter() {
               </Link>
               <Link to="/cookies" className={linkClass}>
                 Gestión de cookies
+              </Link>
+            </ColumnaFooter>
+
+            <ColumnaFooter titulo="¿Tienes un descubrimiento?">
+              <Link to="/postula" className={linkClass}>
+                Postula acá
               </Link>
             </ColumnaFooter>
           </div>

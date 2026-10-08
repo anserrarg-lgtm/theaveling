@@ -136,7 +136,7 @@ export default function Perfil() {
   }, [moneda]);
 
   const idiomaLabel = IDIOMAS.find((i) => i.value === idioma)?.label ?? "Español";
-  const monedaLabel = MONEDAS.find((m) => m.value === moneda)?.label.split(" — ")[0] ?? "COP $";
+  const monedaLabel = MONEDAS.find((m) => m.value === moneda)?.label.split(": ")[0] ?? "COP $";
 
   const experienciasFavoritas = favoritos
     .map((id) => getExperienceById(id))
@@ -286,7 +286,7 @@ export default function Perfil() {
         </h2>
         {experienciasFavoritas.length === 0 ? (
           <p className="text-[13px] text-white-60 px-5">
-            Todavía no marcaste ninguna experiencia como favorita — toca
+            Todavía no marcaste ninguna experiencia como favorita. Toca
             el corazón de cualquier pieza para guardarla aquí.
           </p>
         ) : (

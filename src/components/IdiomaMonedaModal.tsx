@@ -223,7 +223,7 @@ export default function IdiomaMonedaModal({
               <div className="grid grid-cols-3 gap-3">
                 {MONEDAS.map((opt) => {
                   const activo = opt.value === moneda;
-                  const [codigoYSimbolo, nombre] = opt.label.split(" — ");
+                  const [codigoYSimbolo, nombre] = opt.label.split(": ");
                   return (
                     <button
                       key={opt.value}

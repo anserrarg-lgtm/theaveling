@@ -50,7 +50,7 @@ export default function Legal() {
           Todavía estamos redactando esta sección
         </p>
         <p className="max-w-[420px] font-body text-sm text-white-60">
-          Theaveling es un proyecto en construcción — el contenido legal
+          Theaveling es un proyecto en construcción. El contenido legal
           real todavía no está listo. Volvé a mirar más adelante.
         </p>
         <Link

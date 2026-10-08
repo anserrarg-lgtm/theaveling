@@ -200,7 +200,7 @@ export default function LoginSheet({
           </div>
 
           <p className="font-body text-xs text-green-50 text-center pt-1">
-            Esta es una demo — no se crea ninguna cuenta real ni se guarda
+            Esta es una demo: no se crea ninguna cuenta real ni se guarda
             tu correo en ningún servidor.
           </p>
         </div>

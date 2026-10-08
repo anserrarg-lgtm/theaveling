@@ -14,6 +14,14 @@ import { IconCompass, IconTicket, IconUser } from "./icons";
  * 2026-09-02: valor registrado como token `thea-deep` en index.css (antes
  * repetido "a mano" acá y en MobileTopBar.tsx/CategoryTabs.tsx).
  *
+ * 2026-10-07, a pedido de Ana ("el color del header y nav en mobile...
+ * ahora creo q estan en 95 lo quiero al 100"): la variante "dark" pasa de
+ * `bg-thea-deep` (95% opaco) a `bg-[rgb(1,20,20)]` sólido. La variante
+ * "light" (`bg-white-100`, usada solo en Perfil) no se toca. El TOKEN
+ * `thea-deep` tampoco se toca en index.css (sigue al 95% para sus otros
+ * usos reales) — mismo cambio en paralelo en MobileTopBar.tsx y
+ * CategoryTabs.tsx.
+ *
  * 2026-09-03: variante "light" agregada — el nodo real de Perfil en
  * Figma (`1557:460`, traído vía get_design_context) usa esta misma nav
  * pero en versión clara (fondo off-white, íconos/labels en thea-green al
@@ -38,7 +46,7 @@ export default function MobileBottomNav({
   return (
     <nav
       className={`h-[72px] flex items-center justify-center ${
-        isLight ? "bg-white-100" : "bg-thea-deep"
+        isLight ? "bg-white-100" : "bg-[rgb(1,20,20)]"
       }`}
     >
       {TABS.map((tab) => {

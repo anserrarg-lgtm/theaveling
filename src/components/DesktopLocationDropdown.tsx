@@ -59,6 +59,15 @@ import { useCiudad, type OrigenCiudad } from "../context/CiudadContext";
  * finitos entre filas de la lista (Recientes/Sugeridas) no son el
  * "stroke" del que habla Ana — son separadores internos de lista, no el
  * borde del panel — se dejan como están.
+ *
+ * Sin barra de scroll visible — 2026-10-07, a pedido de Ana ("no se
+ * puede hacer scroll sin que se vea esa barra que es fea"): la lista
+ * (Recientes/Ciudades sugeridas) sigue scrolleando igual, solo se oculta
+ * la barra visual con la utilidad `scrollbar-none` ya definida en
+ * index.css (mismo criterio que los rieles horizontales de
+ * Descubrir.tsx). Mismo problema en los 3 bloques con scroll de
+ * `DesktopSearchDropdown.tsx` (Tendencias/Resultados/sin-resultados) —
+ * se corrige ahí también.
  */
 
 const CIUDADES_SUGERIDAS: Record<Region, string[]> = {
@@ -90,6 +99,10 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
   >("idle");
   const [geoOrigenIntento, setGeoOrigenIntento] = useState<OrigenCiudad | undefined>(undefined);
   const recientesRef = useRef<HTMLDivElement>(null);
+  // 2026-10-07, corrección a pedido de Ana (ver la nota grande de abajo,
+  // "Cerrar al tocar afuera"): ref del panel, usado por el listener de
+  // clic-afuera para saber si el clic cayó DENTRO de este panel o no.
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     try {
@@ -131,18 +144,37 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
     }
   }
 
-  return (
-    <>
-      {/* Fondo invisible — cierra al tocar afuera, mismo patrón que
-          DesktopSearchDropdown.tsx (dropdown liviano, sin oscurecer la
-          pantalla). */}
-      <button
-        aria-label="Cerrar selector de ciudad"
-        onClick={onClose}
-        className="fixed inset-0 z-40"
-      />
+  // Cerrar al tocar afuera — 2026-10-07, corrección a pedido de Ana: "le
+  // doy al panel de ubicación y después le doy al panel de búsqueda...
+  // se cierra el de ubicación, pero le tengo que dar otro clic más...
+  // necesito que sea instantáneo". Antes esto se resolvía con un
+  // `<button>` invisible `fixed inset-0 z-40` que cubría TODA la
+  // pantalla (ver la nota vieja que describía este mismo patrón) — eso
+  // sí cerraba el panel, pero por estar encima de todo también se comía
+  // el clic antes de que le llegara al ícono de Búsqueda/Usuario de al
+  // lado, así que ese primer clic solo cerraba, sin abrir el otro panel
+  // (de ahí el "doble clic"). Se reemplaza por un listener de
+  // `mousedown` en `document` que compara contra `panelRef`: si el clic
+  // cae afuera del panel, cierra — pero al no ser un elemento físico
+  // tapando la pantalla, no bloquea que ESE MISMO clic le siga llegando
+  // también al botón que se haya tocado (otro ícono de la navbar), que
+  // dispara su propio `onClick` normalmente. Mismo criterio aplicado en
+  // DesktopSearchDropdown.tsx/DesktopPerfilDropdown.tsx.
+  useEffect(() => {
+    function handlePointerDown(e: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [onClose]);
 
-      <div className="desktop-panel-slide-left absolute left-0 top-[calc(100%+12px)] z-50 flex w-[400px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl">
+  return (
+    <div
+      ref={panelRef}
+      className="desktop-panel-slide-left absolute left-0 top-[calc(100%+12px)] z-50 flex w-[400px] flex-col gap-3 rounded-2xl bg-thea-green p-4 shadow-2xl"
+    >
         <div className="flex items-center justify-between">
           <h2 className="font-body font-semibold text-sm text-white-100">Elegir ciudad</h2>
           <button
@@ -165,7 +197,7 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
           />
         </label>
 
-        <div className="flex max-h-[380px] flex-col overflow-y-auto">
+        <div className="flex max-h-[380px] flex-col overflow-y-auto scrollbar-none">
           <div className="flex items-center gap-2 py-1">
             <button
               onClick={usarMiUbicacion}
@@ -183,15 +215,24 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
                   {geoEstado === "buscando"
                     ? "Confirmando tu ciudad..."
                     : geoEstado === "sin-permiso"
-                      ? "No se pudo confirmar — Bogotá por defecto"
+                      ? "No se pudo confirmar: Bogotá por defecto"
                       : geoEstado === "fuera-de-cobertura"
-                        ? `Todavía no operamos donde estás — Bogotá${geoOrigenIntento === "ip" ? " (aproximada)" : ""} por defecto`
+                        ? `Todavía no operamos donde estás: Bogotá${geoOrigenIntento === "ip" ? " (aproximada)" : ""} por defecto`
                         : ciudad
                           ? `${ciudad}, Colombia${origen === "ip" ? " (aproximada)" : ""}`
                           : "Bogotá, Colombia"}
                 </span>
               </span>
             </button>
+            {/* 2026-10-08, a pedido de Ana ("el recientes dentro de
+                ubicacion esta en pildora, no es asi"): mismo arreglo que
+                ya se hizo en el botón "Categorías"/"Bogotá" de
+                DesktopNavbar.tsx — `rounded-full` (píldora) pasa a
+                `rounded-lg` (rectangular con esquinas redondeadas), mismo
+                criterio en toda la app. Los círculos de ícono (h-9 w-9
+                rounded-full de acá abajo, "Ciudad actual"/cada fila de la
+                lista) NO son este caso — son contenedores circulares de
+                ícono, no píldoras de texto, y se quedan igual. */}
             {recientes.length > 0 && (
               <button
                 onClick={() =>
@@ -200,7 +241,7 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
                     block: "start",
                   })
                 }
-                className="flex items-center gap-2 h-9 rounded-full bg-white-8 pl-3 pr-4 shrink-0"
+                className="flex items-center gap-2 h-9 rounded-lg bg-white-8 pl-3 pr-4 shrink-0"
               >
                 <IconClock className="w-4 h-4 text-white-60" />
                 <span className="font-body text-[13px] font-medium text-white-100 whitespace-nowrap">
@@ -280,13 +321,12 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
                 Todavía no llegamos a "{query}"
               </p>
               <p className="font-body text-[13px] text-white-40 max-w-[260px]">
-                Theaveling por ahora solo opera en Bogotá — vamos sumando
+                Theaveling por ahora solo opera en Bogotá. Vamos sumando
                 ciudades de a poco.
               </p>
             </div>
           )}
         </div>
-      </div>
-    </>
+    </div>
   );
 }

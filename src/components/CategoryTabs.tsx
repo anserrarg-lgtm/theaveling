@@ -19,6 +19,14 @@
  *
  * 2026-09-02: valor registrado como token `thea-deep` en index.css (antes
  * repetido "a mano" acá y en MobileTopBar.tsx/MobileBottomNav.tsx).
+ *
+ * 2026-10-07, a pedido de Ana ("el color del header y nav en mobile...
+ * ahora creo q estan en 95 lo quiero al 100"): pasa de `bg-thea-deep`
+ * (95% opaco) a `bg-[rgb(1,20,20)]` sólido. El TOKEN `thea-deep` no se
+ * toca en index.css (sigue usándose al 95% en hojas/badges flotantes
+ * sobre foto) — mismo cambio en paralelo en MobileTopBar.tsx y en la
+ * variante oscura de MobileBottomNav.tsx, mismo patrón ya usado en
+ * Perfil.tsx/DatosDeCuenta.tsx/Busqueda.tsx para pantallas sin foto debajo.
  */
 
 const TABS = ["Todo", "Escena", "Cultura"] as const;
@@ -32,7 +40,7 @@ export default function CategoryTabs({
   onChange: (tab: CategoryTab) => void;
 }) {
   return (
-    <nav className="h-10 flex items-center justify-center gap-8 px-5 pt-3 bg-thea-deep">
+    <nav className="h-10 flex items-center justify-center gap-8 px-5 pt-3 bg-[rgb(1,20,20)]">
       {TABS.map((tab) => {
         const isActive = tab === active;
         return (

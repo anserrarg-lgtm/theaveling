@@ -13,6 +13,16 @@ import { IconMapPin, IconSearch } from "./icons";
  * 2026-09-02: valor registrado como token `thea-deep` en index.css (antes
  * repetido "a mano" acá y en CategoryTabs.tsx/MobileBottomNav.tsx).
  *
+ * 2026-10-07, a pedido de Ana ("el color del header y nav en mobile...
+ * ahora creo q estan en 95 lo quiero al 100"): este Top Bar pasa de
+ * `bg-thea-deep` (rgb(1,20,20) al 95%) a `bg-[rgb(1,20,20)]` sólido. El
+ * TOKEN `thea-deep` no se tocó en index.css — sigue al 95% para sus otros
+ * usos reales (hojas/bottom sheets y badges flotantes sobre foto, donde
+ * la transparencia sí hace falta). Mismo patrón ya usado en Perfil.tsx/
+ * DatosDeCuenta.tsx/Notificaciones.tsx/Busqueda.tsx/DesktopNavbar.tsx para
+ * pantallas que no van sobre una foto. El mismo cambio se aplica en
+ * paralelo a CategoryTabs.tsx y a la variante oscura de MobileBottomNav.tsx.
+ *
  * 2026-09-04, a pedido de Ana: sacar la fila de Ubicación (ícono + "Bogotá"
  * subrayado, `LocationIndicator`) de Descubrir — "no lo quiero ahi, quiero
  * SOLO el icono al lado de la lupa, a su lado izquierdo". Ese ícono ahora
@@ -66,7 +76,7 @@ export default function MobileTopBar({
     // empuja el contenido (logo/íconos) para que siga viéndose a 56px
     // de alto de siempre, ahora debajo de la hora/batería/wifi en vez
     // de tapado por ellos.
-    <header className="h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-thea-deep">
+    <header className="h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-[rgb(1,20,20)]">
       {onWordmarkClick ? (
         <button onClick={onWordmarkClick} aria-label="Ir a Todo">
           <Wordmark />

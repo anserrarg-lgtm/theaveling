@@ -15,6 +15,7 @@ import Favoritos from "./screens/Favoritos/Favoritos";
 import Busqueda from "./screens/Busqueda/Busqueda";
 import VerMas from "./screens/VerMas/VerMas";
 import Legal from "./screens/Legal/Legal";
+import Postular from "./screens/Postular/Postular";
 import { DescubrirTabProvider } from "./context/DescubrirTabContext";
 
 /*
@@ -149,6 +150,11 @@ export const router = createBrowserRouter([
       { path: "/terminos", element: <Legal /> },
       { path: "/privacidad", element: <Legal /> },
       { path: "/cookies", element: <Legal /> },
+      // 2026-10-08, a pedido de Ana: destino de la 3ra columna nueva del
+      // footer de Desktop ("¿Tenés una experiencia?") — ver
+      // DesktopFooter.tsx/Postular.tsx para el detalle completo de por qué
+      // este link vive en el footer y no en la navbar.
+      { path: "/postula", element: <Postular /> },
     ],
   },
 ]);

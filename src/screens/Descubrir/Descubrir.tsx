@@ -471,18 +471,19 @@ export default function Descubrir() {
                       />
                     </Link>
                   ))}
-                  {/* 2026-09-08, a pedido de Ana: el "+40" de esta card
+                  {/* 2026-09-08, a pedido de Ana: el número de esta card
                       queda fijo, no es la cantidad real. El número de la
                       card no tiene por qué coincidir con cuántas
                       experiencias hay hoy en la pantalla de "Ver más" —
                       esa pantalla muestra lo que ya está en el scroll más
                       lo nuevo que se va sumando de a poco (acá, 15), sin
-                      que eso obligue a que el "+40" cambie. */}
+                      que eso obligue a que este número cambie.
+                      2026-10-07, a pedido de Ana: bajó de "+40" a "+15". */}
                   <Link to="/ver-mas/descubrimientos">
                     <VerMasCard
                       width={300}
                       height={310}
-                      count={40}
+                      count={15}
                       // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~965KB en .png).
                       imageUrl="/assets/images/ver%20mas-descubrimientos.jpg"
                     />
@@ -833,16 +834,39 @@ export default function Descubrir() {
                 </Link>
               )}
               <div className="relative">
+                {/* 2026-10-07, a pedido de Ana ("mas reservados y
+                    descubrimientos de desktop siguen siendo no
+                    clickables"): este riel vive dentro de un ancestro
+                    `relative` (necesario para anclar `RailNavButtons`) —
+                    eso hace que TODA su caja, incluido el aire invisible
+                    de `pt-[120px]/-mt-[96px]/pb-[420px]/-mb-[420px]` (el
+                    truco de espacio para el hover-expand, ver la nota
+                    grande más abajo en el riel de "Más reservados"), se
+                    pinte por encima de cualquier contenido normal que
+                    venga DESPUÉS en el HTML pero no sea también
+                    `relative`/`absolute` — esa es la regla real de CSS
+                    para capas (un elemento posicionado, aunque no tenga
+                    z-index, siempre queda por encima del contenido en
+                    flujo normal). El encabezado de la sección de ABAJO
+                    ("Más reservados") es texto normal, sin position, así
+                    que ese aire invisible de ESTE riel (que se estira
+                    730px alto) quedaba literalmente encima, robándole el
+                    clic. Se le pone `pointer-events-none` al riel (el
+                    aire invisible deja de capturar clics) y
+                    `pointer-events-auto` a cada card de adentro (siguen
+                    funcionando normal). Mismo arreglo en el riel de "Más
+                    reservados" más abajo, que le hacía lo mismo a
+                    "Descubrimientos". */}
                 <div
                   ref={railCuradoRef}
                   data-scroll-rail
-                  className="flex gap-8 overflow-x-hidden pt-[120px] -mt-[96px] pb-[420px] -mb-[420px] scrollbar-none"
+                  className="flex gap-8 overflow-x-hidden pt-[120px] -mt-[96px] pb-[420px] -mb-[420px] scrollbar-none pointer-events-none"
                 >
                   {curadoRiel.map((exp) => (
                     <Link
                       key={exp.id}
                       to={`/experiencia/${exp.id}`}
-                      className="relative h-[190px] w-[280px] shrink-0"
+                      className="relative h-[190px] w-[280px] shrink-0 pointer-events-auto"
                     >
                       <ExperienceCardCuradoGridDesktop
                         id={exp.id}
@@ -992,16 +1016,23 @@ export default function Descubrir() {
                     eso el contenido real baja a 343px, y acá el alto se
                     ajusta a esa medida — sin cortar nada, con un poco
                     menos de aire suelto abajo del precio. */}
+                {/* 2026-10-07: mismo arreglo que el riel de "Curado" de
+                    arriba (ver esa nota grande para el detalle completo)
+                    — `pointer-events-none` en el riel +
+                    `pointer-events-auto` en cada card, porque el aire
+                    invisible de este riel (al vivir en un ancestro
+                    `relative`) tapaba el clic del título de
+                    "Descubrimientos", la sección de abajo. */}
                 <div
                   ref={railMasReservadosRef}
                   data-scroll-rail
-                  className="flex gap-8 overflow-x-hidden pt-[120px] -mt-[96px] pb-[420px] -mb-[420px] scrollbar-none"
+                  className="flex gap-8 overflow-x-hidden pt-[120px] -mt-[96px] pb-[420px] -mb-[420px] scrollbar-none pointer-events-none"
                 >
                   {masReservados.map((exp) => (
                     <Link
                       key={exp.id}
                       to={`/experiencia/${exp.id}`}
-                      className="relative h-[343px] w-[280px] shrink-0"
+                      className="relative h-[343px] w-[280px] shrink-0 pointer-events-auto"
                     >
                       <ExperienceCardGridDesktop
                         id={exp.id}
