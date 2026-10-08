@@ -1021,7 +1021,30 @@ export default function DetalleExperiencia() {
               </span>
             )}
           </p>
-          <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-none">
+          {/* 2026-10-08, a pedido de Ana, tres vueltas hasta cuadrar esto:
+           * 1) Bug original: este riel vivía dentro del `px-6` (24px) del
+           *    contenedor de toda la sección (ver nota grande más arriba,
+           *    "Secciones 2-6... px-6 py-8") — eso topaba el scroll 24px
+           *    ANTES del borde real de la pantalla. Resultado (video que
+           *    mandó Ana): a la izquierda la card se cortaba justo en el
+           *    borde, pero a la derecha quedaba completa con un hueco de
+           *    fondo antes del borde real — asimétrico.
+           * 2) Primer arreglo (`-mx-6 px-6`) y luego, con el video de
+           *    referencia de otra app (tour en Bogotá), lo cambié a solo
+           *    `-mx-6` pensando que NINGÚN scroll debía tener margen, ni
+           *    el inicial.
+           * 3) Ana corrigió eso último: la card INICIAL (scroll en 0) sí
+           *    debe tener el margen normal — nada más cualquier OTRA
+           *    posición de scroll (ni bien te mueves del inicio) debe ir
+           *    borde a borde, sin margen.
+           * Arreglo final: `-mx-6 px-6` (como el intento 1, resulta que
+           * SÍ era el correcto). El padding-left solo afecta el extremo
+           * inicial del scroll (ahí vive el margen de la primera card);
+           * el padding-right solo afecta el extremo final (última card);
+           * en CUALQUIER punto intermedio no hay padding de por medio —
+           * el contenido ya tocó y pasó esos bordes, así que se corta
+           * limpio contra el borde real de la pantalla en ambos lados. */}
+          <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-none -mx-6 px-6">
             {(experiencia?.resenas ?? []).map((reseña, i) => (
               <div
                 key={`${reseña.nombre}-${i}`}
@@ -1340,7 +1363,13 @@ export default function DetalleExperiencia() {
           <h2 className="font-display text-2xl text-white-100">
             Contenido similar
           </h2>
-          <div className="flex gap-4 overflow-x-auto scrollbar-none">
+          {/* 2026-10-08, a pedido de Ana — mismo arreglo que el riel de
+           * "Comunidad" más arriba en este archivo (ver esa nota grande,
+           * con las tres vueltas hasta cuadrarlo): `-mx-6 px-6`. La card
+           * INICIAL (scroll en 0) sí tiene el margen normal a la
+           * izquierda — cualquier OTRA posición de scroll, apenas te
+           * mueves del inicio, va borde a borde sin margen. */}
+          <div className="flex gap-4 overflow-x-auto scrollbar-none -mx-6 px-6">
             {id &&
               getRelatedExperiences(id, 4).map((relacionada) => (
                 <Link key={relacionada.id} to={`/experiencia/${relacionada.id}`}>
