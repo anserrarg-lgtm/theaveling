@@ -192,8 +192,11 @@ export default function Bienvenida({ onContinuar }: { onContinuar: () => void })
   const irAlSiguienteMensaje = () =>
     setSlideIndice((i) => Math.min(i + 1, SLIDES.length - 1));
 
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota completa junto al
+  // wrapper principal de DetalleExperiencia.tsx.
   return (
-    <div className="fixed inset-0 overflow-hidden bg-thea-green">
+    <div className="fixed inset-0 overflow-hidden bg-[rgb(1,20,20)]">
       <img
         src={splashBg}
         alt=""

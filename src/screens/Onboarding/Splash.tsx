@@ -70,8 +70,11 @@ export default function Splash({ onFinish }: { onFinish: () => void }) {
     return () => clearTimeout(timeout);
   }, [onFinish]);
 
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota completa junto al
+  // wrapper principal de DetalleExperiencia.tsx.
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-thea-green overflow-hidden">
+    <div className="fixed inset-0 flex items-center justify-center bg-[rgb(1,20,20)] overflow-hidden">
       <img
         src={splashBg}
         alt=""

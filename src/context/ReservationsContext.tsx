@@ -33,9 +33,22 @@ import {
  * (`generarId()`, ver abajo — se arma acá adentro, quien llama a
  * `agregarReserva` sigue pasando lo mismo de siempre, sin el id) y
  * `cancelarReserva`/la `key` de la lista usan ESE id, no el de la
- * experiencia. `normalizarReserva` le da un id de respaldo a cualquier
- * reserva que ya estuviera guardada en localStorage de antes de este
- * cambio, para no romper una sesión de prueba vieja.
+ * experiencia.
+ *
+ * 2026-10-08, a pedido de Ana ("quiero que sea lo más fiel a la
+ * realidad... si no hiciste ninguna reserva, no va a aparecer ninguna
+ * reserva") — se revierte el criterio de arriba: `normalizarReserva`
+ * YA NO le inventa un id de respaldo a una reserva sin `id`, la
+ * descarta. Esas reservas sin `id` son justo las de ANTES de este
+ * archivo (las 4 de ejemplo fijas, `RESERVAS_INICIALES`, alguna
+ * "pasada" incluida) — si en algún momento terminaron guardadas en el
+ * `localStorage` de alguien (quedan entre recargas/reinicios), antes se
+ * "adoptaban" con un id nuevo y reaparecían solas, aunque esa persona no
+ * hubiera reservado nada en la app actual. Eso fue justo el bug real
+ * que reportó Ana: una reserva "pasada" fantasma en su pantalla, sin
+ * haber tocado nada. Ahora cualquier entrada sin `id` se tira — solo
+ * sobreviven reservas creadas de verdad por `agregarReserva` (que
+ * siempre pone `id`, ver más abajo).
  */
 
 export type EstadoReserva = "proxima" | "pasada";
@@ -71,18 +84,32 @@ function generarId(): string {
   }
 }
 
-// Reservas guardadas ANTES de este cambio no tienen `id` — se les asigna
-// uno de respaldo al leerlas, así una sesión de prueba vieja sigue
-// andando (cancelar y la key de React quedan con un id nuevo en vez de
-// quedar sin ninguno).
-function normalizarReserva(r: unknown, indice: number): Reserva | null {
+// 2026-10-08, a pedido de Ana ("quiero que sea lo más fiel a la
+// realidad... si no hiciste ninguna reserva, no va a aparecer ninguna
+// reserva"): hasta hoy, una reserva sin `id` (guardada en localStorage
+// ANTES de que `id` existiera como campo — ver fecha de arriba) se
+// conservaba igual, con un id de respaldo inventado acá mismo. Eso es
+// justo lo que causó el bug que reportó: en su navegador quedaban
+// reservas viejas (de antes de este cambio, de cuando Reservas.tsx
+// mostraba `RESERVAS_INICIALES` fija, con una "pasada" incluida)
+// resucitando solas en cada carga, sin que ella hubiera tocado nada en
+// la app actual. Ahora se descartan en vez de conservarse: una reserva
+// real, hecha desde Compra.tsx con `agregarReserva`, SIEMPRE tiene `id`
+// (lo pone `agregarReserva` mismo, ver más abajo) — cualquier entrada
+// sin `id` no pudo haberse creado por ese camino, así que no es una
+// reserva real de esta persona y no debe mostrarse.
+function normalizarReserva(r: unknown): Reserva | null {
   if (typeof r !== "object" || r === null) return null;
   const obj = r as Record<string, unknown>;
-  if (typeof obj.experienciaId !== "string" || typeof obj.fechaHora !== "string") {
+  if (
+    typeof obj.id !== "string" ||
+    typeof obj.experienciaId !== "string" ||
+    typeof obj.fechaHora !== "string"
+  ) {
     return null;
   }
   return {
-    id: typeof obj.id === "string" ? obj.id : `legacy-${indice}-${generarId()}`,
+    id: obj.id,
     experienciaId: obj.experienciaId,
     fechaHora: obj.fechaHora,
     estado: obj.estado === "pasada" ? "pasada" : "proxima",
@@ -95,7 +122,7 @@ function readInitial(): Reserva[] {
     const parsed = raw ? JSON.parse(raw) : [];
     if (!Array.isArray(parsed)) return [];
     return parsed
-      .map((r, i) => normalizarReserva(r, i))
+      .map((r) => normalizarReserva(r))
       .filter((r): r is Reserva => r !== null);
   } catch {
     // localStorage puede fallar (modo privado, cuota) — arranca vacío en

@@ -79,7 +79,10 @@ export default function Notificaciones() {
 
   return (
     <>
-      <div className="min-h-screen bg-thea-green text-white-100 lg:hidden">
+      {/* 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20)
+          = #011414), igual que el resto de la app — ver nota completa
+          junto al wrapper principal de DetalleExperiencia.tsx. */}
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 lg:hidden">
         {/* Header fijo — 2026-09-03, a pedido de Ana: cualquier pantalla con
             back se mantiene visible al scrollear (ver nota completa en
             DetalleExperiencia.tsx y Perfil.tsx). Mismo tratamiento que

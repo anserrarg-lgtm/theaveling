@@ -67,8 +67,11 @@ export default function InstalarApp({ onContinuar }: { onContinuar: () => void }
     }
   };
 
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota completa junto al
+  // wrapper principal de DetalleExperiencia.tsx.
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-10 bg-thea-green px-8 text-center">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-10 bg-[rgb(1,20,20)] px-8 text-center">
       <div className="flex flex-col items-center gap-4">
         {/* 2026-09-07, a pedido de Ana: sin ícono acá — "ya aparece
             theaveling" (el wordmark de abajo alcanza, no hace falta

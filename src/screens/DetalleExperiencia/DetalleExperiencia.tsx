@@ -435,8 +435,20 @@ export default function DetalleExperiencia() {
     {/* Mobile — todo el contenido de siempre, sin tocar, solo envuelto en
         `lg:hidden` para convivir con el bloque Desktop de más abajo
         (mismo criterio que Descubrir.tsx/VerMas.tsx). */}
+    {/* 2026-10-08, a pedido de Ana: prueba de toda la pantalla mobile en
+        verde deep en vez de thea-green (#112c2c) — "a ver cómo se ve".
+        Primer intento usó un valor suelto (#091616) inventado sobre la
+        marcha; se corrigió a `rgb(1,20,20)`, el verde deep REAL que ya
+        usan MobileTopBar/MobileBottomNav y media app (Búsqueda,
+        Favoritos, Reservas, Postular, etc. — ver nota junto a
+        `bg-[rgb(1,20,20)]` en Busqueda.tsx: sólido al 100%, no el
+        `bg-thea-deep` del CSS, que es 95% opaco y pensado para ir sobre
+        una foto). thea-green no se borra de la paleta, se queda para
+        contraste puntual adentro de la pantalla (ver los 2 bloques de
+        contenido más abajo, que se quedan en el oscuro también por
+        pedido explícito, y los chips/pills que siguen en blanco). */}
     <div
-      className={`min-h-screen bg-thea-green text-white-100 font-body lg:hidden ${
+      className={`min-h-screen bg-[rgb(1,20,20)] text-white-100 font-body lg:hidden ${
         esFestivalCiudad ? "pb-8" : "pb-24"
       }`}
     >
@@ -456,7 +468,11 @@ export default function DetalleExperiencia() {
       <div
         className="fixed top-0 left-0 right-0 z-20 pt-[var(--safe-top)]"
         style={{
-          backgroundColor: `rgba(17,44,44,${headerOpacity})`,
+          // 2026-10-08: sincronizado con el verde deep del wrapper
+          // (rgb(1,20,20) = #011414, el real del design system) en vez
+          // de rgb(17,44,44) (thea-green normal), para que el header no
+          // desentone al hacerse sólido con el scroll.
+          backgroundColor: `rgba(1,20,20,${headerOpacity})`,
           borderBottom: `1px solid rgba(255,255,255,${0.12 * headerOpacity})`,
         }}
       >
@@ -547,8 +563,13 @@ export default function DetalleExperiencia() {
           <div
             className="absolute left-0 right-0 bottom-0 h-[40%]"
             style={{
+              // 2026-10-08: mismo cambio de tono que el resto de la
+              // pantalla en esta prueba (ver nota junto al wrapper
+              // principal) — el degradado debe terminar en el mismo
+              // verde que el fondo sólido de abajo, si no la foto se
+              // corta contra un verde distinto.
               background:
-                "linear-gradient(to bottom, rgba(17,44,44,0), rgba(17,44,44,0.65))",
+                "linear-gradient(to bottom, rgba(1,20,20,0), rgba(1,20,20,0.65))",
             }}
           />
           {/* El trío volver/compartir/favorito ya NO vive acá — 2026-09-03,
@@ -578,7 +599,7 @@ export default function DetalleExperiencia() {
             rating/precio muestra ciudad+fechas y una fila de metadata
             rápida (categorías del lineup + cantidad de experiencias). */}
         {esFestivalCiudad ? (
-          <div className="bg-thea-green flex flex-col gap-3 p-6">
+          <div className="bg-[rgb(1,20,20)] flex flex-col gap-3 p-6">
             <div className="flex items-center gap-2 font-body font-semibold text-[13px] text-white-100">
               <span className="flex items-center gap-1.5">
                 <IconMapPin className="w-4 h-4 opacity-60" />
@@ -613,7 +634,7 @@ export default function DetalleExperiencia() {
             )}
           </div>
         ) : (
-          <div className="bg-thea-green flex flex-col gap-3 p-6">
+          <div className="bg-[rgb(1,20,20)] flex flex-col gap-3 p-6">
             <div className="flex items-center justify-between w-full">
               {/* 2026-09-02, a pedido de Ana: mismo criterio que
                   ExperienceCardMasReservados.tsx — estrella thea-mint,
@@ -1376,7 +1397,15 @@ export default function DetalleExperiencia() {
           rol de acción de cierre para estos 3, inline en el contenido
           en vez de fijo abajo. */}
       {!esFestivalCiudad && (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-thea-green border-t border-white-12">
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-[rgb(1,20,20)] border-t border-white-12">
+          {/* 2026-10-08, a pedido de Ana: este CONTENEDOR (la barra fija,
+              no el botón — el botón se queda con su estilo original
+              bg-white-100/text-thea-green) en verde deep real
+              (rgb(1,20,20) = #011414, confirmado por Ana que es el valor
+              del design system), no el #091616 suelto del primer intento.
+              Mismo cambio en Compra.tsx (la barra "Siguiente"), a pedido
+              de Ana ("igual que el siguiente"), y en toda la pantalla
+              mobile (ver nota junto al wrapper principal, arriba). */}
           <button
             onClick={() => navigate(`/experiencia/${id}/compra`)}
             className="w-full h-12 rounded-xl bg-white-100 text-thea-green font-body font-semibold text-[15px] leading-5 tracking-[0.3px]"

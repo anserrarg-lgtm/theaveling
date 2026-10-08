@@ -147,8 +147,11 @@ export default function Perfil() {
   // app: Perfil sigue siendo un tab alcanzable, solo que su contenido
   // pide login antes de mostrar nada personal.
   if (!loggedIn) {
+    // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+    // #011414), igual que el resto de la app — ver nota completa junto
+    // al wrapper principal de DetalleExperiencia.tsx.
     return (
-      <div className="min-h-screen bg-thea-green text-white-100 pb-[72px] flex flex-col">
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 pb-[72px] flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 text-center">
           <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
             <IconUser className="w-6 h-6 text-white-60" />
@@ -181,8 +184,11 @@ export default function Perfil() {
     );
   }
 
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota completa junto al
+  // wrapper principal de DetalleExperiencia.tsx.
   return (
-    <div className="min-h-screen bg-thea-green text-white-100 pb-[72px]">
+    <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 pb-[72px]">
       {/* Header fijo — 2026-09-04, a pedido de Ana: "en perfil quita el
           back y en ese espacio del header poner la img de elena con la
           campanita de notificaciones". Reemplaza la versión anterior

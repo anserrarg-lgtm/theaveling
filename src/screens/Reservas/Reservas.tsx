@@ -173,8 +173,12 @@ export default function Reservas() {
             Mismo patrón que Perfil.tsx: el tab sigue siendo alcanzable
             desde el Bottom Nav, solo que su contenido pide login antes
             de mostrar nada. */}
+        {/* 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20)
+            = #011414), igual que el resto de la app — ver nota completa
+            junto al wrapper principal de DetalleExperiencia.tsx. (Esta se
+            me había pasado en la primera pasada.) */}
         {!loggedIn ? (
-          <div className="min-h-screen bg-thea-green text-white-100 pb-[72px] flex flex-col">
+          <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 pb-[72px] flex flex-col">
             <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 text-center">
               <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
                 <IconTicket className="w-6 h-6 text-white-60" />
@@ -205,7 +209,7 @@ export default function Reservas() {
             </div>
           </div>
         ) : (
-          <div className="min-h-screen bg-thea-green pb-[72px] text-white-100">
+          <div className="min-h-screen bg-[rgb(1,20,20)] pb-[72px] text-white-100">
             {/* 2026-09-07, a pedido de Ana: sin MobileTopBar (el logo
                 "Theaveling" + lupa) — no va en esta pantalla. Después,
                 "pon asi mismo el de reservas" (mismo tratamiento que le

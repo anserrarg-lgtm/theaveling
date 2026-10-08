@@ -37,8 +37,11 @@ export default function ElegirCiudad({
   onBuscarCiudad: () => void;
   cargando: boolean;
 }) {
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota completa junto al
+  // wrapper principal de DetalleExperiencia.tsx.
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center gap-6 bg-thea-green px-6 text-center">
+    <div className="fixed inset-0 flex flex-col items-center justify-center gap-6 bg-[rgb(1,20,20)] px-6 text-center">
       <span className="h-14 w-14 rounded-full bg-white-8 flex items-center justify-center">
         <IconMapPin className="w-6 h-6 text-thea-mint" />
       </span>

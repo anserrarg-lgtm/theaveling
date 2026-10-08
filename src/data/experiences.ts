@@ -1838,7 +1838,17 @@ export const experiences: Experience[] = [
     ratingCount: 19,
     rail: "descubrimientos",
     // 2026-09-15: reemplazado por .jpg comprimido (pesaba ~760KB en .png).
-    imageUrl: "/assets/images/Materia%20y%20memoria.jpg",
+    // 2026-10-08: la M mayúscula del nombre de archivo nunca llegó al
+    // repo — en GitHub el archivo quedó commiteado como "materia y
+    // memoria.jpg" (m minúscula). En Windows no se nota (el filesystem
+    // no distingue mayúsculas/minúsculas), pero Vercel sí, y esta ruta
+    // con mayúscula no existe ahí → 404 en producción (confirmado:
+    // Materia y memoria no cargaba en el riel de Descubrimientos en
+    // theaveling.vercel.app). Se corrige la referencia para que
+    // coincida con el nombre real ya commiteado, en vez de renombrar el
+    // archivo (un rename solo-de-mayúsculas es frágil en Windows con
+    // core.ignorecase=true).
+    imageUrl: "/assets/images/materia%20y%20memoria.jpg",
     // 2026-09-03: primera pasada de contenido — ver nota completa en
     // "la-consagracion-del-otono", arriba.
     porQueDescubrir:

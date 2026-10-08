@@ -152,7 +152,10 @@ export default function DatosDeCuenta() {
       {/* Mobile — sin cambios, ver nota grande arriba. `lg:hidden` para
           convivir con el bloque Desktop de abajo (mismo criterio que el
           resto de la app). */}
-      <div className="min-h-screen bg-thea-green text-white-100 lg:hidden">
+      {/* 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20)
+          = #011414), igual que el resto de la app — ver nota completa
+          junto al wrapper principal de DetalleExperiencia.tsx. */}
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 lg:hidden">
         <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
           <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
             <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />

@@ -143,7 +143,10 @@ export default function Ayuda() {
 
   return (
     <>
-      <div className="min-h-screen bg-thea-green text-white-100 lg:hidden">
+      {/* 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20)
+          = #011414), igual que el resto de la app — ver nota completa
+          junto al wrapper principal de DetalleExperiencia.tsx. */}
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 lg:hidden">
         {/* Header fijo — mismo patrón que Notificaciones.tsx/DatosDeCuenta.tsx
             (ver esas notas para el porqué del RGB sólido en vez de
             thea-deep). */}

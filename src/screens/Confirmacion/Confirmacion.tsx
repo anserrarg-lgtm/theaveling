@@ -87,7 +87,10 @@ export default function Confirmacion() {
       {/* Mobile — sin cambios, ver nota grande arriba. `lg:hidden` para
           convivir con el bloque Desktop de abajo (mismo criterio que
           Descubrir.tsx/DetalleExperiencia.tsx/VerMas.tsx). */}
-      <div className="min-h-screen bg-thea-green text-white-100 font-body flex flex-col items-center justify-center px-6 text-center gap-4 lg:hidden">
+      {/* 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20)
+          = #011414), igual que el resto de la app — ver nota completa
+          junto al wrapper principal de DetalleExperiencia.tsx. */}
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 font-body flex flex-col items-center justify-center px-6 text-center gap-4 lg:hidden">
         <svg
           width="56"
           height="56"

@@ -286,8 +286,12 @@ export default function Compra() {
     : `${experiencia?.mostrarDesde ? "Desde " : ""}${formatCOP(total)}`;
 
   if (!experiencia) {
+    // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+    // #011414, el real del design system), igual que el resto de la app
+    // (Búsqueda/Favoritos/Reservas/Postular, etc.) — ver nota completa
+    // junto al wrapper principal de DetalleExperiencia.tsx.
     return (
-      <div className="min-h-screen bg-thea-green text-white-100 flex flex-col items-center justify-center gap-4 p-6 text-center">
+      <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 flex flex-col items-center justify-center gap-4 p-6 text-center">
         <p className="font-body text-sm" style={{ color: "rgba(251,251,251,0.6)" }}>
           No encontramos esta experiencia.
         </p>
@@ -307,8 +311,11 @@ export default function Compra() {
   // opcion la podemos quitar") — se revirtió del todo, junto con el
   // campo en experiences.ts y el badge/bloqueo en DetalleExperiencia.tsx.
 
+  // 2026-10-08, a pedido de Ana: pantalla a verde deep (rgb(1,20,20) =
+  // #011414), igual que el resto de la app — ver nota junto al wrapper
+  // principal de DetalleExperiencia.tsx.
   return (
-    <div className="min-h-screen bg-thea-green text-white-100">
+    <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100">
       {/* Header fijo — mismo tratamiento sólido-desde-el-arranque que
           Notificaciones.tsx/Perfil.tsx (sin foto detrás acá, así que no
           hay fundido de scroll como en Detalle). Ya no hay 2 estados acá
@@ -569,7 +576,13 @@ export default function Compra() {
         }}
       />
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-thea-green border-t border-white-12">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-[rgb(1,20,20)] border-t border-white-12">
+        {/* 2026-10-08, a pedido de Ana: mismo cambio que en
+            DetalleExperiencia.tsx (la barra "Ver opciones") — este
+            contenedor en verde deep real (rgb(1,20,20) = #011414,
+            confirmado por Ana), no el #091616 suelto del primer intento.
+            El botón de adentro se queda igual
+            (bg-white-100/text-thea-green). */}
         {/* Deshabilitado mientras no haya fecha/hora elegida —
             2026-09-05, a pedido de Ana: "SE ACTIVE EL BOTON DE
             SIGUIENTE (QUE DEBE ESTAR DESACTIVADO SI NO SE HA

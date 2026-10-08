@@ -263,7 +263,14 @@ export default function Descubrir() {
     <>
       {/* Mobile — todo el markup de siempre, sin tocar, solo envuelto en
           `lg:hidden` para convivir con el bloque Desktop de abajo. */}
-      <div className="min-h-screen bg-thea-green pb-[72px] lg:hidden">
+      {/* 2026-10-08, a pedido de Ana: Home (esta pantalla) también pasa a
+          verde deep (rgb(1,20,20) = #011414, el real del design system),
+          igual que el resto de la app — ver nota completa junto al
+          wrapper principal de DetalleExperiencia.tsx. El Top Bar/Category
+          Tabs de abajo ya usaban este mismo verde deep de antes (ver
+          MobileTopBar.tsx/CategoryTabs.tsx), así que ahora el body deja
+          de desentonar contra ellos en vez de al revés. */}
+      <div className="min-h-screen bg-[rgb(1,20,20)] pb-[72px] lg:hidden">
       {/* Top Bar + Category Tabs suspendidas (fixed) arriba, como un solo
           bloque de header — 2026-09-02, a pedido de Ana: Category Tabs es
           navegación que se usa en cualquier momento, no contenido de una
