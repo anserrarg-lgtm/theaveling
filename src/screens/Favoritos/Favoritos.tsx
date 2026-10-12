@@ -101,10 +101,10 @@ export default function Favoritos() {
                 <IconHeart className="h-7 w-7 text-white-60" />
               </span>
               <div className="flex flex-col gap-2">
-                <h2 className="font-display text-2xl text-white-100">
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                   Guarda las experiencias que más te gustan en un solo lugar.
                 </h2>
-                <p className="mx-auto max-w-[420px] font-body text-[15px] text-white-60">
+                <p className="mx-auto max-w-[420px] font-body text-[15px] leading-[22px] text-white-60">
                   Explora el catálogo y toca el corazón de cualquier
                   experiencia para guardarla acá.
                 </p>
@@ -118,7 +118,7 @@ export default function Favoritos() {
             </div>
           ) : (
             <>
-              <p className="mb-6 font-body text-[13px] text-white-60">
+              <p className="mb-6 font-body text-[13px] leading-[18px] text-white-60">
                 {experienciasFavoritas.length}{" "}
                 {experienciasFavoritas.length === 1 ? "experiencia" : "experiencias"}
               </p>

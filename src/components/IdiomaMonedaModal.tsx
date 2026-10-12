@@ -182,7 +182,7 @@ export default function IdiomaMonedaModal({
                         de al lado, no un ajuste chico. */}
                     <IconTranslate className="h-6 w-6 text-white-60" />
                   </span>
-                  <span className="font-body text-sm text-white-60">
+                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                     Traducir automáticamente las descripciones y las reseñas al español.
                   </span>
                 </div>

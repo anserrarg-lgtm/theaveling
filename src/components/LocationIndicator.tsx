@@ -19,7 +19,7 @@ import { IconMapPin } from "./icons";
 
 export default function LocationIndicator({ city }: { city: string }) {
   return (
-    <span className="inline-flex items-center gap-1 text-white-100 text-[13px] font-body">
+    <span className="inline-flex items-center gap-1 text-white-100 text-[13px] leading-[18px] font-body">
       <IconMapPin className="w-3.5 h-3.5" />
       <span className="underline underline-offset-2">{city}</span>
     </span>

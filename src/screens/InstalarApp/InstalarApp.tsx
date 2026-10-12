@@ -79,7 +79,7 @@ export default function InstalarApp({ onContinuar }: { onContinuar: () => void }
             (icon-512.png, la T) queda solo para cuando se instala/queda
             en la pantalla de inicio del celular, no para esta pantalla. */}
         <Wordmark size={28} />
-        <p className="max-w-xs font-body text-sm text-white-80">
+        <p className="max-w-xs font-body text-sm leading-[18px] tracking-[0.3px] text-white-80">
           La escena de la ciudad empieza aquí.
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function InstalarApp({ onContinuar }: { onContinuar: () => void }
         <button
           type="button"
           onClick={onContinuar}
-          className="h-12 w-full rounded-xl border border-white-20 font-body text-[15px] font-medium text-white-100"
+          className="h-12 w-full rounded-xl border border-white-20 font-body text-[15px] leading-[22px] font-medium text-white-100"
         >
           Ver en línea
         </button>
@@ -111,13 +111,13 @@ export default function InstalarApp({ onContinuar }: { onContinuar: () => void }
             style={{ boxShadow: "0 -4px 24px rgb(0 0 0 / 30%)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="font-body text-sm text-white-100">
+            <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               {detectarInstrucciones()}
             </p>
             <button
               type="button"
               onClick={() => setMostrarInstrucciones(false)}
-              className="h-11 w-full rounded-xl bg-white-12 font-body text-sm font-medium text-white-100"
+              className="h-11 w-full rounded-xl bg-white-12 font-body text-sm leading-[18px] tracking-[0.3px] font-medium text-white-100"
             >
               Entendido
             </button>

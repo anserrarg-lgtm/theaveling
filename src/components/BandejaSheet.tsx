@@ -114,11 +114,11 @@ export default function BandejaSheet({
           >
             <IconCaretRight className="w-5 h-5 rotate-180" />
           </button>
-          <h2 className="font-display text-xl text-white-100">Notificaciones</h2>
+          <h2 className="font-display text-xl leading-[28px] text-white-100">Notificaciones</h2>
         </div>
 
         {notificaciones.length === 0 ? (
-          <p className="font-body text-[13px] text-white-60 px-5 pt-2">
+          <p className="font-body text-[13px] leading-[18px] text-white-60 px-5 pt-2">
             No tienes notificaciones por ahora.
           </p>
         ) : (

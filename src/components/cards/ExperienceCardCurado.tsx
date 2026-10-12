@@ -80,7 +80,7 @@ export default function ExperienceCardCurado({
 
       {/* Texto superpuesto, inset 16px, alineado abajo */}
       <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2">
-        <h2 className="font-display text-2xl text-white-100">
+        <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
           {splitTitleForDisplay(title)}
         </h2>
         {/* rgba(251,251,251,.7) es un valor suelto en Figma, no coincide con
@@ -88,7 +88,7 @@ export default function ExperienceCardCurado({
             cual, no se redondea a un token cercano. Mismo tipo de
             inconsistencia que se viene encontrando y arreglando en Figma. */}
         <p
-          className="font-body text-[13px]"
+          className="font-body text-[13px] leading-[18px]"
           style={{ color: "rgba(251,251,251,0.7)" }}
         >
           {description}

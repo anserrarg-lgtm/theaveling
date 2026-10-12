@@ -70,10 +70,10 @@ export default function SolicitarUbicacion({
           <IconMapPin className="w-6 h-6 text-thea-mint" />
         </span>
         <div className="flex flex-col gap-2">
-          <h1 className="font-display text-2xl text-white-100">
+          <h1 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
             Descubre lo que pasa en la ciudad
           </h1>
-          <p className="font-body text-sm text-white-60 max-w-[280px]">
+          <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 max-w-[280px]">
             Theaveling usa tu ubicación para mostrarte experiencias curadas
             en la ciudad que elijas. Puedes cambiarla cuando quieras.
           </p>
@@ -99,7 +99,7 @@ export default function SolicitarUbicacion({
           <button
             onClick={onOmitir}
             disabled={cargando}
-            className="font-body text-sm text-white-60 underline disabled:opacity-60"
+            className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 underline disabled:opacity-60"
           >
             Ahora no
           </button>

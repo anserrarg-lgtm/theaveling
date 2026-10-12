@@ -42,20 +42,20 @@ export default function Legal() {
         >
           <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
         </button>
-        <h1 className="font-display text-lg text-white-100 truncate">{titulo}</h1>
+        <h1 className="font-display text-lg leading-[28px] text-white-100 truncate">{titulo}</h1>
       </header>
 
       <div className="flex flex-col items-center gap-2 px-5 pt-16 pb-10 text-center">
-        <p className="font-display text-2xl text-white-100">
+        <p className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
           Todavía estamos redactando esta sección
         </p>
-        <p className="max-w-[420px] font-body text-sm text-white-60">
+        <p className="max-w-[420px] font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
           Theaveling es un proyecto en construcción. El contenido legal
           real todavía no está listo. Volvé a mirar más adelante.
         </p>
         <Link
           to="/"
-          className="mt-4 font-body text-[13px] text-white-100 underline underline-offset-2"
+          className="mt-4 font-body text-[13px] leading-[18px] text-white-100 underline underline-offset-2"
         >
           Volver a Descubrir
         </Link>

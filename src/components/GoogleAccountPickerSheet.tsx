@@ -86,7 +86,7 @@ export default function GoogleAccountPickerSheet({
       <div className="relative w-full max-w-[340px] rounded-[28px] bg-[#2d2e30] flex flex-col items-center gap-1 pt-8 pb-2 px-6 text-center">
         <IconGoogle className="w-9 h-9 mb-3" />
         <h2 className="font-body text-xl text-white-100">Elegir una cuenta</h2>
-        <p className="font-body text-sm text-white-60 mb-3">
+        <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 mb-3">
           para continuar usando Theaveling
         </p>
 
@@ -104,10 +104,10 @@ export default function GoogleAccountPickerSheet({
                 {cuenta.inicial}
               </span>
               <span className="flex flex-col min-w-0">
-                <span className="font-body text-sm text-white-100 truncate">
+                <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 truncate">
                   {cuenta.nombre}
                 </span>
-                <span className="font-body text-xs text-white-60 truncate">
+                <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60 truncate">
                   {cuenta.correo}
                 </span>
               </span>
@@ -124,13 +124,13 @@ export default function GoogleAccountPickerSheet({
                 <IconPlus className="w-2.5 h-2.5 text-white-100" />
               </span>
             </span>
-            <span className="font-body text-sm text-white-100">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Agregar otra cuenta
             </span>
           </button>
         </div>
 
-        <p className="font-body text-xs text-white-60 text-left pt-4 pb-6">
+        <p className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60 text-left pt-4 pb-6">
           Para continuar, Google compartirá tu nombre, dirección de correo
           electrónico y foto de perfil con Theaveling. Antes de usar esta
           app, consulta su{" "}

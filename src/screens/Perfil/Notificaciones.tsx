@@ -98,14 +98,14 @@ export default function Notificaciones() {
           <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
             <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
           </button>
-          <h1 className="font-display font-semibold text-2xl">Notificaciones</h1>
+          <h1 className="font-display font-semibold text-2xl leading-[32px] tracking-[-0.1px]">Notificaciones</h1>
         </header>
 
         <div className="flex flex-col px-5 pt-[calc(56px_+_var(--safe-top))]">
           {NOTIFICACIONES.map((n, i) => (
             <div key={n.key}>
               <div className="flex items-center justify-between py-3">
-                <span className="font-body text-sm text-white-100">{n.label}</span>
+                <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">{n.label}</span>
                 <Switch
                   checked={estado[n.key]}
                   onChange={(v) => setEstado((prev) => ({ ...prev, [n.key]: v }))}
@@ -143,10 +143,10 @@ export default function Notificaciones() {
               <IconBell className="h-7 w-7 text-white-60" />
             </span>
             <div className="flex flex-col gap-2">
-              <h2 className="font-display text-2xl text-white-100">
+              <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                 Todavía no tienes notificaciones
               </h2>
-              <p className="mx-auto max-w-[420px] font-body text-[15px] text-white-60">
+              <p className="mx-auto max-w-[420px] font-body text-[15px] leading-[22px] text-white-60">
                 Por ahora no hay novedades. Te vamos a avisar acá apenas
                 tengas algo nuevo sobre tus reservas.
               </p>

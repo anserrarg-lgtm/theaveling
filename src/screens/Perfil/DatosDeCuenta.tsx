@@ -160,30 +160,30 @@ export default function DatosDeCuenta() {
           <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
             <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
           </button>
-          <h1 className="font-display font-semibold text-2xl">Datos de cuenta</h1>
+          <h1 className="font-display font-semibold text-2xl leading-[32px] tracking-[-0.1px]">Datos de cuenta</h1>
         </header>
 
         <div className="flex flex-col gap-4 px-5 pt-[calc(56px_+_var(--safe-top))] mt-2">
           <div className="flex flex-col gap-1.5">
-            <span className="font-body text-xs text-white-60">Nombre</span>
+            <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">Nombre</span>
             <div className="h-12 rounded-xl px-4 flex items-center bg-white-8">
-              <span className="font-body text-[15px] text-white-100">
+              <span className="font-body text-[15px] leading-[22px] text-white-100">
                 {CAMPOS[0].value}
               </span>
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
-            <span className="font-body text-xs text-white-60">Correo</span>
+            <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">Correo</span>
             <div className="h-12 rounded-xl px-4 flex items-center bg-white-8">
-              <span className="font-body text-[15px] text-white-100">
+              <span className="font-body text-[15px] leading-[22px] text-white-100">
                 {email}
               </span>
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
-            <span className="font-body text-xs text-white-60">Teléfono</span>
+            <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">Teléfono</span>
             <div className="h-12 rounded-xl px-4 flex items-center bg-white-8">
-              <span className="font-body text-[15px] text-white-100">
+              <span className="font-body text-[15px] leading-[22px] text-white-100">
                 {CAMPOS[1].value}
               </span>
             </div>
@@ -197,11 +197,11 @@ export default function DatosDeCuenta() {
               logout();
               navigate("/perfil");
             }}
-            className="font-body font-medium text-sm text-white-100"
+            className="font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-white-100"
           >
             Cerrar sesión
           </button>
-          <button type="button" className="font-body font-medium text-sm text-warning">
+          <button type="button" className="font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-warning">
             Eliminar cuenta
           </button>
         </div>
@@ -229,7 +229,7 @@ export default function DatosDeCuenta() {
             <nav className="flex w-[260px] shrink-0 flex-col gap-1">
               <button
                 onClick={() => setTabDesktop("cuenta")}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm ${
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm leading-[18px] tracking-[0.3px] ${
                   tabDesktop === "cuenta"
                     ? "bg-white-8 text-white-100"
                     : "text-white-70 hover:bg-white-6"
@@ -240,7 +240,7 @@ export default function DatosDeCuenta() {
               </button>
               <button
                 onClick={() => setTabDesktop("perfil")}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm ${
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm leading-[18px] tracking-[0.3px] ${
                   tabDesktop === "perfil"
                     ? "bg-white-8 text-white-100"
                     : "text-white-70 hover:bg-white-6"
@@ -251,7 +251,7 @@ export default function DatosDeCuenta() {
               </button>
               <button
                 onClick={() => setTabDesktop("notificaciones")}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm ${
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm leading-[18px] tracking-[0.3px] ${
                   tabDesktop === "notificaciones"
                     ? "bg-white-8 text-white-100"
                     : "text-white-70 hover:bg-white-6"
@@ -262,7 +262,7 @@ export default function DatosDeCuenta() {
               </button>
               <button
                 onClick={() => setTabDesktop("comunicacion")}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm ${
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left font-body text-sm leading-[18px] tracking-[0.3px] ${
                   tabDesktop === "comunicacion"
                     ? "bg-white-8 text-white-100"
                     : "text-white-70 hover:bg-white-6"
@@ -277,15 +277,15 @@ export default function DatosDeCuenta() {
               {tabDesktop === "cuenta" && (
                 <div className="flex flex-col gap-8">
                   <div className="flex flex-col gap-3">
-                    <h2 className="font-display text-xl text-white-100">
+                    <h2 className="font-display text-xl leading-[28px] text-white-100">
                       Correo electrónico
                     </h2>
-                    <p className="font-body text-sm text-white-60">
+                    <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                       Es donde recibes toda la información de tus reservas:
                       confirmaciones, cambios y recordatorios.
                     </p>
                     <div className="h-px w-full bg-white-12" />
-                    <span className="font-body text-[15px] text-white-100">
+                    <span className="font-body text-[15px] leading-[22px] text-white-100">
                       {email}
                     </span>
                   </div>
@@ -303,7 +303,7 @@ export default function DatosDeCuenta() {
                   <div className="pt-4">
                     <button
                       type="button"
-                      className="font-body font-medium text-sm text-white-100"
+                      className="font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-white-100"
                     >
                       Eliminar cuenta
                     </button>
@@ -314,30 +314,30 @@ export default function DatosDeCuenta() {
               {tabDesktop === "perfil" && (
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-1.5">
-                    <span className="font-body text-xs text-white-60">Nombre</span>
+                    <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">Nombre</span>
                     <div className="h-12 rounded-xl bg-white-8 px-4 flex items-center">
-                      <span className="font-body text-[15px] text-white-100">
+                      <span className="font-body text-[15px] leading-[22px] text-white-100">
                         {CAMPOS[0].value}
                       </span>
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <span className="font-body text-xs text-white-60">Teléfono</span>
+                    <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">Teléfono</span>
                     <div className="h-12 rounded-xl bg-white-8 px-4 flex items-center">
-                      <span className="font-body text-[15px] text-white-100">
+                      <span className="font-body text-[15px] leading-[22px] text-white-100">
                         {CAMPOS[1].value}
                       </span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between border-b border-white-12 pb-4">
-                    <span className="font-body text-sm text-white-100">Cumpleaños</span>
-                    <span className="font-body text-sm text-white-40">----</span>
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">Cumpleaños</span>
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-40">----</span>
                   </div>
                   <div className="flex items-center justify-between pb-4">
-                    <span className="font-body text-sm text-white-100">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
                       Lugar de nacimiento
                     </span>
-                    <span className="font-body text-sm text-white-40">----</span>
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-40">----</span>
                   </div>
                 </div>
               )}
@@ -347,7 +347,7 @@ export default function DatosDeCuenta() {
                   {NOTIFICACIONES.map((n, i) => (
                     <div key={n.key}>
                       <div className="flex items-center justify-between py-4">
-                        <span className="font-body text-sm text-white-100">
+                        <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
                           {n.label}
                         </span>
                         <Switch
@@ -372,10 +372,10 @@ export default function DatosDeCuenta() {
               {tabDesktop === "comunicacion" && (
                 <div className="flex items-center justify-between gap-6 rounded-xl bg-white-6 px-5 py-4">
                   <div className="flex flex-col gap-1">
-                    <span className="font-body text-sm font-semibold text-white-100">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] font-semibold text-white-100">
                       Correo electrónico
                     </span>
-                    <span className="font-body text-sm text-white-60">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                       Quiero recibir novedades y ofertas de Theaveling.
                     </span>
                   </div>

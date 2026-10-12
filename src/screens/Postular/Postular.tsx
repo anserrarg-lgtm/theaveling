@@ -87,7 +87,7 @@ export default function Postular() {
         >
           <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
         </button>
-        <h1 className="font-display text-lg text-white-100 truncate">
+        <h1 className="font-display text-lg leading-[28px] text-white-100 truncate">
           Postular tu descubrimiento
         </h1>
       </header>
@@ -95,17 +95,17 @@ export default function Postular() {
       <div className="mx-auto flex max-w-[560px] flex-col gap-8 px-5 pb-20 pt-6 lg:px-0 lg:pt-10">
         {enviado ? (
           <div className="flex flex-col items-center gap-3 rounded-2xl bg-thea-green px-8 py-12 text-center">
-            <p className="font-display text-2xl text-white-100">
+            <p className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
               ¡Gracias, {nombre.split(" ")[0]}!
             </p>
-            <p className="max-w-[380px] font-body text-sm text-white-60">
+            <p className="max-w-[380px] font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
               Recibimos tu postulación para "{experiencia}". Nuestro equipo
               revisa cada descubrimiento a mano antes de sumarlo al catálogo
               curado — te escribimos a {email} con la respuesta.
             </p>
             <Link
               to="/"
-              className="mt-3 font-body text-[13px] text-white-100 underline underline-offset-2"
+              className="mt-3 font-body text-[13px] leading-[18px] text-white-100 underline underline-offset-2"
             >
               Volver a Descubrir
             </Link>
@@ -113,10 +113,10 @@ export default function Postular() {
         ) : (
           <>
             <div className="flex flex-col gap-2">
-              <p className="font-display text-2xl text-white-100">
+              <p className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                 ¿Quieres que tu descubrimiento esté en Theaveling?
               </p>
-              <p className="font-body text-sm text-white-60">
+              <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                 No es un alta automática: cada descubrimiento que aparece en
                 Theaveling pasa primero por nuestro equipo de curaduría.
                 Cuéntanos del tuyo y lo evaluamos — si encaja, te
@@ -126,19 +126,19 @@ export default function Postular() {
 
             <div className="flex flex-col gap-4">
               <label className="flex flex-col gap-1.5">
-                <span className="font-body text-[13px] font-medium text-white-100">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100">
                   Tu nombre
                 </span>
                 <input
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
                   placeholder="Nombre y apellido"
-                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm text-white-100 outline-none placeholder:text-white-40"
+                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 outline-none placeholder:text-white-40"
                 />
               </label>
 
               <label className="flex flex-col gap-1.5">
-                <span className="font-body text-[13px] font-medium text-white-100">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100">
                   Correo de contacto
                 </span>
                 <input
@@ -147,24 +147,24 @@ export default function Postular() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@email.com"
-                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm text-white-100 outline-none placeholder:text-white-40"
+                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 outline-none placeholder:text-white-40"
                 />
               </label>
 
               <label className="flex flex-col gap-1.5">
-                <span className="font-body text-[13px] font-medium text-white-100">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100">
                   Nombre del descubrimiento
                 </span>
                 <input
                   value={experiencia}
                   onChange={(e) => setExperiencia(e.target.value)}
                   placeholder="Ej: Jazz en la terraza"
-                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm text-white-100 outline-none placeholder:text-white-40"
+                  className="h-12 rounded-xl bg-white-8 px-4 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 outline-none placeholder:text-white-40"
                 />
               </label>
 
               <div className="flex flex-col gap-1.5">
-                <span className="font-body text-[13px] font-medium text-white-100">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100">
                   Categoría
                 </span>
                 <div className="flex gap-2">
@@ -172,7 +172,7 @@ export default function Postular() {
                     <button
                       key={tab}
                       onClick={() => setCategoria(tab)}
-                      className={`h-10 flex-1 rounded-xl font-body text-sm font-medium transition-colors ${
+                      className={`h-10 flex-1 rounded-xl font-body text-sm leading-[18px] tracking-[0.3px] font-medium transition-colors ${
                         categoria === tab
                           ? "bg-white-100 text-thea-green"
                           : "bg-white-8 text-white-100 hover:bg-white-12"
@@ -185,7 +185,7 @@ export default function Postular() {
               </div>
 
               <label className="flex flex-col gap-1.5">
-                <span className="font-body text-[13px] font-medium text-white-100">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100">
                   Cuéntanos brevemente de qué se trata
                 </span>
                 <textarea
@@ -193,7 +193,7 @@ export default function Postular() {
                   onChange={(e) => setDescripcion(e.target.value)}
                   placeholder="Qué es, dónde pasa, cada cuánto..."
                   rows={4}
-                  className="resize-none rounded-xl bg-white-8 px-4 py-3 font-body text-sm text-white-100 outline-none placeholder:text-white-40"
+                  className="resize-none rounded-xl bg-white-8 px-4 py-3 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 outline-none placeholder:text-white-40"
                 />
               </label>
 
@@ -205,7 +205,7 @@ export default function Postular() {
                 Enviar postulación
               </button>
 
-              <p className="text-center font-body text-xs text-white-60">
+              <p className="text-center font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">
                 Esta es una demo: tu postulación no se envía a ningún
                 servidor real.
               </p>

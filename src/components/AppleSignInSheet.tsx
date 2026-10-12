@@ -74,19 +74,19 @@ export default function AppleSignInSheet({
         <h2 className="font-body font-semibold text-base text-black">
           Continuar como {NOMBRE}
         </h2>
-        <p className="font-body text-sm text-black/50 mb-4">{CORREO}</p>
+        <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-black/50 mb-4">{CORREO}</p>
 
         <div className="w-full h-px bg-black/10 mb-3" />
 
         <button
           onClick={() => onContinuar(CORREO)}
-          className="w-full h-11 rounded-xl bg-black text-white-100 font-body font-semibold text-sm mb-2"
+          className="w-full h-11 rounded-xl bg-black text-white-100 font-body font-semibold text-sm leading-[18px] tracking-[0.3px] mb-2"
         >
           Continuar
         </button>
         <button
           onClick={onCancelar}
-          className="w-full h-11 rounded-xl font-body text-sm text-black/60"
+          className="w-full h-11 rounded-xl font-body text-sm leading-[18px] tracking-[0.3px] text-black/60"
         >
           Cancelar
         </button>

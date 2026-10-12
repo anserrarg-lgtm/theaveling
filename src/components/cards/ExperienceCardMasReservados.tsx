@@ -99,13 +99,13 @@ export default function ExperienceCardMasReservados({
         {/* rgba(251,251,251,.7)/.5 — valores sueltos en Figma para
             descripción/metadata, no coinciden con escalones de STACK.md */}
         <p
-          className="font-body text-sm h-10 line-clamp-2"
+          className="font-body text-sm leading-[18px] tracking-[0.3px] h-10 line-clamp-2"
           style={{ color: "rgba(251,251,251,0.7)" }}
         >
           {description}
         </p>
         <p
-          className="font-body text-[13px] truncate"
+          className="font-body text-[13px] leading-[18px] truncate"
           style={{ color: "rgba(251,251,251,0.5)" }}
         >
           {venue}, {city}
@@ -116,7 +116,7 @@ export default function ExperienceCardMasReservados({
         {/* 2026-09-02, a pedido de Ana: estrella en thea-mint, puntaje de
             vuelta a blanco (white-100) — se probó thea-deep pero Ana pidió
             revertir solo el número. */}
-        <span className="font-body font-semibold text-[13px] whitespace-nowrap">
+        <span className="font-body font-semibold text-[13px] leading-[18px] whitespace-nowrap">
           <span className="text-thea-mint">★</span>{" "}
           <span className="text-white-100">{rating}</span>
         </span>

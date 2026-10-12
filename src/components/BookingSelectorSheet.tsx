@@ -119,13 +119,13 @@ export default function BookingSelectorSheet({
           >
             <IconCaretRight className="w-5 h-5 rotate-180" />
           </button>
-          <h2 className="font-display text-xl text-white-100">Editar selección</h2>
+          <h2 className="font-display text-xl leading-[28px] text-white-100">Editar selección</h2>
         </div>
 
         <div className="px-5 pt-2">
           <div className="bg-white-100 border border-green-12 rounded-2xl p-6 flex flex-col gap-6">
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm text-thea-green">
+              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                 Selecciona fecha y hora
               </p>
               <div className="flex gap-2 overflow-x-auto scrollbar-none">
@@ -141,12 +141,12 @@ export default function BookingSelectorSheet({
                           : "bg-white-100 border border-green-12 text-thea-green"
                       }`}
                     >
-                      <span className="font-body font-semibold text-sm whitespace-nowrap">
+                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] whitespace-nowrap">
                         {opcion.fecha}
                       </span>
                       {opcion.hora && (
                         <span
-                          className={`font-body text-xs ${
+                          className={`font-body text-xs leading-[16px] tracking-[0.5px] ${
                             seleccionado ? "opacity-70" : "opacity-60"
                           }`}
                         >
@@ -160,14 +160,14 @@ export default function BookingSelectorSheet({
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm text-thea-green">
+              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                 Tipo de entrada
               </p>
               <div className="w-full rounded-xl bg-thea-green px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body font-semibold text-sm text-white-100">
+                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                   General
                 </span>
-                <span className="font-body font-semibold text-sm text-white-100">
+                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                   {gratisLabel
                     ? "Gratis"
                     : `${experiencia.mostrarDesde ? "Desde " : ""}${experiencia.price}`}
@@ -176,11 +176,11 @@ export default function BookingSelectorSheet({
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm text-thea-green">
+              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                 Entradas
               </p>
               <div className="rounded-xl bg-green-8 border border-green-12 px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body text-sm text-thea-green">
+                <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                   Cantidad de personas
                 </span>
                 <div className="flex items-center gap-3">
@@ -192,7 +192,7 @@ export default function BookingSelectorSheet({
                   >
                     <IconMinus className="w-3.5 h-3.5" />
                   </button>
-                  <span className="font-body font-semibold text-sm text-thea-green w-4 text-center [font-variant-numeric:tabular-nums]">
+                  <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green w-4 text-center [font-variant-numeric:tabular-nums]">
                     {cantidad}
                   </span>
                   <button

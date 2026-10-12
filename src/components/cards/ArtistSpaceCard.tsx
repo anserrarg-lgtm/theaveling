@@ -116,7 +116,7 @@ export default function ArtistSpaceCard({
             {categoria}
           </span>
           <p
-            className="font-body text-xs"
+            className="font-body text-xs leading-[16px] tracking-[0.5px]"
             style={{ color: isLight ? "rgba(17,44,44,0.5)" : "rgba(251,251,251,0.5)" }}
           >
             {ciudad}
@@ -150,7 +150,7 @@ export default function ArtistSpaceCard({
         </span>
       </div>
       <p
-        className="font-body text-xs text-center"
+        className="font-body text-xs leading-[16px] tracking-[0.5px] text-center"
         style={{ color: isLight ? "rgba(17,44,44,0.5)" : "rgba(251,251,251,0.5)" }}
       >
         {ciudad}

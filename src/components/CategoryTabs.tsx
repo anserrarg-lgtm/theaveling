@@ -50,7 +50,7 @@ export default function CategoryTabs({
             className="flex flex-col items-start gap-2.5 text-white-100"
           >
             <span
-              className={`font-body text-[13px] ${
+              className={`font-body text-[13px] leading-[18px] ${
                 isActive ? "font-semibold" : "font-medium"
               }`}
             >

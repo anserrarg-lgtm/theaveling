@@ -157,10 +157,10 @@ export default function Perfil() {
             <IconUser className="w-6 h-6 text-white-60" />
           </span>
           <div className="flex flex-col gap-2">
-            <h1 className="font-display text-xl text-white-100">
+            <h1 className="font-display text-xl leading-[28px] text-white-100">
               Tu perfil te espera
             </h1>
-            <p className="font-body text-sm text-white-60 max-w-[260px]">
+            <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 max-w-[260px]">
               Inicia sesión para ver tu perfil, tus reservas y tus
               experiencias favoritas.
             </p>
@@ -226,7 +226,7 @@ export default function Perfil() {
             subpantallas (Notificaciones/Datos de cuenta/Ayuda), aunque
             acá no hay botón de volver (Perfil es tab principal, no se
             "vuelve" de acá). */}
-        <h1 className="font-display font-semibold text-lg text-white-100">
+        <h1 className="font-display font-semibold text-lg leading-[28px] text-white-100">
           Perfil
         </h1>
         {/* Campanita — abre `BandejaSheet`, el listado real de
@@ -269,7 +269,7 @@ export default function Perfil() {
           <p className="font-body font-semibold text-lg text-white-100">
             Elena Voss
           </p>
-          <span className="font-body text-[13px] text-white-60">
+          <span className="font-body text-[13px] leading-[18px] text-white-60">
             {email}
           </span>
         </div>
@@ -287,7 +287,7 @@ export default function Perfil() {
           que sí lleve a una grilla — Ana lo dejó pendiente de definir, NO
           se construye todavía. */}
       <section className="flex flex-col gap-4 pb-4 pt-5">
-        <h2 className="font-body font-semibold text-sm text-white-100 px-5">
+        <h2 className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100 px-5">
           Favoritos
         </h2>
         {experienciasFavoritas.length === 0 ? (
@@ -346,12 +346,12 @@ export default function Perfil() {
         >
           <span className="flex items-center gap-3">
             <IconGlobe className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-            <span className="font-body text-sm text-white-100">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Idioma de interfaz
             </span>
           </span>
           <span className="flex items-center gap-1.5 shrink-0">
-            <span className="font-body font-medium text-[13px] text-white-80">
+            <span className="font-body font-medium text-[13px] leading-[18px] text-white-80">
               {idiomaLabel}
             </span>
             <IconCaretRight className="w-4 h-4 text-white-40" />
@@ -365,10 +365,10 @@ export default function Perfil() {
         >
           <span className="flex items-center gap-3">
             <IconCurrency className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-            <span className="font-body text-sm text-white-100">Moneda</span>
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">Moneda</span>
           </span>
           <span className="flex items-center gap-1.5 shrink-0">
-            <span className="font-body font-medium text-[13px] text-white-80">
+            <span className="font-body font-medium text-[13px] leading-[18px] text-white-80">
               {monedaLabel}
             </span>
             <IconCaretRight className="w-4 h-4 text-white-40" />
@@ -382,7 +382,7 @@ export default function Perfil() {
         >
           <span className="flex items-center gap-3">
             <IconBell className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-            <span className="font-body text-sm text-white-100">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Notificaciones
             </span>
           </span>
@@ -393,7 +393,7 @@ export default function Perfil() {
         <Link to="/perfil/datos-de-cuenta" className="flex items-center justify-between py-4">
           <span className="flex items-center gap-3">
             <IconUser className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-            <span className="font-body text-sm text-white-100">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Datos de cuenta
             </span>
           </span>
@@ -404,7 +404,7 @@ export default function Perfil() {
         <Link to="/perfil/ayuda" className="flex items-center justify-between py-4">
           <span className="flex items-center gap-3">
             <IconHelpCircle className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-            <span className="font-body text-sm text-white-100">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Servicio al cliente / Ayuda
             </span>
           </span>

@@ -76,11 +76,11 @@ export default function ExperienceCardContenidoCompleto({
       <FavoritoButton id={id} className="absolute top-3 right-3" />
 
       <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2">
-        <p className="font-display text-2xl text-white-100">{title}</p>
+        <p className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">{title}</p>
         {/* rgba(251,251,251,.7) — mismo valor suelto que ya usan las otras
             cards de esta familia para su descripción/subtítulo. */}
         <p
-          className="truncate font-body text-[13px]"
+          className="truncate font-body text-[13px] leading-[18px]"
           style={{ color: "rgba(251,251,251,0.7)" }}
         >
           {tag}

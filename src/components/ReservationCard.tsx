@@ -141,11 +141,11 @@ export default function ReservationCard({
       </h3>
       <div className="flex items-center gap-3">
         <IconCalendar className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-        <span className="font-body text-[13px] text-white-80">{fechaHora}</span>
+        <span className="font-body text-[13px] leading-[18px] text-white-80">{fechaHora}</span>
       </div>
       <div className="flex items-center gap-3">
         <IconMapPin className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
-        <span className="font-body text-[13px] text-white-80">
+        <span className="font-body text-[13px] leading-[18px] text-white-80">
           {experience.venue}, {experience.city}
         </span>
       </div>
@@ -159,7 +159,7 @@ export default function ReservationCard({
             className="flex items-center gap-3 py-1 w-full"
           >
             <IconTicket className="w-4 h-4 text-white-100 shrink-0" />
-            <span className="font-body font-medium text-[13px] text-white-100 flex-1 text-left">
+            <span className="font-body font-medium text-[13px] leading-[18px] text-white-100 flex-1 text-left">
               Ver ticket
             </span>
             <IconCaretRight
@@ -170,14 +170,14 @@ export default function ReservationCard({
           </button>
           {ticketAbierto && (
             <div className="flex flex-col gap-1.5 rounded-xl bg-white-6 px-4 py-3 mb-1">
-              <span className="font-body text-sm font-semibold text-white-100">
+              <span className="font-body text-sm leading-[18px] tracking-[0.3px] font-semibold text-white-100">
                 {experience.title}
               </span>
-              <span className="font-body text-[13px] text-white-80">{fechaHora}</span>
-              <span className="font-body text-[13px] text-white-80">
+              <span className="font-body text-[13px] leading-[18px] text-white-80">{fechaHora}</span>
+              <span className="font-body text-[13px] leading-[18px] text-white-80">
                 {experience.venue}, {experience.city}
               </span>
-              <span className="font-body text-[13px] text-white-40 mt-1">
+              <span className="font-body text-[13px] leading-[18px] text-white-40 mt-1">
                 Código de reserva: {codigoReserva(experience.id)}
               </span>
             </div>
@@ -188,7 +188,7 @@ export default function ReservationCard({
             className="flex items-center gap-3 py-1 w-full"
           >
             <IconMap className="w-4 h-4 text-white-100 shrink-0" />
-            <span className="font-body font-medium text-[13px] text-white-100 flex-1 text-left">
+            <span className="font-body font-medium text-[13px] leading-[18px] text-white-100 flex-1 text-left">
               Ver en mapa
             </span>
             <IconCaretRight
@@ -211,7 +211,7 @@ export default function ReservationCard({
             className="flex items-center gap-3 py-1 w-full"
           >
             <IconXCircle className="w-4 h-4 text-white-100 shrink-0" />
-            <span className="font-body font-medium text-[13px] text-white-100 flex-1 text-left">
+            <span className="font-body font-medium text-[13px] leading-[18px] text-white-100 flex-1 text-left">
               Cancelar reserva
             </span>
             <IconCaretRight
@@ -222,7 +222,7 @@ export default function ReservationCard({
           </button>
           {cancelarAbierto && (
             <div className="flex flex-col gap-3 rounded-xl bg-white-6 px-4 py-3 mb-1">
-              <span className="font-body text-[13px] text-white-80">
+              <span className="font-body text-[13px] leading-[18px] text-white-80">
                 Puedes cancelar esta reserva sin costo hasta 24 horas antes
                 del evento. Pasado ese plazo, no hay reembolso.
               </span>
@@ -232,13 +232,13 @@ export default function ReservationCard({
                     setCancelarAbierto(false);
                     onCancelar?.();
                   }}
-                  className="font-body font-semibold text-[13px] text-warning"
+                  className="font-body font-semibold text-[13px] leading-[18px] text-warning"
                 >
                   Confirmar cancelación
                 </button>
                 <button
                   onClick={() => setCancelarAbierto(false)}
-                  className="font-body font-medium text-[13px] text-white-40"
+                  className="font-body font-medium text-[13px] leading-[18px] text-white-40"
                 >
                   Mantener reserva
                 </button>
@@ -250,11 +250,11 @@ export default function ReservationCard({
         <div className="flex items-center gap-3">
           <Link
             to={`/experiencia/${experience.id}`}
-            className="font-body font-medium text-[13px] text-white-100"
+            className="font-body font-medium text-[13px] leading-[18px] text-white-100"
           >
             Volver a reservar
           </Link>
-          <span className="font-body font-medium text-[13px] text-white-40">
+          <span className="font-body font-medium text-[13px] leading-[18px] text-white-40">
             Dejar reseña
           </span>
         </div>

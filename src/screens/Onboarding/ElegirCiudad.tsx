@@ -46,10 +46,10 @@ export default function ElegirCiudad({
         <IconMapPin className="w-6 h-6 text-thea-mint" />
       </span>
       <div className="flex flex-col gap-2">
-        <h1 className="font-display text-2xl text-white-100">
+        <h1 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
           ¿Dónde quieres descubrir?
         </h1>
-        <p className="font-body text-sm text-white-60 max-w-[280px]">
+        <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 max-w-[280px]">
           También puedes cambiar de ciudad en cualquier momento.
         </p>
       </div>

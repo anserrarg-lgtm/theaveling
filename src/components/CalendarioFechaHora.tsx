@@ -114,7 +114,7 @@ export default function CalendarioFechaHora({
             <button
               key={m.clave}
               onClick={() => setMesActivo(i)}
-              className={`rounded-full px-3 py-1.5 font-body text-xs font-semibold capitalize ${
+              className={`rounded-full px-3 py-1.5 font-body text-xs leading-[16px] tracking-[0.5px] font-semibold capitalize ${
                 i === mesActivo
                   ? "bg-thea-green text-white-100"
                   : "bg-green-8 text-thea-green"
@@ -126,7 +126,7 @@ export default function CalendarioFechaHora({
         </div>
       )}
       {meses.length <= 1 && (
-        <p className="font-body text-xs font-semibold capitalize text-green-50">
+        <p className="font-body text-xs leading-[16px] tracking-[0.5px] font-semibold capitalize text-green-50">
           {MESES[mes]} {anio}
         </p>
       )}
@@ -151,7 +151,7 @@ export default function CalendarioFechaHora({
               type="button"
               disabled={!disponible}
               onClick={() => indiceOpcion !== undefined && onSeleccionar(indiceOpcion)}
-              className={`flex h-8 w-8 items-center justify-center rounded-full font-body text-[13px] [font-variant-numeric:tabular-nums] ${
+              className={`flex h-8 w-8 items-center justify-center rounded-full font-body text-[13px] leading-[18px] [font-variant-numeric:tabular-nums] ${
                 seleccionado
                   ? "bg-thea-mint font-semibold text-thea-green"
                   : disponible
@@ -172,7 +172,7 @@ export default function CalendarioFechaHora({
           para que quede claro qué se está reservando, mismo criterio
           que ya usan los chips de al lado. */}
       {opcionSeleccionada?.hora && (
-        <p className="font-body text-[13px] text-green-50">
+        <p className="font-body text-[13px] leading-[18px] text-green-50">
           Hora: <span className="font-semibold text-thea-green">{horaCompacta(opcionSeleccionada.hora)}</span>
         </p>
       )}

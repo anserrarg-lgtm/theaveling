@@ -138,14 +138,14 @@ export default function LoginSheet({
 
         <div className="flex flex-col items-center gap-1 px-6 pt-2 pb-6 text-center">
           <Wordmark />
-          <h2 className="font-display font-semibold text-xl text-thea-green mt-3">
+          <h2 className="font-display font-semibold text-xl leading-[28px] text-thea-green mt-3">
             Inicia sesión o regístrate
           </h2>
           {/* Mensaje contextual — por qué se pide sesión justo acá (distinto
               en favoritos/reserva/perfil, ver cada sitio que llama a
               `requireAuth`). Sin esto, el gate se siente arbitrario. */}
           {mensaje && (
-            <p className="font-body text-sm text-green-70 max-w-[280px]">
+            <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-green-70 max-w-[280px]">
               {mensaje}
             </p>
           )}
@@ -162,7 +162,7 @@ export default function LoginSheet({
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && continuarConCorreo()}
               placeholder="Correo electrónico"
-              className="flex-1 bg-transparent font-body text-sm text-thea-green placeholder:text-green-50 outline-none"
+              className="flex-1 bg-transparent font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green placeholder:text-green-50 outline-none"
             />
           </label>
           <button
@@ -175,7 +175,7 @@ export default function LoginSheet({
 
           <div className="flex items-center gap-3 py-1">
             <div className="h-px flex-1 bg-green-12" />
-            <span className="font-body text-xs text-green-50">o</span>
+            <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-green-50">o</span>
             <div className="h-px flex-1 bg-green-12" />
           </div>
 
@@ -185,21 +185,21 @@ export default function LoginSheet({
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={() => setGooglePickerAbierto(true)}
-              className="h-12 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm flex items-center justify-center gap-2"
+              className="h-12 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm leading-[18px] tracking-[0.3px] flex items-center justify-center gap-2"
             >
               <IconGoogle className="w-[18px] h-[18px]" />
               Google
             </button>
             <button
               onClick={() => setAppleSheetAbierto(true)}
-              className="h-12 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm flex items-center justify-center gap-2"
+              className="h-12 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm leading-[18px] tracking-[0.3px] flex items-center justify-center gap-2"
             >
               <IconApple className="w-4 h-4" />
               Apple
             </button>
           </div>
 
-          <p className="font-body text-xs text-green-50 text-center pt-1">
+          <p className="font-body text-xs leading-[16px] tracking-[0.5px] text-green-50 text-center pt-1">
             Esta es una demo: no se crea ninguna cuenta real ni se guarda
             tu correo en ningún servidor.
           </p>

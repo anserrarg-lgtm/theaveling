@@ -184,10 +184,10 @@ export default function Reservas() {
                 <IconTicket className="w-6 h-6 text-white-60" />
               </span>
               <div className="flex flex-col gap-2">
-                <h1 className="font-display text-xl text-white-100">
+                <h1 className="font-display text-xl leading-[28px] text-white-100">
                   Tus reservas te esperan
                 </h1>
-                <p className="font-body text-sm text-white-60 max-w-[260px]">
+                <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 max-w-[260px]">
                   Inicia sesión para ver tus próximas experiencias y tu
                   historial de reservas.
                 </p>
@@ -219,7 +219,7 @@ export default function Reservas() {
                 (sin foto ni campanita acá, Reservas no tiene ninguna de
                 las dos). */}
             <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center px-5 bg-[rgb(1,20,20)] border-b border-white-12">
-              <h1 className="font-display font-semibold text-lg text-white-100">
+              <h1 className="font-display font-semibold text-lg leading-[28px] text-white-100">
                 Reservas
               </h1>
             </header>
@@ -240,10 +240,10 @@ export default function Reservas() {
                     <IconTicket className="w-6 h-6 text-white-60" />
                   </span>
                   <div className="flex flex-col gap-2">
-                    <h2 className="font-display text-xl text-white-100">
+                    <h2 className="font-display text-xl leading-[28px] text-white-100">
                       Aún no tienes reservas
                     </h2>
-                    <p className="font-body text-sm text-white-60 max-w-[260px]">
+                    <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 max-w-[260px]">
                       Cuando reserves una experiencia, va a aparecer acá.
                     </p>
                   </div>
@@ -324,10 +324,10 @@ export default function Reservas() {
                 <IconTicket className="h-7 w-7 text-white-60" />
               </span>
               <div className="flex flex-col gap-2">
-                <h2 className="font-display text-2xl text-white-100">
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                   Tus reservas te esperan
                 </h2>
-                <p className="mx-auto max-w-[420px] font-body text-[15px] text-white-60">
+                <p className="mx-auto max-w-[420px] font-body text-[15px] leading-[22px] text-white-60">
                   Inicia sesión para ver tus próximas experiencias y tu
                   historial de reservas.
                 </p>
@@ -347,10 +347,10 @@ export default function Reservas() {
                 <IconTicket className="h-7 w-7 text-white-60" />
               </span>
               <div className="flex flex-col gap-2">
-                <h2 className="font-display text-2xl text-white-100">
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                   Aún no tienes reservas
                 </h2>
-                <p className="mx-auto max-w-[420px] font-body text-[15px] text-white-60">
+                <p className="mx-auto max-w-[420px] font-body text-[15px] leading-[22px] text-white-60">
                   Cuando reserves una experiencia, va a aparecer acá.
                 </p>
               </div>

@@ -282,9 +282,9 @@ function FilaExperiencia({ exp, subtitulo }: { exp: Experience; subtitulo?: stri
         )}
       </div>
       <div className="flex flex-1 flex-col min-w-0">
-        <span className="font-body text-sm text-white-100 truncate">{exp.title}</span>
+        <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 truncate">{exp.title}</span>
         {subtitulo && (
-          <span className="font-body text-[13px] text-white-60 truncate">{subtitulo}</span>
+          <span className="font-body text-[13px] leading-[18px] text-white-60 truncate">{subtitulo}</span>
         )}
       </div>
       <IconCaretRight className="w-4 h-4 text-white-40 shrink-0" />
@@ -342,7 +342,7 @@ export default function Busqueda() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar experiencia..."
-            className="flex-1 bg-transparent font-body text-sm text-white-100 placeholder:text-white-40 outline-none min-w-0"
+            className="flex-1 bg-transparent font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 placeholder:text-white-40 outline-none min-w-0"
           />
         </label>
       </header>
@@ -354,7 +354,7 @@ export default function Busqueda() {
             className="flex items-center gap-2 py-3 w-full text-left"
           >
             <IconMapPin className="w-4 h-4 text-white-100 shrink-0" />
-            <span className="font-body text-sm text-white-100 underline underline-offset-2">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 underline underline-offset-2">
               Ubicación: {ciudad}
             </span>
           </button>
@@ -363,7 +363,7 @@ export default function Busqueda() {
             className="flex items-center gap-2 py-3 w-full text-left"
           >
             <IconCalendar className="w-4 h-4 text-white-100 shrink-0" />
-            <span className="font-body text-sm text-white-100 underline underline-offset-2">
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 underline underline-offset-2">
               {formatearFecha(fecha)}
             </span>
           </button>
@@ -371,7 +371,7 @@ export default function Busqueda() {
 
         {!hayBusquedaActiva ? (
           <div className="rounded-2xl border border-white-12 bg-white-6 p-4 shadow-2xl flex flex-col">
-            <h2 className="font-body font-semibold text-sm text-white-100">TENDENCIAS</h2>
+            <h2 className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">TENDENCIAS</h2>
             {tendencias.map((exp) => (
               <FilaExperiencia key={exp.id} exp={exp} />
             ))}
@@ -383,10 +383,10 @@ export default function Busqueda() {
             <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
               <IconMapPin className="w-5 h-5 text-white-40" />
             </span>
-            <p className="font-body font-semibold text-sm text-white-100">
+            <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
               Todavía no estamos en {ciudad}
             </p>
-            <p className="font-body text-[13px] text-white-40 max-w-[260px]">
+            <p className="font-body text-[13px] leading-[18px] text-white-40 max-w-[260px]">
               Theaveling por ahora solo opera en Bogotá. Vamos sumando ciudades de a poco.
             </p>
           </div>
@@ -394,7 +394,7 @@ export default function Busqueda() {
           // Punto 3: coincide de verdad (texto y/o fecha real) — ver
           // `coincideConBusqueda` arriba.
           <div className="rounded-2xl border border-white-12 bg-white-6 p-4 shadow-2xl flex flex-col">
-            <h2 className="font-body font-semibold text-sm text-white-100">
+            <h2 className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
               RESULTADOS ({resultados.length})
             </h2>
             {resultados.map((exp) => (
@@ -409,10 +409,10 @@ export default function Busqueda() {
               <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
                 <IconSearch className="w-5 h-5 text-white-40" />
               </span>
-              <p className="font-body font-semibold text-sm text-white-100">
+              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                 No hay resultados para tu búsqueda
               </p>
-              <p className="font-body text-[13px] text-white-40 max-w-[260px]">
+              <p className="font-body text-[13px] leading-[18px] text-white-40 max-w-[260px]">
                 Pero tenemos estas experiencias que podrían interesarte.
               </p>
             </div>

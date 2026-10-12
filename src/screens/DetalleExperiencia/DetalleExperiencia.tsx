@@ -509,7 +509,7 @@ export default function DetalleExperiencia() {
             </button>
             {mensajeCompartir && (
               <span
-                className="absolute top-11 right-0 whitespace-nowrap rounded-full bg-thea-deep px-3 py-1.5 font-body text-xs text-white-100 shadow-lg"
+                className="absolute top-11 right-0 whitespace-nowrap rounded-full bg-thea-deep px-3 py-1.5 font-body text-xs leading-[16px] tracking-[0.5px] text-white-100 shadow-lg"
                 role="status"
               >
                 {mensajeCompartir}
@@ -580,7 +580,7 @@ export default function DetalleExperiencia() {
             {/* Eyebrow "FESTIVAL" — solo para los 3 festivales reales de
                 Bogotá, ver nota grande arriba de DetalleExperiencia(). */}
             {esFestivalCiudad && (
-              <span className="font-body font-semibold text-xs uppercase tracking-[0.5px] text-thea-mint drop-shadow-[0_1px_4px_rgba(1,20,20,0.6)]">
+              <span className="font-body font-semibold text-xs leading-[16px] uppercase tracking-[0.5px] text-thea-mint drop-shadow-[0_1px_4px_rgba(1,20,20,0.6)]">
                 Festival
               </span>
             )}
@@ -600,7 +600,7 @@ export default function DetalleExperiencia() {
             rápida (categorías del lineup + cantidad de experiencias). */}
         {esFestivalCiudad ? (
           <div className="bg-[rgb(1,20,20)] flex flex-col gap-3 p-6">
-            <div className="flex items-center gap-2 font-body font-semibold text-[13px] text-white-100">
+            <div className="flex items-center gap-2 font-body font-semibold text-[13px] leading-[18px] text-white-100">
               <span className="flex items-center gap-1.5">
                 <IconMapPin className="w-4 h-4 opacity-60" />
                 {experiencia?.city}
@@ -623,7 +623,7 @@ export default function DetalleExperiencia() {
                 en una sola línea. */}
             {lineupFestival.length > 0 && (
               <p
-                className="font-body text-[13px]"
+                className="font-body text-[13px] leading-[18px]"
                 style={{ color: "rgba(251,251,251,0.5)" }}
               >
                 {categoriasLineup.join(" · ")}
@@ -645,7 +645,7 @@ export default function DetalleExperiencia() {
                   secundario para no competir con el puntaje. Ver
                   `ratingCount` en experiences.ts (primera pasada, número
                   inventado). */}
-              <span className="font-body font-semibold text-[13px]">
+              <span className="font-body font-semibold text-[13px] leading-[18px]">
                 <span className="text-thea-mint">★</span>{" "}
                 <span className="text-white-100">
                   {experiencia ? experiencia.rating : "—"}
@@ -693,7 +693,7 @@ export default function DetalleExperiencia() {
               reales del lineup) + Supporting Card Compact (220px, misma
               que "Contenido similar"). */}
           <section className="flex flex-col gap-4">
-            <h2 className="font-display text-2xl text-white-100">
+            <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
               Explora la programación
             </h2>
             {lineupFestival.length > 0 ? (
@@ -706,7 +706,7 @@ export default function DetalleExperiencia() {
                         <button
                           key={cat}
                           onClick={() => setCategoriaLineupActiva(cat)}
-                          className={`shrink-0 px-4 py-2 rounded-full font-body font-semibold text-[13px] ${
+                          className={`shrink-0 px-4 py-2 rounded-full font-body font-semibold text-[13px] leading-[18px] ${
                             activa
                               ? "bg-white-100 text-thea-green"
                               : "bg-white-8 text-white-100"
@@ -755,7 +755,7 @@ export default function DetalleExperiencia() {
               distinto, ver nota grande arriba. */}
           {venuesLineup.length > 1 && (
             <section className="flex flex-col gap-4">
-              <h2 className="font-display text-2xl text-white-100">
+              <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                 Dónde sucede
               </h2>
               <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-none">
@@ -768,7 +768,7 @@ export default function DetalleExperiencia() {
                       {v.venue}
                     </p>
                     <span
-                      className="flex items-center gap-1.5 font-body text-xs"
+                      className="flex items-center gap-1.5 font-body text-xs leading-[16px] tracking-[0.5px]"
                       style={{ color: "rgba(251,251,251,0.6)" }}
                     >
                       <IconMapPin className="w-3.5 h-3.5 opacity-60 shrink-0" />
@@ -785,7 +785,7 @@ export default function DetalleExperiencia() {
               es, contexto — ver esa nota en experiences.ts para cada
               festival) + quién organiza, tomado de `artista`. */}
           <section className="flex flex-col gap-3">
-            <h2 className="font-display text-2xl text-white-100">
+            <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
               Sobre el festival
             </h2>
             <p
@@ -796,7 +796,7 @@ export default function DetalleExperiencia() {
             </p>
             {experiencia?.artista && (
               <p
-                className="font-body text-sm"
+                className="font-body text-sm leading-[18px] tracking-[0.3px]"
                 style={{ color: "rgba(251,251,251,0.6)" }}
               >
                 Organiza: {experiencia.artista.nombre}
@@ -831,7 +831,7 @@ export default function DetalleExperiencia() {
           contenido específico por pieza. */
       <div className="flex flex-col gap-16 px-6 py-8">
         <section className="flex flex-col gap-4">
-          <h2 className="font-display text-2xl text-white-100">
+          <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
             Por qué descubrir esto
           </h2>
           <p
@@ -870,7 +870,7 @@ export default function DetalleExperiencia() {
             Ana en la corrección anterior ("colocalas abajo, no
             arriba"). */}
         <section className="flex flex-col gap-4">
-          <h2 className="font-display text-2xl text-white-100">
+          <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
             Ficha del descubrimiento
           </h2>
           {experiencia?.ficha ? (
@@ -912,12 +912,12 @@ export default function DetalleExperiencia() {
                   <Icon className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
                   <div className="flex-1 flex flex-col gap-0.5">
                     <span
-                      className="font-body text-sm"
+                      className="font-body text-sm leading-[18px] tracking-[0.3px]"
                       style={{ color: "rgba(251,251,251,0.7)" }}
                     >
                       {label}
                     </span>
-                    <span className="font-body text-sm leading-[1.4] text-white-100">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                       {value}
                     </span>
                   </div>
@@ -942,7 +942,7 @@ export default function DetalleExperiencia() {
             por herencia del modelo de datos — solo cambió el texto
             visible. */}
         <section className="flex flex-col items-center gap-4 w-full">
-          <h2 className="font-display text-2xl text-white-100 text-center">
+          <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100 text-center">
             Quiénes hacen parte
           </h2>
           {experiencia?.artista ? (
@@ -963,7 +963,7 @@ export default function DetalleExperiencia() {
                   del artista/compañía. */}
               {experiencia.artista.saludo && (
                 <p
-                  className="font-body text-sm leading-[1.5] text-center w-[280px]"
+                  className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.5] text-center w-[280px]"
                   style={{ color: "rgba(251,251,251,0.8)" }}
                 >
                   {experiencia.artista.saludo}
@@ -1000,9 +1000,9 @@ export default function DetalleExperiencia() {
             "Personas que estuvieron aquí" como bajada de la sección, frase
             que Ana dio como ejemplo del tono que quería para esta parte. */}
         <section className="flex flex-col gap-4">
-          <h2 className="font-display text-2xl text-white-100">Comunidad</h2>
+          <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Comunidad</h2>
           <p
-            className="font-body text-sm -mt-2"
+            className="font-body text-sm leading-[18px] tracking-[0.3px] -mt-2"
             style={{ color: "rgba(251,251,251,0.6)" }}
           >
             Personas que estuvieron aquí
@@ -1057,16 +1057,16 @@ export default function DetalleExperiencia() {
                       inicial del nombre en vez de inventar una foto de
                       una persona real que no existe. */}
                   <div className="h-10 w-10 rounded-full border border-thea-mint/30 bg-thea-mint/15 flex items-center justify-center shrink-0">
-                    <span className="font-body font-semibold text-sm text-thea-mint">
+                    <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-mint">
                       {reseña.nombre.charAt(0)}
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-body font-semibold text-sm text-white-100">
+                    <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                       {reseña.nombre}
                     </span>
                     <span
-                      className="font-body text-xs"
+                      className="font-body text-xs leading-[16px] tracking-[0.5px]"
                       style={{ color: "rgba(251,251,251,0.6)" }}
                     >
                       <span className="font-semibold text-thea-mint">★ {reseña.rating}</span>{" "}
@@ -1075,7 +1075,7 @@ export default function DetalleExperiencia() {
                   </div>
                 </div>
                 <p
-                  className="font-body text-sm leading-[1.4]"
+                  className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4]"
                   style={{ color: "rgba(251,251,251,0.8)" }}
                 >
                   {reseña.texto}
@@ -1098,7 +1098,7 @@ export default function DetalleExperiencia() {
               `rounded-full`. */}
           <button
             type="button"
-            className="self-center px-5 py-2.5 rounded-lg bg-white-8 font-body font-medium text-sm text-white-100"
+            className="self-center px-5 py-2.5 rounded-lg bg-white-8 font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-white-100"
           >
             Mostrar todas las calificaciones
           </button>
@@ -1199,7 +1199,7 @@ export default function DetalleExperiencia() {
                 por herencia del nodo de Figma
                 `informacion-adicional-bottom-sheet` — solo cambió el
                 texto visible del título. */}
-            <h2 className="font-display text-2xl text-white-100">
+            <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
               Sobre el lugar
             </h2>
 
@@ -1231,7 +1231,7 @@ export default function DetalleExperiencia() {
                     {experiencia.venueCategoria ?? "Espacio cultural"}
                   </span>
                   <span
-                    className="font-body text-xs"
+                    className="font-body text-xs leading-[16px] tracking-[0.5px]"
                     style={{ color: "rgba(251,251,251,0.5)" }}
                   >
                     {experiencia.venueBarrio
@@ -1240,7 +1240,7 @@ export default function DetalleExperiencia() {
                   </span>
                 </div>
               </div>
-              <p className="font-body text-sm text-white-100 w-full leading-[1.4]">
+              <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 w-full leading-[1.4]">
                 {experiencia.curiosidadDelLugar ??
                   "Curiosidad del lugar: pendiente de contenido real."}
               </p>
@@ -1272,12 +1272,12 @@ export default function DetalleExperiencia() {
               />
               <div className="flex items-center justify-between gap-3 flex-wrap">
                 <p
-                  className="font-body text-[13px]"
+                  className="font-body text-[13px] leading-[18px]"
                   style={{ color: "rgba(251,251,251,0.6)" }}
                 >
                   {experiencia.direccionCompleta ?? `${experiencia.venue}, ${experiencia.city}`}
                 </p>
-                <div className="flex items-center gap-3 font-body font-semibold text-[13px] text-white-100">
+                <div className="flex items-center gap-3 font-body font-semibold text-[13px] leading-[18px] text-white-100">
                   <a
                     href={googleMapsSearchUrl(`${experiencia.venue}, ${experiencia.city}`)}
                     target="_blank"
@@ -1296,7 +1296,7 @@ export default function DetalleExperiencia() {
                   </a>
                 </div>
               </div>
-              <p className="font-body text-sm text-white-100 leading-[1.4] w-full">
+              <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 leading-[1.4] w-full">
                 {experiencia.contextoBarrio ??
                   "Contexto del barrio: pendiente de contenido real."}
               </p>
@@ -1330,27 +1330,27 @@ export default function DetalleExperiencia() {
             todavía, es primera pasada). */}
         {experiencia && (
           <section className="flex flex-col gap-4">
-            <h2 className="font-display text-2xl text-white-100">
+            <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
               Información adicional
             </h2>
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <IconAlertCircle className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
-                <p className="flex-1 font-body text-sm text-white-100 leading-[1.4]">
+                <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 leading-[1.4]">
                   Se recomienda llegar 20 minutos antes: el ingreso se
                   cierra al iniciar la función.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <IconCameraOff className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
-                <p className="flex-1 font-body text-sm text-white-100 leading-[1.4]">
+                <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 leading-[1.4]">
                   No se permite grabar ni fotografiar durante la función,
                   por respeto a los artistas y al resto del público.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <IconCalendarX className="w-4 h-4 text-white-100 opacity-50 shrink-0 mt-0.5" />
-                <p className="flex-1 font-body text-sm text-white-100 leading-[1.4]">
+                <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 leading-[1.4]">
                   Cancelación gratuita hasta 24 horas antes de la
                   función: después de ese plazo no hay reembolso.
                 </p>
@@ -1360,7 +1360,7 @@ export default function DetalleExperiencia() {
         )}
 
         <section className="flex flex-col gap-4">
-          <h2 className="font-display text-2xl text-white-100">
+          <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
             Contenido similar
           </h2>
           {/* 2026-10-08, a pedido de Ana — mismo arreglo que el riel de
@@ -1525,7 +1525,7 @@ export default function DetalleExperiencia() {
       />
       {mensajeCompartir && (
         <span
-          className="fixed top-6 right-10 z-30 whitespace-nowrap rounded-full bg-thea-deep px-4 py-2 font-body text-sm text-white-100 shadow-lg"
+          className="fixed top-6 right-10 z-30 whitespace-nowrap rounded-full bg-thea-deep px-4 py-2 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 shadow-lg"
           role="status"
         >
           {mensajeCompartir}
@@ -1545,7 +1545,7 @@ export default function DetalleExperiencia() {
           {esFestivalCiudad ? (
             <div className="mx-auto mt-10 flex max-w-[800px] flex-col gap-16">
               <div className="flex flex-col gap-3">
-                <span className="font-body font-semibold text-xs uppercase tracking-[0.5px] text-thea-mint">
+                <span className="font-body font-semibold text-xs leading-[16px] uppercase tracking-[0.5px] text-thea-mint">
                   Festival
                 </span>
                 {/* Compartir/Favorito al lado del título — 2026-09-14, a
@@ -1560,7 +1560,7 @@ export default function DetalleExperiencia() {
                     <button
                       onClick={compartir}
                       aria-label="Compartir"
-                      className="flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+                      className="flex items-center gap-2 font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 transition-colors hover:text-white-100"
                     >
                       <IconShare className="h-4 w-4" />
                       Compartir
@@ -1568,7 +1568,7 @@ export default function DetalleExperiencia() {
                     {id && <FavoritoButton id={id} />}
                   </div>
                 </div>
-                <div className="flex items-center gap-2 font-body font-semibold text-sm text-white-100">
+                <div className="flex items-center gap-2 font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                   <span className="flex items-center gap-1.5">
                     <IconMapPin className="h-4 w-4 opacity-60" />
                     {experiencia?.city}
@@ -1583,7 +1583,7 @@ export default function DetalleExperiencia() {
                   {experiencia?.description}
                 </p>
                 {lineupFestival.length > 0 && (
-                  <p className="font-body text-sm text-white-50">
+                  <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-50">
                     {categoriasLineup.join(" · ")} · {lineupFestival.length}{" "}
                     {lineupFestival.length === 1 ? "experiencia" : "experiencias"}
                   </p>
@@ -1591,7 +1591,7 @@ export default function DetalleExperiencia() {
               </div>
 
               <section className="flex flex-col gap-5">
-                <h2 className="font-display text-2xl text-white-100">
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                   Explora la programación
                 </h2>
                 {lineupFestival.length > 0 ? (
@@ -1604,7 +1604,7 @@ export default function DetalleExperiencia() {
                             <button
                               key={cat}
                               onClick={() => setCategoriaLineupActiva(cat)}
-                              className={`shrink-0 rounded-full px-4 py-2 font-body font-semibold text-[13px] ${
+                              className={`shrink-0 rounded-full px-4 py-2 font-body font-semibold text-[13px] leading-[18px] ${
                                 activa
                                   ? "bg-white-100 text-thea-green"
                                   : "bg-white-8 text-white-100"
@@ -1642,12 +1642,12 @@ export default function DetalleExperiencia() {
 
               {venuesLineup.length > 1 && (
                 <section className="flex flex-col gap-5">
-                  <h2 className="font-display text-2xl text-white-100">Dónde sucede</h2>
+                  <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Dónde sucede</h2>
                   <div className="grid grid-cols-3 gap-4">
                     {venuesLineup.map((v) => (
                       <div key={v.venue} className="flex flex-col gap-1.5 rounded-xl bg-white-8 p-4">
                         <p className="font-display text-base text-white-100">{v.venue}</p>
-                        <span className="flex items-center gap-1.5 font-body text-xs text-white-60">
+                        <span className="flex items-center gap-1.5 font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">
                           <IconMapPin className="h-3.5 w-3.5 shrink-0 opacity-60" />
                           {v.venueBarrio ? `${v.venueBarrio} · ${v.city}` : v.city}
                         </span>
@@ -1658,12 +1658,12 @@ export default function DetalleExperiencia() {
               )}
 
               <section className="flex flex-col gap-3">
-                <h2 className="font-display text-2xl text-white-100">Sobre el festival</h2>
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Sobre el festival</h2>
                 <p className="font-body text-[15px] leading-normal text-white-70">
                   {experiencia?.curiosidadDelLugar}
                 </p>
                 {experiencia?.artista && (
-                  <p className="font-body text-sm text-white-60">
+                  <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                     Organiza: {experiencia.artista.nombre}
                   </p>
                 )}
@@ -1701,7 +1701,7 @@ export default function DetalleExperiencia() {
                       <button
                         onClick={compartir}
                         aria-label="Compartir"
-                        className="flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+                        className="flex items-center gap-2 font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 transition-colors hover:text-white-100"
                       >
                         <IconShare className="h-4 w-4" />
                         Compartir
@@ -1710,7 +1710,7 @@ export default function DetalleExperiencia() {
                     </div>
                   </div>
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-body font-semibold text-sm">
+                    <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px]">
                       <span className="text-thea-mint">★</span>{" "}
                       <span className="text-white-100">
                         {experiencia ? experiencia.rating : "—"}
@@ -1722,7 +1722,7 @@ export default function DetalleExperiencia() {
                       )}
                     </span>
                     <span className="text-white-30">·</span>
-                    <span className="flex items-center gap-1.5 font-body text-sm text-white-60">
+                    <span className="flex items-center gap-1.5 font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
                       <IconMapPin className="h-4 w-4 opacity-60" />
                       {experiencia?.venue}, {experiencia?.city}
                     </span>
@@ -1734,7 +1734,7 @@ export default function DetalleExperiencia() {
                 </div>
 
                 <section className="flex flex-col gap-4">
-                  <h2 className="font-display text-2xl text-white-100">
+                  <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                     Por qué descubrir esto
                   </h2>
                   <p className="max-w-[720px] font-body text-[15px] leading-normal text-white-70">
@@ -1744,7 +1744,7 @@ export default function DetalleExperiencia() {
                 </section>
 
                 <section className="flex flex-col gap-4">
-                  <h2 className="font-display text-2xl text-white-100">
+                  <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
                     Ficha del descubrimiento
                   </h2>
                   {experiencia?.ficha ? (
@@ -1789,8 +1789,8 @@ export default function DetalleExperiencia() {
                         <div key={label} className="flex items-start gap-3">
                           <Icon className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
                           <div className="flex flex-1 flex-col gap-0.5">
-                            <span className="font-body text-sm text-white-70">{label}</span>
-                            <span className="font-body text-sm leading-[1.4] text-white-100">
+                            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-70">{label}</span>
+                            <span className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                               {value}
                             </span>
                           </div>
@@ -1816,7 +1816,7 @@ export default function DetalleExperiencia() {
                 </section>
 
                 <section className="flex flex-col items-start gap-4">
-                  <h2 className="font-display text-2xl text-white-100">Quiénes hacen parte</h2>
+                  <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Quiénes hacen parte</h2>
                   {experiencia?.artista ? (
                     <div className="flex w-full flex-col gap-4">
                       {/* orientacion="horizontal" — 2026-09-14, a pedido de
@@ -1832,7 +1832,7 @@ export default function DetalleExperiencia() {
                         orientacion="horizontal"
                       />
                       {experiencia.artista.saludo && (
-                        <p className="font-body text-sm leading-[1.5] text-white-80">
+                        <p className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.5] text-white-80">
                           {experiencia.artista.saludo}
                         </p>
                       )}
@@ -1897,7 +1897,7 @@ export default function DetalleExperiencia() {
                 <div className="sticky top-24 flex flex-col gap-6 rounded-2xl border border-green-12 bg-white-100 p-6">
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between">
-                      <p className="font-body font-semibold text-sm text-thea-green">
+                      <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                         Fecha y hora próximas
                       </p>
                       <button
@@ -1932,11 +1932,11 @@ export default function DetalleExperiencia() {
                                   : "border-transparent bg-green-8"
                               }`}
                             >
-                              <span className="whitespace-nowrap font-body font-semibold text-sm text-thea-green">
+                              <span className="whitespace-nowrap font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                                 {opcion.fecha}
                               </span>
                               {opcion.hora && (
-                                <span className="font-body text-xs text-green-50">
+                                <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-green-50">
                                   {horaCompacta(opcion.hora)}
                                 </span>
                               )}
@@ -1948,10 +1948,10 @@ export default function DetalleExperiencia() {
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <p className="font-body font-semibold text-sm text-thea-green">Tipo de entrada</p>
+                    <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">Tipo de entrada</p>
                     <div className="flex w-full items-center justify-between rounded-xl bg-green-12 px-4 py-3.5">
-                      <span className="font-body font-semibold text-sm text-thea-green">General</span>
-                      <span className="font-body font-semibold text-sm text-thea-green">
+                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">General</span>
+                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                         {gratisDesktop
                           ? "Gratis"
                           : `${experiencia.mostrarDesde ? "Desde " : ""}${experiencia.price}`}
@@ -1961,14 +1961,14 @@ export default function DetalleExperiencia() {
 
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between">
-                      <p className="font-body font-semibold text-sm text-thea-green">Entradas</p>
+                      <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">Entradas</p>
                       {tieneMapaButacasDesktop && (
                         <button
                           onClick={() => setMapaAbiertoDesktop((v) => !v)}
                           className="flex items-center gap-1"
                         >
                           <IconMap className="h-4 w-4 text-thea-green opacity-70" />
-                          <span className="font-body text-[13px] text-thea-green underline underline-offset-2 opacity-70">
+                          <span className="font-body text-[13px] leading-[18px] text-thea-green underline underline-offset-2 opacity-70">
                             Ver mapa de butacas
                           </span>
                         </button>
@@ -1983,9 +1983,9 @@ export default function DetalleExperiencia() {
                       />
                     )}
                     <div className="flex items-center justify-between rounded-xl border border-green-12 bg-green-8 px-4 py-3.5">
-                      <span className="font-body text-sm text-thea-green">Cantidad de personas</span>
+                      <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green">Cantidad de personas</span>
                       {tieneMapaButacasDesktop ? (
-                        <span className="font-body font-semibold text-sm text-thea-green [font-variant-numeric:tabular-nums]">
+                        <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green [font-variant-numeric:tabular-nums]">
                           {cantidadEfectivaDesktop}
                         </span>
                       ) : (
@@ -1998,7 +1998,7 @@ export default function DetalleExperiencia() {
                           >
                             <IconMinus className="h-3.5 w-3.5" />
                           </button>
-                          <span className="w-4 text-center font-body font-semibold text-sm text-thea-green [font-variant-numeric:tabular-nums]">
+                          <span className="w-4 text-center font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green [font-variant-numeric:tabular-nums]">
                             {cantidadDesktop}
                           </span>
                           <button
@@ -2017,8 +2017,8 @@ export default function DetalleExperiencia() {
                   <div className="h-px w-full bg-green-12" />
 
                   <div className="flex items-center justify-between">
-                    <span className="font-body text-sm text-green-50">Total</span>
-                    <span className="font-display font-semibold text-xl text-thea-green">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-green-50">Total</span>
+                    <span className="font-display font-semibold text-xl leading-[28px] text-thea-green">
                       {totalLabelDesktop}
                     </span>
                   </div>
@@ -2070,13 +2070,13 @@ export default function DetalleExperiencia() {
                 </p>
                 <button
                   type="button"
-                  className="self-start font-body text-sm text-white-100 underline underline-offset-2"
+                  className="self-start font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 underline underline-offset-2"
                 >
                   Cómo funcionan las evaluaciones
                 </button>
               </div>
 
-              <p className="font-body text-sm text-white-60">Personas que estuvieron aquí</p>
+              <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">Personas que estuvieron aquí</p>
 
               {/* Ancho 240px + gap-6 — 2026-09-14: mismo cálculo que
                   "Contenido similar" más abajo (4 cards de 240px caben en
@@ -2100,13 +2100,13 @@ export default function DetalleExperiencia() {
                         <span className="font-body font-semibold text-base text-white-100">
                           {reseña.nombre}
                         </span>
-                        <span className="font-body text-xs text-white-50">{reseña.fecha}</span>
+                        <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-50">{reseña.fecha}</span>
                       </div>
                     </div>
-                    <span className="font-body font-semibold text-sm text-thea-mint">
+                    <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-mint">
                       ★ {reseña.rating}
                     </span>
-                    <p className="line-clamp-4 flex-1 font-body text-[15px] leading-[1.5] text-white-80">
+                    <p className="line-clamp-4 flex-1 font-body text-[15px] leading-[22px] leading-[1.5] text-white-80">
                       {reseña.texto}
                     </p>
                   </div>
@@ -2115,7 +2115,7 @@ export default function DetalleExperiencia() {
 
               <button
                 type="button"
-                className="self-start rounded-lg bg-white-8 px-5 py-2.5 font-body font-medium text-sm text-white-100"
+                className="self-start rounded-lg bg-white-8 px-5 py-2.5 font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-white-100"
               >
                 Mostrar todo{experiencia ? `: ${experiencia.ratingCount} evaluaciones` : ""}
               </button>
@@ -2149,7 +2149,7 @@ export default function DetalleExperiencia() {
                 punta a punta. */}
             {experiencia && (
               <section className="mt-16 flex flex-col gap-6">
-                <h2 className="font-display text-2xl text-white-100">Sobre el lugar</h2>
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Sobre el lugar</h2>
                 <div className="flex w-full gap-6">
                   {experiencia.venueImageUrl ? (
                     <img
@@ -2176,14 +2176,14 @@ export default function DetalleExperiencia() {
                         <span className="rounded bg-white-12 px-2 py-1 font-body text-[10px] font-semibold uppercase text-white-100">
                           {experiencia.venueCategoria ?? "Espacio cultural"}
                         </span>
-                        <span className="font-body text-xs text-white-50">
+                        <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-50">
                           {experiencia.venueBarrio
                             ? `${experiencia.venueBarrio} • ${experiencia.city}`
                             : experiencia.city}
                         </span>
                       </div>
                     </div>
-                    <p className="font-body text-sm leading-[1.4] text-white-100">
+                    <p className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                       {experiencia.curiosidadDelLugar ??
                         "Curiosidad del lugar: pendiente de contenido real."}
                     </p>
@@ -2211,10 +2211,10 @@ export default function DetalleExperiencia() {
                     className="w-full h-[440px]"
                   />
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <p className="font-body text-[13px] text-white-60">
+                    <p className="font-body text-[13px] leading-[18px] text-white-60">
                       {experiencia.direccionCompleta ?? `${experiencia.venue}, ${experiencia.city}`}
                     </p>
-                    <div className="flex items-center gap-3 font-body font-semibold text-[13px] text-white-100">
+                    <div className="flex items-center gap-3 font-body font-semibold text-[13px] leading-[18px] text-white-100">
                       <a
                         href={googleMapsSearchUrl(`${experiencia.venue}, ${experiencia.city}`)}
                         target="_blank"
@@ -2233,7 +2233,7 @@ export default function DetalleExperiencia() {
                       </a>
                     </div>
                   </div>
-                  <p className="font-body text-sm leading-[1.4] text-white-100">
+                  <p className="font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                     {experiencia.contextoBarrio ??
                       "Contexto del barrio: pendiente de contenido real."}
                   </p>
@@ -2251,25 +2251,25 @@ export default function DetalleExperiencia() {
                 400px restándoles espacio. */}
             {experiencia && (
               <section className="mt-16 flex flex-col gap-4">
-                <h2 className="font-display text-2xl text-white-100">Información adicional</h2>
+                <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Información adicional</h2>
                 <div className="grid max-w-[720px] grid-cols-1 gap-4">
                   <div className="flex items-start gap-3">
                     <IconAlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
-                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                    <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                       Se recomienda llegar 20 minutos antes: el ingreso se
                       cierra al iniciar la función.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <IconCameraOff className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
-                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                    <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                       No se permite grabar ni fotografiar durante la función,
                       por respeto a los artistas y al resto del público.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <IconCalendarX className="mt-0.5 h-4 w-4 shrink-0 text-white-100 opacity-50" />
-                    <p className="flex-1 font-body text-sm leading-[1.4] text-white-100">
+                    <p className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] leading-[1.4] text-white-100">
                       Cancelación gratuita hasta 24 horas antes de la función:
                       después de ese plazo no hay reembolso.
                     </p>
@@ -2300,7 +2300,7 @@ export default function DetalleExperiencia() {
                 (`overflow-x-auto`, sin flechas — `RailNavButtons` de
                 Descubrir.tsx no se trajo acá, no lo pidió). */}
             <section className="mt-16 flex flex-col gap-4">
-              <h2 className="font-display text-2xl text-white-100">Contenido similar</h2>
+              <h2 className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">Contenido similar</h2>
               <div className="flex gap-8 overflow-x-auto scrollbar-none">
                 {id &&
                   getRelatedExperiences(id, 6).map((relacionada) => (
@@ -2336,7 +2336,7 @@ export default function DetalleExperiencia() {
         <div className="mx-auto max-w-[1200px] px-20 pb-40 pt-10">
           <button
             onClick={() => setPasoDesktop("detalle")}
-            className="mb-8 flex items-center gap-2 font-body text-sm text-white-60 transition-colors hover:text-white-100"
+            className="mb-8 flex items-center gap-2 font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 transition-colors hover:text-white-100"
           >
             <IconCaretRight className="h-4 w-4 rotate-180" />
             Confirmar y pagar
@@ -2350,13 +2350,13 @@ export default function DetalleExperiencia() {
                 role="status"
                 aria-label="Procesando pago"
               />
-              <p className="font-body text-sm text-white-70">Procesando tu pago…</p>
+              <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-70">Procesando tu pago…</p>
             </div>
           ) : (
             <div className="grid grid-cols-[1fr_400px] items-start gap-16">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                  <p className="font-body font-semibold text-sm text-white-100">Forma de pago</p>
+                  <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">Forma de pago</p>
                   <div className="flex flex-col gap-2">
                     {[{ terminacion: "4242" }, { terminacion: "0002" }].map((tarjeta) => (
                       <div
@@ -2364,7 +2364,7 @@ export default function DetalleExperiencia() {
                         className="flex items-center gap-3 rounded-2xl border border-white-12 px-4 py-3.5"
                       >
                         <IconCreditCard className="h-5 w-5 text-white-100 opacity-70" />
-                        <span className="flex-1 font-body text-sm text-white-100">
+                        <span className="flex-1 font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
                           Tarjeta terminada en {tarjeta.terminacion}
                         </span>
                         <span className="font-body text-[11px] uppercase tracking-[1px] text-white-40">
@@ -2376,24 +2376,24 @@ export default function DetalleExperiencia() {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="font-body font-semibold text-sm text-white-100">Cupones</p>
+                  <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">Cupones</p>
                   <div className="flex items-center justify-between rounded-2xl border border-white-12 px-4 py-3.5">
-                    <span className="font-body text-sm text-white-50">Ingresa un cupón</span>
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-50">Ingresa un cupón</span>
                     <IconCaretRight className="h-4 w-4 text-white-40" />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <p className="font-body font-semibold text-sm text-white-100">Cancelación gratuita</p>
+                  <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">Cancelación gratuita</p>
                   <div className="rounded-2xl border border-white-12 px-4 py-3.5">
-                    <p className="font-body text-sm text-white-70">
+                    <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-70">
                       Puedes cancelar sin costo hasta 24 horas antes de la
                       función y recibes un reembolso completo.
                     </p>
                   </div>
                 </div>
 
-                <p className="font-body text-xs text-white-50">
+                <p className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-50">
                   Al tocar "Confirmar y pagar" aceptas los términos de la
                   reserva de Theaveling. Esta es una demo: no se procesa
                   ningún pago real.
@@ -2449,7 +2449,7 @@ export default function DetalleExperiencia() {
                     ].map((row) => (
                       <div key={row.label} className="flex items-start gap-2.5">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white-20" />
-                        <p className="font-body text-sm text-white-70">
+                        <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-70">
                           <span className="font-semibold text-white-100">{row.label}: </span>
                           {row.value}
                         </p>
@@ -2458,8 +2458,8 @@ export default function DetalleExperiencia() {
                   </div>
                   <div className="h-px w-full bg-white-12" />
                   <div className="flex items-center justify-between">
-                    <span className="font-body text-sm text-white-50">Total</span>
-                    <span className="font-display font-semibold text-xl text-white-100">
+                    <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-50">Total</span>
+                    <span className="font-display font-semibold text-xl leading-[28px] text-white-100">
                       {totalLabelDesktop}
                     </span>
                   </div>

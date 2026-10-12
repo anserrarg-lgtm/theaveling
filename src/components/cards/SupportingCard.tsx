@@ -116,7 +116,7 @@ export default function SupportingCard({
             Experience Card para venue/metadata (no coincide con ningún
             escalón documentado en STACK.md, se usa tal cual). */}
         <p
-          className="font-body text-xs truncate"
+          className="font-body text-xs leading-[16px] tracking-[0.5px] truncate"
           style={{ color: "rgba(251,251,251,0.5)" }}
         >
           {venue}, {city}

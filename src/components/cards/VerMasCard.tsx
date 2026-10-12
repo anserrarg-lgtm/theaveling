@@ -57,7 +57,7 @@ export default function VerMasCard({
         style={{ background: "rgba(17,44,44,0.55)" }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-0">
-        <span className="font-display font-light text-2xl leading-none text-white-100">
+        <span className="font-display font-light text-2xl leading-[32px] tracking-[-0.1px] leading-none text-white-100">
           +{count}
         </span>
         <span className="font-body font-semibold text-[11px] text-white-100 underline">

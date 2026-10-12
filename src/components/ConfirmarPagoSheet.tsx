@@ -277,7 +277,7 @@ export default function ConfirmarPagoSheet({
           role="status"
           aria-label="Procesando pago"
         />
-        <p className="font-body text-sm text-thea-green">Procesando tu pago…</p>
+        <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green">Procesando tu pago…</p>
       </div>
     );
   }
@@ -297,10 +297,10 @@ export default function ConfirmarPagoSheet({
       >
         <IconXCircle className="w-12 h-12 text-warning" />
         <div className="flex flex-col gap-2">
-          <h2 className="font-display font-semibold text-lg text-thea-green">
+          <h2 className="font-display font-semibold text-lg leading-[28px] text-thea-green">
             No pudimos procesar tu pago
           </h2>
-          <p className="font-body text-sm max-w-[280px]" style={{ color: "rgba(17,44,44,0.6)" }}>
+          <p className="font-body text-sm leading-[18px] tracking-[0.3px] max-w-[280px]" style={{ color: "rgba(17,44,44,0.6)" }}>
             Tu banco rechazó la tarjeta terminada en 0002 (demo). Elige otra
             forma de pago e inténtalo de nuevo.
           </p>
@@ -314,7 +314,7 @@ export default function ConfirmarPagoSheet({
           </button>
           <button
             onClick={onClose}
-            className="font-body text-sm text-green-70 underline"
+            className="font-body text-sm leading-[18px] tracking-[0.3px] text-green-70 underline"
           >
             Cancelar
           </button>
@@ -332,7 +332,7 @@ export default function ConfirmarPagoSheet({
       {/* Header — X a la derecha en vez del back-caret a la izquierda
           que usa el resto de la app, ver nota grande de arriba. */}
       <div className="h-14 flex items-center justify-between px-5 border-b border-green-12 shrink-0">
-        <h2 className="font-display font-semibold text-lg text-thea-green">
+        <h2 className="font-display font-semibold text-lg leading-[28px] text-thea-green">
           Confirmar y pagar
         </h2>
         <button onClick={onClose} aria-label="Cerrar" className="h-9 w-9 -mr-2 flex items-center justify-center">
@@ -388,7 +388,7 @@ export default function ConfirmarPagoSheet({
               ].map((row) => (
                 <div key={row.label} className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-green-20 shrink-0" />
-                  <p className="font-body text-sm" style={{ color: "rgba(17,44,44,0.7)" }}>
+                  <p className="font-body text-sm leading-[18px] tracking-[0.3px]" style={{ color: "rgba(17,44,44,0.7)" }}>
                     <span className="font-semibold text-thea-green">{row.label}: </span>
                     {row.value}
                   </p>
@@ -399,10 +399,10 @@ export default function ConfirmarPagoSheet({
             <div className="h-px w-full" style={{ backgroundColor: "rgba(17,44,44,0.12)" }} />
 
             <div className="flex items-center justify-between">
-              <span className="font-body text-sm" style={{ color: "rgba(17,44,44,0.5)" }}>
+              <span className="font-body text-sm leading-[18px] tracking-[0.3px]" style={{ color: "rgba(17,44,44,0.5)" }}>
                 Total
               </span>
-              <span className="font-display font-semibold text-xl text-thea-green">
+              <span className="font-display font-semibold text-xl leading-[28px] text-thea-green">
                 {totalLabel}
               </span>
             </div>
@@ -418,13 +418,13 @@ export default function ConfirmarPagoSheet({
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={onModificar}
-            className="h-11 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm"
+            className="h-11 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm leading-[18px] tracking-[0.3px]"
           >
             Modificar
           </button>
           <button
             onClick={irADetalles}
-            className="h-11 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm"
+            className="h-11 rounded-xl bg-green-8 text-thea-green font-body font-semibold text-sm leading-[18px] tracking-[0.3px]"
           >
             Ver detalles
           </button>
@@ -433,11 +433,11 @@ export default function ConfirmarPagoSheet({
         {/* Cancelación gratuita — política genérica, no una fecha límite
             calculada (ver "Compromisos honestos" arriba). */}
         <div className="flex flex-col gap-3">
-          <p className="font-body font-semibold text-sm text-thea-green">
+          <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
             Cancelación gratuita
           </p>
           <div className="rounded-2xl border border-green-12 px-4 py-3.5">
-            <p className="font-body text-sm" style={{ color: "rgba(17,44,44,0.7)" }}>
+            <p className="font-body text-sm leading-[18px] tracking-[0.3px]" style={{ color: "rgba(17,44,44,0.7)" }}>
               Puedes cancelar sin costo hasta 24 horas antes de la función y
               recibes un reembolso completo.
             </p>
@@ -449,7 +449,7 @@ export default function ConfirmarPagoSheet({
             solo estética: decide si "Confirmar y pagar" termina bien o
             en el estado de error. */}
         <div className="flex flex-col gap-3">
-          <p className="font-body font-semibold text-sm text-thea-green">Forma de pago</p>
+          <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">Forma de pago</p>
           <div className="flex flex-col gap-2">
             {TARJETAS_DEMO.map((tarjeta) => {
               const elegida = tarjetaElegida === tarjeta.terminacion;
@@ -469,7 +469,7 @@ export default function ConfirmarPagoSheet({
                     {elegida && <span className="h-2 w-2 rounded-full bg-thea-green" />}
                   </span>
                   <IconCreditCard className="w-5 h-5 text-thea-green opacity-70" />
-                  <span className="font-body text-sm text-thea-green flex-1">
+                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green flex-1">
                     Tarjeta terminada en {tarjeta.terminacion}
                   </span>
                   <span className="font-body text-[11px] uppercase tracking-[1px] text-thea-green opacity-40">
@@ -483,9 +483,9 @@ export default function ConfirmarPagoSheet({
 
         {/* Cupones — fila decorativa, no hay sistema de cupones real. */}
         <div className="flex flex-col gap-3">
-          <p className="font-body font-semibold text-sm text-thea-green">Cupones</p>
+          <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">Cupones</p>
           <div className="rounded-2xl border border-green-12 px-4 py-3.5 flex items-center justify-between">
-            <span className="font-body text-sm" style={{ color: "rgba(17,44,44,0.5)" }}>
+            <span className="font-body text-sm leading-[18px] tracking-[0.3px]" style={{ color: "rgba(17,44,44,0.5)" }}>
               Ingresa un cupón
             </span>
             <IconCaretRight className="w-4 h-4 text-thea-green opacity-40" />
@@ -496,26 +496,26 @@ export default function ConfirmarPagoSheet({
             Compra.tsx (`totalLabel`), no un cálculo nuevo. Destino de
             "Ver detalles" de arriba (`irADetalles`). */}
         <div ref={precioRef} className="flex flex-col gap-3">
-          <p className="font-body font-semibold text-sm text-thea-green">
+          <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
             Información del precio
           </p>
           <div className="rounded-2xl border border-green-12 px-4 py-3.5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-3">
-              <span className="font-body text-sm text-thea-green">
+              <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                 {gratis ? "Gratis" : experiencia.price} × {cantidadEfectiva}{" "}
                 {cantidadEfectiva === 1 ? "persona" : "personas"}
               </span>
-              <span className="font-body text-sm text-thea-green shrink-0">{totalLabel}</span>
+              <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green shrink-0">{totalLabel}</span>
             </div>
             <div className="h-px w-full bg-green-12" />
             <div className="flex items-center justify-between gap-3">
-              <span className="font-body font-semibold text-sm text-thea-green">
+              <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
                 Total{" "}
                 <span className="font-normal underline" style={{ color: "rgba(17,44,44,0.5)" }}>
                   COP
                 </span>
               </span>
-              <span className="font-display font-semibold text-lg text-thea-green">
+              <span className="font-display font-semibold text-lg leading-[28px] text-thea-green">
                 {totalLabel}
               </span>
             </div>
@@ -524,7 +524,7 @@ export default function ConfirmarPagoSheet({
 
         {/* Aviso legal — una sola oración honesta, sin links a páginas
             que no existen (ver nota grande de arriba). */}
-        <p className="font-body text-xs" style={{ color: "rgba(17,44,44,0.5)" }}>
+        <p className="font-body text-xs leading-[16px] tracking-[0.5px]" style={{ color: "rgba(17,44,44,0.5)" }}>
           Al tocar "Confirmar y pagar" aceptas los términos de la reserva de
           Theaveling. Esta es una demo: no se procesa ningún pago real.
         </p>

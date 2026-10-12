@@ -333,7 +333,7 @@ export default function Descubrir() {
                   <span className="font-body font-semibold text-[11px] uppercase text-thea-mint">
                     Selección exclusiva
                   </span>
-                  <p className="font-body text-[13px] text-white-60">
+                  <p className="font-body text-[13px] leading-[18px] text-white-60">
                     Nuestra selección de experiencias alternativas más
                     rigurosa. Encuentros íntimos, estéticas radicales y
                     manifestaciones artísticas al margen del circuito
@@ -343,7 +343,7 @@ export default function Descubrir() {
                     to="/ver-mas/curado"
                     className="flex items-center justify-between"
                   >
-                    <h2 className="font-display text-lg text-white-100">
+                    <h2 className="font-display text-lg leading-[28px] text-white-100">
                       Curado por Theaveling
                     </h2>
                     <IconCaretRight className="text-white-60" />
@@ -392,7 +392,7 @@ export default function Descubrir() {
                   to="/ver-mas/curado"
                   className="flex flex-col items-end gap-0 py-1 pr-5"
                 >
-                  <span className="font-display font-light text-2xl leading-none text-white-100">
+                  <span className="font-display font-light text-2xl leading-[32px] tracking-[-0.1px] leading-none text-white-100">
                     +10
                   </span>
                   <span className="font-body font-semibold text-[11px] text-white-100 underline">
@@ -411,7 +411,7 @@ export default function Descubrir() {
                   to="/ver-mas/mas-reservados"
                   className="flex items-center justify-between px-5"
                 >
-                  <h2 className="font-display text-lg text-white-100">
+                  <h2 className="font-display text-lg leading-[28px] text-white-100">
                     Más reservados
                   </h2>
                   <IconCaretRight className="text-white-60" />
@@ -460,7 +460,7 @@ export default function Descubrir() {
                   to="/ver-mas/descubrimientos"
                   className="flex items-center justify-between px-5"
                 >
-                  <h2 className="font-display text-lg text-white-100">
+                  <h2 className="font-display text-lg leading-[28px] text-white-100">
                     Descubrimientos
                   </h2>
                   <IconCaretRight className="text-white-60" />
@@ -526,10 +526,10 @@ export default function Descubrir() {
                 <span className="font-body font-semibold text-[11px] uppercase text-thea-mint">
                   Festivales
                 </span>
-                <h2 className="font-display text-lg text-white-100">
+                <h2 className="font-display text-lg leading-[28px] text-white-100">
                   El arte se toma la ciudad.
                 </h2>
-                <p className="font-body text-[13px] text-white-60">
+                <p className="font-body text-[13px] leading-[18px] text-white-60">
                   Encuentra los festivales que reúnen a artistas,
                   propuestas y experiencias para vivir la ciudad de otra
                   manera.
@@ -559,7 +559,7 @@ export default function Descubrir() {
                     a pedido de Ana, "como es una palabra si pueda ir un
                     poco mas chica" (un número corto y una palabra de 10
                     letras no pesan igual al ojo al mismo tamaño). */}
-                <span className="font-display font-light text-lg leading-none text-white-100">
+                <span className="font-display font-light text-lg leading-[28px] leading-none text-white-100">
                   Festivales
                 </span>
                 <span className="font-body font-semibold text-[11px] text-white-100 underline">
@@ -621,7 +621,7 @@ export default function Descubrir() {
                       to={`/ver-mas/${seccion.slug}`}
                       className="flex items-center justify-between px-5"
                     >
-                      <h2 className="font-display text-lg text-white-100">
+                      <h2 className="font-display text-lg leading-[28px] text-white-100">
                         {seccion.titulo}
                       </h2>
                       <IconCaretRight className="text-white-60" />

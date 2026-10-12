@@ -148,7 +148,7 @@ export default function Confirmacion() {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             <h1 className="font-display font-thin text-4xl">¡Reserva confirmada!</h1>
-            <p className="max-w-[480px] font-body text-[15px] text-white-70">
+            <p className="max-w-[480px] font-body text-[15px] leading-[22px] text-white-70">
               Ya tienes tu lugar para{" "}
               {experiencia ? (
                 <span className="font-medium text-white-100">{experiencia.title}</span>
@@ -197,7 +197,7 @@ export default function Confirmacion() {
                   ].map((row) => (
                     <div key={row.label} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white-20" />
-                      <p className="font-body text-sm text-white-70">
+                      <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-70">
                         <span className="font-semibold text-white-100">{row.label}: </span>
                         {row.value}
                       </p>
@@ -208,8 +208,8 @@ export default function Confirmacion() {
                   <>
                     <div className="h-px w-full bg-white-12" />
                     <div className="flex items-center justify-between">
-                      <span className="font-body text-sm text-white-50">Total</span>
-                      <span className="font-display font-semibold text-xl text-white-100">
+                      <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-50">Total</span>
+                      <span className="font-display font-semibold text-xl leading-[28px] text-white-100">
                         {estadoNav.totalLabel}
                       </span>
                     </div>

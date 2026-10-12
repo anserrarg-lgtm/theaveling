@@ -76,7 +76,7 @@ export default function ExperienceCardDescubrimientos({
           </h3>
         </div>
         <p
-          className="font-body text-[13px] truncate"
+          className="font-body text-[13px] leading-[18px] truncate"
           style={{ color: "rgba(251,251,251,0.5)" }}
         >
           {venue}, {city}

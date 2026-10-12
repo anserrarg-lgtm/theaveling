@@ -213,7 +213,7 @@ export default function LocationSheet({
           >
             <IconCaretRight className="w-5 h-5 rotate-180" />
           </button>
-          <h2 className="font-display text-xl text-white-100">Elegir ciudad</h2>
+          <h2 className="font-display text-xl leading-[28px] text-white-100">Elegir ciudad</h2>
         </div>
 
         {/* 2026-09-04, a pedido de Ana: "esta redondeado, asi no los
@@ -235,7 +235,7 @@ export default function LocationSheet({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Busca una ciudad"
-              className="flex-1 bg-transparent font-body text-sm text-white-100 placeholder:text-white-40 outline-none"
+              className="flex-1 bg-transparent font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 placeholder:text-white-40 outline-none"
             />
           </label>
         </div>
@@ -257,10 +257,10 @@ export default function LocationSheet({
                 <IconMapPin className="w-4 h-4 text-thea-mint" />
               </span>
               <span className="flex flex-col min-w-0">
-                <span className="font-body font-semibold text-sm text-white-100">
+                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                   Ciudad actual
                 </span>
-                <span className="font-body text-[13px] text-white-60 truncate">
+                <span className="font-body text-[13px] leading-[18px] text-white-60 truncate">
                   {geoEstado === "buscando"
                     ? "Confirmando tu ciudad..."
                     : geoEstado === "sin-permiso"
@@ -284,7 +284,7 @@ export default function LocationSheet({
                 className="flex items-center gap-2 h-9 rounded-full bg-white-8 pl-3 pr-4 shrink-0"
               >
                 <IconClock className="w-4 h-4 text-white-60" />
-                <span className="font-body text-[13px] font-medium text-white-100 whitespace-nowrap">
+                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100 whitespace-nowrap">
                   Recientes
                 </span>
               </button>
@@ -312,7 +312,7 @@ export default function LocationSheet({
                   <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
                     <IconClock className="w-4 h-4 text-white-40" />
                   </span>
-                  <span className="font-body text-sm text-white-100">{ciudad}</span>
+                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">{ciudad}</span>
                 </button>
               ))}
             </>
@@ -332,7 +332,7 @@ export default function LocationSheet({
               <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
                 <IconMapPin className="w-4 h-4 text-white-40" />
               </span>
-              <span className="font-body text-sm text-white-100">Bogotá, Colombia</span>
+              <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">Bogotá, Colombia</span>
             </button>
           )}
 
@@ -359,7 +359,7 @@ export default function LocationSheet({
                   <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
                     <IconMapPin className="w-4 h-4 text-white-40" />
                   </span>
-                  <span className="font-body text-sm text-white-100 flex-1">{ciudad}</span>
+                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 flex-1">{ciudad}</span>
                   <span className="font-body text-[11px] font-semibold text-white-40 uppercase tracking-wide shrink-0">
                     Próximamente
                   </span>
@@ -378,10 +378,10 @@ export default function LocationSheet({
               <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
                 <IconMapPin className="w-5 h-5 text-white-40" />
               </span>
-              <p className="font-body font-semibold text-sm text-white-100">
+              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
                 Todavía no llegamos a "{query}"
               </p>
-              <p className="font-body text-[13px] text-white-40 max-w-[260px]">
+              <p className="font-body text-[13px] leading-[18px] text-white-40 max-w-[260px]">
                 Theaveling por ahora solo opera en Bogotá. Vamos sumando
                 ciudades de a poco.
               </p>
