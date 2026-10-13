@@ -505,7 +505,7 @@ export default function DetalleExperiencia() {
               aria-label="Compartir"
               className="h-10 w-10 flex items-center justify-center"
             >
-              <IconShare className="w-6 h-6 text-white-100 drop-shadow-[0_1px_4px_rgba(1,20,20,0.6)]" />
+              <IconShare className="w-[19px] h-[19px] text-white-100 drop-shadow-[0_1px_4px_rgba(1,20,20,0.6)]" />
             </button>
             {mensajeCompartir && (
               <span

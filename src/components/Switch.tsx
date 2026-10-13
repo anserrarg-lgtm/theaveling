@@ -46,7 +46,7 @@ export default function Switch({
       aria-checked={checked}
       aria-label={label}
       onClick={() => onChange(!checked)}
-      className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${
+      className={`relative h-6 w-11 shrink-0 rounded-full outline-none transition-colors focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)] ${
         checked ? "bg-thea-mint" : "bg-white-20"
       }`}
     >

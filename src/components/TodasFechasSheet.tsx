@@ -1,4 +1,5 @@
-import { IconCalendar, IconCaretRight } from "./icons";
+import { IconCalendar } from "./icons";
+import CerrarSheetButton from "./CerrarSheetButton";
 import type { Experience } from "../data/experiences";
 import type { OpcionFechaHora } from "../utils/price";
 import {
@@ -164,14 +165,8 @@ export default function TodasFechasSheet({
             <div className="h-1 w-10 rounded-full bg-white-20" />
           </div>
           <div className="flex items-center gap-2 px-5 pt-2 pb-2">
-            <button
-              onClick={onClose}
-              aria-label="Cerrar"
-              className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0 text-white-100"
-            >
-              <IconCaretRight className="w-5 h-5 rotate-180" />
-            </button>
-            <h2 className="font-display text-xl leading-[28px] text-white-100">Elegir fecha y hora</h2>
+            <CerrarSheetButton onClose={onClose} />
+            <h2 className="font-display text-xl text-white-100">Elegir fecha y hora</h2>
           </div>
 
           {mesCompleto && (
@@ -195,7 +190,7 @@ export default function TodasFechasSheet({
               const disponibles = lugaresDisponibles(experiencia.id, opcion);
               return (
                 <div key={`${opcion.fecha}-${opcion.hora}`} className="flex flex-col gap-2">
-                  <span className="font-body text-[15px] leading-[22px] text-white-100 lowercase">
+                  <span className="font-body text-[15px] text-white-100 lowercase">
                     {fechaCompletaDesdeChip(opcion.fecha)}
                   </span>
                   <button
@@ -211,20 +206,20 @@ export default function TodasFechasSheet({
                   >
                     <div className="flex flex-col gap-1">
                       {opcion.hora && (
-                        <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                        <span className="font-body text-sm text-white-100">
                           {horaCompacta(opcion.hora)} h
                         </span>
                       )}
-                      <span className="font-body text-sm leading-[18px] tracking-[0.3px]">
+                      <span className="font-body text-sm">
                         <span className="font-semibold text-white-100">{precioLabel}</span>
                         {!gratis && <span className="text-white-40"> por persona</span>}
                       </span>
                     </div>
                     <div className="flex flex-col items-end shrink-0 text-right">
-                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                      <span className="font-body font-semibold text-sm text-white-100">
                         {disponibles} {disponibles === 1 ? "lugar" : "lugares"}
                       </span>
-                      <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-40">
+                      <span className="font-body text-xs text-white-40">
                         disponible{disponibles === 1 ? "" : "s"}
                       </span>
                     </div>

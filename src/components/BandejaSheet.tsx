@@ -1,4 +1,4 @@
-import { IconCaretRight } from "./icons";
+import CerrarSheetButton from "./CerrarSheetButton";
 
 /*
  * BandejaSheet — 2026-09-04, a pedido de Ana: "cuando haya notificaciones
@@ -107,18 +107,12 @@ export default function BandejaSheet({
           <div className="h-1 w-10 rounded-full bg-white-20" />
         </div>
         <div className="flex items-center gap-2 px-5 pt-2 pb-2">
-          <button
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0 text-white-100"
-          >
-            <IconCaretRight className="w-5 h-5 rotate-180" />
-          </button>
-          <h2 className="font-display text-xl leading-[28px] text-white-100">Notificaciones</h2>
+          <CerrarSheetButton onClose={onClose} />
+          <h2 className="font-display text-xl text-white-100">Notificaciones</h2>
         </div>
 
         {notificaciones.length === 0 ? (
-          <p className="font-body text-[13px] leading-[18px] text-white-60 px-5 pt-2">
+          <p className="font-body text-[13px] text-white-60 px-5 pt-2">
             No tienes notificaciones por ahora.
           </p>
         ) : (

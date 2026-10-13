@@ -102,7 +102,7 @@ export default function ArtistSpaceCard({
         {avatar}
         <div className="flex min-w-0 flex-col items-start gap-1.5">
           <p
-            className={`font-display text-xl tracking-[-0.1px] ${
+            className={`font-display text-xl leading-[28px] ${
               isLight ? "text-thea-green" : "text-white-100"
             }`}
           >
@@ -116,7 +116,7 @@ export default function ArtistSpaceCard({
             {categoria}
           </span>
           <p
-            className="font-body text-xs leading-[16px] tracking-[0.5px]"
+            className="font-body text-xs"
             style={{ color: isLight ? "rgba(17,44,44,0.5)" : "rgba(251,251,251,0.5)" }}
           >
             {ciudad}
@@ -135,7 +135,7 @@ export default function ArtistSpaceCard({
       {avatar}
       <div className="flex flex-col items-center gap-1.5 w-full">
         <p
-          className={`font-display text-xl tracking-[-0.1px] text-center ${
+          className={`font-display text-xl leading-[28px] text-center ${
             isLight ? "text-thea-green" : "text-white-100"
           }`}
         >
@@ -150,7 +150,7 @@ export default function ArtistSpaceCard({
         </span>
       </div>
       <p
-        className="font-body text-xs leading-[16px] tracking-[0.5px] text-center"
+        className="font-body text-xs text-center"
         style={{ color: isLight ? "rgba(17,44,44,0.5)" : "rgba(251,251,251,0.5)" }}
       >
         {ciudad}

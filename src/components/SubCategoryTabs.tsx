@@ -28,7 +28,7 @@ export default function SubCategoryTabs({
           <button
             key={item}
             onClick={() => onChange(item)}
-            className={`whitespace-nowrap rounded-full border px-3 py-1.5 text-[13px] leading-[18px] font-body transition-colors ${
+            className={`whitespace-nowrap rounded-full border px-3 py-1.5 text-[13px] font-body outline-none transition-colors focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)] ${
               isActive
                 ? "border-thea-mint text-thea-mint"
                 : "border-white-20 text-white-80"

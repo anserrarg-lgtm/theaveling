@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getVerMasContent } from "../../data/experiences";
 import ExperienceCardContenidoCompleto from "../../components/cards/ExperienceCardContenidoCompleto";
-import { IconCaretRight } from "../../components/icons";
+import VolverButton from "../../components/VolverButton";
 import DesktopNavbar from "../../components/DesktopNavbar";
 import DesktopFooter from "../../components/DesktopFooter";
 import { useDescubrirTab } from "../../context/DescubrirTabContext";
@@ -49,26 +49,20 @@ export default function VerMas() {
           Descubrir.tsx). */}
       <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 lg:hidden">
         <header className="fixed top-0 left-0 right-0 z-20 flex items-center gap-3 px-5 pt-[calc(20px_+_var(--safe-top))] pb-3 bg-[rgb(1,20,20)]">
-          <button
-            onClick={() => navigate(-1)}
-            aria-label="Volver"
-            className="h-5 w-5 shrink-0 flex items-center justify-center"
-          >
-            <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
-          </button>
-          <h1 className="font-display text-lg leading-[28px] text-white-100 truncate">
+          <VolverButton size="tight" />
+          <h1 className="font-display text-lg text-white-100 truncate">
             {contenido?.titulo ?? "Ver más"}
           </h1>
         </header>
 
         <div className="flex flex-col items-center gap-4 pt-[calc(80px_+_var(--safe-top))] pb-10">
           {!contenido || contenido.experiencias.length === 0 ? (
-            <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 text-center pt-10 px-5">
+            <p className="font-body text-sm text-white-60 text-center pt-10 px-5">
               No hay experiencias para mostrar acá todavía.
             </p>
           ) : (
             <>
-              <p className="font-body text-[13px] leading-[18px] text-white-60 self-start px-5">
+              <p className="font-body text-[13px] text-white-60 self-start px-5">
                 {contenido.experiencias.length}{" "}
                 {contenido.experiencias.length === 1 ? "experiencia" : "experiencias"}
               </p>
@@ -136,7 +130,7 @@ export default function VerMas() {
         <div className="mx-auto h-px w-full max-w-[1440px] bg-white-12" />
 
         {!contenido || contenido.experiencias.length === 0 ? (
-          <p className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-60 px-20 pt-10">
+          <p className="font-body text-sm text-white-60 px-20 pt-10">
             No hay experiencias para mostrar acá todavía.
           </p>
         ) : (

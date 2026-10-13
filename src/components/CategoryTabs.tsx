@@ -47,10 +47,10 @@ export default function CategoryTabs({
           <button
             key={tab}
             onClick={() => onChange(tab)}
-            className="flex flex-col items-start gap-2.5 text-white-100"
+            className="flex flex-col items-start gap-2.5 text-white-100 outline-none focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
           >
             <span
-              className={`font-body text-[13px] leading-[18px] ${
+              className={`font-body text-[13px] ${
                 isActive ? "font-semibold" : "font-medium"
               }`}
             >

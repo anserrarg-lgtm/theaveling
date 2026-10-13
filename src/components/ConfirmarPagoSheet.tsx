@@ -371,7 +371,7 @@ export default function ConfirmarPagoSheet({
               <span className="font-body font-semibold text-[11px] uppercase tracking-[1.5px] text-thea-green">
                 {experiencia.category}
               </span>
-              <h3 className="font-display text-xl tracking-[-0.1px] text-thea-green">
+              <h3 className="font-display text-xl leading-[28px] text-thea-green">
                 {experiencia.title}
               </h3>
             </div>

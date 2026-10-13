@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { IconCaretRight, IconClock, IconMapPin, IconSearch } from "./icons";
+import { useEffect, useState } from "react";
+import { IconMapPin, IconSearch } from "./icons";
+import CerrarSheetButton from "./CerrarSheetButton";
 import { determinarUbicacion, type Region } from "../utils/geolocation";
 import { useCiudad, type OrigenCiudad } from "../context/CiudadContext";
 
@@ -132,8 +133,6 @@ export default function LocationSheet({
   const [geoOrigenIntento, setGeoOrigenIntento] = useState<
     OrigenCiudad | undefined
   >(undefined);
-  const recientesRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     try {
       window.localStorage.setItem(RECIENTES_KEY, JSON.stringify(recientes));
@@ -206,14 +205,8 @@ export default function LocationSheet({
           <div className="h-1 w-10 rounded-full bg-white-20" />
         </div>
         <div className="flex items-center gap-2 px-5 pt-2 pb-4">
-          <button
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0 text-white-100"
-          >
-            <IconCaretRight className="w-5 h-5 rotate-180" />
-          </button>
-          <h2 className="font-display text-xl leading-[28px] text-white-100">Elegir ciudad</h2>
+          <CerrarSheetButton onClose={onClose} />
+          <h2 className="font-display text-xl text-white-100">Elegir ciudad</h2>
         </div>
 
         {/* 2026-09-04, a pedido de Ana: "esta redondeado, asi no los
@@ -235,19 +228,24 @@ export default function LocationSheet({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Busca una ciudad"
-              className="flex-1 bg-transparent font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 placeholder:text-white-40 outline-none"
+              className="flex-1 bg-transparent font-body text-sm text-white-100 placeholder:text-white-40 outline-none"
             />
           </label>
         </div>
 
         <div className="overflow-y-auto flex-1 px-5 flex flex-col">
-          {/* Ciudad actual + Recientes, una al lado de la otra —
-              mismo patrón de fila que ya había, ahora hablando de
-              ciudad en vez de ubicación/zona. Tocar la fila pide el
-              permiso nativo de geolocalización para CONFIRMAR la
+          {/* Ciudad actual — 2026-10-12, a pedido de Ana: se quita el
+              botón "Recientes" que iba al lado (hacía scroll hasta la
+              sección Recientes de más abajo). Hoy esa sección queda
+              pegada justo debajo, separada solo por la línea divisoria,
+              y el catálogo real solo tiene una ciudad (Bogotá) — un
+              atajo para saltar a algo que ya está a la vista no suma
+              nada. Se vuelve a considerar cuando haya más ciudades
+              reales y la lista sea larga de verdad. Tocar la fila pide
+              el permiso nativo de geolocalización para CONFIRMAR la
               ciudad — no acerca a ningún barrio (ver nota grande
               arriba). */}
-          <div className="flex items-center gap-2 py-1">
+          <div className="flex items-center py-1">
             <button
               onClick={usarMiUbicacion}
               disabled={geoEstado === "buscando"}
@@ -257,10 +255,10 @@ export default function LocationSheet({
                 <IconMapPin className="w-4 h-4 text-thea-mint" />
               </span>
               <span className="flex flex-col min-w-0">
-                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body font-semibold text-sm text-white-100">
                   Ciudad actual
                 </span>
-                <span className="font-body text-[13px] leading-[18px] text-white-60 truncate">
+                <span className="font-body text-[13px] text-white-60 truncate">
                   {geoEstado === "buscando"
                     ? "Confirmando tu ciudad..."
                     : geoEstado === "sin-permiso"
@@ -273,50 +271,21 @@ export default function LocationSheet({
                 </span>
               </span>
             </button>
-            {recientes.length > 0 && (
-              <button
-                onClick={() =>
-                  recientesRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  })
-                }
-                className="flex items-center gap-2 h-9 rounded-full bg-white-8 pl-3 pr-4 shrink-0"
-              >
-                <IconClock className="w-4 h-4 text-white-60" />
-                <span className="font-body text-[13px] leading-[18px] font-medium text-white-100 whitespace-nowrap">
-                  Recientes
-                </span>
-              </button>
-            )}
           </div>
 
           <div className="h-px w-full bg-white-12 my-1" />
 
-          {/* Recientes — 2026-09-04, oculto mientras hay una búsqueda
-              activa (la lista de abajo ya está filtrando, mezclar los
-              dos modos confunde). Solo aparece si hay historial. */}
-          {!query && recientes.length > 0 && (
-            <>
-              <div ref={recientesRef} className="pt-3 pb-1">
-                <p className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide">
-                  Recientes
-                </p>
-              </div>
-              {recientes.map((ciudad) => (
-                <button
-                  key={`reciente-${ciudad}`}
-                  onClick={() => elegir(ciudad)}
-                  className="flex items-center gap-3 py-3 text-left border-b border-white-8"
-                >
-                  <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
-                    <IconClock className="w-4 h-4 text-white-40" />
-                  </span>
-                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">{ciudad}</span>
-                </button>
-              ))}
-            </>
-          )}
+          {/* Recientes — 2026-10-12, a pedido de Ana: se deja de MOSTRAR
+              esta sección (título "RECIENTES" + lista). Hoy el catálogo
+              real solo tiene una ciudad (Bogotá), así que lo único que
+              podía aparecer acá era "Bogotá" de nuevo — la misma que ya
+              dice "Ciudad actual" justo arriba, repetida sin aportar
+              nada (mismo criterio que ya aplicaba el resultado de
+              búsqueda de Bogotá, ver comentario más abajo). El
+              mecanismo que guarda el historial (`recientes`,
+              localStorage) se queda funcionando igual por detrás —
+              nada más se deja de dibujar la lista — para cuando haya
+              más de una ciudad real y sí tenga sentido mostrarla. */}
 
           {/* Bogotá — la única ciudad con catálogo real. Solo aparece
               acá abajo cuando hay una búsqueda que la encuentra; sin
@@ -332,7 +301,7 @@ export default function LocationSheet({
               <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
                 <IconMapPin className="w-4 h-4 text-white-40" />
               </span>
-              <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">Bogotá, Colombia</span>
+              <span className="font-body text-sm text-white-100">Bogotá, Colombia</span>
             </button>
           )}
 
@@ -359,7 +328,7 @@ export default function LocationSheet({
                   <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
                     <IconMapPin className="w-4 h-4 text-white-40" />
                   </span>
-                  <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100 flex-1">{ciudad}</span>
+                  <span className="font-body text-sm text-white-100 flex-1">{ciudad}</span>
                   <span className="font-body text-[11px] font-semibold text-white-40 uppercase tracking-wide shrink-0">
                     Próximamente
                   </span>
@@ -378,10 +347,10 @@ export default function LocationSheet({
               <span className="h-11 w-11 rounded-full bg-white-8 flex items-center justify-center">
                 <IconMapPin className="w-5 h-5 text-white-40" />
               </span>
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+              <p className="font-body font-semibold text-sm text-white-100">
                 Todavía no llegamos a "{query}"
               </p>
-              <p className="font-body text-[13px] leading-[18px] text-white-40 max-w-[260px]">
+              <p className="font-body text-[13px] text-white-40 max-w-[260px]">
                 Theaveling por ahora solo opera en Bogotá. Vamos sumando
                 ciudades de a poco.
               </p>

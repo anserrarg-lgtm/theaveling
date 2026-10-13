@@ -1,4 +1,5 @@
-import { IconCaretRight, IconMinus, IconPlus } from "./icons";
+import { IconMinus, IconPlus } from "./icons";
+import CerrarSheetButton from "./CerrarSheetButton";
 import type { Experience } from "../data/experiences";
 import type { OpcionFechaHora } from "../utils/price";
 
@@ -112,20 +113,14 @@ export default function BookingSelectorSheet({
           <div className="h-1 w-10 rounded-full bg-white-20" />
         </div>
         <div className="flex items-center gap-2 px-5 pt-2 pb-2">
-          <button
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0 text-white-100"
-          >
-            <IconCaretRight className="w-5 h-5 rotate-180" />
-          </button>
-          <h2 className="font-display text-xl leading-[28px] text-white-100">Editar selección</h2>
+          <CerrarSheetButton onClose={onClose} />
+          <h2 className="font-display text-xl text-white-100">Editar selección</h2>
         </div>
 
         <div className="px-5 pt-2">
           <div className="bg-white-100 border border-green-12 rounded-2xl p-6 flex flex-col gap-6">
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
+              <p className="font-body font-semibold text-sm text-thea-green">
                 Selecciona fecha y hora
               </p>
               <div className="flex gap-2 overflow-x-auto scrollbar-none">
@@ -141,12 +136,12 @@ export default function BookingSelectorSheet({
                           : "bg-white-100 border border-green-12 text-thea-green"
                       }`}
                     >
-                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] whitespace-nowrap">
+                      <span className="font-body font-semibold text-sm whitespace-nowrap">
                         {opcion.fecha}
                       </span>
                       {opcion.hora && (
                         <span
-                          className={`font-body text-xs leading-[16px] tracking-[0.5px] ${
+                          className={`font-body text-xs ${
                             seleccionado ? "opacity-70" : "opacity-60"
                           }`}
                         >
@@ -160,14 +155,14 @@ export default function BookingSelectorSheet({
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
+              <p className="font-body font-semibold text-sm text-thea-green">
                 Tipo de entrada
               </p>
               <div className="w-full rounded-xl bg-thea-green px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body font-semibold text-sm text-white-100">
                   General
                 </span>
-                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body font-semibold text-sm text-white-100">
                   {gratisLabel
                     ? "Gratis"
                     : `${experiencia.mostrarDesde ? "Desde " : ""}${experiencia.price}`}
@@ -176,11 +171,11 @@ export default function BookingSelectorSheet({
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green">
+              <p className="font-body font-semibold text-sm text-thea-green">
                 Entradas
               </p>
               <div className="rounded-xl bg-green-8 border border-green-12 px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-thea-green">
+                <span className="font-body text-sm text-thea-green">
                   Cantidad de personas
                 </span>
                 <div className="flex items-center gap-3">
@@ -192,7 +187,7 @@ export default function BookingSelectorSheet({
                   >
                     <IconMinus className="w-3.5 h-3.5" />
                   </button>
-                  <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-green w-4 text-center [font-variant-numeric:tabular-nums]">
+                  <span className="font-body font-semibold text-sm text-thea-green w-4 text-center [font-variant-numeric:tabular-nums]">
                     {cantidad}
                   </span>
                   <button

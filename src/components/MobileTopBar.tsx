@@ -78,7 +78,11 @@ export default function MobileTopBar({
     // de tapado por ellos.
     <header className="h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center justify-between px-5 bg-[rgb(1,20,20)]">
       {onWordmarkClick ? (
-        <button onClick={onWordmarkClick} aria-label="Ir a Todo">
+        <button
+          onClick={onWordmarkClick}
+          aria-label="Ir a Todo"
+          className="outline-none focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
+        >
           <Wordmark />
         </button>
       ) : (
@@ -110,7 +114,7 @@ export default function MobileTopBar({
           <button
             onClick={onLocationClick}
             aria-label="Elegir ubicación"
-            className="h-10 w-10 flex items-center justify-end text-white-100"
+            className="h-10 w-10 flex items-center justify-end text-white-100 outline-none focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
           >
             {/* 2026-09-04: subido de 23px a 25px — Ana seguía viéndolo
                 "un poquito" más chico que la lupa incluso después de
@@ -126,7 +130,7 @@ export default function MobileTopBar({
         <button
           onClick={() => navigate("/busqueda")}
           aria-label="Buscar"
-          className="h-10 w-10 flex items-center justify-center text-white-100"
+          className="h-10 w-10 flex items-center justify-center text-white-100 outline-none focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
         >
           <IconSearch className="w-[18px] h-[18px]" />
         </button>

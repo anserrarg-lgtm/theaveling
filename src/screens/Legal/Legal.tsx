@@ -1,5 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { IconCaretRight } from "../../components/icons";
+import { Link, useLocation } from "react-router-dom";
+import VolverButton from "../../components/VolverButton";
 
 /*
  * Legal — 2026-09-11, a pedido de Ana (ver la nota grande de
@@ -29,33 +29,26 @@ const TITULOS: Record<string, string> = {
 
 export default function Legal() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const titulo = TITULOS[pathname] ?? "Legal";
 
   return (
     <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100">
       <header className="flex items-center gap-3 px-5 pt-[calc(20px_+_var(--safe-top))] pb-3 lg:px-20 lg:pt-10">
-        <button
-          onClick={() => navigate(-1)}
-          aria-label="Volver"
-          className="h-5 w-5 shrink-0 flex items-center justify-center"
-        >
-          <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
-        </button>
-        <h1 className="font-display text-lg leading-[28px] text-white-100 truncate">{titulo}</h1>
+        <VolverButton size="tight" />
+        <h1 className="font-display text-lg text-white-100 truncate">{titulo}</h1>
       </header>
 
       <div className="flex flex-col items-center gap-2 px-5 pt-16 pb-10 text-center">
-        <p className="font-display text-2xl leading-[32px] tracking-[-0.1px] text-white-100">
+        <p className="font-display text-2xl text-white-100">
           Todavía estamos redactando esta sección
         </p>
-        <p className="max-w-[420px] font-body text-sm leading-[18px] tracking-[0.3px] text-white-60">
+        <p className="max-w-[420px] font-body text-sm text-white-60">
           Theaveling es un proyecto en construcción. El contenido legal
           real todavía no está listo. Volvé a mirar más adelante.
         </p>
         <Link
           to="/"
-          className="mt-4 font-body text-[13px] leading-[18px] text-white-100 underline underline-offset-2"
+          className="mt-4 font-body text-[13px] text-white-100 underline underline-offset-2"
         >
           Volver a Descubrir
         </Link>

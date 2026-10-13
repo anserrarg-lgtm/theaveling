@@ -123,7 +123,7 @@ export default function FavoritoButton({
           () => toggleFavorito(id),
         );
       }}
-      className={`h-10 w-10 flex items-center justify-center ${className}`}
+      className={`h-10 w-10 flex items-center justify-center outline-none focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)] ${className}`}
     >
       {active ? (
         <IconHeartFilled className="w-6 h-6 text-thea-red drop-shadow-[0_1px_4px_rgba(1,20,20,0.6)]" />

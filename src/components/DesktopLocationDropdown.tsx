@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { IconClock, IconMapPin, IconSearch, IconX } from "./icons";
+import { IconMapPin, IconSearch, IconX } from "./icons";
 import { determinarUbicacion, type Region } from "../utils/geolocation";
 import { useCiudad, type OrigenCiudad } from "../context/CiudadContext";
 
@@ -98,7 +98,6 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
     "idle" | "buscando" | "sin-permiso" | "fuera-de-cobertura"
   >("idle");
   const [geoOrigenIntento, setGeoOrigenIntento] = useState<OrigenCiudad | undefined>(undefined);
-  const recientesRef = useRef<HTMLDivElement>(null);
   // 2026-10-07, corrección a pedido de Ana (ver la nota grande de abajo,
   // "Cerrar al tocar afuera"): ref del panel, usado por el listener de
   // clic-afuera para saber si el clic cayó DENTRO de este panel o no.
@@ -198,7 +197,17 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
         </label>
 
         <div className="flex max-h-[380px] flex-col overflow-y-auto scrollbar-none">
-          <div className="flex items-center gap-2 py-1">
+          {/* 2026-10-12, a pedido de Ana: se quita el botón "Recientes"
+              que iba al lado de "Ciudad actual" (hacía scroll hasta la
+              sección Recientes de más abajo). Hoy esa sección queda
+              pegada justo debajo, separada solo por la línea divisoria,
+              y el catálogo real solo tiene una ciudad (Bogotá) — un
+              atajo para saltar a algo que ya está a la vista no suma
+              nada. Se vuelve a considerar cuando haya más ciudades
+              reales y la lista sea larga de verdad. (El arreglo de
+              forma del 8 de octubre, rounded-full → rounded-lg, queda
+              sin efecto porque el botón mismo se elimina.) */}
+          <div className="flex items-center py-1">
             <button
               onClick={usarMiUbicacion}
               disabled={geoEstado === "buscando"}
@@ -224,56 +233,17 @@ export default function DesktopLocationDropdown({ onClose }: { onClose: () => vo
                 </span>
               </span>
             </button>
-            {/* 2026-10-08, a pedido de Ana ("el recientes dentro de
-                ubicacion esta en pildora, no es asi"): mismo arreglo que
-                ya se hizo en el botón "Categorías"/"Bogotá" de
-                DesktopNavbar.tsx — `rounded-full` (píldora) pasa a
-                `rounded-lg` (rectangular con esquinas redondeadas), mismo
-                criterio en toda la app. Los círculos de ícono (h-9 w-9
-                rounded-full de acá abajo, "Ciudad actual"/cada fila de la
-                lista) NO son este caso — son contenedores circulares de
-                ícono, no píldoras de texto, y se quedan igual. */}
-            {recientes.length > 0 && (
-              <button
-                onClick={() =>
-                  recientesRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  })
-                }
-                className="flex items-center gap-2 h-9 rounded-lg bg-white-8 pl-3 pr-4 shrink-0"
-              >
-                <IconClock className="w-4 h-4 text-white-60" />
-                <span className="font-body text-[13px] font-medium text-white-100 whitespace-nowrap">
-                  Recientes
-                </span>
-              </button>
-            )}
           </div>
 
           <div className="h-px w-full bg-white-12 my-1" />
 
-          {!query && recientes.length > 0 && (
-            <>
-              <div ref={recientesRef} className="pt-3 pb-1">
-                <p className="font-body text-[13px] font-semibold text-white-40 uppercase tracking-wide">
-                  Recientes
-                </p>
-              </div>
-              {recientes.map((c) => (
-                <button
-                  key={`reciente-${c}`}
-                  onClick={() => elegir(c)}
-                  className="flex items-center gap-3 py-3 text-left border-b border-white-8"
-                >
-                  <span className="h-9 w-9 rounded-full bg-white-8 flex items-center justify-center shrink-0">
-                    <IconClock className="w-4 h-4 text-white-40" />
-                  </span>
-                  <span className="font-body text-sm text-white-100">{c}</span>
-                </button>
-              ))}
-            </>
-          )}
+          {/* Recientes — 2026-10-12, a pedido de Ana: se deja de MOSTRAR
+              esta sección (mismo criterio aplicado en LocationSheet.tsx,
+              mobile). Hoy el catálogo real solo tiene una ciudad
+              (Bogotá), así que acá solo podía repetirse "Bogotá" otra
+              vez, la misma que ya dice "Ciudad actual" arriba. El
+              mecanismo (`recientes`, localStorage) sigue funcionando
+              por detrás para cuando haya más ciudades reales. */}
 
           {q && bogotaCoincide && (
             <button

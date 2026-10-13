@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IconCaretRight, IconMail, IconMessageCircle } from "../../components/icons";
+import VolverButton from "../../components/VolverButton";
 import DesktopNavbar from "../../components/DesktopNavbar";
 import DesktopFooter from "../../components/DesktopFooter";
 import { useDescubrirTab } from "../../context/DescubrirTabContext";
@@ -81,8 +82,8 @@ function Contacto({ variant }: { variant: "mobile" | "desktop" }) {
         <span className="flex items-center gap-3">
           <IconMail className="w-4 h-4 text-white-100 opacity-50 shrink-0" />
           <span className="flex flex-col">
-            <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">Correo</span>
-            <span className="font-body text-[13px] leading-[18px] text-white-60">
+            <span className="font-body text-sm text-white-100">Correo</span>
+            <span className="font-body text-[13px] text-white-60">
               {CORREO_SOPORTE}
             </span>
           </span>
@@ -102,7 +103,7 @@ function Contacto({ variant }: { variant: "mobile" | "desktop" }) {
       >
         <span className="flex items-center gap-3">
           <IconMessageCircle className="w-4 h-4 text-white-100 shrink-0" />
-          <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">WhatsApp</span>
+          <span className="font-body text-sm text-white-100">WhatsApp</span>
         </span>
         <span className="font-body text-[11px] font-semibold text-white-40 uppercase tracking-wide shrink-0">
           Próximamente
@@ -121,10 +122,10 @@ function PreguntasFrecuentes({ variant }: { variant: "mobile" | "desktop" }) {
       {PREGUNTAS_FRECUENTES.map((item, i) => (
         <div key={item.pregunta}>
           <div className="flex flex-col gap-1.5 py-4">
-            <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+            <span className="font-body font-semibold text-sm text-white-100">
               {item.pregunta}
             </span>
-            <span className="font-body text-[13px] leading-[18px] text-white-60">
+            <span className="font-body text-[13px] text-white-60">
               {item.respuesta}
             </span>
           </div>
@@ -151,15 +152,13 @@ export default function Ayuda() {
             (ver esas notas para el porqué del RGB sólido en vez de
             thea-deep). */}
         <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-3 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
-          <button onClick={() => navigate(-1)} aria-label="Volver" className="p-1 -m-1">
-            <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
-          </button>
-          <h1 className="font-display font-semibold text-2xl leading-[32px] tracking-[-0.1px]">Ayuda</h1>
+          <VolverButton size="compact" />
+          <h1 className="font-display font-semibold text-2xl">Ayuda</h1>
         </header>
 
         <div className="flex flex-col gap-8 pt-[calc(56px_+_var(--safe-top))] pb-10">
           <section className="flex flex-col px-5 pt-6">
-            <h2 className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100 mb-1">
+            <h2 className="font-body font-semibold text-sm text-white-100 mb-1">
               Contacto
             </h2>
             <Contacto variant="mobile" />
@@ -168,7 +167,7 @@ export default function Ayuda() {
           <div className="h-px w-full bg-white-12" />
 
           <section className="flex flex-col px-5">
-            <h2 className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100 mb-1">
+            <h2 className="font-body font-semibold text-sm text-white-100 mb-1">
               Preguntas frecuentes
             </h2>
             <PreguntasFrecuentes variant="mobile" />

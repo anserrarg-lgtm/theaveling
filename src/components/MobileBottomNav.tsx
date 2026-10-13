@@ -62,7 +62,7 @@ export default function MobileBottomNav({
           <Link
             key={tab.key}
             to={tab.to}
-            className="flex-1 h-14 flex flex-col items-center justify-center gap-1"
+            className="flex-1 h-14 flex flex-col items-center justify-center gap-1 outline-none transition-opacity duration-150 active:opacity-80 focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
           >
             <tab.Icon className={iconColor} />
             <span

@@ -106,7 +106,7 @@ export default function SupportingCard({
           {tag}
         </span>
         <h3
-          className={`font-display text-lg leading-[1.3] tracking-[-0.1px] text-white-100 ${
+          className={`font-display text-lg leading-[28px] text-white-100 ${
             compact ? "truncate" : "line-clamp-2"
           }`}
         >
@@ -116,7 +116,7 @@ export default function SupportingCard({
             Experience Card para venue/metadata (no coincide con ningún
             escalón documentado en STACK.md, se usa tal cual). */}
         <p
-          className="font-body text-xs leading-[16px] tracking-[0.5px] truncate"
+          className="font-body text-xs truncate"
           style={{ color: "rgba(251,251,251,0.5)" }}
         >
           {venue}, {city}

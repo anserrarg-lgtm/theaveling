@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { IconCaretRight } from "./icons";
+import CerrarSheetButton from "./CerrarSheetButton";
 import { experiences } from "../data/experiences";
 import { generarFechasReales } from "../utils/price";
 
@@ -259,14 +260,8 @@ export default function FechaSheet({
           <div className="h-1 w-10 rounded-full bg-white-20" />
         </div>
         <div className="flex items-center gap-2 px-5 pt-2 pb-2">
-          <button
-            onClick={onClose}
-            aria-label="Cerrar"
-            className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0 text-white-100"
-          >
-            <IconCaretRight className="w-5 h-5 rotate-180" />
-          </button>
-          <h2 className="font-display text-xl leading-[28px] text-white-100">Elegir fecha</h2>
+          <CerrarSheetButton onClose={onClose} />
+          <h2 className="font-display text-xl text-white-100">Elegir fecha</h2>
         </div>
 
         <div className="flex flex-col gap-4 px-5 pt-2">
@@ -277,7 +272,7 @@ export default function FechaSheet({
                 <button
                   key={etiqueta}
                   onClick={() => elegirRapida(rango, etiqueta)}
-                  className={`h-9 rounded-xl px-4 font-body text-[13px] leading-[18px] font-medium whitespace-nowrap ${
+                  className={`h-9 rounded-xl px-4 font-body text-[13px] font-medium whitespace-nowrap ${
                     activo ? "bg-thea-mint text-thea-green" : "bg-white-8 text-white-100"
                   }`}
                 >
@@ -295,7 +290,7 @@ export default function FechaSheet({
             >
               <IconCaretRight className="w-4 h-4 rotate-180" />
             </button>
-            <span className="font-body font-medium text-sm leading-[18px] tracking-[0.3px] text-white-100">
+            <span className="font-body font-medium text-sm text-white-100">
               {MESES[vista.mes]} {vista.anio}
             </span>
             <button
@@ -311,7 +306,7 @@ export default function FechaSheet({
             {DIAS_SEMANA.map((d, i) => (
               <span
                 key={`${d}-${i}`}
-                className="font-body text-xs leading-[16px] tracking-[0.5px] font-medium text-white-40 text-center"
+                className="font-body text-xs font-medium text-white-40 text-center"
               >
                 {d}
               </span>
@@ -332,7 +327,7 @@ export default function FechaSheet({
                 <button
                   key={dia}
                   onClick={() => elegirDia(dia)}
-                  className={`relative h-9 w-9 mx-auto rounded-full flex items-center justify-center font-body text-sm leading-[18px] tracking-[0.3px] ${
+                  className={`relative h-9 w-9 mx-auto rounded-full flex items-center justify-center font-body text-sm ${
                     enRango
                       ? "bg-thea-mint font-semibold text-thea-green"
                       : "text-white-100"

@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getExperienceById } from "../../data/experiences";
-import { IconCaretRight, IconMap, IconMinus, IconPlus } from "../../components/icons";
+import { IconMap, IconMinus, IconPlus } from "../../components/icons";
+import VolverButton from "../../components/VolverButton";
 import ConfirmarPagoSheet from "../../components/ConfirmarPagoSheet";
 import MapaButacas from "../../components/MapaButacas";
 import TodasFechasSheet from "../../components/TodasFechasSheet";
@@ -292,12 +293,12 @@ export default function Compra() {
     // junto al wrapper principal de DetalleExperiencia.tsx.
     return (
       <div className="min-h-screen bg-[rgb(1,20,20)] text-white-100 flex flex-col items-center justify-center gap-4 p-6 text-center">
-        <p className="font-body text-sm leading-[18px] tracking-[0.3px]" style={{ color: "rgba(251,251,251,0.6)" }}>
+        <p className="font-body text-sm" style={{ color: "rgba(251,251,251,0.6)" }}>
           No encontramos esta experiencia.
         </p>
         <button
           onClick={() => navigate("/")}
-          className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-thea-mint underline"
+          className="font-body font-semibold text-sm text-thea-mint underline"
         >
           Volver a Descubrir
         </button>
@@ -322,20 +323,14 @@ export default function Compra() {
           (ver punto 9 del comentario grande de arriba) — el back siempre
           vuelve a la ruta anterior. */}
       <header className="fixed top-0 left-0 right-0 z-20 h-[calc(56px_+_var(--safe-top))] pt-[var(--safe-top)] flex items-center gap-2 px-5 bg-[rgb(1,20,20)] border-b border-white-12">
-        <button
-          onClick={() => navigate(-1)}
-          aria-label="Volver"
-          className="h-10 w-10 -ml-2 flex items-center justify-center shrink-0"
-        >
-          <IconCaretRight className="w-5 h-5 text-white-100 rotate-180" />
-        </button>
+        <VolverButton size="padded" />
         {/* text-xl (no text-2xl como Notificaciones/DatosDeCuenta) — a
             diferencia de esos títulos cortos ("Notificaciones"),
             "Selecciona fecha y hora" no entraba en una sola línea a
             24px sin truncarse feo a mitad de palabra; se mantiene
             `truncate` igual como red de seguridad para pantallas muy
             angostas. */}
-        <p className="flex-1 min-w-0 truncate font-display font-semibold text-xl leading-[28px]">
+        <p className="flex-1 min-w-0 truncate font-display font-semibold text-xl">
           Selecciona fecha y hora
         </p>
       </header>
@@ -352,7 +347,7 @@ export default function Compra() {
                   aclara que los chips (y el sheet de "Ver todas") son
                   FUNCIONES A FUTURO, no la fecha de una reserva ya
                   hecha. */}
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+              <p className="font-body font-semibold text-sm text-white-100">
                 Fecha y hora próximas
               </p>
               {/* Chips reales (ver punto 2 en el comentario de arriba) —
@@ -413,11 +408,11 @@ export default function Compra() {
                           : "bg-white-6 border-transparent"
                       }`}
                     >
-                      <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] whitespace-nowrap text-white-100">
+                      <span className="font-body font-semibold text-sm whitespace-nowrap text-white-100">
                         {opcion.fecha}
                       </span>
                       {opcion.hora && (
-                        <span className="font-body text-xs leading-[16px] tracking-[0.5px] text-white-60">
+                        <span className="font-body text-xs text-white-60">
                           {horaCompacta(opcion.hora)}
                         </span>
                       )}
@@ -434,7 +429,7 @@ export default function Compra() {
               {opcionesFechaHora.length > NUM_CHIPS_VISIBLE && (
                 <button
                   onClick={() => setSheetTodasFechasAbierto(true)}
-                  className="self-end font-body text-[13px] leading-[18px] text-white-100 underline underline-offset-2 opacity-70"
+                  className="self-end font-body text-[13px] text-white-100 underline underline-offset-2 opacity-70"
                 >
                   Ver todas
                 </button>
@@ -442,14 +437,14 @@ export default function Compra() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+              <p className="font-body font-semibold text-sm text-white-100">
                 Tipo de entrada
               </p>
               <div className="w-full rounded-xl bg-white-12 px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body font-semibold text-sm text-white-100">
                   General
                 </span>
-                <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body font-semibold text-sm text-white-100">
                   {gratis ? "Gratis" : `${experiencia.mostrarDesde ? "Desde " : ""}${experiencia.price}`}
                 </span>
               </div>
@@ -457,7 +452,7 @@ export default function Compra() {
 
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <p className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <p className="font-body font-semibold text-sm text-white-100">
                   Entradas
                 </p>
                 {/* "Ver mapa de butacas" — nodo real `seat-map-link`
@@ -475,7 +470,7 @@ export default function Compra() {
                     className="flex items-center gap-1"
                   >
                     <IconMap className="w-4 h-4 text-white-100 opacity-70" />
-                    <span className="font-body text-[13px] leading-[18px] text-white-100 underline underline-offset-2 opacity-70">
+                    <span className="font-body text-[13px] text-white-100 underline underline-offset-2 opacity-70">
                       Ver mapa de butacas
                     </span>
                   </button>
@@ -489,7 +484,7 @@ export default function Compra() {
                 />
               )}
               <div className="rounded-xl bg-white-8 border border-white-12 px-4 py-3.5 flex items-center justify-between">
-                <span className="font-body text-sm leading-[18px] tracking-[0.3px] text-white-100">
+                <span className="font-body text-sm text-white-100">
                   Cantidad de personas
                 </span>
                 {tieneMapaButacas ? (
@@ -497,7 +492,7 @@ export default function Compra() {
                   // butacas arriba (ver `cantidadEfectiva`) — no tiene
                   // sentido un stepper manual aparte que compitiera con
                   // esa selección. Solo lectura acá.
-                  <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100 [font-variant-numeric:tabular-nums]">
+                  <span className="font-body font-semibold text-sm text-white-100 [font-variant-numeric:tabular-nums]">
                     {cantidadEfectiva}
                   </span>
                 ) : (
@@ -510,7 +505,7 @@ export default function Compra() {
                     >
                       <IconMinus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="font-body font-semibold text-sm leading-[18px] tracking-[0.3px] text-white-100 w-4 text-center [font-variant-numeric:tabular-nums]">
+                    <span className="font-body font-semibold text-sm text-white-100 w-4 text-center [font-variant-numeric:tabular-nums]">
                       {cantidad}
                     </span>
                     <button
