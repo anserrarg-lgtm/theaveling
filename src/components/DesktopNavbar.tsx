@@ -326,7 +326,15 @@ export default function DesktopNavbar({
             `ml-3` extra — así el único espacio que crece es el de
             wordmark→bloque, sin tocar la separación entre Bogotá y
             Categorías ni mover nada del lado derecho de la barra. */}
-        <div className="ml-3 flex items-center gap-3">
+        {/* 2026-10-14, fix: Bogotá y Categorías llevan cada uno su propio
+            `-mx-2` (para agrandar su área de click sin agrandar su caja
+            visual) — con `gap-3` (12px) entre ellos, los dos `-mx-2`
+            (8px + 8px = 16px) comían más espacio del que el gap daba,
+            dejando las cajas superpuestas ~4px. Se sube el gap a `gap-6`
+            (24px, mismo valor que ya usa el grupo de la derecha en esta
+            barra) para que, después de descontar los 16px de los márgenes
+            negativos, quede un espacio real visible entre los dos. */}
+        <div className="ml-3 flex items-center gap-6">
         {ciudad && (
           <div className="relative">
             {/* 2026-10-08, a pedido de Ana ("cuando se tocan categorias y
@@ -470,12 +478,22 @@ export default function DesktopNavbar({
                     onChange(tab);
                     setPanelAbierto(null);
                   }}
-                  className="flex w-[260px] flex-col items-start gap-4 rounded-2xl bg-thea-green p-6 text-left shadow-2xl hover:bg-white-6"
+                  className="group relative flex w-[260px] flex-col items-start gap-4 overflow-hidden rounded-2xl bg-thea-green p-6 text-left shadow-2xl"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-thea-mint/30 bg-thea-mint/15 text-thea-mint">
+                  {/* 2026-10-14, fix: el highlight de hover vivía como
+                      `hover:bg-white-6` en el mismo elemento que `bg-thea-green`
+                      — Tailwind no los combina, el hover REEMPLAZABA el fondo
+                      opaco por un blanco al 6% de opacidad, dejando ver (casi
+                      transparente) el contenido de la página detrás del panel
+                      flotante. Se separa en una capa propia superpuesta: el
+                      fondo `bg-thea-green` queda siempre opaco, y el tinte de
+                      hover es un overlay absoluto que solo cambia su opacidad,
+                      nunca el fondo real de la card. */}
+                  <span className="pointer-events-none absolute inset-0 bg-white-6 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-thea-mint/30 bg-thea-mint/15 text-thea-mint">
                     <Icon className="h-6 w-6" />
                   </span>
-                  <span className="flex flex-col gap-1.5">
+                  <span className="relative z-10 flex flex-col gap-1.5">
                     <span
                       className={`flex items-center gap-2 font-body text-xl font-semibold ${
                         active === tab ? "text-thea-mint" : "text-white-100"

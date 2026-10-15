@@ -11,6 +11,16 @@ import { IconCompass, IconTicket, IconUser } from "./icons";
  * rgba(1,20,20,0.95) y no lleva el borde superior de 1px que sí tiene
  * el master aislado.
  *
+ * 2026-10-13, a pedido de Ana: antes cada tab era `flex-1` (un tercio
+ * exacto de los 390px), y como "Descubrir"/"Reservas"/"Perfil" tienen
+ * distinto largo de palabra, el aire alrededor de cada label no quedaba
+ * igual (notado comparando una captura real medida a regla contra
+ * Figma). Ahora cada tab tiene un ancho fijo (`w-[70px]`, le entra
+ * cómodo a "Descubrir", la palabra más larga) y el `<nav>` los reparte
+ * con `justify-evenly` (mismo espacio entre cada uno y hacia los bordes).
+ * Deja más aire visible entre tabs que antes — a propósito, pendiente de
+ * que Ana lo vea en vivo y confirme si se queda así.
+ *
  * 2026-09-02: valor registrado como token `thea-deep` en index.css (antes
  * repetido "a mano" acá y en MobileTopBar.tsx/CategoryTabs.tsx).
  *
@@ -45,7 +55,7 @@ export default function MobileBottomNav({
 
   return (
     <nav
-      className={`h-[72px] flex items-center justify-center ${
+      className={`h-[72px] flex items-center justify-evenly ${
         isLight ? "bg-white-100" : "bg-[rgb(1,20,20)]"
       }`}
     >
@@ -62,7 +72,7 @@ export default function MobileBottomNav({
           <Link
             key={tab.key}
             to={tab.to}
-            className="flex-1 h-14 flex flex-col items-center justify-center gap-1 outline-none transition-opacity duration-150 active:opacity-80 focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
+            className="w-[70px] h-14 flex flex-col items-center justify-center gap-1 outline-none transition-opacity duration-150 active:opacity-80 focus-visible:[box-shadow:0_0_0_2px_#fbfbfb,0_0_0_6px_rgba(46,204,166,0.45)]"
           >
             <tab.Icon className={iconColor} />
             <span
