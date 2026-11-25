@@ -135,13 +135,44 @@
  * codificado como %20 en el `url()`, mismo criterio ya usado en el
  * proyecto para imágenes con espacio en el nombre (ver
  * `venueImageUrl` en `data/experiences.ts`).
+ *
+ * 2026-11-26 — `font-display: block` (antes `swap`), a pedido de Ana:
+ * "al abrir, por un segundo sale una letra distinta a la que queda al
+ * final, la letra final debe ser la que salga desde el momento cero".
+ * Con `swap`, el navegador dibuja YA el título con la fuente de respaldo
+ * (`cursive` — en Windows cae a Comic Sans) y, cuando termina de bajar el
+ * .ttf (264KB), lo cambia en caliente a Carnivalee: ese "salto" es la
+ * letra distinta que Ana ve. `block` en vez muestra el texto INVISIBLE
+ * mientras carga la fuente (reservando el lugar, sin reflow de layout) y
+ * lo pinta directo con Carnivalee apenas está — nunca se ve la de
+ * respaldo.
+ *
+ * 2026-11-26 (segunda vuelta) — para que además no haya NINGÚN hueco, se
+ * ataca el tamaño: el .ttf original pesaba 264KB. Se generó un .woff2
+ * subcondeado (subset) con el set latino habitual (a-z, A-Z, 0-9,
+ * puntuación y acentos) a partir del .ttf — 69KB, 74% menos — y se
+ * precarga en index.html (`<link rel="preload" as="font">`), así baja en
+ * paralelo al bundle en vez de recién cuando se pinta la card. Con el
+ * archivo chico + precarga, la fuente ya está lista cuando el título
+ * aparece por primera vez: se ve en Carnivalee desde el momento cero, sin
+ * hueco ni parpadeo. El .ttf queda como fuente de respaldo en el `src`
+ * (segundo `url()`) y como máster para volver a generar el subset. Si el
+ * título cambia de texto o se usa esta fuente en otro lado, hay que
+ * volver a generar el .woff2 (con el paquete `subset-font`, pasando el
+ * .ttf y el texto a conservar con `targetFormat: "woff2"`) — el subset
+ * de hoy cubre el set latino habitual (letras, números, puntuación y
+ * acentos), así que cualquier texto normal en español entra; el riesgo
+ * es solo un glifo muy raro (símbolo fuera de ese set), que caería a la
+ * fuente de respaldo.
  */
 @font-face {
   font-family: "Carnivalee Freakshow";
-  src: url("/fonts/Carnevalee%20Freakshow.ttf") format("truetype");
+  src:
+    url("/fonts/Carnevalee%20Freakshow.woff2") format("woff2"),
+    url("/fonts/Carnevalee%20Freakshow.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 body {

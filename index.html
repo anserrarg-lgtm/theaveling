@@ -63,6 +63,26 @@
          estuviera usando otro peso. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Carnivalee Freakshow (solo el título de "Comité del Fracaso",
+         card Curado de Desktop) — 2026-11-26: se precarga para que baje
+         en paralelo al bundle y el título se vea YA en su tipografía
+         final, sin el parpadeo de la fuente de respaldo. El archivo es un
+         subset .woff2 de 69KB generado a partir del .ttf original (264KB)
+         — ver la nota del `@font-face` en src/index.css. `crossorigin`
+         es obligatorio en el preload de fuentes (la request es CORS,
+         aun siendo del mismo origen). `media` acota la precarga al
+         breakpoint de Desktop (mismo 1024px de todo el proyecto): en
+         mobile esta fuente no se usa (la card vive en el bloque
+         `hidden lg:block`) y no tiene sentido bajar 69KB al pedo — así
+         el celular no la baja nunca. -->
+    <link
+      rel="preload"
+      href="/fonts/Carnevalee%20Freakshow.woff2"
+      as="font"
+      type="font/woff2"
+      media="(min-width: 1024px)"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Instrument+Sans:ital,wght@0,100..700;1,100..700&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
