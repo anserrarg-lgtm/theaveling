@@ -17,6 +17,7 @@ import VerMas from "./screens/VerMas/VerMas";
 import Legal from "./screens/Legal/Legal";
 import Postular from "./screens/Postular/Postular";
 import { DescubrirTabProvider } from "./context/DescubrirTabContext";
+import { esDesktop } from "./utils/viewport";
 
 /*
  * Layout raíz — 2026-09-03, a pedido de Ana: al entrar a Detalle (o
@@ -69,10 +70,10 @@ function leerOnboarded(): boolean {
 // celular — en Desktop no tiene sentido, mismo criterio que ya se usa en
 // App.tsx para saltar la pantalla de "Descargar / Ver en línea"
 // (`esDesktop`, mismo breakpoint `lg` de 1024px que usa Descubrir.tsx).
-function esDesktop(): boolean {
-  return window.matchMedia("(min-width: 1024px)").matches;
-}
-
+//
+// 2026-11-26: `esDesktop()` ahora vive en utils/viewport.ts y además
+// respeta la vista forzada por query param (`?vista=desktop|mobile`,
+// ver ese archivo) — antes era una copia local de la media query.
 function Root() {
   // En Desktop arranca directo como si ya estuviera onboarded — se
   // calcula UNA vez acá (no en un useEffect) para que no llegue a

@@ -6,6 +6,7 @@ import { CiudadProvider } from "./context/CiudadContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ReservationsProvider } from "./context/ReservationsContext";
 import InstalarApp from "./screens/InstalarApp/InstalarApp";
+import { esDesktop, leerVistaForzada } from "./utils/viewport";
 
 /*
  * Corregido 2026-08-31 (segunda vuelta): sin tope de ancho. Las pantallas
@@ -64,7 +65,9 @@ export default function App() {
   // directo, tanto si ya carga ancho como si se agranda la ventana
   // mientras la pantalla está mostrándose (para verla en vivo al
   // redimensionar, sin recargar).
-  const esDesktop = () => window.matchMedia("(min-width: 1024px)").matches;
+  // 2026-11-26: `esDesktop()` y `leerVistaForzada()` ahora vienen de
+  // utils/viewport.ts — la vista forzada por query param (`?vista=…`)
+  // manda sobre el ancho real (ver ese archivo).
 
   const [mostrarInstalar, setMostrarInstalar] = useState(() => {
     const yaInstalada =
@@ -77,7 +80,9 @@ export default function App() {
   });
 
   useEffect(() => {
-    if (!mostrarInstalar) return;
+    // Si la vista está forzada por query param, no escuchamos el ancho:
+    // el ancho real ya no decide nada (ver utils/viewport.ts).
+    if (!mostrarInstalar || leerVistaForzada()) return;
     const mq = window.matchMedia("(min-width: 1024px)");
     const alCambiar = () => {
       if (mq.matches) setMostrarInstalar(false);

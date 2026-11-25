@@ -1,6 +1,39 @@
 @import "tailwindcss";
 
 /*
+ * lg — 2026-11-26, a pedido de Ana: soporte de "vista forzada" por query
+ * param (`?vista=desktop` / `?vista=mobile`, ver src/utils/viewport.ts).
+ *
+ * Todo el proyecto separa mobile/Desktop con la MISMA clase de Tailwind
+ * `lg:` (verificado: es el único breakpoint que se usa, ~57 usos en
+ * src/). Por default `lg:` responde solo al ancho de la ventana
+ * (`@media (width >= 64rem)`, o sea 1024px). Acá se reemplaza esa
+ * definición por una que responde a DOS condiciones:
+ *
+ *   1. el ancho real de siempre (1024px), SALVO que se haya forzado
+ *      mobile (`html[data-vista="mobile"]` la anula aunque la pantalla
+ *      sea ancha);
+ *   2. o que se haya forzado Desktop (`html[data-vista="desktop"]` la
+ *      activa aunque la pantalla sea angosta, ej. un celular).
+ *
+ * Así el layout (que es 100% CSS: bloques `lg:hidden` / `hidden lg:block`
+ * que conviven en el mismo componente, ver Descubrir.tsx) acompaña
+ * exactamente a lo que decida el JS (`esDesktop()`), sin tocar ni una
+ * clase en los componentes. El atributo `data-vista` lo pone
+ * `aplicarVistaForzada()` en main.tsx antes del primer render.
+ */
+@custom-variant lg {
+  @media (width >= 1024px) {
+    html:not([data-vista="mobile"]) & {
+      @slot;
+    }
+  }
+  html[data-vista="desktop"] & {
+    @slot;
+  }
+}
+
+/*
  * Design tokens de Theaveling.
  * Fuente de verdad: /knowledge/STACK.md ("Sistema de color — versión final",
  * "Tipografía — Design System nuevo") y /knowledge/ARCHITECTURE.md.
@@ -136,11 +169,22 @@ body {
  * llegara a haber ese hueco de nuevo, se vería del mismo color oscuro de
  * Desktop, no del verde de mobile. No cambia nada en mobile (sigue con
  * `thea-green` normal, este bloque solo aplica desde 1024px).
+ *
+ * 2026-11-26: además del ancho, respeta la "vista forzada" (ver el bloque
+ * `@custom-variant lg` arriba y src/utils/viewport.ts) — si se forzó
+ * Desktop (`html[data-vista="desktop"]`) el fondo oscuro se aplica
+ * también aunque la pantalla sea angosta, y si se forzó mobile
+ * (`html[data-vista="mobile"]`) NO se aplica aunque la pantalla sea ancha.
+ * Tiene que ir en sintonía con la redefinición de `lg:`, si no el body
+ * quedaría de un color distinto al del contenido Desktop.
  */
 @media (min-width: 1024px) {
-  body {
+  html:not([data-vista="mobile"]) body {
     background-color: rgb(1, 20, 20);
   }
+}
+html[data-vista="desktop"] body {
+  background-color: rgb(1, 20, 20);
 }
 
 /*

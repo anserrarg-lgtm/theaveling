@@ -7,6 +7,7 @@ import { IconHeart } from "../../components/icons";
 import { useFavorites } from "../../context/FavoritesContext";
 import { useDescubrirTab } from "../../context/DescubrirTabContext";
 import { getExperienceById } from "../../data/experiences";
+import { esDesktop } from "../../utils/viewport";
 
 /*
  * Favoritos (Desktop) — 2026-09-14, a pedido de Ana: mandó una referencia
@@ -148,13 +149,14 @@ export default function Favoritos() {
 
 // Componente separado (no un simple `<Navigate>`) para no redirigir en
 // Desktop: revisa el mismo breakpoint `lg` (1024px) que ya usa el resto
-// de la app (ver esDesktop() en router.tsx) ANTES de navegar, y lo hace
-// dentro de un efecto (nunca durante el render) para no disparar un
-// "Cannot update a component while rendering a different component".
+// de la app (ver esDesktop() en utils/viewport.ts, que además respeta el
+// `?vista=` forzado) ANTES de navegar, y lo hace dentro de un efecto
+// (nunca durante el render) para no disparar un "Cannot update a
+// component while rendering a different component".
 function MobileRedirect() {
   const navigate = useNavigate();
   useEffect(() => {
-    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    if (esDesktop()) return;
     navigate("/perfil", { replace: true });
   }, [navigate]);
   return null;

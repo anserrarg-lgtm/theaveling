@@ -16,6 +16,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Theaveling</title>
 
+    <!-- Open Graph — 2026-11-26, a pedido de Ana: previsualización al
+         compartir el link de producción (WhatsApp, Slack, iMessage,
+         redes). og:image apunta a la imagen ya guardada en
+         public/preview.png (dominio de producción de Vercel, el mismo
+         que se menciona en src/data/experiences.ts). Todas las URLs
+         tienen que ser ABSOLUTAS (los crawlers no resuelven rutas
+         relativas) y apuntar al dominio real de producción. -->
+    <meta property="og:url" content="https://theaveling.vercel.app/" />
+    <meta property="og:title" content="Theaveling" />
+    <meta property="og:description" content="La escena que no sabías que estabas buscando. Descubrí y reservá experiencias de artes escénicas de nicho: teatro, danza, performance, música y más." />
+    <meta property="og:image" content="https://theaveling.vercel.app/preview.png" />
+
     <!-- PWA — 2026-09-07, a pedido de Ana: que la app se pueda "instalar"
          desde el navegador (agregar a pantalla de inicio) sin dejar de
          funcionar como link normal de Vercel. Ver manifest.webmanifest
